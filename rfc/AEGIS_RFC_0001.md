@@ -1,133 +1,206 @@
-AEGIS RFC-0001
+# RFC-0001
 
-Architectural Governance for AI Systems
+## AEGIS™ Governance Architecture
 
-Status
+Version: 0.1
+Status: Draft
 
-Draft
+---
 
-Authors
+## 1. Abstract
 
-AEGIS Project
+This document defines the architectural model of **AEGIS™ (Architectural Enforcement & Governance Intelligence System)**.
+AEGIS™ introduces a governance runtime that evaluates AI-generated actions before they interact with operational infrastructure.
 
-Abstract
+The architecture separates **AI reasoning from execution**, ensuring that unsafe or unauthorized actions cannot occur without deterministic governance evaluation.
 
-Artificial intelligence systems increasingly operate with access to external systems, data sources, and operational infrastructure. Existing governance mechanisms primarily rely on model alignment, platform policies, and organizational controls. These approaches influence system behavior but do not provide deterministic enforcement over system actions.
+---
 
-AEGIS introduces an architectural governance layer that enforces capability constraints, authority boundaries, and operational risk controls before AI-generated actions are executed.
+## 2. Motivation
 
-This document defines the reference architecture and governing principles for AEGIS systems.
+Modern AI systems increasingly interact with:
 
-Motivation
+* APIs
+* cloud infrastructure
+* enterprise data systems
+* operational automation pipelines
 
-Modern AI agents may:
+Existing safety approaches focus primarily on **model alignment and moderation**. While these techniques influence model outputs, they do not guarantee control over **operational behavior**.
 
-query sensitive datasets
+AEGIS™ addresses this gap by introducing a governance architecture that enforces capability and policy constraints on AI actions.
 
-execute operational workflows
+---
 
-interact with infrastructure
+## 3. Architectural Principles
 
-perform automated decision-making
+AEGIS™ is designed around the following principles.
 
-Without architectural governance, these capabilities introduce systemic risk.
+### Deterministic Governance
 
-Traditional mitigation strategies include:
+Governance rules must be enforced by system architecture rather than model behavior.
 
-alignment training
+### Capability-Based Authorization
 
-content moderation
+All actions must reference explicitly defined capabilities.
 
-usage policies
+### Authority Attribution
 
-These mechanisms operate probabilistically and cannot guarantee safe operation.
+Every action must be attributable to an authenticated actor.
 
-AEGIS addresses this limitation by introducing a runtime governance layer that evaluates AI actions prior to execution.
+### Default-Deny Model
 
-Design Goals
+Actions are denied unless explicitly permitted.
 
-AEGIS systems must satisfy the following properties:
+### Complete Auditability
+
+All governance decisions must produce verifiable audit records.
+
+---
+
+## 4. Architectural Overview
+
+AEGIS™ sits between AI systems and external infrastructure.
+
+```
+AI Agent
+   │
+   ▼
+AEGIS™ Governance Gateway
+   │
+   ▼
+Decision Engine
+ ├ Capability Authorization
+ ├ Authority Verification
+ ├ Risk Evaluation
+ └ Policy Enforcement
+   │
+   ▼
+Tool Proxy Layer
+   │
+   ▼
+External Systems
+```
+
+---
+
+## 5. Core Components
+
+### Governance Gateway
+
+Entry point for AI-generated actions.
+
+Responsibilities:
+
+* validate action schema
+* authenticate actor
+* assign action identifiers
+* forward requests to the decision engine
+
+---
+
+### Decision Engine
+
+Evaluates governance rules and produces deterministic decisions.
+
+Possible outcomes:
+
+```
+ALLOW
+DENY
+ESCALATE
+REQUIRE_CONFIRMATION
+```
+
+---
+
+### Capability Registry
+
+Defines the actions available within a governed system.
+
+Examples:
+
+```
+telemetry.query
+identity.disable_account
+infrastructure.deploy
+communication.send_alert
+```
+
+---
+
+### Policy Engine
+
+Evaluates governance rules against contextual inputs such as:
+
+* actor role
+* environment
+* resource classification
+* operational risk
+
+---
+
+### Tool Proxy Layer
+
+Provides controlled interfaces to infrastructure systems including:
+
+* cloud APIs
+* security telemetry systems
+* data platforms
+* operational automation systems
+
+Proxies enforce:
+
+* parameter validation
+* access restrictions
+* audit logging
+
+---
+
+## 6. Execution Flow
+
+1. AI agent proposes an action.
+2. Governance gateway validates the request.
+3. Decision engine evaluates governance rules.
+4. A decision is returned.
+5. If allowed, the tool proxy executes the operation.
+
+---
+
+## 7. Security Properties
+
+AEGIS™ provides the following guarantees.
+
+Capability Isolation
+AI systems may only access defined capabilities.
+
+Authority Attribution
+All actions are tied to authenticated actors.
 
 Deterministic Enforcement
+Unsafe actions cannot bypass governance rules.
 
-Governance rules must be enforced independently of model behavior.
+Operational Safety
+High-risk operations require escalation or human approval.
 
-Capability Governance
+Audit Integrity
+All decisions produce immutable logs.
 
-All AI-accessible system capabilities must be explicitly defined and authorized.
+---
 
-Authority Boundaries
+## 8. Relationship to Other Specifications
 
-AI systems must operate within clearly defined authority scopes.
+This document defines the architectural foundation of AEGIS™.
 
-Operational Risk Evaluation
+Additional specifications include:
 
-Actions must be evaluated based on their potential system impact.
+* RFC-0002 — Governance Runtime
+* RFC-0003 — Capability Registry
+* RFC-0004 — Governance Event Model
+* AGP-1 — AEGIS Governance Protocol
 
-Auditability
+---
 
-All decisions must produce immutable audit records.
+## 9. Conclusion
 
-Architecture
-
-An AEGIS system consists of the following components:
-
-Governance Gateway
-
-Decision Engine
-
-Capability Registry
-
-Policy Engine
-
-Tool Proxy Layer
-
-Audit Infrastructure
-
-Decision Flow
-Agent proposes action
-        ↓
-AEGIS Gateway validates action
-        ↓
-Decision Engine evaluates:
-   capability
-   authority
-   risk
-   policies
-        ↓
-Decision returned:
-   ALLOW
-   DENY
-   ESCALATE
-   REQUIRE_CONFIRMATION
-        ↓
-If allowed → Tool Proxy executes action
-Security Model
-
-AEGIS adopts a default-deny capability model.
-
-Actions are permitted only if:
-
-the capability exists
-
-the actor has authority
-
-the policy allows the action
-
-invariants are not violated
-
-Relationship to Governance Frameworks
-
-AEGIS operates as a technical enforcement layer beneath organizational governance frameworks such as the AI Risk Management Framework from National Institute of Standards and Technology.
-
-Where external frameworks define governance expectations, AEGIS enforces them within system architecture.
-
-Limitations
-
-AEGIS cannot guarantee safe reasoning by the model itself. It governs actions, not cognition.
-
-Conclusion
-
-Architectural governance represents a necessary evolution in AI safety. As AI systems gain operational capability, governance must move from external policy into system design.
-
-AEGIS proposes a model for achieving this goal.
+AEGIS™ introduces an architectural model for governing AI system behavior.
+By separating reasoning from execution, AEGIS™ enables safe deployment of AI systems in operational environments.
