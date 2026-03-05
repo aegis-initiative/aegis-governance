@@ -219,16 +219,54 @@ The future of artificial intelligence will not only depend on what systems can d
 
 ---
 
-# 16. How do I integrate AEGIS with my AI system?
+# 16. How difficult is it to implement AEGIS™?
 
-AEGIS integration follows a simple pattern:
+AEGIS™ is designed to be **incrementally deployable**.
+
+In its simplest form, AEGIS™ can be implemented as a **governance gateway service** that sits between AI agents and the systems they interact with.
+
+Typical integration involves:
+
+1. Routing AI-generated action requests through the AEGIS runtime
+2. Defining a capability registry describing permitted operations
+3. Applying governance policies to determine whether actions should execute
+
+A minimal implementation can be introduced without rewriting existing AI systems. More advanced deployments can integrate deeper governance logic over time.
+
+**Integration pattern:**
 
 1. **Wrap your tool/function calls** with the AEGIS governance gateway
 2. **AI proposes actions** using structured requests
 3. **AEGIS evaluates** using policies and capabilities
 4. **Approved actions execute** through the tool proxy
 
-**Minimal Python example:**
+Full integration examples are available in the `/aegis-runtime/examples/` directory.
+
+---
+
+# 17. Do I need to modify my AI systems to use AEGIS™?
+
+Usually **very little modification is required**.
+
+AI agents simply need to send structured action requests through the AEGIS Governance Protocol (AGP) instead of calling infrastructure directly.
+
+**Example:**
+
+Without AEGIS™:
+
+```
+agent → cloud API
+```
+
+With AEGIS™:
+
+```
+agent → AEGIS runtime → cloud API
+```
+
+Most systems can integrate by replacing direct tool calls with AGP requests.
+
+**"Hello AEGIS™" Example:**
 
 ```python
 from aegis import Runtime
@@ -238,27 +276,48 @@ aegis = Runtime(policy_path="policies/")
 
 # AI agent proposes an action
 action = {
-    "capability_id": "file.read",
-    "target": "/etc/passwd",
-    "context": {"session_id": "abc123"}
+    "actor": "agent:soc-01",
+    "capability": "telemetry.query",
+    "resource": "auth_logs",
+    "parameters": {"query": "failed_login > 10"}
 }
 
 # AEGIS evaluates and enforces governance
-decision = aegis.evaluate_action(agent_id="ai-agent-1", action=action)
+decision = aegis.evaluate(action)
 
-if decision.outcome == "ALLOW":
-    result = execute_file_read(action["target"])
+if decision == "ALLOW":
+    execute_query(action)
 else:
     print(f"Action denied: {decision.reasoning}")
 ```
 
-Full integration examples are available in the `/aegis-runtime/examples/` directory.
+In this example the agent proposes an action, but the AEGIS runtime determines whether execution is permitted.
 
 ---
 
-# 17. Can AEGIS work with existing AI frameworks?
+# 18. Can AEGIS™ integrate with LangChain, CrewAI, or AutoGPT?
 
-Yes. AEGIS is designed to integrate with popular AI frameworks:
+Yes.
+
+AEGIS™ is designed to integrate with **agent frameworks** by intercepting tool calls.
+
+**Typical integration pattern:**
+
+```
+LangChain Agent
+     │
+     ▼
+AEGIS Governance Gateway
+     │
+     ▼
+Approved Tool Execution
+```
+
+Framework adapters can translate agent tool calls into AGP action requests.
+
+Because AEGIS™ operates outside the model itself, it can govern agents built with any framework.
+
+**Framework compatibility:**
 
 **LangChain / LangGraph:**
 - Wrap AEGIS around LangChain tools
@@ -270,29 +329,73 @@ Yes. AEGIS is designed to integrate with popular AI frameworks:
 - AEGIS becomes the enforcement boundary
 - Autonomous agents operate within governed capabilities
 
-**OpenAI Assistants API / Anthropic Claude:**
-- AEGIS evaluates tool calls before execution
-- Model reasoning unaffected, execution governed
-- Works with function calling and structured outputs
-
 **Custom Agent Frameworks:**
 - Implement AGP protocol for your agent
 - Use AEGIS governance gateway as execution proxy
 - Maintain existing reasoning/planning logic
 
+AEGIS™ is compatible with most agent frameworks because they typically follow a similar pattern:
+
+```
+model → agent → tool execution
+```
+
+AEGIS™ simply inserts governance between the agent and the tool layer, allowing existing frameworks to remain unchanged while adding governance enforcement.
+
+---
+
+# 19. Does AEGIS™ work with OpenAI or Anthropic APIs?
+
+Yes.
+
+AEGIS™ is **model-agnostic**.
+
+It operates at the **action layer**, not the model inference layer.
+
+**Example workflow:**
+
+```
+OpenAI / Anthropic model
+        │
+        ▼
+Agent generates action request
+        │
+        ▼
+AEGIS evaluates request
+        │
+        ▼
+Tool proxy executes action
+```
+
+This means AEGIS™ can work with models from multiple providers without modification.
+
+**OpenAI Assistants API / Anthropic Claude:**
+- AEGIS evaluates tool calls before execution
+- Model reasoning unaffected, execution governed
+- Works with function calling and structured outputs
+
 The key principle: **AEGIS governs execution, not reasoning**. Your AI system continues to think freely, but actions are evaluated before execution.
 
 ---
 
-# 18. What is the performance overhead of AEGIS?
+# 20. What is the performance overhead of AEGIS™?
 
-AEGIS introduces minimal latency for governance evaluation:
+The governance runtime adds a **policy evaluation step** before execution.
 
-**Typical overhead per action:**
-- Policy evaluation: **1-5ms** (in-memory rule engine)
-- Capability lookup: **<1ms** (indexed registry)
-- Audit logging: **2-10ms** (SQLite append-only)
-- **Total**: ~5-15ms per governed action
+**Typical overhead includes:**
+- Action validation
+- Policy evaluation
+- Capability checks
+- Audit logging
+
+For most deployments this introduces **milliseconds of additional latency**, similar to an API gateway or authorization layer.
+
+Because AEGIS™ governs actions rather than every model token, the overhead is generally negligible compared to model inference time.
+
+**Typical overhead per action:** ~5-15ms total
+- Policy evaluation: 1-5ms (in-memory rule engine)
+- Capability lookup: <1ms (indexed registry)
+- Audit logging: 2-10ms (SQLite append-only)
 
 **Optimization strategies:**
 - Capability caching reduces repeated lookups
@@ -304,15 +407,37 @@ AEGIS introduces minimal latency for governance evaluation:
 - High-frequency trading systems (microsecond latency)
 - Real-time control systems (hard deadlines)
 
-For most AI applications (API calls, file operations, database queries), AEGIS overhead is negligible compared to the action execution time itself.
-
 **Trade-off:** Governance enforcement is worth the small latency cost for operational safety.
 
 ---
 
-# 19. What infrastructure is required to run AEGIS?
+# 21. What infrastructure is required to run AEGIS™?
 
-**Minimal deployment:**
+A minimal deployment requires:
+
+- An AEGIS governance gateway
+- A decision engine
+- A capability registry
+- A policy engine
+- An audit log
+
+In practice this can run as a small service alongside existing infrastructure.
+
+**Example deployment:**
+
+```
+AI Agent
+   │
+   ▼
+AEGIS Runtime (container/service)
+   │
+   ▼
+External APIs / Infrastructure
+```
+
+AEGIS™ can operate as a **standalone microservice** or be embedded into existing AI orchestration layers.
+
+**Minimal deployment components:**
 - Python 3.11+ runtime
 - 50-100MB memory for governance engine
 - SQLite for audit logs (or PostgreSQL for scale)
@@ -325,12 +450,46 @@ For most AI applications (API calls, file operations, database queries), AEGIS o
 - Centralized policy server (for enterprise deployments)
 - External audit system integration (SIEM, logging)
 
-AEGIS can run:
+**Deployment options:**
 - **Embedded** in your application process
 - **Sidecar** container in Kubernetes
 - **Gateway** service for multi-agent systems
 - **Edge deployment** for autonomous systems
 
 **Resource footprint:** Comparable to adding authentication/authorization libraries to your application.
+
+---
+
+# 22. How does AEGIS™ differ from traditional access control?
+
+Traditional access control governs **users and services**.
+
+AEGIS™ governs **AI-generated actions**.
+
+Instead of only asking:
+
+```
+Is this user allowed?
+```
+
+AEGIS™ evaluates:
+
+```
+Is this AI-generated action allowed in this context?
+```
+
+This distinction becomes critical when autonomous systems are capable of executing operational workflows.
+
+**Traditional access control:**
+- Identity-based (users, roles, service accounts)
+- Permission checks at resource boundaries
+- Static authorization policies
+
+**AEGIS™ governance:**
+- Action-based (what the AI is trying to do)
+- Contextual evaluation (risk, history, environment)
+- Dynamic policy enforcement with escalation
+
+AEGIS™ complements traditional access control by adding a **governance layer specifically designed for AI agency**.
 
 ---
