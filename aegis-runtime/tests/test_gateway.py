@@ -1,5 +1,7 @@
 """Tests for the GovernanceGateway."""
 
+import threading
+import time
 import pytest
 from unittest.mock import Mock
 
@@ -282,3 +284,44 @@ class TestRouting:
             gateway.submit(request)
 
         engine.evaluate.assert_not_called()
+
+
+class TestConcurrencyAndPerformance:
+    def test_concurrent_submissions_are_handled(self, runtime):
+        """Gateway should handle concurrent valid submissions without errors."""
+        responses = []
+        errors = []
+        lock = threading.Lock()
+
+        def submit_once(i: int) -> None:
+            try:
+                req = make_request(context=AGPContext(session_id=f"sess-{i}"))
+                resp = runtime.gateway.submit(req)
+                with lock:
+                    responses.append(resp)
+            except Exception as exc:  # pragma: no cover - should remain empty
+                with lock:
+                    errors.append(exc)
+
+        threads = [threading.Thread(target=submit_once, args=(i,)) for i in range(20)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+
+        assert errors == []
+        assert len(responses) == 20
+        assert all(r.decision == Decision.APPROVED for r in responses)
+
+    def test_submission_load_smoke(self, runtime):
+        """Performance smoke: a small request burst should complete quickly."""
+        start = time.perf_counter()
+        n = 200
+        for i in range(n):
+            req = make_request(context=AGPContext(session_id=f"perf-{i}"))
+            resp = runtime.gateway.submit(req)
+            assert resp.decision == Decision.APPROVED
+
+        elapsed = time.perf_counter() - start
+        # Very generous threshold to avoid flaky CI while still detecting regressions.
+        assert elapsed < 5.0, f"Gateway load smoke too slow: {elapsed:.3f}s for {n} requests"

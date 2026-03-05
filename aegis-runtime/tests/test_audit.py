@@ -1,5 +1,7 @@
 """Tests for the AuditSystem."""
 
+import sqlite3
+
 import pytest
 
 from aegis.audit import AuditRecord, AuditSystem
@@ -217,3 +219,27 @@ class TestGetAgentHistoryPagination:
         assert len(page2) == 3
         # Make sure the pages are different
         assert page1[0].id != page2[0].id
+
+
+class TestFaultInjection:
+    """Fault injection tests for audit persistence and database integrity."""
+
+    def test_record_raises_audit_error_when_connection_closed(self, audit):
+        """record() should raise AEGISAuditError on DB write failure."""
+        audit._conn.close()
+        with pytest.raises(AEGISAuditError, match="Failed to persist audit record"):
+            audit.record(**_record_kwargs())
+
+    def test_batch_record_raises_audit_error_when_connection_closed(self, audit):
+        """batch_record() should raise AEGISAuditError on DB write failure."""
+        audit._conn.close()
+        with pytest.raises(AEGISAuditError, match="Failed to persist batch audit records"):
+            audit.batch_record([_record_kwargs()])
+
+    def test_corrupted_database_file_raises_sqlite_error(self, tmp_path):
+        """Creating AuditSystem against a corrupted SQLite file should fail."""
+        db_path = tmp_path / "corrupt.db"
+        db_path.write_bytes(b"not-a-valid-sqlite-database")
+
+        with pytest.raises(sqlite3.Error):
+            AuditSystem(str(db_path))

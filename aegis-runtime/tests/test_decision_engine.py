@@ -1,5 +1,7 @@
 """Tests for the DecisionEngine."""
 
+import threading
+
 import pytest
 
 from aegis.audit import AuditSystem
@@ -304,3 +306,32 @@ class TestDecisionMetrics:
         assert metrics_after_denials.total_decisions == 2
         assert metrics_after_denials.denied_count == 2
         assert metrics_after_denials.approved_count == 0
+
+
+class TestConcurrency:
+    def test_concurrent_evaluations_smoke(self, engine, registry, policies):
+        """Concurrent evaluate() calls should complete without exceptions."""
+        for i in range(10):
+            setup_allow(registry, policies, agent_id=f"agent-{i}")
+
+        errors = []
+        lock = threading.Lock()
+
+        def evaluate_agent(agent_id: str):
+            try:
+                response = engine.evaluate(make_request(agent_id=agent_id))
+                assert response.decision == Decision.APPROVED
+            except Exception as exc:  # pragma: no cover - should remain empty
+                with lock:
+                    errors.append(exc)
+
+        threads = [
+            threading.Thread(target=evaluate_agent, args=(f"agent-{i}",))
+            for i in range(10)
+        ]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+
+        assert errors == []
