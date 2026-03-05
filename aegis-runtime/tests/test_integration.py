@@ -202,3 +202,82 @@ class TestAuditTrail:
         # AuditRecord is a frozen dataclass
         with pytest.raises((AttributeError, TypeError)):
             record.decision = "approved"  # type: ignore[misc]
+
+
+class TestContextManager:
+    """AEGISRuntime can be used as a context manager for resource cleanup."""
+
+    def test_context_manager_usage(self):
+        """Test that runtime can be used with 'with' statement."""
+        with AEGISRuntime() as rt:
+            assert rt is not None
+            rt.policies.add_policy(Policy(
+                id="pol", name="", description="",
+                effect=PolicyEffect.ALLOW, conditions=[],
+            ))
+
+    def test_context_manager_calls_shutdown(self):
+        """Test that exiting context manager triggers shutdown."""
+        rt = AEGISRuntime()
+        with rt:
+            assert not rt._is_shutdown
+        assert rt._is_shutdown
+
+    def test_context_manager_with_exception(self):
+        """Test that shutdown is called even if exception occurs."""
+        rt = AEGISRuntime()
+        try:
+            with rt:
+                raise ValueError("test error")
+        except ValueError:
+            pass
+        assert rt._is_shutdown
+
+    def test_shutdown_is_idempotent(self):
+        """Test that calling shutdown multiple times is safe."""
+        rt = AEGISRuntime()
+        rt.shutdown()
+        rt.shutdown()  # Should not raise
+        assert rt._is_shutdown
+
+    def test_runtime_works_normally_without_context_manager(self):
+        """Test that runtime still works if not used with context manager."""
+        rt = AEGISRuntime()
+        rt.policies.add_policy(Policy(
+            id="pol", name="", description="",
+            effect=PolicyEffect.ALLOW, conditions=[],
+        ))
+        rt.shutdown()
+        assert rt._is_shutdown
+
+    def test_context_manager_with_full_workflow(self):
+        """Test complete workflow using context manager."""
+        with AEGISRuntime() as rt:
+            # Register capability
+            cap = Capability(
+                id="cap-1",
+                name="Test capability",
+                description="",
+                action_types=["tool_call"],
+                target_patterns=["*"],
+            )
+            rt.capabilities.register(cap)
+            rt.capabilities.grant("agent-1", "cap-1")
+            
+            # Add policy
+            rt.policies.add_policy(Policy(
+                id="pol-1",
+                name="Allow all",
+                description="",
+                effect=PolicyEffect.ALLOW,
+                conditions=[],
+            ))
+            
+            # Create tool proxy and execute
+            proxy = rt.create_tool_proxy("agent-1", "sess-1")
+            proxy.register_tool("dummy", fn=lambda: "result", target="dummy")
+            result = proxy.call("dummy")
+            assert result == "result"
+            
+            # Verify audit trail
+            assert rt.audit.record_count() > 0
