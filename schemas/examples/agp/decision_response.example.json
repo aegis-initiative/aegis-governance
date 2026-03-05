@@ -1,0 +1,8 @@
+{
+  "message_type": "DECISION_RESPONSE",
+  "action_id": "a-123",
+  "decision": "ALLOW",
+  "reason": "Policy telemetry_query_allowed matched",
+  "policy_ids": ["telemetry_query_allowed"],
+  "timestamp": "2026-03-05T19:12:02Z"
+}

@@ -1,0 +1,16 @@
+{
+  "message_type": "ACTION_PROPOSE",
+  "action_id": "a-123",
+  "timestamp": "2026-03-05T19:12:01Z",
+  "actor": {
+    "id": "agent:soc-01",
+    "type": "agent",
+    "role": "soc_analyst"
+  },
+  "capability": "telemetry.query",
+  "resource": "auth_logs",
+  "parameters": {
+    "query": "failed_login > 10"
+  },
+  "trace_id": "trace-001"
+}

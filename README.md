@@ -1,216 +1,197 @@
-# aegis-governance
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/AEGIS_wordmark_light.svg">
+    <img src="docs/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
+  </picture>
+</p>
 
-**AEGIS** – Architectural Enforcement & Governance Intelligence System
+# AEGIS™ Governance
 
-A governance runtime for AI systems that enforces deterministic control over
-AI-generated actions before they interact with infrastructure.
+Architectural Enforcement & Governance of Intelligent Systems
+
+> **Capability without constraint is not intelligence™**
+
+**AEGIS™ is a governance architecture that enforces deterministic control over AI-generated actions before they interact with infrastructure.**
+
+Modern AI safety mechanisms primarily influence **model behavior** through alignment training, moderation systems, and policy controls. While these approaches help guide model outputs, they do not guarantee control over what AI systems **do** when interacting with operational infrastructure.
+
+AEGIS™ addresses this gap by introducing a **governance runtime** that evaluates AI-generated actions before they interact with real systems.
+
+**AI systems may propose actions.
+AEGIS™ evaluates those actions.
+Only approved actions are allowed to execute.**
 
 ---
 
-## Overview
+# Core Concepts
 
-AEGIS implements a *propose → evaluate → execute* model:
+AEGIS™ introduces a governance architecture built on several core components.
 
-1. An AI agent **proposes** an action via the AGP (AEGIS Governance Protocol).
-2. The **Governance Gateway** validates and forwards the request.
-3. The **Decision Engine** evaluates capability and policy rules deterministically.
-4. Only `Decision.APPROVED` responses allow the action to proceed.
-5. Every decision — approved *or* denied — is permanently recorded in the **Audit System**.
+### Governance Runtime
+
+A deterministic enforcement layer that evaluates AI actions before execution.
+
+### Capability Registry
+
+A structured registry defining the operations AI systems are permitted to perform.
+
+### Policy Engine
+
+Rules that determine when and how capabilities may be exercised.
+
+### AEGIS Governance Protocol (AGP)
+
+A protocol defining how AI systems propose actions and receive governance decisions.
+
+### AEGIS Governance Federation Network (GFN)
+
+A federated intelligence layer enabling organizations to share governance signals, safety insights, and policy updates.
 
 ---
 
-## Architecture
+# Architectural Model
+
+AEGIS™ separates **AI reasoning** from **operational execution**.
 
 ```
 AI Agent
-   │  AGPRequest
+   │
    ▼
-┌──────────────────────┐
-│  Governance Gateway  │  ← validates AGP requests
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   Decision Engine    │
-│                      │
-│  ┌────────────────┐  │
-│  │ Capability     │  │  Stage 1: does the agent hold a capability
-│  │ Registry       │  │           covering this action & target?
-│  └────────────────┘  │
-│  ┌────────────────┐  │
-│  │ Policy Engine  │  │  Stage 2: do configured policies allow it?
-│  └────────────────┘  │           (default-deny, priority-ordered)
-└──────────┬───────────┘
-           │  commits every decision
-           ▼
-┌──────────────────────┐
-│    Audit System      │  ← immutable, append-only SQLite trail
-└──────────────────────┘
-           │
-           ▼  AGPResponse (decision + audit_id)
-        AI Agent
+AEGIS™ Governance Gateway
+   │
+   ▼
+Decision Engine
+ ├ Capability Authorization
+ ├ Authority Verification
+ ├ Risk Evaluation
+ └ Policy Enforcement
+   │
+   ▼
+Tool Proxy Layer
+   │
+   ▼
+External Systems
 ```
 
-### Key Components
-
-| Component | Module | Responsibility |
-|---|---|---|
-| **AGP Protocol** | `aegis.protocol` | Wire-level request/response data structures |
-| **Governance Gateway** | `aegis.gateway` | Validation and request routing |
-| **Decision Engine** | `aegis.decision_engine` | Orchestrates capability + policy evaluation |
-| **Capability Registry** | `aegis.capability_registry` | Capability-based access model |
-| **Policy Engine** | `aegis.policy_engine` | Deterministic, priority-ordered policy rules |
-| **Tool Proxy Layer** | `aegis.tool_proxy` | Transparent governance for tool invocations |
-| **Audit System** | `aegis.audit` | Immutable governance decision log |
-| **Runtime Facade** | `aegis.runtime` | Single-object wiring of all components |
+This architecture ensures that **incorrect reasoning or adversarial manipulation cannot directly produce unsafe operational outcomes**.
 
 ---
 
-## Quick Start
+# Governance Protocol
 
-```python
-from aegis import AEGISRuntime
-from aegis.capability_registry import Capability
-from aegis.policy_engine import Policy, PolicyEffect, PolicyCondition
-from aegis.protocol import ActionType
+The **AEGIS Governance Protocol (AGP)** standardizes how AI systems request operational actions.
 
-# 1. Create the runtime (in-memory audit by default)
-runtime = AEGISRuntime()
+Example interaction:
 
-# 2. Register a capability
-runtime.capabilities.register(Capability(
-    id="cap-docs",
-    name="Read documentation",
-    description="Allows reading files under /docs",
-    action_types=[ActionType.FILE_READ.value, ActionType.TOOL_CALL.value],
-    target_patterns=["/docs/*", "read_*"],
-))
-
-# 3. Grant the capability to an agent
-runtime.capabilities.grant("agent-1", "cap-docs")
-
-# 4. Add a policy (policies are default-deny; at least one allow rule is needed)
-runtime.policies.add_policy(Policy(
-    id="pol-allow-docs",
-    name="Allow documentation reads",
-    description="Agents with the docs capability may read documentation.",
-    effect=PolicyEffect.ALLOW,
-    conditions=[],  # no extra conditions – capability check is sufficient
-))
-
-# 5. Create a governed tool proxy for the agent
-proxy = runtime.create_tool_proxy("agent-1", session_id="session-xyz")
-proxy.register_tool("read_doc", fn=lambda path: open(path).read(), target="read_doc")
-
-# 6. Invoke the tool – governance is applied transparently
-content = proxy.call("read_doc", path="/docs/intro.md")
+```
+AI Agent → ACTION_PROPOSE
+AEGIS™ → DECISION_RESPONSE
+Tool Proxy → EXECUTION_RESULT
 ```
 
----
+Possible governance outcomes:
 
-## AGP Protocol
+```
+ALLOW
+DENY
+ESCALATE
+REQUIRE_CONFIRMATION
+```
 
-Every governance interaction is expressed as an `AGPRequest` / `AGPResponse` pair.
-
-### `AGPRequest`
-
-| Field | Type | Description |
-|---|---|---|
-| `request_id` | `str` | Auto-generated UUID4 |
-| `agent_id` | `str` | Identifier of the requesting agent |
-| `action.type` | `ActionType` | `tool_call`, `file_read`, `file_write`, `api_call`, `shell_exec`, `data_access` |
-| `action.target` | `str` | Target resource (URI, path, tool name, …) |
-| `action.parameters` | `dict` | Action-specific parameters |
-| `context.session_id` | `str` | Current session identifier |
-| `context.metadata` | `dict` | Supplementary metadata |
-
-### `AGPResponse`
-
-| Field | Type | Description |
-|---|---|---|
-| `request_id` | `str` | Echoes the request ID |
-| `decision` | `Decision` | `approved`, `denied`, or `deferred` |
-| `reason` | `str` | Human-readable explanation |
-| `audit_id` | `str` | ID of the immutable audit record |
-| `conditions` | `list[str]` | Optional conditions on approval |
-| `timestamp` | `datetime` | UTC decision timestamp |
+This ensures that all operational actions are subject to **deterministic governance enforcement**.
 
 ---
 
-## Policy Engine
+# AEGIS Federation Network
 
-Policies are evaluated in ascending *priority* order (lower number = evaluated
-first). The engine is **default-deny**: if no allow policy matches, the decision
-is `DENIED`.
+The **AEGIS Governance Federation Network (GFN)** enables organizations to share governance intelligence through decentralized infrastructure.
 
-```python
-from aegis.policy_engine import Policy, PolicyCondition, PolicyEffect
+Participating nodes may publish signals such as:
 
-# A deny rule that blocks shell execution for all agents
-no_shell = Policy(
-    id="pol-no-shell",
-    name="Block shell execution",
-    description="Shell commands are never permitted.",
-    effect=PolicyEffect.DENY,
-    priority=0,   # evaluated before any allow rule
-    conditions=[
-        PolicyCondition(
-            evaluate=lambda req: req.action.type.value == "shell_exec",
-            description="action is shell_exec",
-        )
-    ],
-)
-runtime.policies.add_policy(no_shell)
+* governance policy updates
+* AI safety circumvention techniques
+* risk alerts
+* governance attestations
+* incident disclosures
+
+The federation layer is designed to operate using decentralized technologies such as the **AT Protocol**, enabling distributed identity, event replication, and governance signal exchange.
+
+This model is conceptually similar to **cybersecurity threat intelligence sharing networks**, but focused on **AI governance and safety**.
+
+---
+
+# Documentation
+
+| Document               | Purpose                                     |
+| ---------------------- | ------------------------------------------- |
+| Manifesto              | Vision for governed artificial intelligence |
+| System Overview        | Architecture of the AEGIS™ ecosystem        |
+| Reference Architecture | Governance runtime design                   |
+| Threat Model           | Security risks addressed by AEGIS™          |
+| RFC Specifications     | Core governance specifications              |
+| AGP Protocol           | Action governance protocol                  |
+| Federation Network     | Distributed governance intelligence         |
+
+Full documentation can be found in the repository directories:
+
+```
+docs/
+rfc/
+protocol/
+federation/
 ```
 
 ---
 
-## Capability Registry
+# Reference Implementation Targets
 
-Capabilities use `fnmatch` glob patterns for target matching:
+Initial implementation environments include:
 
-```python
-Capability(
-    id="cap-s3-read",
-    name="S3 Read",
-    description="Read objects from the analytics bucket",
-    action_types=["api_call"],
-    target_patterns=["s3://analytics-bucket/*"],
-)
-```
+* AI-assisted security operations (SOC)
+* cloud infrastructure governance
+* enterprise AI copilots
+* autonomous workflow systems
+* operational AI agents
 
-Capabilities can be time-limited via `expires_at`:
-
-```python
-from datetime import datetime, timedelta, timezone
-
-Capability(
-    ...,
-    expires_at=datetime.now(timezone.utc) + timedelta(hours=8),
-)
-```
+AEGIS™ enables these systems to **analyze, recommend, and automate safely without directly executing destructive operations**.
 
 ---
 
-## Development
+# Project Status
 
-```bash
-# Install with dev dependencies
-pip install -e ".[dev]"
+AEGIS™ is currently in the **architecture specification phase**.
 
-# Run tests
-python -m pytest
+The project includes:
 
-# Run tests with coverage
-python -m pytest --cov=aegis --cov-report=term-missing
-```
+* governance architecture
+* protocol definitions
+* threat modeling
+* federation network design
+* runtime specification roadmap
+
+Reference implementations are planned.
 
 ---
 
-## Design Principles
+# Foundational Principle
 
-- **Security-first** – default-deny posture; every action requires explicit capability + policy approval.
-- **Deterministic** – same request against the same configuration always yields the same decision.
-- **Auditability** – every decision is permanently recorded with full context.
-- **Capability-based** – fine-grained, revocable, time-limited authorization model.
-- **Separation of concerns** – capability and policy evaluation are independent, composable stages.
+> **Capability without constraint is not intelligence™**
+
+The future of artificial intelligence will not only depend on what systems can do, but also on how responsibly those capabilities are governed.
+
+---
+
+# Project Stewardship
+
+AEGIS™ is currently stewarded by its original author.
+
+The long-term goal is to develop AEGIS™ as an **open governance architecture** with participation from the AI safety, security, and research communities.
+
+---
+
+# Trademark Notice
+
+AEGIS™ and **“Capability without constraint is not intelligence™”** are trademarks of Ken Tannenbaum.
+
+Use of these marks in derivative works must not imply endorsement without explicit permission.

@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "AEGIS",
+    "AGP",
+    "GFN",
+    "tamper-evident",
+    "OpenAPI",
+    "gRPC",
+    "SOC",
+    "DevOps",
+    "yamllint",
+    "lychee",
+    "markdownlint"
+  ],
+  "ignorePaths": [
+    "archive/**",
+    "**/.git/**"
+  ]
+}
