@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../assets/AEGIS_wordmark_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="../assets/AEGIS_wordmark_light.svg">
-    <img src="../assets/AEGIS_wordmark.svg" width="120" alt="AEGIS™ Governance Logo">
+    <source media="(prefers-color-scheme: dark)" srcset="../docs/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="../docs/assets/AEGIS_wordmark_light.svg">
+    <img src="../docs/assets/AEGIS_wordmark.svg" width="120" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
 
