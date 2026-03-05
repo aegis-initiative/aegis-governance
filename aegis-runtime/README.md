@@ -8,16 +8,46 @@
 
 # AEGIS Runtime (Reference Implementation)
 
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![Status](https://img.shields.io/badge/status-alpha-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 **AEGIS — Architectural Enforcement & Governance of Intelligent Systems**
 
 The AEGIS Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
 
-AEGIS is designed around the principle:
-
 > **Capability without constraint is not intelligence.**
 
-Instead of relying on post-hoc monitoring or best-effort safeguards, AEGIS enforces **pre-execution governance decisions** through a structured protocol and policy system.
+AEGIS enforces governance decisions **before execution**, ensuring AI systems operate within explicit capability and policy boundaries.
+
+---
+
+## What AEGIS Does
+
+AEGIS sits between AI systems and the external world, enforcing governance decisions before actions are executed.
+
+```
+AI Agent
+   │
+   ▼
+AEGIS Runtime
+   │
+   ├ GovernanceGateway
+   ├ DecisionEngine
+   ├ CapabilityRegistry
+   ├ PolicyEngine
+   └ AuditSystem
+   │
+   ▼
+Tools / APIs / Files / Infrastructure
+```
+
+AEGIS ensures that:
+
+- agents can only attempt actions they have **capabilities** for
+- actions must pass **deterministic policy evaluation**
+- every governance decision is **immutably audited**
 
 ---
 
@@ -201,7 +231,6 @@ from aegis import (
 
 runtime = AEGISRuntime()
 
-# Register a capability
 runtime.capabilities.register(
     Capability(
         id="cap-read-docs",
@@ -212,10 +241,8 @@ runtime.capabilities.register(
     )
 )
 
-# Grant capability to agent
 runtime.capabilities.grant("agent-1", "cap-read-docs")
 
-# Add an allow policy
 runtime.policies.add_policy(
     Policy(
         id="allow-docs",
@@ -226,7 +253,6 @@ runtime.policies.add_policy(
     )
 )
 
-# Create governed tool proxy
 proxy = runtime.create_tool_proxy("agent-1", "session-1")
 
 proxy.register_tool(
@@ -250,15 +276,11 @@ Minimal runnable examples are included in the `examples/` directory.
 python examples/hello_aegis.py
 ```
 
-This initializes the runtime and demonstrates capability and policy configuration.
-
 ---
 
 # Running Tests
 
-The runtime includes a full test suite.
-
-Run tests using:
+Run the test suite:
 
 ```
 pytest
@@ -267,8 +289,6 @@ pytest
 ---
 
 # Development Setup
-
-Recommended environment:
 
 ```
 python -m venv .venv
@@ -285,11 +305,8 @@ pip install pytest
 aegis-runtime/
 │
 ├─ aegis/           # Core runtime package
-│
 ├─ examples/        # Minimal runnable examples
-│
 ├─ tests/           # Test suite
-│
 ├─ pyproject.toml   # Package configuration
 └─ README.md
 ```
@@ -298,37 +315,24 @@ aegis-runtime/
 
 # Design Principles
 
-AEGIS enforces several core principles.
-
 ## Deterministic Governance
-
 The same request against the same policies always produces the same decision.
 
 ## Defense in Depth
-
-Enforcement layers include:
-
-* capability checks
-* policy evaluation
-* audit recording
+Enforcement layers include capability checks, policy evaluation, and audit recording.
 
 ## Default-Deny Security
-
 Actions are denied unless explicitly allowed.
 
 ## Immutable Audit Trail
-
 All governance decisions are permanently recorded.
 
 ## Protocol-First Architecture
-
 Governance interactions are defined using structured protocol messages.
 
 ---
 
 # Relationship to the AEGIS Project
-
-This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 
 ```
 AEGIS
@@ -337,8 +341,6 @@ AEGIS
 ├─ Federation Network
 └─ Reference Runtime
 ```
-
-The runtime demonstrates how AEGIS governance can be embedded into real AI systems.
 
 ---
 
