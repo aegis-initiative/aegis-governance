@@ -21,6 +21,69 @@ AEGIS™ defines an architecture for governing AI-generated actions before they 
 
 Together, these components define the full AEGIS™ governance architecture.
 
+## Specification Architecture Layers
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ Layer 5: Federated Governance Network (GFN)                     │
+│   • Multi-org threat intelligence sharing                       │
+│   • Governance signal distribution and policy federation        │
+│   • Circumvention detection and attestation                     │
+└─────────────────────────────────────────────────────────────────┘
+         △
+         │ depends on
+         ▽
+┌─────────────────────────────────────────────────────────────────┐
+│ Layer 4: Governance Runtime & Implementation                    │
+│   • Reference runtime components and patterns                   │
+│   • Governance gateway, decision engine, policy engine          │
+│   • Integration examples for LangChain, CrewAI, AutoGPT        │
+└─────────────────────────────────────────────────────────────────┘
+         △
+         │ depends on
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Layer 3: Protocol & Schema Definitions (AGP + Schemas)         │
+│   • AGP-1 governance protocol specification                     │
+│   • Machine-readable schemas for all message types              │
+│   • Example payloads and validation rules                       │
+└─────────────────────────────────────────────────────────────────┘
+         △
+         │ depends on
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Layer 2: Governance Architecture & Design                       │
+│   • Reference architecture patterns and deployment modes        │
+│   • Ecosystem map and component interactions                    │
+│   • Security architecture and threat model                      │
+└─────────────────────────────────────────────────────────────────┘
+         △
+         │ depends on
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Layer 1: Vision, Principles & Constitution                      │
+│   • AEGIS Manifesto and system overview                         │
+│   • AEGIS Constitution and governance principles (8 articles)   │
+│   • FAQ and adoption model for different maturity levels        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Build Sequentially**: Each layer depends on understanding previous layers. Start at Layer 1 for vision, advance to Layer 5 for federation.
+
+---
+
+# Quick Navigation
+
+**What do you need to do?**
+
+| Your Goal | Read First | Then Read | Implementation Support |
+|---|---|---|---|
+| Understand AEGIS concept | [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [FAQ](aegis-core/faq/AEGIS_FAQ.md) |
+| Evaluate governance model | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) |
+| Design implementation | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | [Schemas](schemas/) |
+| Build governance runtime | [Reference Runtime](aegis-runtime/) | [RFC-0002 (TBD)](rfc/RFC-0002.md) | [Integration Examples](examples/) |
+| Deploy federation | [Federation Architecture](federation/) | [RFC-0004 (TBD)](rfc/RFC-0004.md) | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) |
+
 ---
 
 # Getting Started
@@ -70,39 +133,56 @@ Together, these components define the full AEGIS™ governance architecture.
 
 # Specification Structure
 
-The AEGIS specification is organized across several documents and directories.
+The AEGIS specification is organized across five layers, from foundational principles through federation.
 
-| Component                    | Location                                                                                    | Status |
-| ---------------------------- | ------------------------------------------------------------------------------------------- | ------ |
-| Architecture overview        | [System Overview](aegis-core/overview/AEGIS_System_Overview.md)                            | ✅ v0.1 |
-| Reference architecture       | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md)          | ✅ v0.1 |
-| Ecosystem map                | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md)                            | ✅ v0.1 |
-| Threat model                 | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md)                             | ✅ v0.1 |
-| Governance protocol          | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)                   | ✅ v0.1 |
-| Constitution                 | [AEGIS Constitution](aegis-core/constitution/AEGIS_Constitution.md)                       | ✅ v0.1 |
-| FAQ & Adoption Model         | [AEGIS FAQ](aegis-core/faq/AEGIS_FAQ.md)                                                  | ✅ v0.1 |
-| Machine-readable schemas     | [Schemas Directory](schemas/)                                                             | ✅ v0.1 |
-| Schema examples              | [Schema Examples](schemas/examples/)                                                      | ✅ v0.1 |
-| Federation architecture      | [Federation Documentation](federation/)                                                   | ✅ v0.1 |
-| Formal specifications (RFCs) | [RFC Directory](rfc/)                                                                     | 🔄 Pending |
-| Reference runtime            | [AEGIS Runtime](aegis-runtime/)                                                          | 🔄 In Progress |
+| Component | Purpose | Location | Layer | Status |
+|---|---|---|---|---|
+| Manifesto | Vision and motivation for architectural AI governance | [AEGIS Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) | 1 | ✅ v0.1 |
+| System Overview | Why AEGIS, use cases, decision matrix, and getting started | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | 1 | ✅ v0.1 |
+| Constitution | 8 foundational governance principles and enforcement mechanisms | [AEGIS Constitution](aegis-core/constitution/AEGIS_Constitution.md) | 1 | ✅ v0.1 |
+| FAQ & Adoption Model | 3-level maturity model and common questions | [AEGIS FAQ](aegis-core/faq/AEGIS_FAQ.md) | 1 | ✅ v0.1 |
+| Reference Architecture | Deployment patterns, performance targets, security architecture, integration guidance | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | 2 | ✅ v0.1 |
+| Ecosystem Map | Component interactions, data flows, deployment topologies | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) | 2 | ✅ v0.1 |
+| Threat Model | Security analysis, attack vectors, risk mitigation | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) | 2 | ✅ v0.1 |
+| AGP-1 Protocol | Message structures for AI-governance runtime interaction | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) | 3 | ✅ v0.1 |
+| AGP Schemas | Protocol message schemas and validation rules | [Schemas: AGP](schemas/agp/) | 3 | ✅ v0.1 |
+| Capability Schemas | Capability registry definitions and structures | [Schemas: Capability](schemas/capability/) | 3 | ✅ v0.1 |
+| Governance Schemas | Governance event structures and event model | [Schemas: Governance](schemas/governance/) | 3 | ✅ v0.1 |
+| Common Schemas | Shared data models across all schemas | [Schemas: Common](schemas/common/) | 3 | ✅ v0.1 |
+| Schema Examples | Example payloads demonstrating schema usage | [Schema Examples](schemas/examples/) | 3 | ✅ v0.1 |
+| Reference Runtime | Working implementation of governance runtime components | [AEGIS Runtime](aegis-runtime/) | 4 | 🔄 In Progress |
+| Integration Examples | Pattern implementations for LangChain, CrewAI, AutoGPT, OpenAI | [Examples](examples/) | 4 | ✅ v0.1 |
+| Federation Architecture | Multi-org governance intelligence sharing and policy federation | [Federation](federation/) | 5 | ✅ v0.1 |
+| RFC-0001 | Complete AEGIS Architecture specification | [RFC-0001](rfc/RFC-0001.md) | 2 | ✅ v0.1 |
+| RFC-0002 | Governance Runtime specification | [RFC-0002](rfc/RFC-0002.md) | 4 | 🔄 Pending |
+| RFC-0003 | Capability Registry specification | [RFC-0003](rfc/RFC-0003.md) | 3 | 🔄 Pending |
+| RFC-0004 | Governance Event Model specification | [RFC-0004](rfc/RFC-0004.md) | 5 | 🔄 Pending |
 
 ---
 
-# Core RFC Specifications
+## Reading by Layer
 
-The architectural specifications are defined through RFC documents.
+**Layer 1 — Principles & Vision** (Understand the "why")
+- What problems does AEGIS solve? → [System Overview](aegis-core/overview/AEGIS_System_Overview.md)
+- What motivates this approach? → [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md)
+- What are the core principles? → [Constitution](aegis-core/constitution/AEGIS_Constitution.md)
+- Should we adopt AEGIS? → [FAQ](aegis-core/faq/AEGIS_FAQ.md)
 
-| RFC | Description | Version | Status | Target |
-|-----|-------------|---------|--------|--------|
-| RFC-0001 | AEGIS Architecture | 0.1 | ✅ Draft | v0.1 Final |
-| RFC-0002 | Governance Runtime | Pending | 🔄 In Progress | Q2 2026 |
-| RFC-0003 | Capability Registry | Pending | 🔄 In Progress | Q2 2026 |
-| RFC-0004 | Governance Event Model | Pending | 🔄 In Progress | Q2 2026 |
+**Layer 2 — Architecture & Design** (Understand the "how")
+- How does AEGIS work technically? → [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md)
+- What are the components? → [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md)
+- What security properties does it have? → [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md)
 
-These documents define the technical foundation of the AEGIS system.
+**Layer 3 — Protocol & Data** (Understand the formats)
+- How do systems communicate? → [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
+- What data structures are used? → [Schemas](schemas/)
 
-**Note:** RFCs are published through the [RFC Process](rfc/README.md). Pending RFCs are currently in development and will be published as part of Stage 1 completion.
+**Layer 4 — Implementation** (Build governance runtime)
+- How do you build AEGIS? → [Reference Runtime](aegis-runtime/)
+- How do you integrate AI frameworks? → [Integration Examples](examples/)
+
+**Layer 5 — Federation** (Operate at scale)
+- How do organizations share governance? → [Federation](federation/)
 
 ---
 
@@ -110,14 +190,23 @@ These documents define the technical foundation of the AEGIS system.
 
 The **AEGIS Governance Protocol (AGP)** defines how AI agents interact with the governance runtime.
 
-**Protocol Specification:** [AGP-1 Governance Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
+**Protocol Specification:** [AGP-1 Governance Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) (Layer 3)
 
 The protocol defines message structures for:
 
-* action proposals
-* governance decisions
-* execution results
-* escalation workflows
+* **ACTION_PROPOSE** — AI agent submits requested action for governance evaluation
+* **ACTION_DECIDE** — Governance system returns approval/denial decision with rationale
+* **ACTION_EXECUTE** — Approved action execution with audit trail
+* **ACTION_ESCALATE** — Complex decisions forwarded to human decision-makers
+
+**RFC Specifications:**
+
+| RFC | Title | Layer | Status | Target |
+|-----|-------|-------|--------|--------|
+| [RFC-0001](rfc/RFC-0001.md) | AEGIS Architecture | 2 | ✅ v0.1 | v0.1 Final |
+| [RFC-0002](rfc/RFC-0002.md) | Governance Runtime | 4 | 🔄 In Progress | Q2 2026 |
+| [RFC-0003](rfc/RFC-0003.md) | Capability Registry | 3 | 🔄 In Progress | Q2 2026 |
+| [RFC-0004](rfc/RFC-0004.md) | Governance Event Model | 5 | 🔄 In Progress | Q2 2026 |
 
 ---
 
@@ -239,6 +328,63 @@ The AEGIS Initiative maintains open governance principles:
 
 ---
 
+# Key Concepts & Terminology
+
+## Core Principles
+
+**Requirement Not Restriction** — AEGIS enforces governance boundaries without restricting AI capability. Agents propose what to do; governance approves what's permitted to do.
+
+**Capability-Based Authorization** — Actions are governed based on what they can affect (capabilities), not who requests them. Each capability has explicit governance boundaries.
+
+**Deterministic Governance** — Policy enforcement is algorithmic and formally defined. Given the same inputs, governance decisions are always deterministic.
+
+**Immutable Audit Trail** — All governance decisions, approvals, and actions are recorded immutably for forensics, compliance, and federation.
+
+## Key Entities
+
+| Entity | Definition | Examples |
+|---|---|---|
+| **AI Agent** | System proposing actions (what it wants to do) | LangChain agent, CrewAI, AutoGPT, LLM-based assistant |
+| **Action** | Proposed operation that requires governance | API call, system command, data access, state change |
+| **Capability** | Explicit permission to affect a specific resource or operation | read_database, write_file, execute_command, access_network |
+| **Policy** | Governance rule defining when actions are permitted | "only allow database reads from 9-5 EST", "require human approval for >$10k transfers" |
+| **Decision** | Governance system's response (APPROVE, DENY, ESCALATE) | Returned to AI agent with rationale and constraints |
+
+## Governance Architecture Layers
+
+📚 **Layer 1** — **Principles & Vision**: The "why" — what problems does AEGIS solve, what principles guide it  
+🏗️ **Layer 2** — **Architecture & Design**: The "how" — reference architecture, components, threat model  
+📋 **Layer 3** — **Protocol & Data**: The "formats" — how systems communicate, message structures  
+⚙️ **Layer 4** — **Implementation**: The "building blocks" — working code, patterns, integrations  
+🌐 **Layer 5** — **Federation**: The "scale" — multi-org governance sharing and intelligence  
+
+---
+
+# Component Dependencies
+
+```
+AIAgent → AGP-1 Protocol → Schemas → Governance Runtime → Audit Trail
+           ↓
+    Governance Decision Engine
+           ↓
+    Policy Engine + Capability Registry → Reference Architecture
+           ↓
+    Trust Boundary Management
+           ↓
+    Federation Network (optional at scale)
+```
+
+**Dependency Path:**
+1. Start with **Layer 1** documents to understand the "why"
+2. Read **Layer 2** for architectural patterns
+3. Learn **Layer 3** (protocol + schemas) for message formats
+4. Review **Layer 4** (runtime implementation) to build systems
+5. Explore **Layer 5** (federation) for multi-org deployments
+
+**Cannot skip layers** — Each layer builds on previous understanding.
+
+---
+
 # Foundational Principle
 
 > Capability without constraint is not intelligence™
@@ -251,22 +397,53 @@ AEGIS™ ensures that AI systems operate within **explicit governance boundaries
 
 ## Specification Status (v0.1 Draft)
 
-| Category | Status | Completion |
-|---|---|---|
-| **Architecture** | ✅ Complete | 100% |
-| **Governance Principles** | ✅ Complete | 100% |
-| **Protocol Definition** | ✅ Complete | 100% |
-| **Formal RFC (0001)** | ✅ Draft Complete | 100% |
-| **Runtime Specifications (RFC 0002-0004)** | 🔄 In Progress | 50% |
-| **Reference Implementation** | 🔄 In Progress | 30% |
-| **Federation Documentation** | ✅ Architecture Designed | 100% |
-| **Overall v0.1 Readiness** | 🟡 95% | Pre-announcement ready |
+| Category | Status | Completion | Key Document |
+|---|---|---|---|
+| **Layer 1: Principles & Vision** | ✅ Complete | 100% | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) |
+| **Layer 2: Architecture & Design** | ✅ Complete | 100% | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) |
+| **Layer 3: Protocol & Schemas** | ✅ Complete | 100% | [AGP-1 Protocol](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) |
+| **RFC-0001 Specification** | ✅ Draft | 100% | [RFC-0001](rfc/RFC-0001.md) |
+| **Layer 4: Runtime Implementation** | 🔄 In Progress | 30% | [Reference Runtime](aegis-runtime/) |
+| **RFC-0002-0004 Specifications** | 🔄 In Progress | 50% | [RFC Directory](rfc/) |
+| **Layer 5: Federation** | ✅ Designed | 100% | [Federation](federation/) |
+| **Overall v0.1 Readiness** | 🟡 95% Complete | 95% | Pre-announcement ready ✅ |
 
-## Key Links
+## For Different Audiences
 
-- **Start Here:** [Getting Started](#getting-started) section above
-- **Read the Vision:** [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md)
-- **Understand Architecture:** [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md)
-- **Learn the Protocol:** [AGP-1](aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md)
-- **Join Community:** [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions)
-- **Track Progress:** [Roadmap](aegis-core/roadmap/AEGIS_Roadmap.md)
+| Role | Time Commitment | Start Document | Goal | Next Steps |
+|---|---|---|---|---|
+| **Executive/Leader** | 30 min | [Manifesto](aegis-core/manifesto/AEGIS_Manifesto.md) | Understand business value | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) |
+| **Security Architect** | 2-3 hours | [System Overview](aegis-core/overview/AEGIS_System_Overview.md) | Evaluate threat model & architecture | [Threat Model](aegis-core/threat-model/AEGIS_Threat_Model.md) |
+| **Developer** | 4-6 hours | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | Build governance runtime | [Integrate Example](examples/) |
+| **DevOps/Platform** | 3-4 hours | [Reference Architecture](aegis-core/architecture/AEGIS_Reference_Architecture.md) | Deploy AEGIS | [Runtime Implementation](aegis-runtime/) |
+| **Enterprise Architect** | 6-8 hours | [Ecosystem Map](aegis-core/architecture/AEGIS_Ecosystem_Map.md) | Plan federation | [Federation Architecture](federation/) |
+| **Engineer (Quick Start)** | 15 min | [Quick Navigation](#quick-navigation) above | Get oriented | Your role above |
+| **Researcher** | Variable | [Constitution](aegis-core/constitution/AEGIS_Constitution.md) | Research governance models | [RFC Process](rfc/README.md) |
+
+## Essential Links
+
+| Need | Link |
+|---|---|
+| 🎯 Choose your learning path | [Getting Started](#getting-started) |
+| 📚 Understand 5 architecture layers | [Specification Architecture Layers](#specification-architecture-layers) |
+| 🗺️ See what exists and what's pending | [Specification Structure](#specification-structure) |
+| 🔑 Learn key concepts | [Key Concepts & Terminology](#key-concepts--terminology) |
+| 📋 Understand layer dependencies | [Component Dependencies](#component-dependencies) |
+| 👥 Join the community | [Community & Contribution](#community--contribution) |
+| 🚀 Propose changes | [RFC Process](rfc/README.md) |
+| ⚙️ Build governance runtime | [Reference Runtime](aegis-runtime/) |
+| 🔒 Validate security | [Threat Model](aegis-core/threat-model/AEGIS_THREAT_model.md) |
+| 📊 Review adoption model | [AEGIS FAQ](aegis-core/faq/AEGIS_FAQ.md) |
+
+## Specification Maturity Timeline
+
+```
+March 2026      April 2026       May-June 2026    Q3 2026         Q4 2028
+│               │                │                │               │
+├─ v0.1 Draft   ├─ Pending RFCs   ├─ Stage 1 Complete  ├─ v1.0 Stable  ├─ Stage 5 Complete
+│  (Layers 1-3) │  (0002-0004)    │ (All v0.1 ready)   │ (Community)    │ (Federation ops)
+│               │                │                    │                │ 
+✅ NOW         🔄 In Progress    📅 Q2 Target        📅 Stable       📅 Mature
+```
+
+---
