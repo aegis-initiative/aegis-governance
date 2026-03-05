@@ -1,4 +1,5 @@
 # AEGIS Governance Federation Network (GFN)
+
 ## A Federated Governance Intelligence Layer for AI Systems
 
 **Version:** 0.1 (Concept Draft)  
@@ -45,18 +46,23 @@ This enables independent organizations to operate their own governance nodes whi
 ## 3. Design Principles
 
 ### 3.1 Federation
+
 No central authority controls the governance network. Organizations operate their own nodes and participate voluntarily.
 
 ### 3.2 Verifiable Identity
+
 All governance signals are cryptographically signed using decentralized identities.
 
 ### 3.3 Transparency
+
 Governance events are observable and verifiable by participating nodes.
 
 ### 3.4 Cooperative Defense
+
 Organizations benefit from shared knowledge of governance threats and circumvention attempts.
 
 ### 3.5 Incremental Adoption
+
 The network must provide immediate operational value without requiring regulatory mandates.
 
 ---
@@ -66,7 +72,9 @@ The network must provide immediate operational value without requiring regulator
 The governance network is composed of several types of nodes.
 
 ### 4.1 AEGIS Nodes
+
 AEGIS nodes are systems that publish and consume governance signals, such as:
+
 - enterprise AI deployments
 - research laboratories
 - cloud platform providers
@@ -74,23 +82,28 @@ AEGIS nodes are systems that publish and consume governance signals, such as:
 - AI infrastructure providers
 
 Each node maintains:
+
 - governance telemetry collection
 - local policy enforcement
 - federation client for governance feeds
 
 ### 4.2 Governance Feed Nodes
+
 Feed nodes aggregate governance signals and distribute them to subscribers. These nodes may be operated by:
+
 - research organizations
 - standards bodies
 - trusted industry groups
 
 Feeds may include categories such as:
+
 - `governance.circumvention_reports`
 - `governance.policy_updates`
 - `governance.risk_alerts`
 - `governance.incidents`
 
 ### 4.3 Policy Authority Nodes
+
 Some nodes may publish standardized governance frameworks (e.g., NIST governance profiles, EU AI Act policy profiles, industry governance standards). These nodes serve as **policy reference authorities**, but do not control the network.
 
 ---
@@ -100,12 +113,14 @@ Some nodes may publish standardized governance frameworks (e.g., NIST governance
 AEGIS nodes use **Decentralized Identifiers (DIDs)**.
 
 Example identifiers:
+
 - `did:aegis:enterprise-ai-001`
 - `did:aegis:cloud-provider-aws`
 - `did:aegis:research-lab-openai`
 - `did:aegis:government-nist`
 
 Each node identity includes:
+
 - cryptographic signing key
 - governance profile metadata
 - optional compliance attestations
@@ -132,18 +147,23 @@ Governance signals are transmitted as structured events.
 ## 7. Governance Signal Types
 
 ### 7.1 Circumvention Reports
+
 Reports describing newly discovered governance bypass techniques.
 
 ### 7.2 Risk Signals
+
 Aggregated telemetry indicating increased governance risk.
 
 ### 7.3 Policy Updates
+
 Publication of governance policy frameworks or revisions.
 
 ### 7.4 Governance Attestations
+
 Statements describing the governance posture of a system, enabling trust evaluation before interaction.
 
 ### 7.5 Incident Notices
+
 Disclosure of governance failures or safety incidents to improve ecosystem learning and resilience.
 
 ---
@@ -151,6 +171,7 @@ Disclosure of governance failures or safety incidents to improve ecosystem learn
 ## 8. AT Protocol Integration
 
 The network leverages the **AT Protocol** for federated communication:
+
 - decentralized identity
 - append-only event records
 - federation for independent operators
@@ -161,6 +182,7 @@ The network leverages the **AT Protocol** for federated communication:
 ## 9. Governance Intelligence Feeds
 
 Example feed categories:
+
 - `governance.policy_updates`
 - `governance.circumvention_reports`
 - `governance.risk_alerts`
@@ -174,6 +196,7 @@ Nodes may subscribe to any number of feeds; feeds may be operated by different o
 ## 10. Trust and Reputation
 
 Nodes evaluate governance signals using a trust model. Trust scoring may consider:
+
 - historical signal accuracy
 - governance transparency
 - incident reporting reliability
@@ -222,6 +245,7 @@ If broadly adopted, the governance network could become a foundational layer of 
 ## 14. Future Extensions
 
 Potential future developments include:
+
 - governance reputation graphs
 - automated policy enforcement updates
 - governance policy marketplaces

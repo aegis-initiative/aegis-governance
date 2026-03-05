@@ -175,6 +175,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for full contribution guidelines.
 ## Version History
 
 **Version 0.1** — Initial draft specifications
+
 * RFC-001: Governance Architecture
 * RFC-002: Governance Runtime Specification
 * RFC-003: Capability Registry & Policy Language

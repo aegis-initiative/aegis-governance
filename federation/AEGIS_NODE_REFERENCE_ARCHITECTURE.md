@@ -1,4 +1,5 @@
 # AEGIS Node Reference Architecture
+
 **Version:** 0.1 (Draft)  
 **Date:** 2026-03-04  
 
@@ -22,21 +23,25 @@ An AEGIS node SHOULD support:
 ## 2. High-Level Components
 
 ### 2.1 Governance Client (AT Protocol Adapter)
+
 - Publishes AEGIS events via AT Protocol records
 - Subscribes to governance feeds
 - Handles identity keys and signing/verification
 
 ### 2.2 Policy Engine (Local)
+
 - Evaluates inputs/outputs/actions against governance policies
 - Enforces capability boundaries and required controls
 - Produces local governance telemetry for publication (aggregated)
 
 ### 2.3 Risk Scoring Service
+
 - Computes risk scores per request/session/action
 - Consumes external risk signals (network feeds) to adjust scoring
 - Produces risk telemetry for publication (aggregate + anonymized)
 
 ### 2.4 Trust & Reputation Evaluator
+
 - Assigns weights to incoming events based on:
   - publisher reputation
   - policy authority status
@@ -45,11 +50,13 @@ An AEGIS node SHOULD support:
 - Generates a local `trust_profile` used by policy/risk systems
 
 ### 2.5 Evidence Store (Restricted)
+
 - Stores artifacts supporting attestations and incidents
 - Provides signed URIs for authorized retrieval
 - Enforces retention, access policies, and redaction
 
 ### 2.6 Observability & Audit
+
 - Immutable logs of:
   - published events (hash + timestamp)
   - ingested events (hash + verification result)
@@ -61,6 +68,7 @@ An AEGIS node SHOULD support:
 ## 3. Data Flows
 
 ### 3.1 Outbound Flow (Publish)
+
 1. Local detection (e.g., bypass attempt) is classified.
 2. Sensitive content is **redacted** / **hashed**.
 3. Event payload is constructed per canonical schema.
@@ -68,6 +76,7 @@ An AEGIS node SHOULD support:
 5. Event is published to one or more feeds.
 
 ### 3.2 Inbound Flow (Subscribe + Apply)
+
 1. Node subscribes to configured feeds.
 2. Ingested events are verified:
    - signature verification
@@ -85,17 +94,21 @@ An AEGIS node SHOULD support:
 ## 4. Reference Interfaces
 
 ### 4.1 Event Publisher Interface
+
 - `publishEvent(envelope: AegisEventEnvelope) -> PublishResult`
 
 ### 4.2 Feed Subscriber Interface
+
 - `subscribe(feed: string) -> Stream<AegisEventEnvelope>`
 - `ack(event_id: string)`
 
 ### 4.3 Policy Engine Interface
+
 - `evaluate(request_context) -> Decision`
 - `updatePolicies(policy_updates)`
 
 ### 4.4 Trust Evaluator Interface
+
 - `scorePublisher(did) -> TrustScore`
 - `weightEvent(event) -> WeightedEvent`
 
@@ -104,14 +117,17 @@ An AEGIS node SHOULD support:
 ## 5. Deployment Topologies
 
 ### 5.1 Enterprise Private Node
+
 - Connects only to restricted federation peers
 - Publishes anonymized telemetry outward (optional)
 
 ### 5.2 Public Governance Node
+
 - Publishes broadly to public feeds
 - Often operated by research bodies or standards orgs
 
 ### 5.3 Policy Authority Node
+
 - Publishes signed policy updates and profiles
 - May provide audit attestations and schema registries
 
@@ -120,12 +136,14 @@ An AEGIS node SHOULD support:
 ## 6. Security Requirements
 
 AEGIS nodes MUST:
+
 - store signing keys in hardened storage (HSM / KMS recommended)
 - verify all inbound signatures and schemas
 - implement replay protection (event_id + timestamp windows)
 - enforce strict redaction rules for public events
 
 AEGIS nodes SHOULD:
+
 - support encrypted/restricted channels for sensitive sharing
 - support multiple identity keys (rotation) with continuity proofs
 
@@ -134,6 +152,7 @@ AEGIS nodes SHOULD:
 ## 7. Minimal Viable Node (MVN)
 
 A minimal node for Phase 1 adoption includes:
+
 - DID identity + signing
 - publish: circumvention reports + risk signals
 - subscribe: circumvention + risk feeds
