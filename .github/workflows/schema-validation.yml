@@ -1,0 +1,82 @@
+name: YAML Lint and Schema Validation
+
+on:
+  pull_request:
+    paths:
+      - "**/*.yml"
+      - "**/*.yaml"
+      - "schemas/**/*.json"
+      - ".github/workflows/schema-validation.yml"
+      - ".yamllint.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "**/*.yml"
+      - "**/*.yaml"
+      - "schemas/**/*.json"
+      - ".github/workflows/schema-validation.yml"
+      - ".yamllint.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: schema-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Validate YAML
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install yamllint==1.35.1
+          yamllint -c .yamllint.yml .
+
+  schema-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Compile JSON Schemas with AJV
+        run: |
+          npx --yes ajv-cli@5.0.0 compile --spec=draft2020 \
+            -s schemas/common/*.schema.json \
+            -s schemas/agp/*.schema.json \
+            -s schemas/capability/*.schema.json \
+            -s schemas/governance/*.schema.json \
+            -s schemas/governance/events/*.schema.json
+
+      - name: Validate example payloads with AJV
+        run: |
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/agp/action_propose.schema.json \
+            -d schemas/examples/agp/action_propose.example.json \
+            -r schemas/common/*.schema.json
+
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/agp/decision_response.schema.json \
+            -d schemas/examples/agp/decision_response.example.json \
+            -r schemas/common/*.schema.json
+
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/agp/execution_result.schema.json \
+            -d schemas/examples/agp/execution_result.example.json \
+            -r schemas/common/*.schema.json
+
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/agp/escalation_request.schema.json \
+            -d schemas/examples/agp/escalation_request.example.json \
+            -r schemas/common/*.schema.json
+
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/capability/capability.schema.json \
+            -d schemas/examples/capability/capability.example.json \
+            -r schemas/common/*.schema.json
+
+          npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
+            -s schemas/governance/events/policy_update.schema.json \
+            -d schemas/examples/governance/policy_update.example.json \
+            -r schemas/governance/governance_event_envelope.schema.json

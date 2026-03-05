@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-20260305-001",
+  "timestamp": "2026-03-05T19:12:05Z",
+  "publisher_did": "did:aegis:enterprise-001",
+  "event_type": "policy_update",
+  "schema_version": "1.0",
+  "payload": {
+    "policy_id": "enterprise_governance",
+    "version": "2026.03.05",
+    "authority": "did:aegis:governance-board",
+    "effective_date": "2026-03-15",
+    "description": "Updated risk thresholds"
+  },
+  "signature": "ed25519-signature"
+}

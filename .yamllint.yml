@@ -1,0 +1,11 @@
+extends: default
+
+ignore: |
+  .git/
+  archive/
+
+rules:
+  line-length:
+    max: 140
+    level: warning
+  comments-indentation: disable

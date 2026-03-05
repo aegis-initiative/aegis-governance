@@ -2,7 +2,7 @@
 name: RFC Proposal
 about: Propose a change or addition to the AEGIS RFC specifications
 title: "[RFC] "
-labels: rfc
+labels: rfc,specification
 assignees: ''
 ---
 

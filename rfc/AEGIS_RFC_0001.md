@@ -10,7 +10,7 @@ Authors: AEGIS Project
 
 ## 1. Abstract
 
-This document defines the architectural model of **AEGIS™ (Architectural Enforcement & Governance Intelligence System)**.
+This document defines the architectural model of **AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems)**.
 AEGIS™ introduces a governance runtime that evaluates AI-generated actions before they interact with operational infrastructure.
 
 The architecture separates **AI reasoning from execution**, ensuring that unsafe or unauthorized actions cannot occur without deterministic governance evaluation.

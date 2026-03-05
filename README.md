@@ -8,7 +8,7 @@
 
 # AEGIS™ Governance
 
-Architectural Enforcement & Governance Intelligence System
+Architectural Enforcement & Governance of Intelligent Systems
 
 > **Capability without constraint is not intelligence™**
 

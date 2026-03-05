@@ -9,7 +9,7 @@ Status: Draft
 
 # 1. What is AEGIS?
 
-AEGIS (Architectural Enforcement & Governance Intelligence System) is a **governance architecture for AI systems**.
+AEGIS (Architectural Enforcement & Governance of Intelligent Systems) is a **governance architecture for AI systems**.
 
 It introduces a runtime governance layer that evaluates AI-generated actions before those actions interact with external systems.
 

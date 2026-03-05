@@ -1,0 +1,12 @@
+{
+  "message_type": "ESCALATION_REQUEST",
+  "action_id": "a-900",
+  "requested_by": {
+    "id": "agent:ops-01",
+    "type": "agent",
+    "role": "devops_engineer"
+  },
+  "reason": "Production deploy requires human approval",
+  "risk_level": "high",
+  "timestamp": "2026-03-05T19:12:04Z"
+}

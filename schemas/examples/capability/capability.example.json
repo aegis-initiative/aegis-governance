@@ -1,0 +1,11 @@
+{
+  "capability": "telemetry.query",
+  "description": "Query security telemetry",
+  "allowed_roles": ["soc_analyst"],
+  "environment": ["production"],
+  "risk_level": "low",
+  "constraints": {
+    "max_results": 500
+  },
+  "approval_required": false
+}
