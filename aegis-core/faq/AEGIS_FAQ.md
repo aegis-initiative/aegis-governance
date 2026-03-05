@@ -7,6 +7,136 @@ Status: Draft
 
 ---
 
+# AEGIS™ Adoption Model
+
+AEGIS™ is designed to be **incrementally deployable**. Organizations can introduce governance controls gradually without rewriting existing AI systems or infrastructure.
+
+The architecture supports three levels of adoption.
+
+---
+
+## Level 1 — Governance Gateway
+
+At the simplest level, AEGIS™ operates as a **governance gateway** placed between AI agents and the systems they interact with.
+
+In this model, AI systems send action requests to the gateway instead of executing operations directly.
+
+```id="gateway_arch"
+AI Agent
+   │
+   ▼
+AEGIS™ Governance Gateway
+   │
+   ▼
+External APIs / Infrastructure
+```
+
+The gateway evaluates:
+
+* capability authorization
+* policy rules
+* actor identity
+
+This provides immediate governance enforcement with minimal integration effort.
+
+Typical deployment: **single service or container**.
+
+---
+
+## Level 2 — Full Governance Runtime
+
+At the next level, organizations deploy the full AEGIS™ governance runtime.
+
+This includes:
+
+* governance gateway
+* decision engine
+* capability registry
+* policy engine
+* audit logging
+* tool proxy layer
+
+```id="runtime_arch"
+AI Agent
+   │
+   ▼
+Governance Gateway
+   │
+   ▼
+Decision Engine
+ ├ Capability Registry
+ ├ Policy Engine
+ └ Risk Evaluation
+   │
+   ▼
+Tool Proxy Layer
+   │
+   ▼
+External Systems
+```
+
+This model enables deterministic governance enforcement and full auditability of AI-generated actions.
+
+Typical deployment: **internal governance infrastructure service**.
+
+---
+
+## Level 3 — Federated Governance
+
+The most advanced adoption model connects AEGIS™ runtimes through the **AEGIS Governance Federation Network (GFN)**.
+
+Participating nodes share governance intelligence including:
+
+* policy updates
+* circumvention techniques
+* risk signals
+* governance attestations
+* incident disclosures
+
+```id="federation_arch"
+Organization A
+      │
+      ▼
+AEGIS Runtime
+      │
+      ▼
+AEGIS Federation Network
+      │
+      ▼
+AEGIS Runtime
+      ▲
+      │
+Organization B
+```
+
+This enables organizations to **cooperate in defending against emerging AI governance risks**, similar to how cybersecurity threat intelligence networks operate today.
+
+---
+
+## Incremental Adoption
+
+Organizations can adopt AEGIS™ gradually:
+
+| Stage   | Capability                          |
+| ------- | ----------------------------------- |
+| Level 1 | Action governance gateway           |
+| Level 2 | Full runtime governance enforcement |
+| Level 3 | Federated governance intelligence   |
+
+This staged model allows organizations to introduce governance controls **without disrupting existing AI deployments**.
+
+---
+
+## Key Principle
+
+Regardless of deployment model, the core principle remains the same:
+
+> **Capability without constraint is not intelligence™**
+
+AEGIS™ ensures that AI systems operate within **explicitly defined governance boundaries**.
+
+---
+
 # 1. What is AEGIS?
 
 AEGIS (Architectural Enforcement & Governance of Intelligent Systems) is a **governance architecture for AI systems**.
