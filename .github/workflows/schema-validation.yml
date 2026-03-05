@@ -9,7 +9,8 @@ on:
       - ".github/workflows/schema-validation.yml"
       - ".yamllint.yml"
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - "**/*.yml"
       - "**/*.yaml"

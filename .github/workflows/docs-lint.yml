@@ -7,7 +7,8 @@ on:
       - ".github/workflows/docs-lint.yml"
       - ".markdownlint-cli2.yaml"
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - "**/*.md"
       - ".github/workflows/docs-lint.yml"
