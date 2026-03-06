@@ -1,7 +1,7 @@
 # AEGIS Announcement Readiness Assessment
 
 **Generated**: March 5, 2026
-**Repository**: https://github.com/finnoybu/aegis-governance
+**Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
 **Assessment against**: docs/AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md
 
 ---
@@ -25,6 +25,7 @@ The repository contains a complete architecture specification suitable for publi
 **Status**: All required root files present
 
 Files:
+
 - ✓ README.md (comprehensive overview with quick start)
 - ✓ LICENSE (Apache 2.0)
 - ✓ CONTRIBUTING.md (contribution guidelines)
@@ -44,6 +45,7 @@ Files:
 Location: `aegis-core/assets/`
 
 Files:
+
 - ✓ AEGIS_logo.ai (Adobe Illustrator source)
 - ✓ AEGIS_logo.svg (standard logo)
 - ✓ AEGIS_logo_dark.svg (dark mode variant)
@@ -62,6 +64,7 @@ Files:
 **Status**: All specification directories present with navigation
 
 Structure:
+
 - ✓ aegis-core/README.md (navigation guide) ← **NEWLY ADDED**
 - ✓ aegis-core/manifesto/ (design principles)
 - ✓ aegis-core/overview/ (system overview)
@@ -94,6 +97,7 @@ Key Documents:
 Location: `aegis-core/protocol/`
 
 Files (8 documents):
+
 - ✓ AEGIS_AGP1_INDEX.md (complete specification index)
 - ✓ AEGIS_AGP1_OVERVIEW.md (protocol introduction)
 - ✓ AEGIS_AGP1_MESSAGES.md (message schemas)
@@ -114,6 +118,7 @@ Files (8 documents):
 Location: `rfc/`
 
 Files:
+
 - ✓ RFC-0001-AEGIS-Architecture.md (160 lines)
 - ✓ RFC-0002-Governance-Runtime.md (182 lines)
 - ✓ RFC-0003-Capability-Registry.md (161 lines)

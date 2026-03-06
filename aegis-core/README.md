@@ -1,3 +1,11 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
+    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS™ Governance Logo">
+  </picture>
+</p>
+
 # AEGIS Core Specification
 
 This directory contains the complete **AEGIS (Architectural Enforcement & Governance of Intelligent Systems)** normative specification and reference materials.
@@ -70,6 +78,7 @@ The [protocol/](protocol/) directory contains the complete **AEGIS Governance Pr
 - **Start at [AEGIS_AGP1_INDEX.md](protocol/AEGIS_AGP1_INDEX.md)** for the full specification suite
 
 Key documents:
+
 - **AEGIS_AGP1_OVERVIEW.md** - Protocol introduction and concepts
 - **AEGIS_AGP1_MESSAGES.md** - Complete message schemas and field definitions
 - **AEGIS_AGP1_WIRE_FORMAT.md** - Transport encoding and serialization
@@ -85,6 +94,7 @@ The [threat-model/](threat-model/) directory contains the **AEGIS Threat Model v
 - **Start at [AEGIS_ATM1_INDEX.md](threat-model/AEGIS_ATM1_INDEX.md)** for complete threat analysis
 
 Key documents:
+
 - **AEGIS_ATM1_THREAT_ACTORS.md** - Adversary profiles and capabilities
 - **AEGIS_ATM1_ATTACK_VECTORS.md** - Attack surface analysis
 - **AEGIS_ATM1_SECURITY_PROPERTIES.md** - Security goals and guarantees
@@ -201,4 +211,4 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
 - **GitHub Discussions**: [aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions)
 - **GitHub Issues**: [aegis-governance/issues](https://github.com/finnoybu/aegis-governance/issues)
-- **Email**: ken@aegis-initiative.org
+- **Email**: <ken@aegis-initiative.org>
