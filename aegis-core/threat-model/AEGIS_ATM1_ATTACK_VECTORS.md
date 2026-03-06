@@ -194,6 +194,13 @@
 - **Impact**: Large-scale data theft without triggering alerts
 - **Example**: 100MB/day for 100 days = 10GB undetected
 
+#### AV-7.3 Federation Signal Poisoning
+- **Vector**: Attacker injects false governance signals into federation channels
+- **Precondition**: Weak federation peer authentication, insufficient signature verification, or trust-score manipulation gaps
+- **Technique**: Publish forged circumvention reports, replay stale signed events, or coordinate sybil-like nodes to bias consensus
+- **Impact**: Defenders consume incorrect threat intelligence, degrading risk scoring and decision quality across nodes
+- **Example**: Fraudulent high-severity reports force widespread false denials and create operational disruption
+
 ---
 
 ## Severity Assessment
@@ -209,6 +216,7 @@
 - AV-2.2 (Composition/Slow-Burn)
 - AV-3.2 (Privilege Escalation)
 - AV-6.1 (Dependency Poisoning)
+- AV-7.3 (Federation Signal Poisoning)
 
 ### Medium Severity (Standard Security Controls)
 - AV-1.2 (Message Injection)

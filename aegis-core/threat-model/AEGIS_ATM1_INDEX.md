@@ -155,6 +155,7 @@ Controls:
 Scenario:
 
 - Malicious input attempts to coerce agent behavior toward unsafe capability use.
+- Attackers use prompt injection and chain-of-thought manipulation attempts to steer action proposals.
 
 Impact:
 
@@ -178,6 +179,13 @@ Controls:
 | Elevation of Privilege | Bypass governance path | Proxy enforcement, default deny |
 
 ## Risk Prioritization
+
+Threats are prioritized using four factors:
+
+- Likelihood of exploitation.
+- Operational impact.
+- Detectability.
+- Mitigation difficulty.
 
 Top risks requiring continuous validation:
 
@@ -221,3 +229,33 @@ Residual risks remain for:
 - Novel attack chains outside known signatures.
 
 Mitigation for residual risks depends on layered controls and rapid response.
+
+## Legacy Coverage Mapping
+
+The legacy document `AEGIS_Threat_Model.md` is fully incorporated across ATM-1 documents:
+
+| Legacy Section | ATM-1 Coverage |
+|---|---|
+| Overview / Purpose | `AEGIS_ATM1_INDEX.md` Purpose |
+| Security Goals (Action Governance, Capability Isolation, Authority Attribution, Policy Enforcement, Auditability) | `AEGIS_ATM1_SECURITY_PROPERTIES.md` |
+| Threat Actors | `AEGIS_ATM1_THREAT_ACTORS.md` |
+| Attack Surface | `AEGIS_ATM1_ATTACK_VECTORS.md` Attack Surface Map |
+| STRIDE Mapping | `AEGIS_ATM1_INDEX.md` STRIDE Mapping |
+| Threat Scenarios (Prompt Injection, Capability Escalation, Policy Manipulation, Governance Bypass) | `AEGIS_ATM1_INDEX.md` Priority Threat Scenarios + `AEGIS_ATM1_ATTACK_VECTORS.md` |
+| Federation Signal Poisoning | `AEGIS_ATM1_ATTACK_VECTORS.md` AV-7.3 |
+| Risk Prioritization Factors | `AEGIS_ATM1_INDEX.md` Risk Prioritization + `AEGIS_ATM1_RESIDUAL_RISKS.md` Acceptance Matrix |
+| Security Guarantees | `AEGIS_ATM1_SECURITY_PROPERTIES.md` |
+| Limitations | `AEGIS_ATM1_RESIDUAL_RISKS.md` |
+
+## Future Threat Modeling Work
+
+Planned extensions:
+
+- Formal attack trees.
+- Adversarial simulation.
+- Runtime anomaly detection tuning based on production baselines.
+- Governance reputation systems within the federation network.
+
+## Foundational Principle
+
+> Capability without constraint is not intelligence (TM)
