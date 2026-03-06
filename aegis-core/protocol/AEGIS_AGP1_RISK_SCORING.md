@@ -1,9 +1,9 @@
 # AGP-1 Risk Scoring & Decision Thresholds
 
-**Document**: AGP1_RiskScoring.md  
+**Document**: AEGIS_AGP1_RISK_SCORING.md  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
-**References**: AEGIS_TRUST_MODEL.md, AEGIS_NODE_REFERENCE_ARCHITECTURE.md  
+**References**: AEGIS_AGP1_TRUST_MODEL.md, AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md  
 **Last Updated**: March 5, 2026
 
 ---
@@ -50,7 +50,7 @@ risk_historical = clamp(risk_historical, 0.0, 10.0)
 
 ### Factor 2: Actor Reputation/Trust Score (Weight: 0.25)
 
-Actor's trust score from AEGIS_TRUST_MODEL.md, normalized to risk.
+Actor's trust score from AEGIS_AGP1_TRUST_MODEL.md, normalized to risk.
 
 ```math
 actor_trust_score = getTrustScore(actor_id)  // [0.0 - 1.0] from trust model
@@ -430,5 +430,5 @@ test_case: "high_risk_production_at_3am"
 
 ## Next Steps
 
-- [AGP1_Flows.md](./AGP1_Flows.md) - Complete decision flows with risk thresholds
-- [AGP1_ErrorHandling.md](./AGP1_ErrorHandling.md) - Error codes and retry logic
+- [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete decision flows with risk thresholds
+- [AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md) - Error codes and retry logic

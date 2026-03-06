@@ -1,6 +1,6 @@
 # AGP-1 Protocol Overview & Design Principles
 
-**Document**: AGP1_Overview.md  
+**Document**: AEGIS_AGP1_OVERVIEW.md  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
 **Last Updated**: March 5, 2026
@@ -276,6 +276,6 @@ AGP-1 does **NOT** address:
 ## Next Steps
 
 Continue reading:
-1. **[AGP1_Messages.md](./AGP1_Messages.md)** - Exact message schemas and field specifications
-2. **[AGP1_Authentication.md](./AGP1_Authentication.md)** - How to authenticate as a client
+1. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Exact message schemas and field specifications
+2. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - How to authenticate as a client
 3. **[AGP1_Flows.md](./AGP1_Flows.md)** - Visual protocol flows and state machines

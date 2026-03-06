@@ -1,6 +1,6 @@
 # AGP-1 Policy Evaluation & Capability Resolution
 
-**Document**: AGP1_PolicyEvaluation.md  
+**Document**: AEGIS_AGP1_POLICY_EVALUATION.md  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
 **References**: RFC-0003 (Capability Registry)  
@@ -249,7 +249,7 @@ policy "infrastructure_deploy_prod" {
 |-------|------|----------|-------|
 | `capability` | string | yes in condition | Name of capability being evaluated |
 | `actor.role` | array | in conditions | Roles actor is member of (from actor registry) |
-| `actor.trust_score` | float | in conditions | Trust score [0.0 - 1.0] from AEGIS_TRUST_MODEL |
+| `actor.trust_score` | float | in conditions | Trust score [0.0 - 1.0] from AEGIS_AGP1_TRUST_MODEL |
 | `environment` | enum | in conditions | `production`, `staging`, `development` |
 | `day_of_week` | string | in conditions | Day name: Monday - Sunday |
 | `hour_of_day` | integer | in conditions | 0-23 UTC hour |
@@ -443,5 +443,5 @@ Results:
 
 ## Next Steps
 
-- [AGP1_RiskScoring.md](./AGP1_RiskScoring.md) - Risk calculation and decision thresholds
-- [AGP1_Flows.md](./AGP1_Flows.md) - Complete protocol flows with policy evaluation
+- [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Risk calculation and decision thresholds
+- [AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md) - Complete protocol flows with policy evaluation

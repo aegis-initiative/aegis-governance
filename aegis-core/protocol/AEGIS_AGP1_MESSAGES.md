@@ -1,6 +1,6 @@
 # AGP-1 Message Schemas & Field Specifications
 
-**Document**: AGP1_Messages.md  
+**Document**: AEGIS_AGP1_MESSAGES.md  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
 **Last Updated**: March 5, 2026
@@ -639,5 +639,5 @@ Action permitted only with explicit user confirmation.
 
 ## Next Steps
 
-- [AGP1_WireFormat.md](./AGP1_WireFormat.md) - HTTP/2 endpoints, serialization, encoding
-- [AGP1_Authentication.md](./AGP1_Authentication.md) - How to authenticate with bearer tokens and mTLS
+- [AEGIS_AGP1_WIRE_FORMAT.md](./AEGIS_AGP1_WIRE_FORMAT.md) - HTTP/2 endpoints, serialization, encoding
+- [AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md) - How to authenticate with bearer tokens and mTLS

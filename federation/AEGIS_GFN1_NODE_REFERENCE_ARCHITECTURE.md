@@ -239,7 +239,7 @@ graph TB
 **Purpose**: Assign credibility weights to external federation signals based on publisher reputation
 
 **Responsibilities**:
-- Maintain trust scores for known publisher DIDs using 5-factor model from AEGIS_TRUST_MODEL.md
+- Maintain trust scores for known publisher DIDs using 5-factor model from AEGIS_GFN1_TRUST_MODEL.md
 - Apply trust weights to ingested events (multiply signal strength by publisher trust score)
 - Detect compromised publishers via contradictory signals and revocation notices
 - Enforce trust revocation procedures (automatic and manual)
@@ -1290,7 +1290,7 @@ Detailed configuration schema document available in accompanying `AEGIS_NODE_CON
 
 ## Related Documents
 
-- [AEGIS_TRUST_MODEL.md](./AEGIS_TRUST_MODEL.md) - Trust scoring and bootstrap mechanisms
+- [AEGIS_GFN1_TRUST_MODEL.md](./AEGIS_GFN1_TRUST_MODEL.md) - Trust scoring and bootstrap mechanisms
 - [AEGIS_Governance_Event_Model.md](../rfc/RFC-0004-Governance-Event-Model.md) - Event envelope schemas
 - [AEGIS_Governance_Protocol_AGP1.md](../aegis-core/protocol/AEGIS_Governance_Protocol_AGP1.md) - Wire protocol specification
 - [AEGIS_Constitution.md](../docs/05_AEGIS_Constitution.md) - Governance principles

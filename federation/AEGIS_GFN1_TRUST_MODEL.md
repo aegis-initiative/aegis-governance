@@ -807,8 +807,8 @@ Nodes MUST implement safe defaults:
 
 - **RFC-0001**: AEGIS Architecture and trust boundaries
 - **RFC-0004**: Governance Event Model and federation events
-- **AEGIS_ATPROTO_GOVERNANCE_NETWORK.md**: network topology and protocol
-- **AEGIS_NODE_REFERENCE_ARCHITECTURE.md**: node deployment and trust anchors
+- **AEGIS_GFN1_GOVERNANCE_NETWORK.md**: network topology and protocol
+- **AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md**: node deployment and trust anchors
 
 ---
 

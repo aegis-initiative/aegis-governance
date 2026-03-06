@@ -54,11 +54,11 @@ This folder contains the normative documentation for AEGIS federation:
 
 | Document | Status | Purpose |
 |----------|--------|---------|
-| [AEGIS_ATPROTO_GOVERNANCE_NETWORK.md](#) | Normative | Federation protocol specification; decentralized pub-sub topology |
-| [AEGIS_ATPROTO_SCHEMA.md](#) | Normative | ATProto-based schema definitions for governance events |
-| [AEGIS_NODE_REFERENCE_ARCHITECTURE.md](#) | Normative | Node deployment, service mesh, federation endpoints architecture |
-| [AEGIS_GOVERNANCE_FEEDS.md](#) | Normative | Feed types, subscription, replay, and versioning semantics |
-| [AEGIS_TRUST_MODEL.md](#) | Normative | Trust evaluation, identity binding, signature verification, and DID resolution |
+| [AEGIS_GFN1_GOVERNANCE_NETWORK.md](#) | Normative | Federation protocol specification; decentralized pub-sub topology |
+| [AEGIS_GFN1_SCHEMA.md](#) | Normative | ATProto-based schema definitions for governance events |
+| [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](#) | Normative | Node deployment, service mesh, federation endpoints architecture |
+| [AEGIS_GFN1_GOVERNANCE_FEEDS.md](#) | Normative | Feed types, subscription, replay, and versioning semantics |
+| [AEGIS_GFN1_TRUST_MODEL.md](#) | Normative | Trust evaluation, identity binding, signature verification, and DID resolution |
 
 ---
 
@@ -121,8 +121,8 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 ### Path 1: Federation Architecture (Non-Technical Stakeholders)
 
 1. This README (overview and concepts)
-2. AEGIS_NODE_REFERENCE_ARCHITECTURE.md – deployment topology and operational requirements
-3. AEGIS_TRUST_MODEL.md – trust evaluation and audit properties
+2. AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md – deployment topology and operational requirements
+3. AEGIS_GFN1_TRUST_MODEL.md – trust evaluation and audit properties
 
 **Time**: ~30 minutes  
 **Outcome**: Understanding federation architecture, trust model, and operational implications
@@ -130,9 +130,9 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 ### Path 2: Protocol Implementation (Protocol Engineers)
 
 1. This README (overview and concepts)
-2. AEGIS_ATPROTO_GOVERNANCE_NETWORK.md – protocol semantics and message exchange
-3. AEGIS_GOVERNANCE_FEEDS.md – feed mechanics, subscription, versioning
-4. AEGIS_ATPROTO_SCHEMA.md – detailed event schemas (reference)
+2. AEGIS_GFN1_GOVERNANCE_NETWORK.md – protocol semantics and message exchange
+3. AEGIS_GFN1_GOVERNANCE_FEEDS.md – feed mechanics, subscription, versioning
+4. AEGIS_GFN1_SCHEMA.md – detailed event schemas (reference)
 
 **Time**: ~90 minutes  
 **Outcome**: Ability to implement federation endpoints and event handling
@@ -140,9 +140,9 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 ### Path 3: Deploy and Operate (Operations Engineers)
 
 1. This README (overview)
-2. AEGIS_NODE_REFERENCE_ARCHITECTURE.md – deployment models, networking, secrets
-3. AEGIS_TRUST_MODEL.md – identity setup, key rotation, trust configuration
-4. AEGIS_ATPROTO_GOVERNANCE_NETWORK.md – federation endpoints, load balancing
+2. AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md – deployment models, networking, secrets
+3. AEGIS_GFN1_TRUST_MODEL.md – identity setup, key rotation, trust configuration
+4. AEGIS_GFN1_GOVERNANCE_NETWORK.md – federation endpoints, load balancing
 
 **Time**: ~60 minutes  
 **Outcome**: Ability to deploy and configure a federation node
@@ -150,9 +150,9 @@ Consumers detect gaps and request backfill. Signature-based replay protection pr
 ### Path 4: Threat Analysis (Security Teams)
 
 1. This README (concepts)
-2. AEGIS_TRUST_MODEL.md – identity threats, signature verification, DID spoofing
-3. AEGIS_ATPROTO_GOVERNANCE_NETWORK.md – protocol attack surface
-4. AEGIS_NODE_REFERENCE_ARCHITECTURE.md – isolation and containment
+2. AEGIS_GFN1_TRUST_MODEL.md – identity threats, signature verification, DID spoofing
+3. AEGIS_GFN1_GOVERNANCE_NETWORK.md – protocol attack surface
+4. AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md – isolation and containment
 
 **Time**: ~45 minutes  
 **Outcome**: Understanding federation security model and threat landscape

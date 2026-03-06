@@ -1,9 +1,9 @@
 # AGP-1 Trust Model & Actor Reputation
 
-**Document**: AEGIS_TRUST_MODEL.md  
+**Document**: AEGIS_AGP1_TRUST_MODEL.md  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
-**References**: AEGIS_SPECIFICATION_PACK.md, AEGIS_NODE_REFERENCE_ARCHITECTURE.md  
+**References**: AEGIS_SPECIFICATION_PACK.md, AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md  
 **Last Updated**: March 5, 2026
 
 ---
@@ -12,7 +12,7 @@
 
 The AEGIS Trust Model establishes a **capability-based reputation system** for actors (users, services, LLMs) in a federated governance environment. Each actor has a trust score [0.0 - 1.0] that influences:
 
-1. **Decision thresholds** (AGP1_RiskScoring.md)
+1. **Decision thresholds** (AEGIS_AGP1_RISK_SCORING.md)
 2. **Escalation requirements** (when human review is needed)
 3. **Monitoring constraints** (how closely the execution is observed)
 4. **Federation participation** (whether signals from this actor are trusted)
@@ -173,7 +173,7 @@ trust_score = 0.30×0.8 + 0.40×0.95 + 0.20×0.85 + 0.10×0.8
 | **High** | 0.7-0.9 | Trusted; less monitoring needed | 1.0× | >8.0 risk |
 | **Very High** | 0.9-1.0 | Highly trusted; minimal restrictions | 0.5× | >10.0 risk (never) |
 
-**Risk Multiplier** = applied to capability base risk in AGP1_RiskScoring.md
+**Risk Multiplier** = applied to capability base risk in AEGIS_AGP1_RISK_SCORING.md
 
 ---
 
@@ -359,5 +359,5 @@ All trust calculations are logged:
 ## Next Steps
 
 - [AGP1_PolicyLanguage.md](./AGP1_PolicyLanguage.md) - Policy rules that use trust scores
-- [AGP1_RiskScoring.md](./AGP1_RiskScoring.md) - Complete risk scoring calculations
-- [AEGIS_NODE_REFERENCE_ARCHITECTURE.md](./AEGIS_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component
+- [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Complete risk scoring calculations
+- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component

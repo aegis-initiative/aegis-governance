@@ -34,13 +34,13 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Core Protocol (Read in this order)
 
-1. **[AGP1_Overview.md](./AGP1_Overview.md)** - Protocol overview, principles, and design rationale
+1. **[AEGIS_AGP1_OVERVIEW.md](./AEGIS_AGP1_OVERVIEW.md)** - Protocol overview, principles, and design rationale
    - Purpose and scope
    - Core principles (determinism, default-deny, attribution, auditable)
    - Message categories
    - Integration with RFCs and federation
 
-2. **[AGP1_Messages.md](./AGP1_Messages.md)** - Complete message schemas and field specifications
+2. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Complete message schemas and field specifications
    - ACTION_PROPOSE schema with 15+ fields
    - DECISION_RESPONSE schema with decision outcomes
    - EXECUTION_REPORT for outcome tracking
@@ -48,21 +48,21 @@ This specification suite consists of **9 modular documents** organized by domain
    - AUDIT_QUERY for evidence retrieval
    - HEALTH_CHECK for connectivity testing
 
-3. **[AGP1_WireFormat.md](./AGP1_WireFormat.md)** - Transport, serialization, and encoding
+3. **[AEGIS_AGP1_WIRE_FORMAT.md](./AEGIS_AGP1_WIRE_FORMAT.md)** - Transport, serialization, and encoding
    - HTTP/1.1 and HTTP/2 endpoints and methods
    - Protocol Buffers alternative format
    - Request/response envelopes
    - Content encoding (JSON, gzip, protobuf)
    - Header specifications
 
-4. **[AGP1_Flows.md](./AGP1_Flows.md)** - Protocol flows, diagrams, and state machines
+4. **[AEGIS_AGP1_FLOWS.md](./AEGIS_AGP1_FLOWS.md)** - Protocol flows, diagrams, and state machines
    - Happy path (allow decision)
    - Escalation flow (human review)
    - Comprehensive decision tree
    - Complete state machine with all paths
    - Justification for flow design
 
-5. **[AGP1_Authentication.md](./AGP1_Authentication.md)** - Authentication and authorization
+5. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - Authentication and authorization
    - Bearer tokens with JWT claims
    - Mutual TLS (mTLS) certificate validation
    - API key authentication (deprecated)
@@ -71,14 +71,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Decision Logic (Critical for evaluation)
 
-6. **[AGP1_PolicyEvaluation.md](./AGP1_PolicyEvaluation.md)** - Capability registry and policy evaluation
+6. **[AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)** - Capability registry and policy evaluation
    - Integration with RFC-0003 Capability Registry
    - Policy language specification with examples
    - Capability inheritance and composition
    - Conflict resolution (precedence rules)
    - Deterministic evaluation algorithm
 
-7. **[AGP1_RiskScoring.md](./AGP1_RiskScoring.md)** - Risk assessment and decision logic
+7. **[AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)** - Risk assessment and decision logic
    - 5-factor risk scoring model with weights
    - Historical attempt rate calculations
    - Actor reputation/trust integration
@@ -90,14 +90,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Operational Specifications
 
-8. **[AGP1_ErrorHandling.md](./AGP1_ErrorHandling.md)** - Error handling and recovery
+8. **[AEGIS_AGP1_ERROR_HANDLING.md](./AEGIS_AGP1_ERROR_HANDLING.md)** - Error handling and recovery
    - Error response envelope format
    - 15 error codes with HTTP mappings
    - Retryable vs. non-retryable errors
    - Exponential backoff strategies
    - Timeout and deadline handling
 
-9. **[AGP1_Deployment.md](./AGP1_Deployment.md)** - Deployment, configuration, and operations
+9. **[AEGIS_AGP1_DEPLOYMENT.md](./AEGIS_AGP1_DEPLOYMENT.md)** - Deployment, configuration, and operations
    - Deployment topologies (single-instance, HA, authority nodes)
    - Performance requirements and SLOs
    - Kubernetes and Docker examples
