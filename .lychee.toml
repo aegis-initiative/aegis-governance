@@ -1,5 +1,5 @@
 verbose = true
-exclude_mail = true
+include_mail = false
 timeout = 20
 max_retries = 2
 retry_wait_time = 2
