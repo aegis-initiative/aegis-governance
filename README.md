@@ -13,6 +13,14 @@
   <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml/badge.svg" alt="Spell Check"></a>
 </p>
 
+### Announcement
+
+AEGIS™ has been publicly released as an open governance architecture for intelligent systems.
+
+**[Read the announcement](docs/2026-03-05-ANNOUNCEMENT.md)**
+
+---
+
 # AEGIS™ Governance
 
 Architectural Enforcement & Governance of Intelligent Systems
