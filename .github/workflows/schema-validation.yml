@@ -5,7 +5,7 @@ on:
     paths:
       - "**/*.yml"
       - "**/*.yaml"
-      - "schemas/**/*.json"
+      - "aegis-core/schemas/**/*.json"
       - ".github/workflows/schema-validation.yml"
       - ".yamllint.yml"
   push:
@@ -14,7 +14,7 @@ on:
     paths:
       - "**/*.yml"
       - "**/*.yaml"
-      - "schemas/**/*.json"
+      - "aegis-core/schemas/**/*.json"
       - ".github/workflows/schema-validation.yml"
       - ".yamllint.yml"
   workflow_dispatch:
@@ -44,72 +44,72 @@ jobs:
       - name: Compile JSON Schemas with AJV
         run: |
           # Compile common schemas first (no references)
-          for schema in schemas/common/*.schema.json; do
+          for schema in aegis-core/schemas/common/*.schema.json; do
             echo "Compiling $schema"
             npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" || exit 1
           done
 
           # Compile governance schemas with common references
-          for schema in schemas/governance/*.schema.json; do
+          for schema in aegis-core/schemas/governance/*.schema.json; do
             [ -f "$schema" ] || continue
             echo "Compiling $schema"
             npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
-              -r 'schemas/common/*.schema.json' || exit 1
+              -r 'aegis-core/schemas/common/*.schema.json' || exit 1
           done
 
           # Compile AGP and capability schemas with common references
           for dir in agp capability; do
-            if [ -d "schemas/$dir" ]; then
-              for schema in schemas/$dir/*.schema.json; do
+            if [ -d "aegis-core/schemas/$dir" ]; then
+              for schema in aegis-core/schemas/$dir/*.schema.json; do
                 [ -f "$schema" ] || continue
                 echo "Compiling $schema"
                 npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
-                  -r 'schemas/common/*.schema.json' || exit 1
+                  -r 'aegis-core/schemas/common/*.schema.json' || exit 1
               done
             fi
           done
 
           # Compile governance/events schemas with common + governance references
-          if [ -d "schemas/governance/events" ]; then
-            for schema in schemas/governance/events/*.schema.json; do
+          if [ -d "aegis-core/schemas/governance/events" ]; then
+            for schema in aegis-core/schemas/governance/events/*.schema.json; do
               [ -f "$schema" ] || continue
               echo "Compiling $schema"
               npx --yes ajv-cli@5.0.0 compile --spec=draft2020 -s "$schema" \
-                -r 'schemas/common/*.schema.json' \
-                -r 'schemas/governance/*.schema.json' || exit 1
+                -r 'aegis-core/schemas/common/*.schema.json' \
+                -r 'aegis-core/schemas/governance/*.schema.json' || exit 1
             done
           fi
 
       - name: Validate example payloads with AJV
         run: |
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/agp/action_propose.schema.json \
-            -d schemas/examples/agp/action_propose.example.json \
-            -r 'schemas/common/*.schema.json'
+            -s aegis-core/schemas/agp/action_propose.schema.json \
+            -d aegis-core/schemas/examples/agp/action_propose.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json'
 
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/agp/decision_response.schema.json \
-            -d schemas/examples/agp/decision_response.example.json \
-            -r 'schemas/common/*.schema.json'
+            -s aegis-core/schemas/agp/decision_response.schema.json \
+            -d aegis-core/schemas/examples/agp/decision_response.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json'
 
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/agp/execution_result.schema.json \
-            -d schemas/examples/agp/execution_result.example.json \
-            -r 'schemas/common/*.schema.json'
+            -s aegis-core/schemas/agp/execution_result.schema.json \
+            -d aegis-core/schemas/examples/agp/execution_result.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json'
 
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/agp/escalation_request.schema.json \
-            -d schemas/examples/agp/escalation_request.example.json \
-            -r 'schemas/common/*.schema.json'
+            -s aegis-core/schemas/agp/escalation_request.schema.json \
+            -d aegis-core/schemas/examples/agp/escalation_request.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json'
 
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/capability/capability.schema.json \
-            -d schemas/examples/capability/capability.example.json \
-            -r 'schemas/common/*.schema.json'
+            -s aegis-core/schemas/capability/capability.schema.json \
+            -d aegis-core/schemas/examples/capability/capability.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json'
 
           npx --yes ajv-cli@5.0.0 validate --spec=draft2020 \
-            -s schemas/governance/events/policy_update.schema.json \
-            -d schemas/examples/governance/policy_update.example.json \
-            -r 'schemas/common/*.schema.json' \
-            -r 'schemas/governance/*.schema.json'
+            -s aegis-core/schemas/governance/events/policy_update.schema.json \
+            -d aegis-core/schemas/examples/governance/policy_update.example.json \
+            -r 'aegis-core/schemas/common/*.schema.json' \
+            -r 'aegis-core/schemas/governance/*.schema.json'
 

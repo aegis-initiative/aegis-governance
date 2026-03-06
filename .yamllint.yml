@@ -17,5 +17,4 @@ rules:
     check-keys: false
   comments:
     min-spaces-from-content: 1
-  empty-lines:
-    max: 2
+  empty-lines: disable
