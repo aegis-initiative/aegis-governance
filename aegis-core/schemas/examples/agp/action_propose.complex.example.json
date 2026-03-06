@@ -1,0 +1,52 @@
+{
+  "message_type": "ACTION_PROPOSE",
+  "action_id": "a-soc-auth-investigation-20260305",
+  "timestamp": "2026-03-05T19:12:01Z",
+  "actor": {
+    "id": "agent:soc-investigation-engine",
+    "type": "agent",
+    "role": "security_analyst",
+    "organization": "enterprise-001"
+  },
+  "capability": "security.investigate_breach",
+  "resource": "auth_logs",
+  "parameters": {
+    "time_range": {
+      "start": "2026-03-04T00:00:00Z",
+      "end": "2026-03-05T19:12:00Z"
+    },
+    "filters": {
+      "event_type": "authentication",
+      "status": "failed",
+      "threshold": {
+        "min_attempts": 10,
+        "time_window_seconds": 3600
+      }
+    },
+    "operations": [
+      {
+        "type": "aggregate",
+        "field": "source_ip",
+        "metric": "count"
+      },
+      {
+        "type": "filter",
+        "condition": "count > 5"
+      }
+    ],
+    "enrichment": {
+      "geoip": true,
+      "reputation": true,
+      "threat_intel": true
+    },
+    "output": {
+      "format": "json",
+      "include_metadata": true,
+      "max_records": 10000
+    }
+  },
+  "justification": "Investigating suspicious auth activity after security alert",
+  "priority": "high",
+  "trace_id": "trace-incident-20260305-001",
+  "correlation_id": "corr-breach-investigation-001"
+}
