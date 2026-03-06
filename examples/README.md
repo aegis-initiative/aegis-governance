@@ -87,10 +87,12 @@ Cloud and infrastructure automation examples demonstrating AEGIS governance of i
 ## Quick Start
 
 ### 1. Run Hello AEGIS
+
 ```bash
 cd runtime
 python hello_aegis.py
 ```
+
 This will demonstrate the basic AEGIS flow in ~50 lines of code.
 
 ### 2. Explore the Reference Runtime
@@ -112,6 +114,7 @@ For deeper understanding:
 ### For AI Framework Integration
 
 **Python/LangChain Integration:**
+
 ```python
 from aegis_runtime import GovernanceGateway
 
