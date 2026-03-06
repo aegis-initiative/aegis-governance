@@ -15,9 +15,7 @@
 
 ### Announcement
 
-AEGIS™ has been publicly released as an open governance architecture for intelligent systems.
-
-**[Read the announcement](docs/2026-03-05-ANNOUNCEMENT.md)**
+AEGIS™ has been **[publicly released](docs/2026-03-05-ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.  
 
 ---
 
