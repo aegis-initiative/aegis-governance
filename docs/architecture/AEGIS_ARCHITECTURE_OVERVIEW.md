@@ -1,6 +1,6 @@
 # AEGIS Architecture Overview
 
-Author: Ken Tannenbaum  
+Author: Kenneth Tannenbaum  
 Project: AEGIS (Architectural Enforcement & Governance of Intelligent Systems)  
 Version: 0.2
 

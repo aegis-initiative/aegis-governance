@@ -199,6 +199,6 @@ The long-term goal is to develop AEGIS™ as an **open governance architecture**
 
 # Trademark Notice
 
-AEGIS™ and **“Capability without constraint is not intelligence™”** are trademarks of Ken Tannenbaum.
+AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Kenneth Tannenbaum.
 
 Use of these marks in derivative works must not imply endorsement without explicit permission.

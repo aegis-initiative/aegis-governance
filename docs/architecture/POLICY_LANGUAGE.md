@@ -1,6 +1,6 @@
 # AEGIS Policy Language
 
-Author: Ken Tannenbaum  
+Author: Kenneth Tannenbaum  
 Project: AEGIS  
 Version: 0.2
 

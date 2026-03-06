@@ -2,7 +2,7 @@
 
 ## AI Kernel Mediation Model
 
-Author: Ken Tannenbaum  
+Author: Kenneth Tannenbaum  
 Project: AEGIS (Architectural Enforcement & Governance of Intelligent Systems)  
 Status: Reference Architecture  
 Version: 0.2

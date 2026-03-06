@@ -11,7 +11,7 @@ requires-python = ">=3.11"
 license = { file = "LICENSE" }
 keywords = ["governance", "ai", "policy", "security", "audit"]
 authors = [
-    { name = "Ken Tannenbaum", email = "ken@aegis-initiative.org" },
+    { name = "Kenneth Tannenbaum", email = "ken@aegis-initiative.org" },
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",

@@ -2,7 +2,7 @@
 
 ## Reference Monitor Model
 
-Author: Ken Tannenbaum  
+Author: Kenneth Tannenbaum  
 Project: AEGIS  
 Version: 0.2
 

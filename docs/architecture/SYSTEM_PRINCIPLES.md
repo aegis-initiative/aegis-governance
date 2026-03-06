@@ -1,6 +1,6 @@
 # AEGIS System Principles
 
-Author: Ken Tannenbaum  
+Author: Kenneth Tannenbaum  
 Project: AEGIS  
 Version: 0.2
 
