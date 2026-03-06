@@ -1,207 +1,229 @@
 # RFC-0001
 
-## AEGIS™ Governance Architecture
+## AEGIS Governance Architecture
 
-Version: 0.1
-Status: Draft
+Version: 0.2  
+Status: Draft  
 Authors: AEGIS Project
 
 ---
 
 ## 1. Abstract
 
-This document defines the architectural model of **AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems)**.
-AEGIS™ introduces a governance runtime that evaluates AI-generated actions before they interact with operational infrastructure.
+This document defines the reference architecture for AEGIS (Architectural
+Enforcement and Governance of Intelligent Systems).
 
-The architecture separates **AI reasoning from execution**, ensuring that unsafe or unauthorized actions cannot occur without deterministic governance evaluation.
+AEGIS introduces a deterministic governance control plane between AI-generated
+intent and infrastructure execution. The architecture ensures that no action is
+executed without explicit evaluation against capability, policy, authority, and
+risk constraints.
 
 ---
 
-## 2. Motivation
+## 2. Problem Statement
 
-Modern AI systems increasingly interact with:
+Model alignment and content moderation influence outputs but do not guarantee
+control over operational side effects.
 
-* APIs
-* cloud infrastructure
-* enterprise data systems
-* operational automation pipelines
+AEGIS addresses this gap by enforcing:
 
-Existing safety approaches focus primarily on **model alignment and moderation**. While these techniques influence model outputs, they do not guarantee control over **operational behavior**.
-
-AEGIS™ addresses this gap by introducing a governance architecture that enforces capability and policy constraints on AI actions.
+- complete mediation of action execution
+- default-deny authorization
+- deterministic decision logic
+- immutable audit evidence
 
 ---
 
 ## 3. Architectural Principles
 
-AEGIS™ is designed around the following principles.
-
-### Deterministic Governance
-
-Governance rules must be enforced by system architecture rather than model behavior.
-
-### Capability-Based Authorization
-
-All actions must reference explicitly defined capabilities.
-
-### Authority Attribution
-
-Every action must be attributable to an authenticated actor.
-
-### Default-Deny Model
-
-Actions are denied unless explicitly permitted.
-
-### Complete Auditability
-
-All governance decisions must produce verifiable audit records.
+1. Deterministic Governance: same inputs and policy version produce same outcome.
+2. Capability-First Authorization: every action maps to a predefined capability.
+3. Explicit Authority Attribution: every request is bound to an authenticated actor.
+4. Default Deny: absence of explicit authorization yields denial.
+5. Complete Auditability: every decision is recorded and replay-verifiable.
+6. Fail-Closed Safety: subsystem uncertainty cannot result in implicit allow.
 
 ---
 
-## 4. Architectural Overview
+## 4. System Context
 
-AEGIS™ sits between AI systems and external infrastructure.
-
-```
-AI Agent
-   │
-   ▼
-AEGIS™ Governance Gateway
-   │
-   ▼
-Decision Engine
- ├ Capability Authorization
- ├ Authority Verification
- ├ Risk Evaluation
- └ Policy Enforcement
-   │
-   ▼
-Tool Proxy Layer
-   │
-   ▼
-External Systems
+```mermaid
+flowchart TD
+    A[AI Agent or Copilot] --> B[Governance Gateway]
+    B --> C[Decision Engine]
+    C --> C1[Capability Registry]
+    C --> C2[Policy Engine]
+    C --> C3[Risk Engine]
+    C --> D[Audit System]
+    C --> E[Tool Proxy Layer]
+    E --> F[External Systems]
 ```
 
 ---
 
-## 5. Core Components
+## 5. Component Interaction Specification
 
-### Governance Gateway
-
-Entry point for AI-generated actions.
+### 5.1 Governance Gateway
 
 Responsibilities:
 
-* validate action schema
-* authenticate actor
-* assign action identifiers
-* forward requests to the decision engine
+- validate request schema and semantic constraints
+- validate actor identity binding and request metadata
+- reject malformed requests before decision evaluation
+- route valid requests to Decision Engine
+
+### 5.2 Decision Engine
+
+Responsibilities:
+
+- perform capability check
+- evaluate policy precedence
+- evaluate contextual risk thresholds
+- produce one deterministic outcome
+
+Outcomes:
+
+- `ALLOW`
+- `DENY`
+- `ESCALATE`
+- `REQUIRE_CONFIRMATION`
+
+### 5.3 Capability Registry
+
+Responsibilities:
+
+- maintain canonical capability definitions
+- maintain actor-capability grants
+- support revocation and expiration semantics
+
+### 5.4 Policy Engine
+
+Responsibilities:
+
+- evaluate policy conditions against request context
+- apply deterministic precedence rules
+- emit policy trace for auditability
+
+### 5.5 Tool Proxy Layer
+
+Responsibilities:
+
+- execute only authorized decisions
+- enforce runtime constraints
+- prevent direct infrastructure bypass
+- record execution telemetry
+
+### 5.6 Audit System
+
+Responsibilities:
+
+- append immutable decision records
+- support retrieval by request/actor/session
+- provide evidence for replay and compliance
 
 ---
 
-### Decision Engine
+## 6. Request Lifecycle Sequence
 
-Evaluates governance rules and produces deterministic decisions.
+```mermaid
+sequenceDiagram
+    participant AG as AI Agent
+    participant GW as Governance Gateway
+    participant DE as Decision Engine
+    participant CR as Capability Registry
+    participant PE as Policy Engine
+    participant RE as Risk Engine
+    participant AS as Audit System
+    participant TP as Tool Proxy
+    participant EX as External System
 
-Possible outcomes:
-
+    AG->>GW: Submit action request
+    GW->>GW: Validate schema and metadata
+    GW->>DE: Forward validated request
+    DE->>CR: Check capability grant
+    CR-->>DE: grant/deny
+    DE->>PE: Evaluate policies
+    PE-->>DE: policy outcome + trace
+    DE->>RE: Evaluate contextual risk
+    RE-->>DE: risk score
+    DE->>AS: Persist decision record
+    AS-->>DE: audit_id
+    alt Decision is ALLOW or REQUIRE_CONFIRMATION approved
+      DE->>TP: Execute with constraints
+      TP->>EX: Controlled action
+      EX-->>TP: Result
+      TP-->>AG: Result + audit_id
+    else Decision is DENY or ESCALATE
+      DE-->>AG: Denied/Escalated + reason + audit_id
+    end
 ```
-ALLOW
-DENY
-ESCALATE
-REQUIRE_CONFIRMATION
-```
 
 ---
 
-### Capability Registry
+## 7. Security Properties and Guarantees
 
-Defines the actions available within a governed system.
+### 7.1 Capability Isolation Guarantee
 
-Examples:
+No request executes unless actor capability grant covers action and target.
 
-```
-telemetry.query
-identity.disable_account
-infrastructure.deploy
-communication.send_alert
-```
+### 7.2 Attribution Guarantee
 
----
+Every decision and execution path includes actor, request ID, and timestamp.
 
-### Policy Engine
+### 7.3 Non-Bypass Guarantee
 
-Evaluates governance rules against contextual inputs such as:
+External execution interfaces are only reachable through Tool Proxy under a
+valid governance decision.
 
-* actor role
-* environment
-* resource classification
-* operational risk
+### 7.4 Audit Integrity Guarantee
 
----
+Every evaluated request produces an immutable audit record regardless of outcome.
 
-### Tool Proxy Layer
+### 7.5 Determinism Guarantee
 
-Provides controlled interfaces to infrastructure systems including:
-
-* cloud APIs
-* security telemetry systems
-* data platforms
-* operational automation systems
-
-Proxies enforce:
-
-* parameter validation
-* access restrictions
-* audit logging
+Policy and risk evaluation are deterministic given identical inputs and versions.
 
 ---
 
-## 6. Execution Flow
+## 8. Failure Mode Analysis
 
-1. AI agent proposes an action.
-2. Governance gateway validates the request.
-3. Decision engine evaluates governance rules.
-4. A decision is returned.
-5. If allowed, the tool proxy executes the operation.
-
----
-
-## 7. Security Properties
-
-AEGIS™ provides the following guarantees.
-
-Capability Isolation
-AI systems may only access defined capabilities.
-
-Authority Attribution
-All actions are tied to authenticated actors.
-
-Deterministic Enforcement
-Unsafe actions cannot bypass governance rules.
-
-Operational Safety
-High-risk operations require escalation or human approval.
-
-Audit Integrity
-All decisions produce immutable logs.
+| Failure Mode | Expected Behavior | Security Posture |
+|-------------|-------------------|------------------|
+| Malformed request | Reject at Gateway | Fail closed |
+| Capability registry unavailable | Deny/Escalate | Fail closed |
+| Policy engine exception | Escalate or Deny | Fail closed |
+| Audit persistence failure | Block execution for high-risk ops | Fail closed |
+| Tool proxy unavailable | Deny execution path | Fail closed |
+| External system timeout | Return controlled failure | No bypass |
 
 ---
 
-## 8. Relationship to Other Specifications
+## 9. Related Work
 
-This document defines the architectural foundation of AEGIS™.
+AEGIS builds on and extends concepts from:
 
-Additional specifications include:
+- Reference Monitor model (Anderson, 1972)
+- Security kernels and mandatory access control
+- Policy-as-code systems (e.g., Open Policy Agent)
+- Capability-based security models
+- Zero-trust architecture patterns
 
-* RFC-0002 — Governance Runtime
-* RFC-0003 — Capability Registry
-* RFC-0004 — Governance Event Model
-* AGP-1 — AEGIS Governance Protocol
+AEGIS contribution is applying these controls to AI-proposed operational actions
+with deterministic, auditable governance.
 
 ---
 
-## 9. Conclusion
+## 10. Relationship to Other Specifications
 
-AEGIS™ introduces an architectural model for governing AI system behavior.
-By separating reasoning from execution, AEGIS™ enables safe deployment of AI systems in operational environments.
+- RFC-0002: Governance Runtime API and deployment behavior
+- RFC-0003: Capability Registry and Policy Language specification
+- RFC-0004: Governance Event Model for federation and interoperability
+- AGP-1: Governance protocol envelope and transport semantics
+
+---
+
+## 11. Conclusion
+
+AEGIS architecture formalizes a control plane where intelligence may propose
+actions, but only governance authorizes execution. This separation of reasoning
+and execution is the core safety property enabling trustworthy AI operations.

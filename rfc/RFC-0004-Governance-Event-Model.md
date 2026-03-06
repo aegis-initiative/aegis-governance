@@ -2,304 +2,242 @@
 
 ## AEGIS Governance Event Model Specification
 
-Version: 0.1
-Status: Draft
+Version: 0.2  
+Status: Draft  
 Authors: AEGIS Project
 
 ---
 
 # 1. Purpose
 
-This document defines the **AEGIS Governance Event Model**, the standardized structure used to represent governance signals across AEGIS systems and the AEGIS Governance Federation Network (GFN).
-
-Governance events describe information relevant to AI system safety and governance, including:
-
-* policy updates
-* governance circumvention techniques
-* emerging risk signals
-* governance compliance attestations
-* incident disclosures
-
-The event model enables interoperable communication between independent AEGIS nodes.
+This document defines the canonical event envelope, payload schemas, versioning,
+ordering, replay protection, and trust evaluation model for AEGIS federation
+events.
 
 ---
 
-# 2. Design Goals
+# 2. Event Envelope
 
-The governance event model must satisfy the following properties.
-
-### Interoperability
-
-Events must be readable and interpretable by independent AEGIS systems.
-
-### Verifiability
-
-Events must be cryptographically signed.
-
-### Append-Only Integrity
-
-Events must support immutable event streams.
-
-### Extensibility
-
-New event types must be addable without breaking compatibility.
-
-### Federation Compatibility
-
-The model must support distribution via decentralized protocols such as the AT Protocol.
-
----
-
-# 3. Governance Event Structure
-
-All governance events share a common envelope.
-
-Example structure:
+All events MUST use this envelope:
 
 ```json
 {
-  "event_id": "evt-20260304-001",
-  "timestamp": "2026-03-04T20:11:45Z",
-  "publisher_did": "did:aegis:enterprise-ai-001",
-  "event_type": "circumvention_report",
-  "schema_version": "1.0",
+  "event_id": "evt-20260305-0001",
+  "event_seq": 1042,
+  "event_stream": "governance.policy_updates",
+  "timestamp": "2026-03-05T12:00:00Z",
+  "publisher_did": "did:aegis:enterprise-001",
+  "event_type": "policy_update",
+  "schema_version": "1.2.0",
+  "payload_hash": "sha256:...",
   "payload": {},
-  "signature": "ed25519-signature"
-}
-```
-
----
-
-# 4. Core Fields
-
-| Field          | Description                                 |
-| -------------- | ------------------------------------------- |
-| event_id       | unique identifier for the governance event  |
-| timestamp      | event publication time                      |
-| publisher_did  | decentralized identifier of publishing node |
-| event_type     | type of governance event                    |
-| schema_version | schema version for payload                  |
-| payload        | event-specific data                         |
-| signature      | cryptographic signature                     |
-
----
-
-# 5. Event Types
-
-AEGIS defines five core governance event types.
-
-```id="g0x2zy"
-policy_update
-circumvention_report
-risk_signal
-governance_attestation
-incident_notice
-```
-
-Each event type has a specific schema.
-
----
-
-# 6. Circumvention Report Event
-
-This event describes newly discovered techniques used to bypass AI governance mechanisms.
-
-Example:
-
-```json
-{
-  "event_type": "circumvention_report",
-  "payload": {
-    "technique_id": "PRMPT-CHAIN-042",
-    "category": "prompt-engineering",
-    "severity": "high",
-    "affected_models": ["gpt", "claude", "llama"],
-    "description": "Chain-of-thought prompt sequence bypassing guardrails",
-    "mitigation": "Add reasoning-stage policy enforcement"
+  "signature": {
+    "alg": "ed25519",
+    "key_id": "did:aegis:enterprise-001#key-1",
+    "sig": "base64url"
   }
 }
 ```
 
 ---
 
-# 7. Policy Update Event
+# 3. Event Type Schemas
 
-This event distributes governance policy updates.
+## 3.1 policy_update
 
-Example:
+Required payload fields:
+
+- `policy_id` (string)
+- `policy_set_version` (semver)
+- `change_type` (`add|update|deprecate|revoke`)
+- `effective_at` (RFC3339 timestamp)
+- `summary` (string)
+- `policy_diff` (object)
+
+Complete example:
 
 ```json
 {
   "event_type": "policy_update",
   "payload": {
-    "policy_id": "nist-ai-policy-v1",
-    "version": "1.2",
-    "authority": "did:aegis:government-nist",
-    "effective_date": "2026-03-15",
-    "description": "Updated AI governance risk thresholds"
+    "policy_id": "soc_query_guardrails",
+    "policy_set_version": "2.1.0",
+    "change_type": "update",
+    "effective_at": "2026-03-10T00:00:00Z",
+    "summary": "Tighten telemetry query limits",
+    "policy_diff": {
+      "max_results": {"old": 1000, "new": 500}
+    }
   }
 }
 ```
 
+## 3.2 circumvention_report
+
+Required payload fields:
+
+- `technique_id`
+- `category`
+- `severity`
+- `description`
+- `affected_capabilities` (array)
+- `recommended_mitigations` (array)
+
+## 3.3 risk_signal
+
+Required payload fields:
+
+- `risk_category`
+- `severity`
+- `confidence` (0.0-1.0)
+- `trend` (`rising|stable|falling`)
+- `evidence_refs` (array of URIs)
+
+## 3.4 governance_attestation
+
+Required payload fields:
+
+- `node_id`
+- `aegis_version`
+- `policy_set_hash`
+- `audit_window_start`
+- `audit_window_end`
+- `attestation_result` (`pass|fail|partial`)
+
+## 3.5 incident_notice
+
+Required payload fields:
+
+- `incident_id`
+- `category`
+- `severity`
+- `detected_at`
+- `affected_systems`
+- `containment_status`
+- `public_ioc_refs` (optional)
+
 ---
 
-# 8. Risk Signal Event
+# 4. Event Versioning Strategy
 
-Risk signals communicate aggregated intelligence about emerging threats.
+Version format: semantic version `MAJOR.MINOR.PATCH`.
 
-Example:
+Compatibility rules:
 
-```json
-{
-  "event_type": "risk_signal",
-  "payload": {
-    "risk_category": "model_manipulation",
-    "severity": "warning",
-    "trend": "rising",
-    "geographic_scope": "global",
-    "related_models": ["gpt", "claude"]
-  }
-}
+1. PATCH: backward-compatible clarifications only.
+2. MINOR: additive fields allowed; consumers must ignore unknown fields.
+3. MAJOR: breaking schema change; requires explicit migration.
+
+Producer requirements:
+
+- include `schema_version` in every event
+- maintain changelog for all MINOR/MAJOR updates
+
+Consumer requirements:
+
+- reject unsupported major versions
+- accept and ignore unknown optional fields for supported major version
+
+---
+
+# 5. Event Ordering and Replay Protection
+
+## 5.1 Ordering
+
+- ordering is guaranteed per `event_stream` by monotonic `event_seq`
+- consumers detect gaps and request backfill
+
+## 5.2 Replay Protection
+
+Consumers MUST enforce:
+
+- unique `(publisher_did, event_id)`
+- monotonic sequence checks per stream
+- timestamp skew window (default +/- 5 minutes)
+- signature verification with key validity period
+
+Rejected replay scenarios:
+
+- previously seen event_id
+- sequence rollback
+- expired signature key
+- timestamp outside accepted skew window
+
+---
+
+# 6. Trust Evaluation Model
+
+Trust score range: `0.0` to `1.0`.
+
+Inputs:
+
+- publisher identity validity
+- signature validity
+- historical event accuracy
+- external audit attestations
+- federation reputation
+
+Reference scoring formula:
+
+```text
+trust_score =
+  0.25 * identity_confidence +
+  0.20 * signature_confidence +
+  0.25 * historical_accuracy +
+  0.15 * audit_posture +
+  0.15 * federation_reputation
 ```
 
----
+Application policy:
 
-# 9. Governance Attestation Event
-
-Attestation events describe governance posture of participating nodes.
-
-Example:
-
-```json
-{
-  "event_type": "governance_attestation",
-  "payload": {
-    "aegis_version": "1.2",
-    "risk_model": "RISK-CORE-7",
-    "compliance_profile": "NIST-AI-RMF",
-    "audit_timestamp": "2026-03-04T19:30:00Z",
-    "auditor_identity": "did:aegis:enterprise-audit-001"
-  }
-}
-```
+- `trust_score >= 0.8`: allow automated policy ingestion
+- `0.5 <= trust_score < 0.8`: require operator confirmation
+- `< 0.5`: quarantine event
 
 ---
 
-# 10. Incident Notice Event
+# 7. Distribution and Delivery Guarantees
 
-Incident notices describe governance failures or safety incidents.
+Supported patterns:
 
-Example:
+- pull feeds
+- push subscriptions
+- replicated append-only logs
 
-```json
-{
-  "event_type": "incident_notice",
-  "payload": {
-    "incident_id": "INC-90021",
-    "category": "policy_failure",
-    "severity": "high",
-    "description": "AI agent executed unauthorized infrastructure modification",
-    "affected_systems": ["enterprise-ai-ops"],
-    "mitigation_status": "resolved"
-  }
-}
-```
+Delivery semantics:
+
+- at-least-once delivery
+- idempotent consumer processing required
 
 ---
 
-# 11. Event Distribution
+# 8. Security Requirements
 
-Governance events are distributed through the **AEGIS Governance Federation Network**.
-
-Distribution mechanisms may include:
-
-* AT Protocol event feeds
-* federated node replication
-* governance feed subscriptions
-
-Nodes may subscribe to specific feeds.
-
-Example:
-
-```id="2r5g3f"
-governance.policy_updates
-governance.circumvention_reports
-governance.risk_alerts
-governance.incidents
-governance.attestations
-```
+- signed envelope required for all events
+- payload hash required and must match payload bytes
+- schema validation before trust evaluation
+- replay checks before policy application
 
 ---
 
-# 12. Trust Evaluation
+# 9. Complete Event Examples
 
-Nodes must evaluate incoming events based on trust signals.
+This section provides full envelope + payload examples for each event type in
+the canonical repository examples directory (normative reference path):
 
-Trust factors may include:
-
-* publisher identity
-* governance authority status
-* historical signal accuracy
-* external audits
-* federation reputation scores
-
----
-
-# 13. Security Model
-
-Governance events must satisfy the following security properties.
-
-### Signature Verification
-
-Events must include cryptographic signatures.
-
-### Replay Protection
-
-Events must include timestamps and unique identifiers.
-
-### Schema Validation
-
-Events must conform to approved governance schemas.
-
-### Trust Weighting
-
-Nodes must evaluate signal credibility before applying policy changes.
+- `schemas/examples/governance/events/policy_update.example.json`
+- `schemas/examples/governance/events/circumvention_report.example.json`
+- `schemas/examples/governance/events/risk_signal.example.json`
+- `schemas/examples/governance/events/governance_attestation.example.json`
+- `schemas/examples/governance/events/incident_notice.example.json`
 
 ---
 
-# 14. Federation Integration
+# 10. Relationship to Other Specifications
 
-This specification integrates with:
-
-* AEGIS Governance Protocol (AGP)
-* AEGIS Governance Runtime
-* AEGIS Federation Network
-
-Together these components enable a distributed AI governance ecosystem.
-
----
-
-# 15. Future Extensions
-
-Future versions of the event model may support:
-
-* zero-knowledge governance attestations
-* machine-readable policy enforcement updates
-* automated risk propagation between AEGIS runtimes
-* governance reputation graphs
-
----
-
-# 16. Relationship to Other Specifications
-
-This document complements:
-
-* RFC-0001 — AEGIS Architecture
-* RFC-0002 — Governance Runtime
-* RFC-0003 — Capability Registry & Policy Language
-* AGP-1 — Governance Protocol
-* AEGIS Federation Network Specification
-
-Together these documents define the AEGIS governance ecosystem.
+- RFC-0001: architecture and trust boundaries
+- RFC-0002: runtime control-plane behavior
+- RFC-0003: policy and capability semantics
+- AGP-1: request/response governance protocol
 
 ---

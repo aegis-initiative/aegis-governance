@@ -1,302 +1,220 @@
 # RFC-0003
 
-## AEGIS Capability Registry & Policy Language Specification
+## AEGIS Capability Registry and Policy Language Specification
 
-Version: 0.1
-Status: Draft
+Version: 0.2  
+Status: Draft  
 Authors: AEGIS Project
 
 ---
 
 # 1. Purpose
 
-This document defines the **AEGIS Capability Registry** and the **Policy Expression Language** used to evaluate governance decisions.
+This document specifies:
 
-The capability registry provides a standardized way to define the operations an AI system may perform.
-
-The policy language defines the rules used by the AEGIS decision engine to determine whether a proposed action is allowed.
-
-Together these components form the **governance logic layer** of the AEGIS runtime.
-
----
-
-# 2. Design Goals
-
-The registry and policy system must satisfy the following properties.
-
-### Explicit Capability Modeling
-
-All system actions must be represented as capabilities.
-
-### Policy Transparency
-
-Governance rules must be human-readable and auditable.
-
-### Deterministic Evaluation
-
-Policy evaluation must produce consistent results for identical inputs.
-
-### Composability
-
-Policies must support modular rule definitions and inheritance.
-
-### Extensibility
-
-Capability definitions must support new system operations without breaking compatibility.
+- capability schema, inheritance, and validation rules
+- formal policy language syntax and semantics
+- deterministic policy evaluation algorithm
+- complex policy composition examples
 
 ---
 
-# 3. Capability Registry
+# 2. Capability Definition Model
 
-The capability registry defines all actions that AI systems may request.
+Canonical capability fields:
 
-Each capability includes:
-
-* unique identifier
-* description
-* allowed roles
-* environmental scope
-* risk classification
-* optional constraints
-
-Capabilities are stored as structured records.
-
----
-
-## Example Capability Definition
-
-```id="5frc17"
-capability: telemetry.query
+```yaml
+id: telemetry.query
 description: Query security telemetry datasets
-allowed_roles:
-  - soc_analyst
-  - incident_responder
-environment:
-  - production
-  - staging
+parent: telemetry.*
+allowed_roles: [soc_analyst, incident_responder]
+environments: [staging, production]
 risk_level: low
 constraints:
   max_results: 500
+  timeout_ms: 10000
+deprecated: false
+version: 1
 ```
 
 ---
 
-## Infrastructure Example
+# 3. Capability Inheritance Model
 
-```id="9b9cl7"
-capability: infrastructure.deploy
-description: Deploy application infrastructure
-allowed_roles:
-  - devops_engineer
-environment:
-  - staging
-risk_level: high
-approval_required: true
-```
+## 3.1 Hierarchy
+
+Capability IDs form a dotted hierarchy:
+
+- `telemetry.*` (parent)
+- `telemetry.query` (child)
+- `telemetry.query.raw` (grandchild)
+
+## 3.2 Inheritance Rules
+
+1. child inherits parent constraints unless explicitly overridden
+2. child may narrow permissions but may not broaden parent-denied scope
+3. deny constraints on parent are immutable to descendants
+4. multiple inheritance is not allowed in v1
+
+## 3.3 Conflict Resolution
+
+If inherited values conflict:
+
+- stricter constraint wins
+- deny beats allow
+- environment intersection is applied
 
 ---
 
-# 4. Capability Categories
+# 4. Capability Validation Rules
 
-Capabilities are grouped into categories.
+A capability definition is valid only if:
 
-```id="gsgl8n"
-telemetry.*
-data.*
-infrastructure.*
-identity.*
-communication.*
-governance.*
-```
+1. `id` matches regex `^[a-z][a-z0-9_.-]*$`
+2. `risk_level` is one of `low|medium|high|critical`
+3. all `allowed_roles` are known roles
+4. parent exists (unless root capability)
+5. no inheritance cycle exists
+6. constraints keys are from approved vocabulary
 
-Example:
-
-```id="prc3m4"
-telemetry.query
-identity.disable_account
-communication.send_alert
-```
-
-This taxonomy enables consistent policy evaluation.
+Invalid definitions MUST be rejected at registration time.
 
 ---
 
 # 5. Policy Language
 
-AEGIS policies define conditions under which capabilities may be exercised.
+## 5.1 Policy Outcomes
 
-Policies evaluate structured inputs describing:
+- `ALLOW`
+- `DENY`
+- `ESCALATE`
+- `REQUIRE_CONFIRMATION`
 
-* actor identity
-* capability requested
-* system environment
-* resource classification
-* contextual metadata
+## 5.2 Policy Structure
 
-Policies produce one of the following outcomes:
-
-```id="t5q5le"
-ALLOW
-DENY
-ESCALATE
-REQUIRE_CONFIRMATION
-```
-
----
-
-# 6. Policy Structure
-
-Policies are written as structured rules.
-
-Example:
-
-```id="3x9txc"
-policy: telemetry_query_allowed
+```yaml
+policy_id: telemetry_query_allowed
+priority: 100
+enabled: true
 when:
   capability: telemetry.query
   actor.role: soc_analyst
+  environment: production
 then:
   decision: ALLOW
+  constraints:
+    max_results: 500
 ```
 
 ---
 
-# 7. Conditional Policies
+# 6. Formal Policy Syntax (EBNF)
 
-Policies may include conditional expressions.
+```text
+policy      = header, when_clause, then_clause ;
+header      = "policy_id" ":" IDENT, "priority" ":" INT, "enabled" ":" BOOL ;
+when_clause = "when" ":", condition_list ;
+condition_list = condition, { condition } ;
+condition   = field, operator, value ;
+field       = IDENT, { ".", IDENT } ;
+operator    = "==" | "!=" | ">" | ">=" | "<" | "<=" | "in" | "matches" ;
+then_clause = "then" ":", "decision" ":" DECISION, [constraints_clause] ;
+constraints_clause = "constraints" ":", map ;
+DECISION    = "ALLOW" | "DENY" | "ESCALATE" | "REQUIRE_CONFIRMATION" ;
+```
 
-Example:
+---
 
-```id="9w32ux"
-policy: infrastructure_production_guardrail
+# 7. Policy Evaluation Algorithm
+
+Deterministic algorithm:
+
+```text
+1. Load enabled policies.
+2. Sort ascending by priority number (0 is highest priority).
+3. Evaluate policy conditions in order.
+4. If a matching DENY is found, return DENY immediately.
+5. Track first matching non-deny decision by priority.
+6. Apply risk overrides (if configured) without violating deny precedence.
+7. If no match, return DENY (default deny).
+8. Emit evaluation trace for audit.
+```
+
+Complexity target: O(P * C), where P is policies, C is conditions per policy.
+
+---
+
+# 8. Complex Policy Examples
+
+## 8.1 Role + Environment + Risk Gate
+
+```yaml
+policy_id: infra_deploy_prod_guard
+priority: 10
+enabled: true
 when:
   capability: infrastructure.deploy
   environment: production
-then:
-  decision: ESCALATE
-```
-
----
-
-# 8. Risk-Based Policies
-
-Policies may incorporate risk thresholds.
-
-Example:
-
-```id="3uyx4t"
-policy: high_risk_operation
-when:
-  risk_score > 7
+  actor.role in: [devops_engineer, sre]
+  risk_score >=: 8
 then:
   decision: REQUIRE_CONFIRMATION
 ```
 
----
+## 8.2 Conditional Escalation with Regex
 
-# 9. Policy Composition
-
-Policies may be layered.
-
-Evaluation order:
-
-```id="y1u3s9"
-1. System invariants
-2. Capability registry rules
-3. Governance policies
-4. Risk evaluation
+```yaml
+policy_id: identity_disable_sensitive
+priority: 20
+enabled: true
+when:
+  capability: identity.disable_account
+  target matches: "^exec_.*"
+then:
+  decision: ESCALATE
 ```
 
-If any rule produces **DENY**, the action must be rejected.
+## 8.3 Hard Deny Invariant
 
----
-
-# 10. Governance Invariants
-
-Certain rules override all policies.
-
-Examples:
-
-```id="s3l3p3"
-deny if capability not defined
-deny if actor not authenticated
-deny if secret exposure detected
-```
-
-These invariants enforce foundational governance guarantees.
-
----
-
-# 11. Policy Versioning
-
-All policies must include version identifiers.
-
-Example:
-
-```id="n7rtt7"
-policy_set: enterprise_governance
-version: 2026.03.04
-```
-
-Versioning ensures governance decisions remain reproducible.
-
----
-
-# 12. Example Evaluation
-
-Input action:
-
-```id="nmxu0k"
-actor: soc_analyst
-capability: telemetry.query
-environment: production
-```
-
-Evaluation result:
-
-```id="p4h0h1"
-decision: ALLOW
+```yaml
+policy_id: deny_unknown_capability
+priority: 0
+enabled: true
+when:
+  capability_defined == false
+then:
+  decision: DENY
 ```
 
 ---
 
-# 13. Security Properties
+# 9. Policy Versioning and Reproducibility
 
-The registry and policy system provide:
+Policy sets MUST include:
 
-Capability Transparency
-All allowed operations are explicitly defined.
+- `policy_set_id`
+- semantic version (`major.minor.patch`)
+- immutable hash
+- activation timestamp
 
-Policy Auditability
-Governance rules are human-readable.
-
-Deterministic Governance
-Policy evaluation produces consistent results.
-
-Operational Safety
-High-risk actions require escalation.
+Decision replay MUST reference policy-set version and hash.
 
 ---
 
-# 14. Future Extensions
+# 10. Security Guarantees
 
-Future versions may support:
-
-* policy inheritance
-* multi-organization governance profiles
-* automatic policy updates from the AEGIS Federation Network
-* formal verification of governance policies
+- explicit capability transparency
+- deterministic policy behavior
+- deny precedence over permissive rules
+- auditable evaluation traces
 
 ---
 
-# 15. Relationship to Other Specifications
+# 11. Relationship to Other Specifications
 
-This document extends:
-
-* RFC-0001 — AEGIS Architecture
-* RFC-0002 — Governance Runtime
-* AGP-1 — Governance Protocol
-
-Together these specifications define the complete AEGIS governance stack.
+- RFC-0001: architecture and trust boundaries
+- RFC-0002: runtime API and deployment behavior
+- RFC-0004: governance event representation
+- AGP-1: request/response protocol envelope
 
 ---
