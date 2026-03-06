@@ -1,8 +1,34 @@
-# AEGIS Threat Model
+# ATM-1 Threat Model & Security Analysis
 
-Author: Ken Tannenbaum  
-Project: AEGIS  
-Version: 0.2
+**Document**: AEGIS_ATM1_INDEX.md
+**Version**: 1.0 (Normative)
+**Part of**: AEGIS Adaptive Threat Model (ATM-1)
+**Last Updated**: March 5, 2026
+
+---
+
+## Document Structure
+
+The AEGIS Adaptive Threat Model (ATM-1) comprises five normative documents:
+
+1. **AEGIS_ATM1_INDEX.md** (this document) — Overview, threat actor summary, high-level scenarios
+2. **AEGIS_ATM1_THREAT_ACTORS.md** — Detailed profiles of 5 threat actor types with capability/motivation analysis
+3. **AEGIS_ATM1_ATTACK_VECTORS.md** — 20+ attack vectors organized in 7 attack surface categories
+4. **AEGIS_ATM1_SECURITY_PROPERTIES.md** — 5 core security properties, trust boundaries, security assumptions
+5. **AEGIS_ATM1_MITIGATIONS.md** — 6 preventive controls, 5 detective controls, 3 responsive controls, and mitigation coverage matrix
+6. **AEGIS_ATM1_RESIDUAL_RISKS.md** — Residual risks, risk acceptance criteria, continuous monitoring plan
+
+### Recommended Reading Paths
+
+**For Security Architects**: INDEX → THREAT_ACTORS → ATTACK_VECTORS → SECURITY_PROPERTIES → MITIGATIONS
+
+**For Risk Managers**: INDEX → MITIGATIONS → RESIDUAL_RISKS → SECURITY_PROPERTIES
+
+**For Operators**: THREAT_ACTORS → MITIGATIONS → RESIDUAL_RISKS
+
+**For Compliance/Audit**: SECURITY_PROPERTIES → MITIGATIONS → RESIDUAL_RISKS
+
+---
 
 ## Purpose
 
