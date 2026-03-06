@@ -76,6 +76,7 @@ Structure:
 - ✓ aegis-core/constitution/ (meta-governance framework)
 
 Key Documents:
+
 - ✓ AEGIS_Manifesto.md
 - ✓ AEGIS_System_Overview.md
 - ✓ AEGIS_Reference_Architecture.md
@@ -125,7 +126,8 @@ Files:
 - ✓ RFC-0004-Governance-Event-Model.md (171 lines)
 - ✓ README.md (RFC process guide)
 
-**Notes**: 
+**Notes**:
+
 - Complete initial RFC series present
 - All RFCs contain substantial content
 - RFC process documented
@@ -140,6 +142,7 @@ Files:
 Location: `aegis-core/schemas/`
 
 Structure:
+
 - ✓ agp/ (AGP-1 protocol message schemas)
 - ✓ capability/ (capability definition schemas)
 - ✓ governance/ (governance event schemas)
@@ -149,7 +152,8 @@ Structure:
 
 Format: JSON Schema (draft-2020-12)
 
-**Notes**: 
+**Notes**:
+
 - Schemas validate successfully (CI passing)
 - Examples provided for all message types
 - Well-documented with validation guidance
@@ -163,6 +167,7 @@ Format: JSON Schema (draft-2020-12)
 Location: `aegis-runtime/`
 
 Structure:
+
 - ✓ aegis/ (Python package directory)
 - ✓ tests/ (test suite)
 - ✓ pyproject.toml (package configuration)
@@ -170,7 +175,8 @@ Structure:
 - ✓ CHANGELOG.md (version history)
 - ✓ LICENSE (Apache 2.0)
 
-**Notes**: 
+**Notes**:
+
 - Checklist expected individual .py files in root; actual structure uses proper Python package layout (better)
 - Runtime is marked as "in progress" which is appropriate for v0.1
 - Package structure is professional and ready for development
@@ -186,6 +192,7 @@ Structure:
 Location: `federation/`
 
 Files (6 documents):
+
 - ✓ README.md (federation overview)
 - ✓ AEGIS_GFN1_GOVERNANCE_NETWORK.md (network architecture)
 - ✓ AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md (node design)
