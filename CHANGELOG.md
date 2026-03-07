@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+# [Unreleased]
+
+## Added
+
+- 📣 **NIST Position Statement Submission** — On March 7, 2026, AEGIS™ submitted its official position statement to NIST for AI RMF engagement.
+  - Document: `docs/position-papers/nist/2026-03-aegis-nist-ai-rmf-position-statement.md`
+  - Purpose: Propose execution-time governance as a first-class implementation pattern for agentic AI risk management.
+  - Scope: Includes constitutional governance framing, AGP-1/ATM-1 alignment, and actionable recommendations for AI RMF evolution.
+
 # [0.1.0] — 2026-03-05: Architecture Foundation & Specification Phase
 
 **Status:** ✅ **RELEASED** — v0.1.0 Draft Specification
