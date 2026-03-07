@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/governance/events/risk_signal.schema.json",
+  "title": "Risk Signal Event",
+  "allOf": [
+    {
+      "$ref": "https://aegis-initiative.com/schemas/governance/governance_event_envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": { "const": "risk_signal" },
+        "payload": {
+          "type": "object",
+          "required": ["risk_category", "severity", "trend"],
+          "additionalProperties": false,
+          "properties": {
+            "risk_category": { "type": "string" },
+            "severity": { "type": "string", "enum": ["info", "warning", "high", "critical"] },
+            "trend": { "type": "string", "enum": ["rising", "stable", "declining"] },
+            "geographic_scope": { "type": "string" },
+            "related_models": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "required": ["event_type", "payload"]
+    }
+  ]
+}

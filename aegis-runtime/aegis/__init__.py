@@ -1,4 +1,4 @@
-"""AEGIS – Architectural Enforcement & Governance Intelligence System.
+"""AEGIS™ - Architectural Enforcement & Governance of Intelligent Systems.
 
 A governance runtime for AI systems that enforces deterministic control
 over AI-generated actions before they interact with infrastructure.

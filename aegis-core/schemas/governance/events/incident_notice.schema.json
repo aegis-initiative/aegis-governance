@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/governance/events/incident_notice.schema.json",
+  "title": "Incident Notice Event",
+  "allOf": [
+    {
+      "$ref": "https://aegis-initiative.com/schemas/governance/governance_event_envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": { "const": "incident_notice" },
+        "payload": {
+          "type": "object",
+          "required": ["incident_id", "category", "severity", "description", "mitigation_status"],
+          "additionalProperties": false,
+          "properties": {
+            "incident_id": { "type": "string" },
+            "category": { "type": "string" },
+            "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+            "description": { "type": "string" },
+            "affected_systems": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "mitigation_status": { "type": "string", "enum": ["investigating", "mitigated", "resolved"] }
+          }
+        }
+      },
+      "required": ["event_type", "payload"]
+    }
+  ]
+}

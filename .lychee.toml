@@ -1,9 +1,10 @@
-verbose = true
-exclude_mail = true
+verbose = "info"
+include_mail = false
 timeout = 20
 max_retries = 2
 retry_wait_time = 2
 max_concurrency = 10
+skip_missing = true
 
 exclude = [
   "^http://localhost",

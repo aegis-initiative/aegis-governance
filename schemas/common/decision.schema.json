@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aegis.dev/schemas/common/decision.schema.json",
-  "title": "Governance Decision",
-  "type": "string",
-  "enum": ["ALLOW", "DENY", "ESCALATE", "REQUIRE_CONFIRMATION"]
-}

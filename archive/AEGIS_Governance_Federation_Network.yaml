@@ -1,8 +1,0 @@
-spec:
-  name: "AEGIS Governance Federation Network"
-  short_name: "AEGIS-GFN"
-  version: "0.1"
-  status: "draft"
-  authors:
-    - "Ken Tannenbaum"
-  date: "2026-03-04"

@@ -5,11 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aegis-governance"
 version = "0.1.0"
-description = "AEGIS – Architectural Enforcement & Governance Intelligence System"
+description = "AEGIS - Architectural Enforcement & Governance of Intelligent Systems"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 keywords = ["governance", "ai", "policy", "security", "audit"]
+authors = [
+    { name = "Kenneth Tannenbaum", email = "finnoybu@users.noreply.github.com" },
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -20,10 +23,22 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 
+[project.urls]
+Homepage = "https://github.com/finnoybu/aegis-governance"
+Repository = "https://github.com/finnoybu/aegis-governance"
+Documentation = "https://github.com/finnoybu/aegis-governance/blob/main/SPECIFICATION.md"
+Discussions = "https://github.com/finnoybu/aegis-governance/discussions"
+Issues = "https://github.com/finnoybu/aegis-governance/issues"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
+    "pytest-asyncio>=0.21",
+    "black>=23.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+    "isort>=5.12",
 ]
 
 [tool.setuptools.packages.find]

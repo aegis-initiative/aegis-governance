@@ -24,10 +24,11 @@
 ## Changes Made
 
 <!-- List the specific changes made in this PR -->
+<!-- Example: "Updated AGP1 schema to include new risk_context field" -->
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Testing
 
@@ -48,6 +49,17 @@
 - [ ] RFC documentation updated (if applicable)
 - [ ] Code comments added/updated
 - [ ] CHANGELOG updated (for runtime changes)
+- [ ] Specification version numbers updated (if applicable)
+
+## Specification Impact
+
+<!-- Does this change affect any versioned specifications? -->
+
+- [ ] No specification version impact
+- [ ] AGP (AEGIS Governance Protocol) affected: ___
+- [ ] GFN (Governance Federation Network) affected: ___
+- [ ] ATM (Attack & Threat Model) affected: ___
+- [ ] RFC affected: ___
 
 ## Security Considerations
 
@@ -65,9 +77,24 @@
 - [ ] No breaking changes
 - [ ] Breaking changes (describe below and update relevant documentation)
 
+<!-- If breaking changes exist, provide migration guidance -->
+<details>
+<summary>Migration Guide (if applicable)</summary>
+
+<!-- Describe how users should migrate from the previous version -->
+<!-- Example: "Update capability schema from v1.0 to v1.1 by adding 'context' field" -->
+
+</details>
+
+## Reviewers & Collaborators
+
+<!-- Tag relevant reviewers or contributors -->
+<!-- Example: @username for protocol changes, @username for documentation -->
+
 ## Checklist
 
 - [ ] Branch follows naming convention (`rfc/`, `docs/`, `spec/`, `feat/`, `fix/`)
 - [ ] Commits follow Conventional Commits format
 - [ ] All conversations resolved
+- [ ] Self-review completed
 - [ ] PR is ready for review

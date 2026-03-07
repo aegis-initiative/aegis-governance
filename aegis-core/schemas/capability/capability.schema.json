@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/capability/capability.schema.json",
+  "title": "AEGIS Capability Definition",
+  "type": "object",
+  "required": ["capability", "description", "allowed_roles", "environment", "risk_level"],
+  "additionalProperties": false,
+  "properties": {
+    "capability": {
+      "$ref": "https://aegis-initiative.com/schemas/common/capability-id.schema.json"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "environment": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["development", "staging", "production"]
+      }
+    },
+    "risk_level": {
+      "$ref": "https://aegis-initiative.com/schemas/common/risk-level.schema.json"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "approval_required": {
+      "type": "boolean"
+    }
+  }
+}

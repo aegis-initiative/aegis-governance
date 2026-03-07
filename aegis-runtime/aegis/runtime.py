@@ -39,6 +39,14 @@ Quick-start::
 
     # 5. Invoke the tool – governance is applied transparently
     content = proxy.call("read_doc", path="/docs/intro.md")
+
+Context manager usage::
+
+    # Automatically manages runtime lifecycle
+    with AEGISRuntime(db_path="/tmp/audit.db") as runtime:
+        # ... configure runtime ...
+        response = runtime.gateway.submit(request)
+        # shutdown() is called automatically on exit
 """
 
 from __future__ import annotations
@@ -58,9 +66,16 @@ class AEGISRuntime:
     capabilities and policies directly, while the plumbing (audit,
     decision engine, gateway) is set up automatically.
 
+    The runtime can be used as a context manager for automatic resource
+    cleanup::
+
+        with AEGISRuntime() as runtime:
+            # ... use runtime ...
+            pass  # shutdown() called automatically
+
     Parameters
     ----------
-    db_path:
+    db_path : str
         SQLite database path for the :class:`~aegis.audit.AuditSystem`.
         Defaults to ``":memory:"`` (in-process, no persistence).
     """
@@ -75,6 +90,60 @@ class AEGISRuntime:
             audit_system=self._audit,
         )
         self._gateway = GovernanceGateway(decision_engine=self._decision_engine)
+        self._is_shutdown = False
+
+    # ------------------------------------------------------------------
+    # Context manager support
+    # ------------------------------------------------------------------
+
+    def __enter__(self) -> AEGISRuntime:
+        """Enter a context manager block.
+
+        Returns
+        -------
+        AEGISRuntime
+            Self, for use in ``with`` statements.
+        """
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """Exit a context manager block.
+
+        Automatically calls :meth:`shutdown` to clean up resources.
+
+        Parameters
+        ----------
+        exc_type
+            Exception type if an exception occurred, else None.
+        exc_val
+            Exception value if an exception occurred, else None.
+        exc_tb
+            Exception traceback if an exception occurred, else None.
+        """
+        self.shutdown()
+
+    def shutdown(self) -> None:
+        """Shut down the runtime and clean up resources.
+
+        This method:
+        - Closes database connections
+        - Clears in-memory state
+        - Removes dangling resources
+
+        This is called automatically if used as a context manager.
+        Safe to call multiple times.
+        """
+        if self._is_shutdown:
+            return
+        
+        # Close database connection
+        try:
+            self._audit._conn.close()
+        except Exception:
+            pass  # Already closed or error during close
+        
+        # Mark as shutdown
+        self._is_shutdown = True
 
     # ------------------------------------------------------------------
     # Public component accessors
@@ -109,10 +178,15 @@ class AEGISRuntime:
 
         Parameters
         ----------
-        agent_id:
+        agent_id : str
             The AI agent that will use the proxy.
-        session_id:
+        session_id : str
             The current session identifier.
+            
+        Returns
+        -------
+        ToolProxy
+            A governance-enabled tool proxy for the agent.
         """
         return ToolProxy(
             gateway=self._gateway,

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/governance/events/circumvention_report.schema.json",
+  "title": "Circumvention Report Event",
+  "allOf": [
+    {
+      "$ref": "https://aegis-initiative.com/schemas/governance/governance_event_envelope.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "event_type": { "const": "circumvention_report" },
+        "payload": {
+          "type": "object",
+          "required": ["technique_id", "category", "severity", "description"],
+          "additionalProperties": false,
+          "properties": {
+            "technique_id": { "type": "string" },
+            "category": { "type": "string" },
+            "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+            "affected_models": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "description": { "type": "string" },
+            "mitigation": { "type": "string" }
+          }
+        }
+      },
+      "required": ["event_type", "payload"]
+    }
+  ]
+}

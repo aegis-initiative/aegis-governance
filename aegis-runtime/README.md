@@ -1,23 +1,52 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../docs/assets/AEGIS_wordmark_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="../docs/assets/AEGIS_wordmark_light.svg">
-    <img src="../docs/assets/AEGIS_wordmark.svg" width="120" alt="AEGIS™ Governance Logo">
+    <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
+    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
 
-# AEGIS Runtime (Reference Implementation)
+# AEGIS™ Runtime (Reference Implementation)
 
-**AEGIS — Architectural Enforcement & Governance of Intelligent Systems**
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![Status](https://img.shields.io/badge/status-alpha-orange)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 
-The AEGIS Runtime is the **reference Python implementation** of the AEGIS governance architecture.
+```
+
+The AEGIS™ Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
-
-AEGIS is designed around the principle:
 
 > **Capability without constraint is not intelligence.**
 
-Instead of relying on post-hoc monitoring or best-effort safeguards, AEGIS enforces **pre-execution governance decisions** through a structured protocol and policy system.
+AEGIS enforces governance decisions **before execution**, ensuring AI systems operate within explicit capability and policy boundaries.
+
+---
+
+## What AEGIS Does
+
+AEGIS sits between AI systems and the external world, enforcing governance decisions before actions are executed.
+
+AI Agent
+   │
+   ▼
+AEGIS Runtime
+   │
+ 
+   ├ GovernanceGateway
+   ├ DecisionEngine
+   ├ CapabilityRegistry
+   ├ PolicyEngine
+   └ AuditSystem
+   │
+   ▼
+Tools / APIs / Files / Infrastructure
+```
+
+AEGIS ensures that:
+
+- agents can only attempt actions they have **capabilities** for
+- actions must pass **deterministic policy evaluation**
+- every governance decision is **immutably audited**
 
 ---
 
@@ -56,8 +85,8 @@ The gateway is the **single validated entry point** for governance requests.
 
 Responsibilities:
 
-* request validation
-* routing to the decision engine
+- request validation
+- routing to the decision engine
 
 ---
 
@@ -85,10 +114,10 @@ Implements **capability-based security**.
 
 Capabilities define:
 
-* allowed action types
-* permitted target patterns
-* optional expiration
-* metadata annotations
+- allowed action types
+- permitted target patterns
+- optional expiration
+- metadata annotations
 
 Agents must possess a capability before attempting an action.
 
@@ -100,9 +129,9 @@ Provides deterministic policy evaluation.
 
 Policies contain:
 
-* priority ordering
-* allow / deny effect
-* pure condition predicates
+- priority ordering
+- allow / deny effect
+- pure condition predicates
 
 Evaluation rules:
 
@@ -133,21 +162,21 @@ Every governance decision is recorded in an **append-only audit log**.
 
 Audit records include:
 
-* request ID
-* agent ID
-* action type
-* target
-* parameters
-* governance decision
-* policy evaluation trace
-* session ID
-* timestamp
+- request ID
+- agent ID
+- action type
+- target
+- parameters
+- governance decision
+- policy evaluation trace
+- session ID
+- timestamp
 
 This enables:
 
-* compliance reporting
-* forensic review
-* deterministic traceability
+- compliance reporting
+- forensic review
+- deterministic traceability
 
 ---
 
@@ -170,14 +199,34 @@ All governance interactions are represented using these protocol objects.
 
 ---
 
-# Installation
+`git clone https://github.com/finnoybu/aegis-governance.git`
 
+```
+cd aegis-governance/aegis-runtime
+pip install -e .
+```
+
+After installation, the runtime can be imported as:
+
+# Installation
 Clone the repository and install the runtime locally.
 
 ```
-git clone https://github.com/aegis-project/aegis-governance.git
+`git clone https://github.com/finnoybu/aegis-governance.git`
 cd aegis-governance/aegis-runtime
 pip install -e .
+```
+
+After installation, the runtime can be imported as:
+
+```python
+from aegis import AEGISRuntime
+```
+
+`git clone https://github.com/finnoybu/aegis-governance.git`
+*** End Patch
+pip install -e .
+
 ```
 
 After installation, the runtime can be imported as:
@@ -256,9 +305,7 @@ This initializes the runtime and demonstrates capability and policy configuratio
 
 # Running Tests
 
-The runtime includes a full test suite.
-
-Run tests using:
+Run the test suite:
 
 ```
 pytest
@@ -285,11 +332,8 @@ pip install pytest
 aegis-runtime/
 │
 ├─ aegis/           # Core runtime package
-│
 ├─ examples/        # Minimal runnable examples
-│
 ├─ tests/           # Test suite
-│
 ├─ pyproject.toml   # Package configuration
 └─ README.md
 ```
@@ -306,11 +350,7 @@ The same request against the same policies always produces the same decision.
 
 ## Defense in Depth
 
-Enforcement layers include:
-
-* capability checks
-* policy evaluation
-* audit recording
+Enforcement layers include capability checks, policy evaluation, and audit recording.
 
 ## Default-Deny Security
 
@@ -326,7 +366,7 @@ Governance interactions are defined using structured protocol messages.
 
 ---
 
-# Relationship to the AEGIS Project
+# Relationship to the AEGIS™ Initiative
 
 This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 
@@ -348,10 +388,10 @@ Early reference implementation.
 
 Future extensions may include:
 
-* risk scoring
-* federated governance signals
-* distributed policy synchronization
-* additional runtime implementations (Rust / Go)
+- risk scoring
+- federated governance signals
+- distributed policy synchronization
+- additional runtime implementations (Rust / Go)
 
 ---
 

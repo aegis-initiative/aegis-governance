@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/common/actor.schema.json",
+  "title": "Actor",
+  "type": "object",
+  "required": ["id", "type"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique actor identifier, such as agent:soc-001"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["agent", "user", "service"]
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

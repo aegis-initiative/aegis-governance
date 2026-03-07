@@ -1,0 +1,36 @@
+name: Documentation Consistency
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  consistency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check for inconsistent phrases
+        run: |
+          set -e
+          # Check for correct tagline (must appear exactly as specified)
+          if grep -r -i 'Capability without constraint is not intelligence' . --include='*.md' | grep -v 'Capability without constraint is not intelligence™'; then
+            echo '❌ Inconsistent tagline found. Only "Capability without constraint is not intelligence™" is allowed.'
+            exit 1
+          fi
+          # Check for correct expansion (must appear exactly as specified)
+          if grep -r -i 'Architectural Enforcement & Governance Intelligence System' . --include='*.md'; then
+            echo '❌ Deprecated expansion found: "Architectural Enforcement & Governance Intelligence System". Use "Architectural Enforcement & Governance of Intelligent Systems" only.'
+            exit 1
+          fi
+          # Check for correct expansion (must appear exactly as specified)
+          if grep -r -i 'Architectural Enforcement & Governance of Intelligent Systems' . --include='*.md' | grep -v 'Architectural Enforcement & Governance of Intelligent Systems'; then
+            echo '❌ Inconsistent expansion found. Only "Architectural Enforcement & Governance of Intelligent Systems" is allowed.'
+            exit 1
+          fi
+          echo '✅ Documentation consistency checks passed.'

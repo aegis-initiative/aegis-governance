@@ -50,6 +50,7 @@ Use descriptive branch names with the following prefixes:
 - `feat/` — New features or components (e.g., `feat/add-risk-evaluation-model`)
 
 Examples:
+
 ```
 rfc/add-hardware-attestation
 docs/update-federation-architecture
@@ -71,6 +72,7 @@ Use **Conventional Commits** format for clear, actionable commit history:
 ```
 
 **Types:**
+
 - `feat:` — New feature or specification
 - `fix:` — Bug fix or correction
 - `docs:` — Documentation changes
@@ -81,6 +83,7 @@ Use **Conventional Commits** format for clear, actionable commit history:
 **Scope examples:** `rfc-002`, `threat-model`, `agp`, `federation`
 
 **Examples:**
+
 ```
 feat(rfc-003): add capability inheritance model
 docs(readme): update architecture diagram
@@ -98,16 +101,16 @@ Major architectural or protocol changes should be proposed through the **RFC pro
 
 rfc/
 
-2. Follow the format used in existing RFC documents.
+1. Follow the format used in existing RFC documents.
 
-3. Open a pull request describing:
+2. Open a pull request describing:
 
 - the motivation
 - the proposed design
 - compatibility considerations
 - security implications
 
-4. Community discussion will determine whether the proposal is accepted.
+1. Community discussion will determine whether the proposal is accepted.
 
 ---
 

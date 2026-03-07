@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/common/risk-level.schema.json",
+  "title": "Risk Level",
+  "type": "string",
+  "enum": ["low", "medium", "high", "critical"]
+}

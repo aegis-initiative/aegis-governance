@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/AEGIS_wordmark_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="docs/assets/AEGIS_wordmark_light.svg">
-    <img src="docs/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
+    <source media="(prefers-color-scheme: dark)" srcset="aegis-core/assets/AEGIS_wordmark_dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="aegis-core/assets/AEGIS_wordmark_light.svg">
+    <img src="aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
   </picture>
 </p>
 
@@ -13,26 +13,32 @@
   <a href="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml"><img src="https://github.com/finnoybu/aegis-governance/actions/workflows/spellcheck.yml/badge.svg" alt="Spell Check"></a>
 </p>
 
+### Announcement
+
+AEGIS™ has been **[publicly released](docs/2026-03-05-ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.  
+
+---
+
 # AEGIS™ Governance
 
 Architectural Enforcement & Governance of Intelligent Systems
 
 > **Capability without constraint is not intelligence™**
 
-**AEGIS™ is a governance architecture that enforces deterministic control over AI-generated actions before they interact with infrastructure.**
+**AEGIS™ is a governance architecture that enforces deterministic constitutional governance over AI-generated actions before they interact with infrastructure.**
 
 Modern AI safety mechanisms primarily influence **model behavior** through alignment training, moderation systems, and policy controls. While these approaches help guide model outputs, they do not guarantee control over what AI systems **do** when interacting with operational infrastructure.
 
 AEGIS™ addresses this gap by introducing a **governance runtime** that evaluates AI-generated actions before they interact with real systems.
 
+AEGIS is designed as a constitutional mediation layer, not a model of domination. It establishes explicit boundaries, accountability, and appealable governance pathways so increasingly capable AI systems and human institutions can coexist safely.
+
 **AI systems may propose actions.
 AEGIS™ evaluates those actions.
+
 Only approved actions are allowed to execute.**
 
----
-
 # Core Concepts
-
 AEGIS™ introduces a governance architecture built on several core components.
 
 ### Governance Runtime
@@ -130,23 +136,25 @@ This model is conceptually similar to **cybersecurity threat intelligence sharin
 
 # Documentation
 
-| Document               | Purpose                                     |
-| ---------------------- | ------------------------------------------- |
-| Manifesto              | Vision for governed artificial intelligence |
-| System Overview        | Architecture of the AEGIS™ ecosystem        |
-| Reference Architecture | Governance runtime design                   |
-| Threat Model           | Security risks addressed by AEGIS™          |
-| RFC Specifications     | Core governance specifications              |
-| AGP Protocol           | Action governance protocol                  |
-| Federation Network     | Distributed governance intelligence         |
+| Document               | Purpose                                     | Location |
+| ---------------------- | ------------------------------------------- | -------- |
+| Manifesto              | Vision for governed artificial intelligence | [aegis-core/manifesto/](aegis-core/manifesto/) |
+| System Overview        | Architecture of the AEGIS™ ecosystem        | [aegis-core/overview/](aegis-core/overview/) |
+| Reference Architecture | Governance runtime design                   | [aegis-core/architecture/](aegis-core/architecture/) |
+| Protocol (AGP-1)       | Action governance protocol                  | [aegis-core/protocol/](aegis-core/protocol/) |
+| Threat Model (ATM-1)   | Security risks addressed by AEGIS™          | [aegis-core/threat-model/](aegis-core/threat-model/) |
+| Federation Network (GFN-1) | Distributed governance intelligence     | [federation/](federation/) |
+| RFC Specifications     | Core governance specifications              | [rfc/](rfc/) |
 
 Full documentation can be found in the repository directories:
 
 ```
-docs/
-rfc/
-protocol/
-federation/
+aegis-core/        # Architecture, protocol specs, threat model
+aegis-runtime/     # Python reference implementation
+rfc/               # RFC specifications
+federation/        # Governance Federation Network specs
+docs/              # Articles, announcements, guides
+examples/          # Integration examples
 ```
 
 ---
@@ -167,17 +175,17 @@ AEGIS™ enables these systems to **analyze, recommend, and automate safely with
 
 # Project Status
 
-AEGIS™ is currently in the **architecture specification phase**.
+AEGIS™ v0.1 architecture specifications are complete; reference runtime implementation is in progress.
 
 The project includes:
 
-* governance architecture
-* protocol definitions
-* threat modeling
-* federation network design
-* runtime specification roadmap
-
-Reference implementations are planned.
+* ✅ Complete governance architecture specification
+* ✅ AGP-1 protocol definitions (normative)
+* ✅ ATM-1 threat model and security analysis
+* ✅ Federation network design (GFN-1)
+* ✅ JSON schemas for protocol validation
+* 🔄 Python reference runtime (aegis-runtime/)
+* 🔄 Integration examples and patterns
 
 ---
 
@@ -199,6 +207,6 @@ The long-term goal is to develop AEGIS™ as an **open governance architecture**
 
 # Trademark Notice
 
-AEGIS™ and **“Capability without constraint is not intelligence™”** are trademarks of Ken Tannenbaum.
+AEGIS™ and **"Capability without constraint is not intelligence™"** are trademarks of Finnoybu IP LLC.
 
 Use of these marks in derivative works must not imply endorsement without explicit permission.
