@@ -1,16 +1,16 @@
-# ATM-1 Threat Actors & Adversary Models
+# AEGIS™ ATM-1 Threat Actors & Adversary Models
 
-**Document**: AEGIS_ATM1_THREAT_ACTORS.md
+**Document**: ATM-1/Actors (AEGIS_ATM1_THREAT_ACTORS.md)
 **Version**: 1.0 (Normative)
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)
-**Related**: AEGIS_ATM1_INDEX.md
-**Last Updated**: March 5, 2026
+**References**: ATM-1/Index
+**Last Updated**: March 6, 2026
 
 ---
 
 ## Threat Actor Classification
 
-AEGIS threat actors are categorized by capability, motivation, and access level.
+AEGIS™ threat actors are categorized by capability, motivation, and access level.
 
 ### Actor 1: External Opportunistic Attacker
 

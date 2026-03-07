@@ -1,4 +1,12 @@
-# The AEGIS Manifesto
+# AEGIS™ Manifesto
+
+### Architectural Enforcement & Governance of Intelligent Systems
+
+Version: 0.1\
+Status: Draft\
+Effective Date: March 6, 2026
+
+---
 
 ### Toward Governed Artificial Intelligence
 

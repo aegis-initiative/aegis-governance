@@ -1,8 +1,16 @@
-# AEGIS Architecture Overview
+# AEGIS™ Architecture Overview
 
-Author: Kenneth Tannenbaum  
-Project: AEGIS (Architectural Enforcement & Governance of Intelligent Systems)  
-Version: 0.2
+### Architectural Enforcement & Governance of Intelligent Systems
+
+**Version**: 0.2\
+**Status**: Informational\
+**Part of**: AEGIS Architecture\
+**Author**: Kenneth Tannenbaum\
+**Last Updated**: March 6, 2026
+
+---
+
+# AEGIS™ System Overview
 
 ## Executive Summary
 

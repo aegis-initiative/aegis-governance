@@ -134,23 +134,25 @@ This model is conceptually similar to **cybersecurity threat intelligence sharin
 
 # Documentation
 
-| Document               | Purpose                                     |
-| ---------------------- | ------------------------------------------- |
-| Manifesto              | Vision for governed artificial intelligence |
-| System Overview        | Architecture of the AEGIS™ ecosystem        |
-| Reference Architecture | Governance runtime design                   |
-| Threat Model           | Security risks addressed by AEGIS™          |
-| RFC Specifications     | Core governance specifications              |
-| AGP Protocol           | Action governance protocol                  |
-| Federation Network     | Distributed governance intelligence         |
+| Document               | Purpose                                     | Location |
+| ---------------------- | ------------------------------------------- | -------- |
+| Manifesto              | Vision for governed artificial intelligence | [aegis-core/manifesto/](aegis-core/manifesto/) |
+| System Overview        | Architecture of the AEGIS™ ecosystem        | [aegis-core/overview/](aegis-core/overview/) |
+| Reference Architecture | Governance runtime design                   | [aegis-core/architecture/](aegis-core/architecture/) |
+| Protocol (AGP-1)       | Action governance protocol                  | [aegis-core/protocol/](aegis-core/protocol/) |
+| Threat Model (ATM-1)   | Security risks addressed by AEGIS™          | [aegis-core/threat-model/](aegis-core/threat-model/) |
+| Federation Network (GFN-1) | Distributed governance intelligence     | [federation/](federation/) |
+| RFC Specifications     | Core governance specifications              | [rfc/](rfc/) |
 
 Full documentation can be found in the repository directories:
 
 ```
-docs/
-rfc/
-protocol/
-federation/
+aegis-core/        # Architecture, protocol specs, threat model
+aegis-runtime/     # Python reference implementation
+rfc/               # RFC specifications
+federation/        # Governance Federation Network specs
+docs/              # Articles, announcements, guides
+examples/          # Integration examples
 ```
 
 ---
@@ -171,17 +173,17 @@ AEGIS™ enables these systems to **analyze, recommend, and automate safely with
 
 # Project Status
 
-AEGIS™ is currently in the **architecture specification phase**.
+AEGIS™ v0.1 architecture specifications are complete; reference runtime implementation is in progress.
 
 The project includes:
 
-* governance architecture
-* protocol definitions
-* threat modeling
-* federation network design
-* runtime specification roadmap
-
-Reference implementations are planned.
+* ✅ Complete governance architecture specification
+* ✅ AGP-1 protocol definitions (normative)
+* ✅ ATM-1 threat model and security analysis
+* ✅ Federation network design (GFN-1)
+* ✅ JSON schemas for protocol validation
+* 🔄 Python reference runtime (aegis-runtime/)
+* 🔄 Integration examples and patterns
 
 ---
 

@@ -1,4 +1,4 @@
-# AEGIS Announcement Readiness Assessment
+# AEGIS™ Announcement Readiness Assessment
 
 **Generated**: March 5, 2026
 **Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)

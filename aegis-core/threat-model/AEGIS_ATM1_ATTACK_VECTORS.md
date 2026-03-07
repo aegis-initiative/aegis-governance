@@ -1,10 +1,10 @@
-# ATM-1 Attack Vectors & Exploitation Techniques
+# AEGIS™ ATM-1 Attack Vectors & Exploitation Techniques
 
-**Document**: AEGIS_ATM1_ATTACK_VECTORS.md
-**Version**: 1.0 (Normative)
-**Part of**: AEGIS Adaptive Threat Model (ATM-1)
-**Related**: AEGIS_ATM1_THREAT_ACTORS.md
-**Last Updated**: March 5, 2026
+**Document**: ATM-1/Vectors (AEGIS_ATM1_ATTACK_VECTORS.md)\
+**Version**: 1.0 (Normative)\
+**Part of**: AEGIS Adaptive Threat Model (ATM-1)\
+**References**: ATM-1/Actors\
+**Last Updated**: March 6, 2026
 
 ---
 

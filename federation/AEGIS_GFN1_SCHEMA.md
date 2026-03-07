@@ -1,9 +1,9 @@
-# GFN Event Schemas & Data Definitions
+# AEGIS™ GFN-1 Event Schemas & Data Definitions
 
-**Document**: AEGIS_GFN1_SCHEMA.md
+**Document**: GFN-1/Schema (AEGIS_GFN1_SCHEMA.md)
 **Version**: 1.0 (Normative)
 **Part of**: AEGIS Governance Federation Network
-**Last Updated**: March 5, 2026
+**Last Updated**: March 6, 2026
 
 ---
 

@@ -1,9 +1,9 @@
-# GFN Trust Model & Federated Reputation
+# AEGIS™ GFN-1 Trust Model & Federated Reputation
 
-**Document**: AEGIS_GFN1_TRUST_MODEL.md
+**Document**: GFN-1/Trust (AEGIS_GFN1_TRUST_MODEL.md)
 **Version**: 1.0 (Normative)
 **Part of**: AEGIS Governance Federation Network
-**Last Updated**: March 5, 2026
+**Last Updated**: March 6, 2026
 
 ---
 

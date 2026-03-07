@@ -1,16 +1,19 @@
 # RFC-0001
 
-## AEGIS Governance Architecture
+## AEGIS™ Governance Architecture
 
-Version: 0.2  
-Status: Draft  
-Authors: AEGIS Project
+**RFC**: RFC-0001  
+**Version**: 0.2  
+**Status**: Draft  
+**Authors**: AEGIS™ Initiative  
+**Created**: March 5, 2026  
+**Last Updated**: March 6, 2026
 
 ---
 
 ## 1. Abstract
 
-This document defines the reference architecture for AEGIS (Architectural
+This document defines the reference architecture for AEGIS™ (Architectural
 Enforcement and Governance of Intelligent Systems).
 
 AEGIS introduces a deterministic governance control plane between AI-generated

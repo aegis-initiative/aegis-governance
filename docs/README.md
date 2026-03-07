@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-# AEGIS Documentation
+# AEGIS™ Documentation
 
 This directory contains **supporting documentation**, **architectural design artifacts**, and **historical context** for the AEGIS governance framework.
 

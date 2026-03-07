@@ -1,7 +1,9 @@
 # AEGIS™ Constitution
 
-Version: 0.1.0  
-Status: Draft  
+Architectural Enforcement & Governance of Intelligent Systems
+
+Version: 0.1\ 
+Status: Draft\
 Effective Date: March 5, 2026
 
 ---

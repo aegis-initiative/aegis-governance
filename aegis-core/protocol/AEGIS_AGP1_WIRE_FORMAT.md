@@ -1,9 +1,9 @@
-# AGP-1 Wire Format & Transport Specification
+# AEGIS™ AGP-1 Wire Format & Transport Specification
 
-**Document**: AEGIS_AGP1_WIRE_FORMAT.md  
+**Document**: AGP-1/Wire (AEGIS_AGP1_WIRE_FORMAT.md)  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
-**Last Updated**: March 5, 2026
+**Last Updated**: March 6, 2026
 
 ---
 

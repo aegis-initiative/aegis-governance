@@ -1,15 +1,15 @@
-# AGP-1 Protocol Overview & Design Principles
+# AEGIS™ AGP-1 Protocol Overview & Design Principles
 
-**Document**: AEGIS_AGP1_OVERVIEW.md  
+**Document**: AGP-1/Overview (AEGIS_AGP1_OVERVIEW.md)  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
-**Last Updated**: March 5, 2026
+**Last Updated**: March 6, 2026
 
 ---
 
 ## Purpose
 
-The AEGIS Governance Protocol (AGP-1) defines the **request-response contract** between:
+The AEGIS™ Governance Protocol (AGP-1) defines the **request-response contract** between:
 
 - **Clients**: AI-based systems, autonomous agents, copilots, orchestration platforms
 - **Servers**: AEGIS governance runtimes, policy enforcement engines, decision systems

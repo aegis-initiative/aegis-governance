@@ -1,10 +1,10 @@
-# AGP-1 Risk Scoring & Decision Thresholds
+# AEGIS™ AGP-1 Risk Scoring & Decision Thresholds
 
-**Document**: AEGIS_AGP1_RISK_SCORING.md  
+**Document**: AGP-1/Risk (AEGIS_AGP1_RISK_SCORING.md)  
 **Version**: 1.0 (Normative)  
 **Part of**: AEGIS Governance Protocol  
-**References**: AEGIS_AGP1_TRUST_MODEL.md, AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md  
-**Last Updated**: March 5, 2026
+**References**: AGP-1/Trust, GFN-1/Nodes  
+**Last Updated**: March 6, 2026
 
 ---
 

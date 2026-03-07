@@ -1,9 +1,10 @@
-# AEGIS FAQ
+# AEGIS™ FAQ
 
-### Frequently Asked Questions About Governed Artificial Intelligence
+### Architectural Enforcement & Governance of Intelligent Systems
 
-Version: 0.1
-Status: Draft
+Version: 0.1\
+Status: Draft\
+Effective Date: March 5, 2026
 
 ---
 

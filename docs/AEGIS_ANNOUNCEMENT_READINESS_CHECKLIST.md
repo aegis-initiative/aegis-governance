@@ -1,7 +1,7 @@
 
-# AEGIS Announcement Readiness Checklist
+# AEGIS™ Announcement Readiness Checklist
 
-This checklist captures all recommended repository components and structural elements that should exist before announcing the AEGIS project publicly.
+This checklist captures all recommended repository components and structural elements that should exist before announcing the AEGIS™ Initiative publicly.
 
 ---
 

@@ -1,9 +1,11 @@
-# GFN Node Reference Architecture & Deployment
+# AEGIS™ GFN-1 Node Reference Architecture & Deployment
 
-**Document**: AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md
+**Document**: GFN-1/Nodes (AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md)
 **Version**: 1.0 (Normative)
 **Part of**: AEGIS Governance Federation Network
-**Last Updated**: March 5, 2026
+**Last Updated**: March 6, 2026
+
+---
 
 This document defines a **normative reference architecture** for AEGIS nodes participating in the Governance Federation Network (GFN). It provides concrete guidance on component design, deployment topologies, performance requirements, high-availability patterns, and disaster recovery strategies. This architecture is implementation-agnostic but operationally prescriptive.
 

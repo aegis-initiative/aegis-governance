@@ -1,10 +1,13 @@
 # RFC-0003
 
-## AEGIS Capability Registry and Policy Language Specification
+## AEGIS™ Capability Registry and Policy Language Specification
 
-Version: 0.2  
-Status: Draft  
-Authors: AEGIS Project
+**RFC**: RFC-0003  
+**Version**: 0.2  
+**Status**: Draft  
+**Authors**: AEGIS™ Initiative  
+**Created**: March 5, 2026  
+**Last Updated**: March 6, 2026
 
 ---
 

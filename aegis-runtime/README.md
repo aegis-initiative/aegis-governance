@@ -5,15 +5,15 @@
   </picture>
 </p>
 
-# AEGIS Runtime (Reference Implementation)
+# AEGIS™ Runtime (Reference Implementation)
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 
 ```
 
-The AEGIS Runtime is the **reference Python implementation** of the AEGIS governance architecture.
+The AEGIS™ Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
 
 > **Capability without constraint is not intelligence.**
@@ -366,7 +366,7 @@ Governance interactions are defined using structured protocol messages.
 
 ---
 
-# Relationship to the AEGIS Project
+# Relationship to the AEGIS™ Initiative
 
 This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 

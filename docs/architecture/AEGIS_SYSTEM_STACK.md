@@ -1,10 +1,14 @@
-# AEGIS Architecture
+# AEGIS™ System Stack
 
-## System Stack
+### Architectural Enforcement & Governance of Intelligent Systems
 
-Author: Kenneth Tannenbaum  
-Project: AEGIS  
-Version: 0.2
+**Version**: 0.2\
+**Status**: Informational\
+**Part of**: AEGIS Architecture\
+**Author**: Kenneth Tannenbaum\
+**Last Updated**: March 6, 2026
+
+---
 
 ## Purpose
 

@@ -1,4 +1,8 @@
-"""Custom exceptions for the AEGIS governance framework."""
+"""Exceptions.
+
+Defines the custom exception hierarchy used throughout the AEGIS runtime.
+All runtime-specific failures should raise subclasses of :class:`AEGISError`.
+"""
 
 
 class AEGISError(Exception):

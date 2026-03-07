@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-# AEGIS Governance Federation Network
+# AEGIS™ Governance Federation Network
 
 **Document Pack Status**: Normative  
 **Version**: 1.0  

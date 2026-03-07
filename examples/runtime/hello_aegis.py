@@ -8,6 +8,8 @@ This example shows:
 5. Audit records emitted by governance
 """
 
+# pyright: reportMissingImports=false
+
 from pathlib import Path
 import sys
 
