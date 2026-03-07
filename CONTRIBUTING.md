@@ -43,11 +43,14 @@ Look for issues labeled `good-first-issue` for approachable contribution opportu
 
 Use descriptive branch names with the following prefixes:
 
-- `rfc/` — RFC specification changes (e.g., `rfc/capability-registry-updates`)
+- `chore/` — Maintenance tasks and housekeeping (e.g., `chore/clean-up-stale-branches`)
+- `ci/` — CI/CD workflow changes (e.g., `ci/add-schema-validation-step`)
+- `deps/` — Dependency updates (e.g., `deps/bump-lychee-action`)
 - `docs/` — Documentation updates (e.g., `docs/threat-model-clarifications`)
-- `spec/` — Protocol or schema specifications (e.g., `spec/agp-message-format`)
-- `fix/` — Bug fixes or corrections (e.g., `fix/typo-in-rfc-002`)
 - `feat/` — New features or components (e.g., `feat/add-risk-evaluation-model`)
+- `fix/` — Bug fixes or corrections (e.g., `fix/typo-in-rfc-002`)
+- `rfc/` — RFC specification changes (e.g., `rfc/capability-registry-updates`)
+- `spec/` — Protocol or schema specifications (e.g., `spec/agp-message-format`)
 
 Examples:
 
