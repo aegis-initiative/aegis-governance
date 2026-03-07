@@ -34,14 +34,14 @@ principles such as fairness, transparency, accountability, and safety.
 
 For example:
 
--   The AI Risk Management Framework from the National Institute of
-    Standards and Technology encourages organizations to identify and
-    mitigate risks throughout the AI lifecycle.
--   The proposed Artificial Intelligence Act from the European
-    Commission introduces regulatory obligations for high risk AI
-    systems.
--   The OECD Principles on Artificial Intelligence provide international
-    guidance for trustworthy AI development.
+- The AI Risk Management Framework from the National Institute of
+  Standards and Technology encourages organizations to identify and
+  mitigate risks throughout the AI lifecycle.
+- The proposed Artificial Intelligence Act from the European
+  Commission introduces regulatory obligations for high risk AI
+  systems.
+- The OECD Principles on Artificial Intelligence provide international
+  guidance for trustworthy AI development.
 
 These frameworks provide important policy guidance. However, they
 largely assume that governance exists outside the operational system
@@ -49,10 +49,10 @@ itself.
 
 In practice, governance often appears as:
 
--   compliance documentation
--   model evaluation procedures
--   monitoring systems
--   audit and reporting frameworks
+- compliance documentation
+- model evaluation procedures
+- monitoring systems
+- audit and reporting frameworks
 
 These mechanisms provide oversight but typically operate before or after
 AI activity occurs rather than during execution.
@@ -73,11 +73,11 @@ and task planning.
 
 In real world deployments, AI agents may be granted the ability to:
 
--   execute code
--   call APIs
--   access databases
--   orchestrate automated workflows
--   interact with infrastructure systems
+- execute code
+- call APIs
+- access databases
+- orchestrate automated workflows
+- interact with infrastructure systems
 
 This evolution raises an architectural question that many governance
 frameworks do not directly address.
@@ -116,10 +116,10 @@ returns a decision.
 
 Possible outcomes may include:
 
--   allow the action
--   deny the action
--   escalate for human review
--   require explicit confirmation
+- allow the action
+- deny the action
+- escalate for human review
+- require explicit confirmation
 
 This approach separates AI intent from system execution, allowing
 governance mechanisms to evaluate requests before they occur.
@@ -194,11 +194,11 @@ In this model, AI systems submit structured ACTION_PROPOSE messages
 describing requested operations. These requests are evaluated by a
 governance runtime composed of several core components:
 
--   a Governance Gateway that receives action proposals
--   a Capability Registry defining permitted operations
--   a Policy Engine evaluating governance rules
--   a Decision Engine determining execution outcomes
--   an Audit Logging system recording each governance decision
+- a Governance Gateway that receives action proposals
+- a Capability Registry defining permitted operations
+- a Policy Engine evaluating governance rules
+- a Decision Engine determining execution outcomes
+- an Audit Logging system recording each governance decision
 
 The runtime returns structured outcomes such as ALLOW, DENY, ESCALATE,
 or REQUIRE_CONFIRMATION.
@@ -235,11 +235,11 @@ of mediating operational behavior in real time.
 As AI systems become more capable and more widely deployed, several
 architectural questions will likely become increasingly important.
 
--   How should AI systems request operational capabilities?
--   Where should governance enforcement occur within system
+- How should AI systems request operational capabilities?
+- Where should governance enforcement occur within system
     architectures?
--   How can governance decisions remain transparent and auditable?
--   What enforcement patterns best balance safety, autonomy, and
+- How can governance decisions remain transparent and auditable?
+- What enforcement patterns best balance safety, autonomy, and
     operational efficiency?
 
 These questions suggest that the next phase of AI governance will
