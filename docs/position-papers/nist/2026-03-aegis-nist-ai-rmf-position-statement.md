@@ -240,7 +240,7 @@ The AEGIS™ FAQ defines a three-level adoption model. For organizations beginni
 - **A Capability Registry** defining the operations your AI systems are permitted to perform, with explicit scope and actor grants
 - **A Governance Gateway** interposing between your AI agents and operational infrastructure, enforcing default-deny evaluation against the registry
 
-This is deployable today using the AGP-1 protocol specification and reference schemas in the AEGIS™ repository. The full policy engine, federation network, and cryptographic audit infrastructure represent progressive maturity stages — not prerequisites.
+This is deployable today using the AGP-1 protocol specification, reference schemas, and minimal reference implementation available at [github.com/finnoybu/aegis-runtime](https://github.com/finnoybu/aegis-runtime). The full policy engine, federation network, and cryptographic audit infrastructure represent progressive maturity stages — not prerequisites.
 
 **For a CISO reading this on Monday:** The first step is not deploying software. It is answering the question: *what capabilities have we granted our AI systems, explicitly, and to whom?* If that inventory does not exist, it is the foundational gap AEGIS™ is designed to fill.
 
@@ -273,6 +273,7 @@ AEGIS™ was developed through active human-AI collaboration, with strategic dir
 - AGP-1 Protocol Specification — [aegis-core/protocol](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/protocol/AEGIS_AGP1_INDEX.md)
 - ATM-1 Threat Model — [aegis-core/threat-model](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/threat-model/AEGIS_ATM1_INDEX.md)
 - RFC-0001 Architecture Specification — [rfc/RFC-0001](https://github.com/finnoybu/aegis-governance/blob/main/rfc/RFC-0001-AEGIS-Architecture.md)
+- AEGIS™ Reference Implementation — [github.com/finnoybu/aegis-runtime](https://github.com/finnoybu/aegis-runtime)
 - AEGIS™ Announcement (March 2026) — [docs/announcements](https://github.com/finnoybu/aegis-governance/blob/main/docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)
 
 ---
