@@ -2,7 +2,7 @@
 
 **Generated**: March 5, 2026
 **Repository**: [https://github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
-**Assessment against**: docs/AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md
+**Assessment against**: docs/announcements/2026-03-05-launch/READINESS_CHECKLIST.md
 
 ---
 
@@ -347,7 +347,7 @@ Updated files (24 files):
 - ✓ README.md (trademark notice)
 - ✓ pyproject.toml (author field)
 - ✓ All architecture docs author fields (21 files)
-- ✓ docs/AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md
+- ✓ docs/announcements/2026-03-05-launch/READINESS_CHECKLIST.md
 
 **Notes**: 
 - All trademark references updated to Finnoybu IP LLC

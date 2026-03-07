@@ -89,10 +89,21 @@ Early design documents and evolution context.
 > **Note**: These are **historical artifacts** showing the evolution of AEGIS design thinking.  
 > For current normative specifications, refer to [`../aegis-core/`](../aegis-core/README.md).
 
-### Announcement Readiness
+### `announcements/` — Public Announcements
 
-- [**AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md**](AEGIS_ANNOUNCEMENT_READINESS_CHECKLIST.md) — Pre-announcement checklist
-- [**AEGIS_ANNOUNCEMENT_READINESS_ASSESSMENT.md**](AEGIS_ANNOUNCEMENT_READINESS_ASSESSMENT.md) — Readiness evaluation (16/17 complete)
+Organized by date and event. Each announcement includes readiness assessments and supporting materials.
+
+#### 2026-03-05 Launch
+
+- [**ANNOUNCEMENT.md**](announcements/2026-03-05-launch/ANNOUNCEMENT.md) — Public launch announcement
+- [**READINESS_ASSESSMENT.md**](announcements/2026-03-05-launch/READINESS_ASSESSMENT.md) — Readiness evaluation (16/17 complete)
+- [**READINESS_CHECKLIST.md**](announcements/2026-03-05-launch/READINESS_CHECKLIST.md) — Pre-announcement checklist
+
+### `position-papers/` — Standards & Policy Engagement
+
+Position statements, comments, and submissions to standards bodies, regulatory agencies, and governance organizations.
+
+- **`nist/`** — National Institute of Standards and Technology submissions
 
 ---
 
