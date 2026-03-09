@@ -39,6 +39,75 @@ Look for issues labeled `good-first-issue` for approachable contribution opportu
 
 ---
 
+## Header Conventions
+
+Document headers follow consistent conventions based on document type. Proper headers improve discoverability and ensure critical metadata is always visible.
+
+### Required Metadata by Document Class
+
+#### Normative Specifications (AGP/GFN/ATM)
+- **Version** (required): Semantic version of the specification
+- **Status** (required): `draft` | `review` | `stable` | `deprecated`
+- **Last Updated** (required): Date in `YYYY-MM-DD` format
+- **Author(s)** (optional): Specification authors
+- **Stability** (optional): `experimental` | `stable` | `frozen`
+
+Example:
+
+```markdown
+---
+Version: 1.0.0
+Status: stable
+Last Updated: 2024-03-15
+Author(s): AEGIS Core Team
+Stability: frozen
+---
+```
+
+#### RFCs
+- **RFC** (required): RFC number (e.g., `RFC-003`)
+- **Status** (required): `draft` | `candidate` | `accepted` | `rejected`
+- **Effective Date** (required for accepted RFCs): Date when RFC takes effect
+- **Supersedes** (optional): Previous RFC numbers this replaces
+
+Example:
+
+```markdown
+---
+RFC: RFC-003
+Status: accepted
+Effective Date: 2024-04-01
+Supersedes: RFC-001
+---
+```
+
+#### Architecture / Supporting Docs
+- **Version** (optional): Document version
+- **Last Updated** (required): Date in `YYYY-MM-DD` format
+- **Audience** (optional): `internal` | `external` | `developers` | `operators`
+
+Example:
+
+```markdown
+---
+Version: 2.1.0
+Last Updated: 2024-03-20
+Audience: developers
+---
+```
+
+### Last Updated vs Effective Date
+
+Use **Last Updated** when:
+- Document describes current state or configuration
+- Content changes reflect maintenance/updates
+
+Use **Effective Date** when:
+- Document describes policies/decisions that take effect at a specific time
+- RFCs transition from `accepted` status
+
+---
+
 ## Branch Naming Convention
 
 Use descriptive branch names with the following prefixes:
