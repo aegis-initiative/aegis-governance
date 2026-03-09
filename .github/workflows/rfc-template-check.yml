@@ -1,0 +1,24 @@
+name: RFC Template Check
+
+on:
+  pull_request:
+    paths:
+      - 'rfc/RFC-*.md'
+      - '.github/scripts/check_rfc_template.py'
+  push:
+    paths:
+      - 'rfc/RFC-*.md'
+      - '.github/scripts/check_rfc_template.py'
+
+jobs:
+  rfc-template-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run RFC template check
+        run: python .github/scripts/check_rfc_template.py
