@@ -44,7 +44,7 @@ if failures:
     sys.exit(1)
 else:
     print("All RFCs conform to the template.")
-=======
+
 import os
 import sys
 import re
