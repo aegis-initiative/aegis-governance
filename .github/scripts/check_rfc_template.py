@@ -4,13 +4,26 @@ import sys
 import re
 
 REQUIRED_FIELDS = [
-    '**RFC**:',
-    '**Status**:',
-    '**Version**:',
-    '**Created**:',
-    '**Updated**:',
-    # Accept either Author or Author(s)
-    ('**Author**:', '**Author(s)**:'),
+    r'\*\*RFC:\*\*',
+    r'\*\*Status:\*\*',
+    r'\*\*Version:\*\*',
+    r'\*\*Created:\*\*',
+    r'\*\*Updated:\*\*',
+    r'\*\*Author:\*\*',
+]
+
+REQUIRED_SECTIONS = [
+    r'^## Summary',
+    r'^## Motivation',
+    r'^## Guide-Level Explanation',
+    r'^## Reference-Level Explanation',
+    r'^## Drawbacks',
+    r'^## Alternatives Considered',
+    r'^## Compatibility',
+    r'^## Implementation Notes',
+    r'^## Open Questions',
+    r'^## Success Criteria',
+    r'^## References',
 ]
 
 PLACEHOLDER_STATUS = 'Placeholder'
@@ -38,12 +51,11 @@ for filename in os.listdir(RFC_DIR):
     content = ''.join(lines)
     missing = []
     for field in REQUIRED_FIELDS:
-        if isinstance(field, tuple):
-            if not any(f in content for f in field):
-                missing.append(field[0] + ' or ' + field[1])
-        else:
-            if field not in content:
-                missing.append(field)
+        if not re.search(field, content):
+            missing.append(field)
+    for section in REQUIRED_SECTIONS:
+        if not re.search(section, content, re.MULTILINE):
+            missing.append(section)
     if missing:
         missing_fields[filename] = missing
 
