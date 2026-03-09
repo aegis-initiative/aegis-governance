@@ -39,6 +39,89 @@ Look for issues labeled `good-first-issue` for approachable contribution opportu
 
 ---
 
+## Header Conventions
+
+Document headers follow consistent conventions based on document type. Proper headers improve discoverability and ensure critical metadata is always visible.
+
+### Required Metadata by Document Class
+
+#### Normative Specifications (AGP/GFN/ATM)
+- **Version** (required): Semantic version of the specification
+- **Status** (required): `draft` | `review` | `stable` | `deprecated`
+- **Last Updated** (required): Date in `YYYY-MM-DD` format
+- **Author(s)** (optional): Specification authors
+- **Stability** (optional): `experimental` | `stable` | `frozen`
+
+Example:
+
+```markdown
+
+---
+
+Version: 1.0.0
+Status: stable
+Last Updated: 2024-03-15
+Author(s): AEGIS Core Team
+Stability: frozen
+
+---
+
+```
+
+#### RFCs
+- **RFC**: RFC number (e.g., RFC-0004)
+- **Status**: Placeholder, Draft, Proposed, Accepted, Implemented, Superseded
+- **Version**: Semantic version (e.g., 0.2)
+- **Created**: YYYY-MM-DD
+- **Updated**: YYYY-MM-DD
+- **Author(s)**: Name(s)
+- **Repository**: (optional)
+- **Target milestone**: (optional)
+- **Supersedes**: (optional)
+- **Superseded by**: (optional)
+
+Example:
+
+**RFC**: RFC-0004  
+**Status**: Draft  
+**Version**: 0.2  
+**Created**: 2026-03-05  
+**Updated**: 2026-03-06  
+**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository**: aegis-governance  
+**Target milestone**: v1.0  
+**Supersedes**: None  
+**Superseded by**: None
+
+#### Architecture / Supporting Docs
+- **Version** (optional): Document version
+- **Last Updated** (required): Date in `YYYY-MM-DD` format
+- **Audience** (optional): `internal` | `external` | `developers` | `operators`
+
+Example:
+
+```markdown
+---
+
+Version: 2.1.0
+Last Updated: 2024-03-20
+Audience: developers
+
+---
+```
+
+### Last Updated vs Effective Date
+
+Use **Last Updated** when:
+- Document describes current state or configuration
+- Content changes reflect maintenance/updates
+
+Use **Effective Date** when:
+- Document describes policies/decisions that take effect at a specific time
+- RFCs transition from `accepted` status
+
+---
+
 ## Branch Naming Convention
 
 Use descriptive branch names with the following prefixes:
