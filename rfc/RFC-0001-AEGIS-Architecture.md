@@ -1,5 +1,3 @@
-
-
 # RFC-0001: AEGIS™ Governance Architecture
 
 **RFC**: RFC-0001
