@@ -64,22 +64,31 @@ Stability: frozen
 ---
 ```
 
+
 #### RFCs
-- **RFC** (required): RFC number (e.g., `RFC-003`)
-- **Status** (required): `draft` | `candidate` | `accepted` | `rejected`
-- **Effective Date** (required for accepted RFCs): Date when RFC takes effect
-- **Supersedes** (optional): Previous RFC numbers this replaces
+- **RFC**: RFC number (e.g., RFC-0004)
+- **Status**: Draft, Candidate, Accepted, Rejected, Deprecated, etc.
+- **Version**: Semantic version (e.g., 0.2)
+- **Created**: YYYY-MM-DD
+- **Updated**: YYYY-MM-DD
+- **Author(s)**: Name(s)
+- **Repository**: (optional)
+- **Target milestone**: (optional)
+- **Supersedes**: (optional)
+- **Superseded by**: (optional)
 
 Example:
 
-```markdown
----
-RFC: RFC-003
-Status: accepted
-Effective Date: 2024-04-01
-Supersedes: RFC-001
----
-```
+**RFC**: RFC-0004  
+**Status**: Draft  
+**Version**: 0.2  
+**Created**: 2026-03-05  
+**Updated**: 2026-03-06  
+**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
+**Repository**: aegis-governance  
+**Target milestone**: v1.0  
+**Supersedes**: None  
+**Superseded by**: None
 
 #### Architecture / Supporting Docs
 - **Version** (optional): Document version
