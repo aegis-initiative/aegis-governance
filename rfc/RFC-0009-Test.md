@@ -9,7 +9,7 @@
 **Repository:** aegis-governance  
 **Target milestone:** TBD  
 **Supersedes:** None  
-**Superseded by:** None  
+**Superseded by:** None
 
 ---
 
