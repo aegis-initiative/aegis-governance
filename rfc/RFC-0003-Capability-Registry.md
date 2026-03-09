@@ -80,6 +80,7 @@ Invalid definitions MUST be rejected at registration time.
 Policy outcomes: `ALLOW`, `DENY`, `ESCALATE`, `REQUIRE_CONFIRMATION`
 
 Policy structure:
+
 ```yaml
 policy_id: telemetry_query_allowed
 priority: 100
@@ -93,6 +94,7 @@ then:
   constraints:
     max_results: 500
 ```
+
 ### 5. Formal Policy Syntax (EBNF)
 
 ```text
@@ -125,6 +127,7 @@ Complexity target: O(P * C), where P is policies and C is conditions per policy.
 ### 7. Complex Policy Examples
 
 Role + environment + risk gate:
+
 ```yaml
 policy_id: infra_deploy_prod_guard
 priority: 10
@@ -139,6 +142,7 @@ then:
 ```
 
 Hard deny invariant:
+
 ```yaml
 policy_id: deny_unknown_capability
 priority: 0
