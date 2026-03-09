@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import glob
 import re
 import sys
@@ -13,7 +14,6 @@ REQUIRED_HEADERS = [
 ]
 REQUIRED_SECTIONS = [
     r'## Summary',
-    r'## Motivation',
     r'## Guide-Level Explanation',
     r'## Reference-Level Explanation',
     r'## Drawbacks',
@@ -45,19 +45,31 @@ if failures:
 else:
     print("All RFCs conform to the template.")
 =======
+=======
+
+>>>>>>> main
 import os
 import sys
 import re
 
 REQUIRED_FIELDS = [
-    'Title:',
-    'Status:',
-    'Created:',
-    'Last-Modified:',
-    'Author:',
-    'Type:',
-    'Topic:',
-    'Content:',
+    r'\*\*RFC:\*\*',
+    r'\*\*Status:\*\*',
+    r'\*\*Version:\*\*',
+    r'\*\*Created:\*\*',
+    r'\*\*Updated:\*\*',
+    r'\*\*Author:\*\*',
+]
+    r'^## Motivation',
+    r'^## Guide-Level Explanation',
+    r'^## Reference-Level Explanation',
+    r'^## Drawbacks',
+    r'^## Alternatives Considered',
+    r'^## Compatibility',
+    r'^## Implementation Notes',
+    r'^## Open Questions',
+    r'^## Success Criteria',
+    r'^## References',
 ]
 
 PLACEHOLDER_STATUS = 'Placeholder'
@@ -83,7 +95,13 @@ for filename in os.listdir(RFC_DIR):
         skipped_files.append(filename)
         continue
     content = ''.join(lines)
-    missing = [field for field in REQUIRED_FIELDS if field not in content]
+    missing = []
+    for field in REQUIRED_FIELDS:
+        if not re.search(field, content):
+            missing.append(field)
+    for section in REQUIRED_SECTIONS:
+        if not re.search(section, content, re.MULTILINE):
+            missing.append(section)
     if missing:
         missing_fields[filename] = missing
 
