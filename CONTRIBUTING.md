@@ -55,13 +55,17 @@ Document headers follow consistent conventions based on document type. Proper he
 Example:
 
 ```markdown
+
 ---
+
 Version: 1.0.0
 Status: stable
 Last Updated: 2024-03-15
 Author(s): AEGIS Core Team
 Stability: frozen
+
 ---
+
 ```
 
 #### RFCs
@@ -98,9 +102,11 @@ Example:
 
 ```markdown
 ---
+
 Version: 2.1.0
 Last Updated: 2024-03-20
 Audience: developers
+
 ---
 ```
 
