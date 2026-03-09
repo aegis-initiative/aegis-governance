@@ -1,6 +1,6 @@
 # RFC-0007: Operational Considerations
 
-**RFC**: RFC-0007
+**RFC:** RFC-0007
 **Status:** Placeholder  
 **Version:** 0.0.1  
 **Created:** 2026-03-08  
