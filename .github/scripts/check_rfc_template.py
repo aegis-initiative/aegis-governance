@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import os
+import sys
+import re
 import os
 import sys
 import re
@@ -68,3 +72,4 @@ else:
     if skipped_files:
         print('Skipped placeholder RFCs:', ', '.join(skipped_files))
     sys.exit(0)
+    sys.exit(1)
