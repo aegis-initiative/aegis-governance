@@ -127,7 +127,9 @@ All factor scores are in range **[0.0, 1.0]**.
 
 ### 3.2 Baseline Trust Factor (B)
 
-$$B = \text{authority\_class\_baseline}$$
+$$
+B = 0.95 I_{L0} + 0.85 I_{L1} + 0.70 I_{L2} + 0.50 I_{L3} + 0.25 I_{U} + 0.05 I_{Q}
+$$
 
 **Authority Class Baselines** (from section 2.2):
 
@@ -142,7 +144,9 @@ $$B = \text{authority\_class\_baseline}$$
 
 Measures fraction of publisher signals that are **not subsequently contradicted** by strong evidence.
 
-$$H = \frac{\text{non-contradicted\_signals}}{\text{total\_evaluated\_signals}}$$
+$$
+H = \frac{S_{nc}}{S_{total}}
+$$
 
 Where:
 
@@ -163,7 +167,9 @@ Measures publisher's consistency in:
 - metadata completeness (all recommended fields present)
 - evidence quality (strong justification provided)
 
-$$Q = 1.0 - \frac{\text{quality\_issues}}{\text{total\_events}}$$
+$$
+Q = 1.0 - \frac{E_{quality}}{E_{total}}
+$$
 
 Where quality issues include:
 
@@ -177,7 +183,9 @@ Where quality issues include:
 
 Measures publisher's operational governance maturity.
 
-$$A = \frac{1}{2} \times \text{audit\_score} + \frac{1}{2} \times \text{transparency\_score}$$
+$$
+A = \frac{1}{2} A_{audit} + \frac{1}{2} A_{trans}
+$$
 
 **Audit Score** (requires evidence):
 
@@ -199,7 +207,9 @@ $$A = \frac{1}{2} \times \text{audit\_score} + \frac{1}{2} \times \text{transpar
 
 Measures how other federation nodes rate this publisher.
 
-$$F = \frac{\text{endorsements\_from\_trusted\_peers}}{\text{total\_peer\_opinions}}$$
+$$
+F = \frac{P_{endorse}}{P_{total}}
+$$
 
 Where:
 
@@ -216,7 +226,9 @@ Where:
 
 ### 3.7 Normative Trust Score Formula
 
-$$\text{trust\_score} = 0.30 \times B + 0.25 \times H + 0.20 \times Q + 0.15 \times A + 0.10 \times F$$
+$$
+T = 0.30B + 0.25H + 0.20Q + 0.15A + 0.10F
+$$
 
 **Constraint**: `trust_score` is clamped to **[0.0, 1.0]**
 
@@ -224,7 +236,9 @@ $$\text{trust\_score} = 0.30 \times B + 0.25 \times H + 0.20 \times Q + 0.15 \ti
 
 Publisher trust scores decay over time if not updated within evaluation window.
 
-$$\text{trust\_score}_{\text{decayed}} = \text{trust\_score} \times e^{-\lambda t}$$
+$$
+T_{decayed} = T \cdot e^{-\lambda t}
+$$
 
 Where:
 
@@ -730,7 +744,10 @@ Track **transitive endorsements**:
 - Node A infers trust in C ≈ 0.72 (weighted by A-B trust)
 
 **Formula**:
-$$\text{transitive\_trust}(A \to C) = \text{trust}(A \to B) \times \text{trust}(B \to C)$$
+
+$$
+T_{A \to C} = T_{A \to B} \times T_{B \to C}
+$$
 
 **Use Case**: larger federations with multi-hop endorsements
 
