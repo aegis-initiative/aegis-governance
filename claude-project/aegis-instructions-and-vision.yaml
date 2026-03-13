@@ -200,6 +200,19 @@ key_prior_art:
       in production. Forms the governance triad with NIST AI RMF [13] and EU AI Act [15]:
       risk framework + regulatory obligation + management system standard.
 
+  - shortname: NIST SP 800-207
+    title: "Zero Trust Architecture"
+    citation: 'S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207.'
+    doi: 10.6028/NIST.SP.800-207
+    doi_url: https://doi.org/10.6028/NIST.SP.800-207
+    public_domain: true  # not subject to copyright in the United States; may be quoted directly
+    relevance: >
+      Canonical ZTA definition. AEGIS implements the four core ZTA tenets from §2 directly:
+      actor identity verification, dynamic policy-based access, mTLS regardless of network
+      location, and immutable audit of all resource access. The §3 logical components model
+      (policy engine, policy administrator, PEP) maps directly to the AGP-1 architecture.
+      Definitional reference reviewers expect alongside POLYNIX [8].
+
 ---
 
 aegis_canon_vision:
