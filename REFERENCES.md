@@ -67,10 +67,13 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ## Standards & Frameworks
 
-[13] National Institute of Standards and Technology, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1, Jan. 2023. [Online]. Available: https://www.nist.gov/itl/ai-risk-management-framework\
+[13] National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Washington, DC, Jan. 2023, doi: 10.6028/NIST.AI.100-1. [Online]. Available: https://doi.org/10.6028/NIST.AI.100-1\
 **Relevance to AEGIS:** Primary standards framework context for AEGIS. AEGIS submitted an unsolicited position paper proposing execution-time governance as a first-class AI RMF implementation pattern (March 7, 2026). See [docs/position-papers/nist/](docs/position-papers/nist/).
 
 [14] Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: https://www.openpolicyagent.org\
+
+[15] European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, vol. 67, OJ L, 12 Jul. 2024. [Online]. Available: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689\
+**Relevance to AEGIS:** Primary EU regulatory framework for AI. While NIST AI RMF [13] is the technical governance framework AEGIS is built against, the EU AI Act is the regulatory environment AEGIS-governed systems must satisfy. Architectural enforcement at runtime (AEGIS's posture) directly supports mandatory conformity requirements under the Act. Most relevant to whitepaper, sponsor copy, and regulatory alignment documentation for EU-market enterprises and public institutions.
 **Relevance to AEGIS:** Proven policy engine pattern referenced in AGP-1 and AEGIS_Reference_Architecture.md. POLYNIX [8] validates OPA at scale (<1% CPU overhead, <2s policy propagation), directly supporting AEGIS's policy engine design decisions.
 
 ---
@@ -88,4 +91,5 @@ When citing in a document:
 
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
-**Last Updated**: 2026-03-13
+**Last Updated**: 2026-03-13\
+**Entries**: 15
