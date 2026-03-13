@@ -13,7 +13,7 @@
 ## Purpose
 
 This document defines AEGIS as a modern reference monitor for AI-generated
-actions, applying classical monitor properties to policy and risk-governed
+actions, applying classical monitor properties[^1] to policy and risk-governed
 capability control.
 
 ## Classical Properties (Normative)
@@ -26,6 +26,8 @@ AEGIS MUST satisfy these properties:
 3. Verifiability: monitor behavior is deterministic and testable.
 
 If any property fails, the system is not operating as a valid reference monitor.
+
+*These three properties — complete mediation, tamper resistance, and verifiability — are the canonical requirements for a reference monitor as defined by Anderson.[^1] The formal framework for proving that a monitor correctly enforces a given security policy is established by Schneider's security automata theory: only safety policies are inline-enforceable, and composition of automata produces the conjunction of their enforced policies.[^2]*
 
 ## AEGIS Monitor Placement
 
@@ -54,7 +56,7 @@ The monitor returns one of four outcomes:
 - `DENY`
 
 Decision outcomes are deterministic functions of request, policy version,
-capability grants, and contextual risk inputs.
+capability grants, and contextual risk inputs.[^2]
 
 ## Tamper Resistance Strategy
 
@@ -98,3 +100,11 @@ Using a reference monitor model in AEGIS provides:
 - Strong accountability and forensics.
 - Consistent enforcement under operational stress.
 - Clear assurance story for auditors and operators.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
