@@ -79,6 +79,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 [16] International Organization for Standardization and International Electrotechnical Commission, "Information technology — Artificial intelligence — Management system," ISO/IEC 42001:2023(E), Geneva, Switzerland, Dec. 2023.\
 **Relevance to AEGIS:** The world's first AI management system standard — defines what an organization's AI management system must do. AEGIS provides the architectural enforcement layer that makes ISO/IEC 42001 requirements technically auditable and deterministically enforceable at runtime. Clause mapping: §5.2 (AI policy) → AEGIS Doctrine layer; §6.1.2/6.1.3 (risk assessment/treatment) → ATM-1; §6.1.4 (AI system impact assessment) → AGP-1 ESCALATE/REQUIRE_CONFIRMATION; §8.1 (operational control) → AGP-1 runtime enforcement; §9.1/9.2 (monitoring and audit) → AEGIS audit trail and query interface; Annex A (reference controls) → AEGIS capability registry and policy engine. ISO/IEC 42001 itself uses STRIDE for threat modeling across the AI lifecycle — the same framework as ATM-1. Together with NIST AI RMF [13] and the EU AI Act [15], these three form the governance triad AEGIS implements: risk framework (NIST) + regulatory obligation (EU Act) + management system standard (ISO/IEC 42001).
 
+[17] S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207\
+**Keywords:** Zero trust architecture; ZTA; identity verification; dynamic policy; microsegmentation; least privilege\
+**Relevance to AEGIS:** Canonical definitional reference for zero-trust architecture. AEGIS implements the four core ZTA tenets from §2 directly: (1) all resources must be authenticated before access is granted → AGP-1 actor identity requirement; (2) access is determined by dynamic policy → AGP-1 capability registry and policy engine; (3) all communication is secured regardless of network location → AGP-1 mTLS requirement; (4) all resource access is logged and inspected → AEGIS immutable audit trail. The §3 logical components model (policy engine, policy administrator, policy enforcement point) maps directly to the AGP-1 architecture. POLYNIX [8] validates these ZTA principles empirically; SP 800-207 is the definitional reference reviewers expect to see cited alongside POLYNIX. Public domain — may be quoted directly.
+
 ---
 
 ## How to Cite
@@ -95,4 +99,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-13\
-**Entries**: 16
+**Entries**: 17
