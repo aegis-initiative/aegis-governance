@@ -13,7 +13,7 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 [2] F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382.\
 **Keywords:** Security automata; runtime monitors; enforceable policies; safety policies\
-**Relevance to AEGIS:** Establishes the formal theory of security automata and defines which security policies are enforceable through runtime monitoring. AEGIS's deterministic enforcement model and fail-closed posture are grounded in Schneider's proof that only safety policies are inline-enforceable. The AEGIS Constitution's Article III (Deterministic Enforcement) inherits this foundation directly.
+**Relevance to AEGIS:** Establishes the formal theory of security automata and defines which security policies are enforceable through runtime monitoring. AEGIS's deterministic enforcement model and fail-closed posture are grounded in Schneider's proof that only safety policies are inline-enforceable. The AEGIS Constitution's Article III (Deterministic Enforcement) inherits this foundation directly. Schneider also proves that composition of security automata produces the conjunction of their enforced policies — enforcing multiple automata in tandem enforces all of their policies simultaneously. This is the formal justification for AEGIS's multi-gate enforcement architecture: each gate enforces its own policy, and the composed system enforces all of them.
 
 ---
 
