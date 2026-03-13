@@ -170,9 +170,21 @@ key_prior_art:
     relevance: Security automata theory; foundation for constitutional enforcement
 
   - shortname: NIST AI RMF 2023
-    title: AI Risk Management Framework (AI RMF 1.0)
-    publisher: NIST
+    title: "Artificial Intelligence Risk Management Framework (AI RMF 1.0)"
+    citation: 'National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Washington, DC, Jan. 2023, doi: 10.6028/NIST.AI.100-1.'
+    publisher: U.S. Department of Commerce / NIST
+    doi: 10.6028/NIST.AI.100-1
     relevance: Standards framework; AEGIS submitted unsolicited position paper 2026-03-07
+
+  - shortname: EU AI Act 2024
+    title: "Regulation (EU) 2024/1689 — Artificial Intelligence Act"
+    citation: 'European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 ... (Artificial Intelligence Act)," Official Journal of the European Union, vol. 67, OJ L, 12 Jul. 2024.'
+    canonical_identifier: "Regulation (EU) 2024/1689"
+    doi_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689
+    relevance: >
+      Regulatory environment AEGIS-governed systems must satisfy. Distinct from NIST AI RMF
+      (technical framework) — EU AI Act is the compliance mandate. Most relevant to whitepaper,
+      sponsor copy, and regulatory alignment docs for EU-market enterprises.
 
 ---
 
