@@ -71,10 +71,13 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Relevance to AEGIS:** Primary standards framework context for AEGIS. AEGIS submitted an unsolicited position paper proposing execution-time governance as a first-class AI RMF implementation pattern (March 7, 2026). See [docs/position-papers/nist/](docs/position-papers/nist/).
 
 [14] Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: https://www.openpolicyagent.org\
+**Relevance to AEGIS:** Proven policy engine pattern referenced in AGP-1 and AEGIS_Reference_Architecture.md. POLYNIX [8] validates OPA at scale (<1% CPU overhead, <2s policy propagation), directly supporting AEGIS's policy engine design decisions.
 
 [15] European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, vol. 67, OJ L, 12 Jul. 2024. [Online]. Available: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689\
 **Relevance to AEGIS:** Primary EU regulatory framework for AI. While NIST AI RMF [13] is the technical governance framework AEGIS is built against, the EU AI Act is the regulatory environment AEGIS-governed systems must satisfy. Architectural enforcement at runtime (AEGIS's posture) directly supports mandatory conformity requirements under the Act. Most relevant to whitepaper, sponsor copy, and regulatory alignment documentation for EU-market enterprises and public institutions.
-**Relevance to AEGIS:** Proven policy engine pattern referenced in AGP-1 and AEGIS_Reference_Architecture.md. POLYNIX [8] validates OPA at scale (<1% CPU overhead, <2s policy propagation), directly supporting AEGIS's policy engine design decisions.
+
+[16] International Organization for Standardization and International Electrotechnical Commission, "Information technology — Artificial intelligence — Management system," ISO/IEC 42001:2023(E), Geneva, Switzerland, Dec. 2023.\
+**Relevance to AEGIS:** The world's first AI management system standard — defines what an organization's AI management system must do. AEGIS provides the architectural enforcement layer that makes ISO/IEC 42001 requirements technically auditable and deterministically enforceable at runtime. Clause mapping: §5.2 (AI policy) → AEGIS Doctrine layer; §6.1.2/6.1.3 (risk assessment/treatment) → ATM-1; §6.1.4 (AI system impact assessment) → AGP-1 ESCALATE/REQUIRE_CONFIRMATION; §8.1 (operational control) → AGP-1 runtime enforcement; §9.1/9.2 (monitoring and audit) → AEGIS audit trail and query interface; Annex A (reference controls) → AEGIS capability registry and policy engine. ISO/IEC 42001 itself uses STRIDE for threat modeling across the AI lifecycle — the same framework as ATM-1. Together with NIST AI RMF [13] and the EU AI Act [15], these three form the governance triad AEGIS implements: risk framework (NIST) + regulatory obligation (EU Act) + management system standard (ISO/IEC 42001).
 
 ---
 
@@ -92,4 +95,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-13\
-**Entries**: 15
+**Entries**: 16

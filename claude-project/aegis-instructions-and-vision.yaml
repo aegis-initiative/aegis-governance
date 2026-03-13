@@ -186,6 +186,20 @@ key_prior_art:
       (technical framework) — EU AI Act is the compliance mandate. Most relevant to whitepaper,
       sponsor copy, and regulatory alignment docs for EU-market enterprises.
 
+  - shortname: ISO/IEC 42001:2023
+    title: "Information technology — Artificial intelligence — Management system"
+    citation: 'International Organization for Standardization and International Electrotechnical Commission, "Information technology — Artificial intelligence — Management system," ISO/IEC 42001:2023(E), Geneva, Switzerland, Dec. 2023.'
+    canonical_identifier: "ISO/IEC 42001:2023"
+    url: none  # ISO standards are not freely available; no URL in citation
+    relevance: >
+      World's first AI management system standard. Defines what an organization's AI management
+      system must do; AEGIS provides the architectural enforcement layer that makes those
+      requirements technically auditable and deterministically enforceable at runtime.
+      Uses STRIDE for threat modeling (same framework as ATM-1). §6.1.3 b) requires controls
+      for risk treatment — AEGIS closes the gap between ISO 42001 on paper and what executes
+      in production. Forms the governance triad with NIST AI RMF [13] and EU AI Act [15]:
+      risk framework + regulatory obligation + management system standard.
+
 ---
 
 aegis_canon_vision:
