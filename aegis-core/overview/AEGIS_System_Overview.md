@@ -13,7 +13,7 @@ Effective Date: March 5, 2026
 AEGIS™ (Architec
 tural Enforcement & Governance of Intelligent Systems) is a governance architecture designed to enforce deterministic control over AI-generated actions before those actions interact with operational infrastructure.
 
-As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly. Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.
+As AI systems become capable of executing real-world operations—querying databases, modifying infrastructure, triggering workflows, and interacting with APIs—the risks associated with ungoverned execution increase significantly. Traditional AI safety approaches focus primarily on influencing model behavior through alignment training and moderation. While valuable, those approaches do not guarantee that AI systems will act safely when given operational capabilities.[^12]
 
 AEGIS™ addresses this challenge by introducing a **governance runtime layer** between AI agents and the systems they control. This runtime evaluates proposed actions against capability definitions, governance policies, and risk conditions before allowing execution.
 
@@ -36,7 +36,7 @@ AEGIS operates at the **architectural layer**, enforcing policy at the execution
 **Architectural vs Model-Layer:**
 - **AEGIS** enforces policy *outside* the AI model, at the boundary between agents and infrastructure
 - **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms, or training objectives
-- AEGIS intercepts and validates agent actions *before* they reach external systems
+- AEGIS intercepts and validates agent actions *before* they reach external systems[^5]
 
 **Model-Agnostic:**
 - AEGIS works with any LLM or AI agent architecture
@@ -85,7 +85,7 @@ Several approaches exist, each with limitations:
 | **Tool Restrictions** | Limit which tools AI can access | Coarse-grained; doesn't prevent misuse of allowed tools |
 | **Human-in-the-Loop** | Require human approval for every action | Doesn't scale; humans become bottlenecks and rubber-stamp approvals |
 | **Post-Execution Monitoring** | Detect problems after actions execute | Damage already done; too late for irreversible operations |
-| **AEGIS Governance** | **Architectural enforcement before execution** | **Adds latency (5-15ms); requires infrastructure integration** |
+| **AEGIS Governance** | **Architectural enforcement before execution** | **Adds latency (5-15ms); requires infrastructure integration**[^8] |
 
 ## Why Architectural Governance?
 
@@ -418,13 +418,13 @@ Each component has a specific role in enforcing governance constraints.
 
 ## Governance Gateway
 
-The gateway receives action proposals from AI systems and forwards them to the decision engine for evaluation.
+The gateway receives action proposals from AI systems and forwards them to the decision engine for evaluation.[^3]
 
 ---
 
 ## Decision Engine
 
-The decision engine determines whether actions are permitted based on:
+The decision engine determines whether actions are permitted based on:[^4]
 
 - capability authorization
 - actor identity
@@ -545,6 +545,22 @@ Ready to explore AEGIS governance? Follow this learning path:
 | Assess security | [Threat Model](../threat-model/AEGIS_Threat_Model.md) |
 | Plan adoption | [FAQ - Adoption Model](../faq/AEGIS_FAQ.md#aegis-adoption-model) |
 | Join the community | [GitHub Discussions](https://github.com/finnoybu/aegis-governance/discussions) |
+
+---
+
+---
+
+## References
+
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021. See [REFERENCES.md](../../../REFERENCES.md).
 
 ---
 
