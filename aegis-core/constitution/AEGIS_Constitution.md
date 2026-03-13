@@ -268,7 +268,7 @@ AEGIS™ exists to ensure that AI systems operate within **explicitly defined an
 
 [^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
 
-[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: https://arxiv.org/abs/2602.20021. See [REFERENCES.md](../../REFERENCES.md).
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
 
 ---
 
