@@ -51,6 +51,7 @@ Every AGP-1 message requires authentication proving the client's identity. Three
 | `scope` | string | yes | Space-separated OAuth scopes (see below) |
 | `actor_type` | string | yes | Type of actor: `ai_system`, `human_user`, `automated_system` |
 | `trust_level` | string | no | Actor's baseline trust level (from AEGIS_TRUST_MODEL): L0_SYSTEM, L1_PRIMARY, L2_TRUSTED, L3_CONTRIBUTOR, QUARANTINE |
+| `cnf` | object | no | Confirmation claim (RFC 8705 §3.1) — binds token to client certificate thumbprint. Required when using certificate-bound tokens. Example: `{"x5t#S256": "<SHA-256 cert thumbprint>"}` |
 
 ### Authorization Scopes
 
@@ -162,6 +163,70 @@ Server grants scopes from database:
   governance:propose_action
   governance:query_audit
 ```
+
+---
+
+## Certificate-Bound Tokens (RFC 8705)
+
+**Method**: `bearer_token` + `mtls` combined (Recommended for high-security deployments)\
+**Standard**: OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens [^18]
+
+In standard Bearer token authentication, a stolen token can be replayed by any party. Certificate-bound tokens close this gap: the JWT access token is cryptographically bound to the client's mTLS certificate via the `cnf` (confirmation) claim. A server that validates both the token signature and the certificate binding ensures the token can only be used by the client holding the corresponding private key.
+
+This mechanism directly mitigates ATM-1 T3 (Identity Spoofing) and AV-1.4 (Token/Credential Theft): an attacker who intercepts a token cannot use it without also compromising the client certificate.
+
+### How Certificate Binding Works
+
+```
+1. Client requests token from OAuth provider over mTLS
+2. OAuth provider computes SHA-256 thumbprint of client's TLS certificate
+3. Provider embeds thumbprint in JWT as cnf claim:
+      "cnf": { "x5t#S256": "<base64url(SHA-256(client_cert_DER))>" }
+4. Client presents token + same certificate to AGP-1 server
+5. Server validates:
+      a. JWT signature and claims (standard validation)
+      b. mTLS certificate is valid
+      c. cnf.x5t#S256 in JWT matches SHA-256 of presented certificate
+      → Stolen token + different certificate = REJECT
+```
+
+### JWT with Certificate Binding
+
+```json
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "kid": "key-v1"
+}
+.
+{
+  "iss": "https://auth.example.com",
+  "sub": "agent:soc-001",
+  "aud": "https://governance.example.com",
+  "iat": 1709624400,
+  "exp": 1709628000,
+  "scope": "governance:propose_action",
+  "actor_type": "ai_system",
+  "trust_level": "L2_TRUSTED",
+  "cnf": {
+    "x5t#S256": "bwcK0esc3ACC3DB2Y5_lESsXE8o9ltc05O89jdN-dg"
+  }
+}
+```
+
+### Server Validation (Additional Step)
+
+After standard JWT validation (steps 1–7 above), when `cnf` is present:
+
+```python
+# Step 8: Verify certificate binding (RFC 8705 §3.1)
+if "cnf" in auth_token and "x5t#S256" in auth_token["cnf"]:
+    cert_thumbprint = base64url(sha256(tls_client_cert_der))
+    if cert_thumbprint != auth_token["cnf"]["x5t#S256"]:
+        raise Unauthorized("certificate binding mismatch — possible token theft")
+```
+
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. See [REFERENCES.md](../../REFERENCES.md).
 
 ---
 
@@ -330,6 +395,7 @@ If token must be revoked before expiration (compromise):
 - ✅ Maintain audit log of authentication events
 - ✅ Rotate signing keys regularly (quarterly minimum)
 - ✅ Verify issuer is trusted (don't accept unknown issuers)
+- ✅ In high-security deployments, require certificate-bound tokens (RFC 8705) and validate `cnf.x5t#S256` against the presented mTLS certificate — prevents token theft (ATM-1 AV-1.4)
 
 ---
 

@@ -83,6 +83,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** Zero trust architecture; ZTA; identity verification; dynamic policy; microsegmentation; least privilege\
 **Relevance to AEGIS:** Canonical definitional reference for zero-trust architecture. AEGIS implements the four core ZTA tenets from §2 directly: (1) all resources must be authenticated before access is granted → AGP-1 actor identity requirement; (2) access is determined by dynamic policy → AGP-1 capability registry and policy engine; (3) all communication is secured regardless of network location → AGP-1 mTLS requirement; (4) all resource access is logged and inspected → AEGIS immutable audit trail. The §3 logical components model (policy engine, policy administrator, policy enforcement point) maps directly to the AGP-1 architecture. POLYNIX [8] validates these ZTA principles empirically; SP 800-207 is the definitional reference reviewers expect to see cited alongside POLYNIX. Public domain — may be quoted directly.
 
+[18] B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. [Online]. Available: https://www.rfc-editor.org/rfc/rfc8705\
+**Keywords:** OAuth 2.0; mTLS; certificate-bound tokens; client authentication; `cnf` claim; token binding\
+**Relevance to AEGIS:** Normative specification for AGP-1's combined JWT + mTLS authentication model. RFC 8705 defines how a client certificate at the TLS layer is cryptographically bound to an access token via the `cnf` (confirmation) claim — the token can only be used by the client holding the corresponding private key. This binding directly closes ATM-1's T3 (Identity Spoofing) and AV-1.4 (Token/Credential Theft) vectors: an intercepted token is useless without the certificate. RFC 7519 (JWT format) is the secondary reference if a reader needs the JWT structure definition; RFC 8705 is the primary citation wherever AGP-1 authentication is invoked.
+
 ---
 
 ## How to Cite
@@ -99,4 +103,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-13\
-**Entries**: 17
+**Entries**: 18
