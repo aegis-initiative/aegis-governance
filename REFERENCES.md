@@ -123,6 +123,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** AI agents; agentic AI; agent index; deployment survey; autonomous systems; LLM agents\
 **Relevance to AEGIS:** Quantitative evidence of agentic AI proliferation at scale. Documents the order-of-magnitude growth in production autonomous agent deployments across financial services, healthcare, software development, and security operations — directly establishing the scale and urgency of the governance gap AEGIS addresses. Cited alongside the Agentic AI & Cybersecurity Survey [28] and Shapira et al. [Agents of Chaos] to ground the paper's opening argument in measurable real-world deployment reality.
 
+[30] Z. Engin and N. Hand, "Toward Adaptive Categories: Dimensional Governance for Agentic AI," arXiv:2505.11579v2, 2025. [Online]. Available: <https://arxiv.org/pdf/2505.11579>\
+**Keywords:** AI governance; agentic AI; dimensional governance; adaptive categories; policy frameworks; autonomous systems\
+**Relevance to AEGIS:** Proposes a dimensional governance framework for agentic AI — categorizing governance requirements across multiple axes rather than binary compliant/non-compliant classifications. Potentially relevant to AEGIS's four-outcome decision model (ALLOW, DENY, ESCALATE, REQUIRE_CONFIRMATION) as an instance of dimensional rather than binary governance. Retain if cited in repo documentation; drop if not.
+
 ---
 
 ## Distributed Trust & Reputation
@@ -158,4 +162,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 29
+**Entries**: 30
