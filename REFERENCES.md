@@ -11,6 +11,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 [1] J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. [Online]. Available: <https://csrc.nist.gov/files/pubs/conference/1998/10/08/proceedings-of-the-21st-nissc-1998/final/docs/early-cs-papers/ande72.pdf>\
 **Relevance to AEGIS:** First articulation of the reference monitor — a component that validates all references made by executing programs against those authorized for the subject. The conceptual origin of every enforcement boundary AEGIS inherits. AEGIS's governance gateway is a direct descendant of this concept.
 
+[22] J. H. Saltzer and M. D. Schroeder, "The protection of information in computer systems," *Proc. IEEE*, vol. 63, no. 9, pp. 1278–1308, Sep. 1975, doi: 10.1109/PROC.1975.9939. [Online]. Available: <https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1451869>\
+**Keywords:** Access control; least privilege; fail-safe defaults; complete mediation; open design; separation of privilege; security design principles\
+**Relevance to AEGIS:** Foundational enumeration of eight security design principles that AEGIS instantiates architecturally. Four principles map directly to AGP-1: (1) Fail-safe defaults → capability registry is empty by default; all undefined actions denied. (2) Complete mediation → every agent action passes through the governance gateway without exception. (3) Least privilege → capability grants are explicit, minimal, and scoped to specific action types and resource targets. (4) Open design → AEGIS published under Apache 2.0; security properties do not depend on obscurity. Together with Anderson [1], this paper establishes the theoretical security foundation AEGIS inherits. Anderson defines the enforcement boundary; Saltzer & Schroeder define the principles governing what that boundary enforces.
+
 [2] F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382.\
 **Keywords:** Security automata; runtime monitors; enforceable policies; safety policies\
 **Relevance to AEGIS:** Establishes the formal theory of security automata and defines which security policies are enforceable through runtime monitoring. AEGIS's deterministic enforcement model and fail-closed posture are grounded in Schneider's proof that only safety policies are inline-enforceable. The AEGIS Constitution's Article III (Deterministic Enforcement) inherits this foundation directly. Schneider also proves that composition of security automata produces the conjunction of their enforced policies — enforcing multiple automata in tandem enforces all of their policies simultaneously. This is the formal justification for AEGIS's multi-gate enforcement architecture: each gate enforces its own policy, and the composed system enforces all of them.
@@ -122,4 +126,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 21
+**Entries**: 22
