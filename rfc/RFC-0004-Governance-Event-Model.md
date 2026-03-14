@@ -86,7 +86,7 @@ Consumers MUST enforce:
 - Timestamp skew window (default +/- 5 minutes)
 - Signature verification with key validity period
 
-### 5. Trust Evaluation Model
+### 5. Trust Evaluation Model[^17]
 
 Trust score range: 0.0 to 1.0.
 
@@ -165,6 +165,8 @@ The cold-start trust problem for new nodes should be addressed operationally: ne
 - RFC-0003 — Capability Registry and Policy Language
 - AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
 - AEGIS Federation spec — `federation/`
+
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
