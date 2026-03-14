@@ -226,8 +226,6 @@ if "cnf" in auth_token and "x5t#S256" in auth_token["cnf"]:
         raise Unauthorized("certificate binding mismatch — possible token theft")
 ```
 
-[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. See [REFERENCES.md](../../REFERENCES.md).
-
 ---
 
 ## API Key Authentication  (Deprecated; Sunset: 2026-12-31)
@@ -403,3 +401,9 @@ If token must be revoked before expiration (compromise):
 
 - [AGP1_PolicyEvaluation.md](./AGP1_PolicyEvaluation.md) - Capability and policy evaluation
 - [AGP1_Flows.md](./AGP1_Flows.md) - Complete protocol flows
+
+---
+
+## References
+
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. See [REFERENCES.md](../../REFERENCES.md).
