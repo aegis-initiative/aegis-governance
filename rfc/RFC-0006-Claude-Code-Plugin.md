@@ -120,7 +120,7 @@ Location: `.aegis/audit.jsonl`
 }
 ```
 
-### Governance Cycle (AGP-1 Compliance)
+### Governance Cycle ([AGP-1](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) Compliance)
 
 1. PROPOSAL — Hook intercepts tool call
 2. EVALUATION — Evaluator checks registry
@@ -175,13 +175,13 @@ aegis-governance/
 
 ## Compatibility
 
-No breaking changes to RFC-0001 through RFC-0005. The plugin implements RDP-03 (Embedded Lightweight Pattern) in the Claude Code execution environment. It is additive.
+No breaking changes to [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through [RFC-0005](./RFC-0005-Reference-Deployment-Patterns.md). The plugin implements RDP-03 (Embedded Lightweight Pattern) from RFC-0005 in the Claude Code execution environment. It is additive.
 
 ---
 
 ## Implementation Notes
 
-Begin with the PreToolUse hook and a minimal default registry. Audit log and hash chain can be added incrementally. The aegis-runtime repository provides reference implementations of the evaluator and registry loader that can be adapted for the plugin context.
+Begin with the PreToolUse hook and a minimal default registry. Audit log and hash chain can be added incrementally.
 
 The supply chain verification hook (v1.1) depends on Claude Code plugin manifest capabilities not yet fully documented. Defer until v1.1 scope is confirmed.
 
@@ -201,24 +201,11 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 - A developer installs the plugin and immediately has governance enforcement on all tool executions
 - Every denied or escalated action produces a readable audit record
 - The registry is human-editable without plugin reinstallation
-- The plugin demonstrates a complete AGP-1 governance cycle to any observer
+- The plugin demonstrates a complete [AGP-1](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) governance cycle to any observer
 
 ---
 
 ## References
-
-**Internal AEGIS documents:**
-
-- [AEGIS Constitution](../aegis-core/constitution/)
-- [AGP-1 Protocol](../aegis-core/protocol/AEGIS_AGP1_INDEX.md)
-- [SP-1 Decision Integrity](../aegis-core/security-protocols/)
-- [RFC-0001 — AEGIS Architecture](./RFC-0001-AEGIS-Architecture.md)
-- [RFC-0005 — Reference Deployment Patterns](./RFC-0005-Reference-Deployment-Patterns.md)
-
-**External references:**
-
-- Finnoybu IP LLC, "aegis-runtime," GitHub, 2026. [Online]. Available: <https://github.com/finnoybu/aegis-runtime>
-- Anthropic, "Claude Code Plugin Documentation," 2026. [Online]. Available: <https://code.claude.com/docs/en/discover-plugins>
 
 [^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
 
