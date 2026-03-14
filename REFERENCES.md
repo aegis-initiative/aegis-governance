@@ -123,6 +123,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** Trust; reputation systems; online services; trust metrics; subjective logic; computational trust\
 **Relevance to AEGIS:** Foundational survey of trust and reputation modeling for distributed systems. Supports GFN-1's trust scoring model — specifically the principle that trust should be weighted by recency of evidence, not only lifetime record. The temporal decay component (λ=0.01, half-life ≈69 days, GFN-1 §3.8) is consistent with trust modeling approaches documented here where staleness of evidence is a legitimate and designed input to trust evaluation.
 
+[27] H. Shuhan et al., "Decentralised identity federations using blockchain," *Int. J. Inf. Secur.*, 2024, doi: 10.1007/s10207-024-00864-6. [Online preprint]. Available: <https://arxiv.org/pdf/2305.00315>\
+**Keywords:** Decentralized identity; blockchain; federation; self-sovereign identity; verifiable credentials; distributed trust\
+**Relevance to AEGIS:** Federated identity architecture precedent supporting GFN-1's decentralized trust model. Demonstrates blockchain-anchored DID federation as a viable basis for cross-domain identity without a centralized authority — directly relevant to AEGIS's multi-node governance federation and the trust scoring model in RFC-0004 §5.
+
 ---
 
 ## LLM Security
@@ -146,4 +150,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 26
+**Entries**: 27
