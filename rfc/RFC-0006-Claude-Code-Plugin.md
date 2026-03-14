@@ -21,7 +21,7 @@ This RFC defines the AEGIS™ Claude Code Plugin: a governance enforcement layer
 
 ## Motivation
 
-The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern — the same action classes documented as governance failures in live agentic deployments.[^12] A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
+The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern — the same action classes documented as governance failures in live agentic deployments[^12] and the Excessive Agency risk (OWASP LLM06[^19]) that motivates governing them. A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
 
 ---
 
@@ -213,7 +213,9 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 
 [^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../REFERENCES.md).
 
+[^19]: OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>. See [REFERENCES.md](../REFERENCES.md).
+
 ---
 
-*"Capability without constraint is not intelligence™"*  
+*"Capability without constraint is not intelligence™"*
 *Finnoybu IP LLC — AEGIS™ Initiative*
