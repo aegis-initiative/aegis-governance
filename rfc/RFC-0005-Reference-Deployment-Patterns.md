@@ -154,7 +154,7 @@ RDP-03 is the recommended starting point for new implementations. The aegis-runt
 - Derrick Sutherland, Shadow-Soft — "What Has To Be In Place Before An AI Agent Gets Production Access" (March 2026)
 - JFrog AI Catalog — supply chain reference
 
-[^14]: Open Policy Agent, v0.61, Cloud Native Computing Foundation, 2024. [Online]. Available: https://www.openpolicyagent.org. See [REFERENCES.md](../REFERENCES.md).
+[^14]: Open Policy Agent, v0.61, Cloud Native Computing Foundation, 2024. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 

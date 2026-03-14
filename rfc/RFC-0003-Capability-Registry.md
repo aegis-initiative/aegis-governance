@@ -119,9 +119,11 @@ DECISION    = "ALLOW" | "DENY" | "ESCALATE" | "REQUIRE_CONFIRMATION" ;
 4. If a matching DENY is found, return DENY immediately.
 5. Track first matching non-deny decision by priority.
 6. Apply risk overrides without violating deny precedence.
-7. If no match, return DENY (default deny).[^2]
-8. Emit evaluation trace for audit.[^1]
+7. If no match, return DENY (default deny).
+8. Emit evaluation trace for audit.
 ```
+
+Step 7 implements default-deny[^2] — absence of explicit authorization yields denial. Step 8 records the full evaluation trace to support complete auditability.[^1]
 
 Complexity target: O(P * C), where P is policies and C is conditions per policy.
 
