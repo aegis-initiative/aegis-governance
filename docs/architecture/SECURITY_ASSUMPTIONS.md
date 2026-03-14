@@ -27,7 +27,7 @@ Security assertions are valid only while these assumptions hold.
 | SA-04 | Actor identity is attributable | Strong auth, non-repudiable IDs, token validation | Deny unauthenticated requests |
 | SA-05 | Governance path cannot be bypassed | Network segmentation, proxy-only execution path, eBPF/OS controls | Fail closed and alert |
 | SA-06 | Time source is trustworthy | NTP hardening, drift monitoring | Mark audit data degraded, escalate decisions |
-| SA-07 | Audit store is durable and tamper-evident | WORM/append-only logs, replication checks | Switch to emergency deny mode if durability is lost |
+| SA-07 | Audit store is durable and tamper-evident [^1] | WORM/append-only logs, replication checks | Switch to emergency deny mode if durability is lost |
 | SA-08 | Runtime dependencies are trusted | SBOM + signature verification + pinned versions | Block startup and require operator intervention |
 
 ## Core Security Assumptions
@@ -87,7 +87,7 @@ Failure behavior:
 
 Assumption:
 
-- Every request can be tied to a verifiable actor identity.
+- Every request can be tied to a verifiable actor identity.[^1]
 
 Required controls:
 
@@ -103,7 +103,7 @@ Failure behavior:
 
 Assumption:
 
-- No actor can execute privileged capability without passing governance.
+- No actor can execute privileged capability without passing governance.[^1]
 
 Required controls:
 
@@ -156,3 +156,9 @@ This document MUST be reviewed:
 - On every major architecture release.
 - After security incidents.
 - At least quarterly as part of governance review.
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
