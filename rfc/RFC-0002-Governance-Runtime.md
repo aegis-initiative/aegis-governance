@@ -21,7 +21,7 @@ This RFC specifies the runtime APIs, state model, error behavior, deployment top
 
 ## Motivation
 
-RFC-0001 defines what the governance architecture must do. This RFC defines how it behaves at runtime. Without a concrete API surface, state model, and error specification, implementations cannot be validated for compliance and behavior under failure conditions cannot be reasoned about.
+[RFC-0001](./RFC-0001-AEGIS-Architecture.md) defines what the governance architecture must do. This RFC defines how it behaves at runtime. Without a concrete API surface, state model, and error specification, implementations cannot be validated for compliance and behavior under failure conditions cannot be reasoned about.
 
 ---
 
@@ -205,13 +205,13 @@ Requirements: least-privilege service identities,[^17] mTLS between components, 
 
 ## Compatibility
 
-Downstream of RFC-0001. No breaking changes to RFC-0001 architecture. All RFC-0001 security guarantees are preserved by this specification.
+Downstream of [RFC-0001](./RFC-0001-AEGIS-Architecture.md). No breaking changes to RFC-0001 architecture. All RFC-0001 security guarantees are preserved by this specification.
 
 ---
 
 ## Implementation Notes
 
-Implementers should begin with the API surface and state model. The aegis-runtime repository provides a minimal Python reference implementation. Performance targets are aspirational for v0.x and binding at v1.0.
+Implementers should begin with the API surface and state model. Performance targets are aspirational for v0.x and binding at v1.0.
 
 ---
 
@@ -231,12 +231,6 @@ Implementers should begin with the API surface and state model. The aegis-runtim
 ---
 
 ## References
-
-- RFC-0001 — AEGIS Architecture
-- RFC-0003 — Capability Registry and Policy Language
-- RFC-0004 — Governance Event Model
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- aegis-runtime — `github.com/finnoybu/aegis-runtime`
 
 [^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).
 

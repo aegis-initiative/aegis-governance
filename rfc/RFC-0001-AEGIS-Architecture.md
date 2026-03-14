@@ -134,7 +134,7 @@ sequenceDiagram
 
 ## Drawbacks
 
-- Adds latency to every AI action. The governance evaluation path introduces overhead. RFC-0002 specifies SLO targets to bound this.
+- Adds latency to every AI action. The governance evaluation path introduces overhead. [RFC-0002](./RFC-0002-Governance-Runtime.md) specifies SLO targets to bound this.
 - Requires capability definitions to exist before agents can operate. Cold-start and onboarding complexity is non-trivial.
 - Default-deny posture will produce friction during initial deployment until registries are tuned to the operational environment.
 - Audit log growth is unbounded over time and requires operational management.
@@ -161,9 +161,7 @@ This is the foundational architecture RFC. All other RFCs are downstream of it. 
 
 ## Implementation Notes
 
-RFC-0002 specifies the runtime API. RFC-0003 specifies the capability registry and policy language. Implementers should read in order: RFC-0001, RFC-0002, RFC-0003, RFC-0004.
-
-The aegis-runtime repository provides a minimal Python reference implementation of RDP-03 (embedded lightweight pattern, per RFC-0005).
+[RFC-0002](./RFC-0002-Governance-Runtime.md) specifies the runtime API. [RFC-0003](./RFC-0003-Capability-Registry.md) specifies the capability registry and policy language. Implementers should read in order: RFC-0001, RFC-0002, RFC-0003, [RFC-0004](./RFC-0004-Governance-Event-Model.md).
 
 ---
 
@@ -183,12 +181,6 @@ The aegis-runtime repository provides a minimal Python reference implementation 
 ---
 
 ## References
-
-- RFC-0002 — Governance Runtime
-- RFC-0003 — Capability Registry and Policy Language
-- RFC-0004 — Governance Event Model
-- AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
-- ATM-1 Threat Model — `aegis-core/threat-model/AEGIS_ATM1_INDEX.md`
 
 [^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
 
