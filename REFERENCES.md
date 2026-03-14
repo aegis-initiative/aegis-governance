@@ -117,6 +117,14 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ---
 
+## Distributed Trust & Reputation
+
+[26] A. Jøsang, R. Ismail, and C. Boyd, "A survey of trust and reputation systems for online service provision," *Decision Support Systems*, vol. 43, no. 2, pp. 618–644, Mar. 2007, doi: 10.1016/j.dss.2005.05.019. [Online]. Available: <https://folk.universitetetioslo.no/josang/papers/JIB2007-DSS.pdf>\
+**Keywords:** Trust; reputation systems; online services; trust metrics; subjective logic; computational trust\
+**Relevance to AEGIS:** Foundational survey of trust and reputation modeling for distributed systems. Supports GFN-1's trust scoring model — specifically the principle that trust should be weighted by recency of evidence, not only lifetime record. The temporal decay component (λ=0.01, half-life ≈69 days, GFN-1 §3.8) is consistent with trust modeling approaches documented here where staleness of evidence is a legitimate and designed input to trust evaluation.
+
+---
+
 ## LLM Security
 
 [19] OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>\
@@ -138,4 +146,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 25
+**Entries**: 26
