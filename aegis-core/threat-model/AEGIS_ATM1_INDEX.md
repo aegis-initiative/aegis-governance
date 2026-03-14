@@ -69,7 +69,7 @@ Critical assets:
 
 ## Priority Threat Scenarios
 
-### T1: Governance Bypass
+### T1: Governance Bypass[^1]
 
 Scenario:
 
@@ -179,7 +179,7 @@ ATM-1's threat scenarios are not hypothetical — they have been documented empi
 
 Critically, the paper's authors attribute these failures explicitly to the *agentic layer* — the integration of language models with tool use, persistent memory, communication channels, and delegated authority — not to model-level weaknesses. Model alignment was insufficient to prevent the documented harms. The paper calls explicitly for "systematic oversight and realistic red-teaming for agentic systems" and governance protocols addressing accountability when autonomous systems cause harm. This finding directly establishes the architectural enforcement gap that ATM-1 addresses.
 
-**Industrial control systems precedent:** Pearce et al. [Smart I/O, 2020] establish in the industrial control systems domain that enforcement modules positioned between a potentially-compromised controller and the actuators it commands prevent damage regardless of controller state. The core architectural assumption — that the controller cannot be trusted — maps directly to ATM-1's TA-2 threat actor model: the AI agent (controller) may be compromised through prompt injection, adversarial inputs, or supply-chain manipulation; AEGIS's governance gateway (I/O module enforcer) intercepts and evaluates all action proposals before they reach infrastructure (actuators).
+**Industrial control systems precedent:** Pearce et al. [Smart I/O, 2020][^5] establish in the industrial control systems domain that enforcement modules positioned between a potentially-compromised controller and the actuators it commands prevent damage regardless of controller state. The core architectural assumption — that the controller cannot be trusted — maps directly to ATM-1's TA-2 threat actor model: the AI agent (controller) may be compromised through prompt injection, adversarial inputs, or supply-chain manipulation; AEGIS's governance gateway (I/O module enforcer) intercepts and evaluates all action proposals before they reach infrastructure (actuators).
 
 Together, these precedents establish that ATM-1's compromised agent assumption (TA-2) and governance-as-architecture approach are grounded in both contemporary agentic systems research and decades of industrial control systems security practice.
 
@@ -274,16 +274,20 @@ Planned extensions:
 - Runtime anomaly detection tuning based on production baselines.
 - Governance reputation systems within the federation network.
 
+## Foundational Principle
+
+> Capability without constraint is not intelligence™
+
+---
+
 ## References
 
 [Shapira et al., 2026] N. Shapira et al., "Agents of Chaos," arXiv preprint arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>
 
 [Smart I/O, 2020] H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520.
 
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
+
 See [REFERENCES.md](../../../REFERENCES.md) at repository root for the complete AEGIS bibliography.
-
----
-
-## Foundational Principle
-
-> Capability without constraint is not intelligence™

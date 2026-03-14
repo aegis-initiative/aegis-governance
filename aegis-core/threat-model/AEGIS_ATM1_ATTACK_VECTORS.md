@@ -28,7 +28,7 @@
 
 ## Attack Vector Categories
 
-### AV-1: Protocol-Level Attacks
+### AV-1: Protocol-Level Attacks[^3]
 
 #### AV-1.1 Message Tampering
 
@@ -82,7 +82,7 @@
 - **Impact**: Exfiltrate data 1GB/hour over 1000 requests (each approved) = 1TB exfil undetected
 - **Example**: 1000 "telemetry.query" requests each returning 1GB, cumulative risk undetected
 
-#### AV-2.3 Policy Tampering
+#### AV-2.3 Policy Tampering[^2]
 
 - **Vector**: Attacker modifies policy files to permit forbidden capabilities
 - **Precondition**: Policy storage not signed, versioning not audited, or deployment not verified
@@ -90,7 +90,7 @@
 - **Impact**: Systematic privilege escalation; attacker gains capability grant
 - **Example**: Edit policy.yaml to add `allow_action: "*" for actor: "attacker"` in production
 
-#### AV-2.4 Authorization Bypass
+#### AV-2.4 Authorization Bypass[^1]
 
 - **Vector**: Attacker circumvents policy evaluation entirely
 - **Precondition**: Multiple execution paths, some skip policy enforcement
@@ -261,3 +261,13 @@
 
 - [AEGIS_ATM1_SECURITY_PROPERTIES.md](./AEGIS_ATM1_SECURITY_PROPERTIES.md) — Security assumptions and invariants
 - [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Mitigation strategies for each vector
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Message-Based Communication Contracts," *IEEE Transactions on Software Engineering*, vol. 38, no. 3, pp. 531–550, May–June 2012, doi: 10.1109/TSE.2011.31. See [REFERENCES.md](../../../REFERENCES.md).

@@ -21,7 +21,7 @@ Mitigations are organized by:
 
 ## Preventive Controls
 
-### PC-1: Transport Security
+### PC-1: Transport Security[^18]
 
 **Applies To**: AV-1.1 (Message Tampering), AV-1.4 (Token Theft)
 
@@ -53,7 +53,7 @@ tls:
 
 ---
 
-### PC-2: Cryptographic Message Authentication
+### PC-2: Cryptographic Message Authentication[^3]
 
 **Applies To**: AV-1.3 (Replay), AV-4.2 (Log Injection), AV-1.2 (Injection)
 
@@ -84,7 +84,7 @@ tls:
 
 ---
 
-### PC-3: Role-Based Access Control (RBAC)
+### PC-3: Role-Based Access Control (RBAC)[^2]
 
 **Applies To**: AV-2.4 (Authorization Bypass), AV-3.2 (Privilege Escalation)
 
@@ -212,7 +212,7 @@ certificate:
 
 ## Detective Controls
 
-### DC-1: Audit Logging & Integrity
+### DC-1: Audit Logging & Integrity[^1]
 
 **Applies To**: AV-4.1 (Tampering), AV-4.3 (Availability), SP-5 (Completeness)
 
@@ -349,7 +349,7 @@ decision_profiling:
 
 ---
 
-### DC-5: Runtime Integrity Monitoring
+### DC-5: Runtime Integrity Monitoring[^5]
 
 **Applies To**: AV-6.2 (Build Tampering), Malware Detection
 
@@ -489,3 +489,17 @@ rollback:
 
 - [AEGIS_ATM1_RESIDUAL_RISKS.md](./AEGIS_ATM1_RESIDUAL_RISKS.md) — Residual risks and acceptance
 - [AEGIS_ATM1_INDEX.md](./AEGIS_ATM1_INDEX.md) — Complete threat model overview
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Message-Based Communication Contracts," *IEEE Transactions on Software Engineering*, vol. 38, no. 3, pp. 531–550, May–June 2012, doi: 10.1109/TSE.2011.31. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>. See [REFERENCES.md](../../../REFERENCES.md).
