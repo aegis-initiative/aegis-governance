@@ -29,7 +29,7 @@ The governance runtime (RFC-0002) enforces decisions. This RFC defines the vocab
 
 A capability is a named, versioned declaration of something an agent is allowed to attempt. Before an agent can take an action, that action must map to a registered capability the agent has been granted.
 
-A policy is a rule that says: when these conditions are true, make this decision. Policies are evaluated in priority order. The first matching deny wins. If nothing matches, the default is deny.
+A policy is a rule that says: when these conditions are true, make this decision. Policies are evaluated in priority order. The first matching deny wins. If nothing matches, the default is deny.[^2]
 
 Together, the capability registry and policy engine answer one question: should this agent be allowed to do this thing right now?
 
@@ -119,8 +119,8 @@ DECISION    = "ALLOW" | "DENY" | "ESCALATE" | "REQUIRE_CONFIRMATION" ;
 4. If a matching DENY is found, return DENY immediately.
 5. Track first matching non-deny decision by priority.
 6. Apply risk overrides without violating deny precedence.
-7. If no match, return DENY (default deny).
-8. Emit evaluation trace for audit.
+7. If no match, return DENY (default deny).[^2]
+8. Emit evaluation trace for audit.[^1]
 ```
 
 Complexity target: O(P * C), where P is policies and C is conditions per policy.
@@ -212,6 +212,10 @@ The `deny_unknown_capability` hard deny invariant (Section 7) must be the first 
 - RFC-0002 — Governance Runtime
 - RFC-0004 — Governance Event Model
 - AGP-1 Protocol — `aegis-core/protocol/AEGIS_AGP1_INDEX.md`
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
