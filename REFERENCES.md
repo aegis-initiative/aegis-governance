@@ -87,6 +87,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** OAuth 2.0; mTLS; certificate-bound tokens; client authentication; `cnf` claim; token binding\
 **Relevance to AEGIS:** Normative specification for AGP-1's combined JWT + mTLS authentication model. RFC 8705 defines how a client certificate at the TLS layer is cryptographically bound to an access token via the `cnf` (confirmation) claim — the token can only be used by the client holding the corresponding private key. This binding directly closes ATM-1's T3 (Identity Spoofing) and AV-1.4 (Token/Credential Theft) vectors: an intercepted token is useless without the certificate. RFC 7519 (JWT format) is the secondary reference if a reader needs the JWT structure definition; RFC 8705 is the primary citation wherever AGP-1 authentication is invoked.
 
+[20] M. Sporny, A. Guy, M. Sabadello, and D. Reed, "Decentralized Identifiers (DIDs) v1.0: Core architecture, data model, and representations," W3C Recommendation, 19 Jul. 2022. [Online]. Available: <https://www.w3.org/TR/2022/REC-did-core-20220719/>\
+**Keywords:** Decentralized identifiers; DID; self-sovereign identity; verifiable credentials; cryptographic identity; W3C\
+**Relevance to AEGIS:** Normative specification for the decentralized identifier format underpinning GFN-1 node identity (`did:aegis:<network>:<node-id>`). DIDs provide the cryptographic identity foundation that enables federation nodes to publish signed governance signals that consuming nodes can verify without a central authority. Combined with RFC 8705 [18], DIDs close ATM-1's T3 (Identity Spoofing) vector at the federation layer.
+
 ---
 
 ## LLM Security
@@ -110,4 +114,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 19
+**Entries**: 20
