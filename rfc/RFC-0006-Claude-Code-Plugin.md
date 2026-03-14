@@ -39,8 +39,8 @@ You can see governance working. That is the point.
 
 - `PreToolUse` hook — intercepts all tool executions before they occur
 - Local capability registry — declarative JSON definition of permitted, escalated, and denied action classes
-- Append-only audit log — tamper-evident JSONL record of every governance decision
-- Default-deny posture — actions not explicitly registered are denied
+- Append-only audit log — tamper-evident JSONL record of every governance decision[^1]
+- Default-deny posture — actions not explicitly registered are denied[^2]
 
 ### Version 1.1 Scope (follow-on)
 
@@ -215,6 +215,10 @@ The supply chain verification hook (v1.1) depends on Claude Code plugin manifest
 - aegis-runtime — `github.com/finnoybu/aegis-runtime`
 - Claude Code Plugin Documentation — `code.claude.com/docs/en/discover-plugins`
 - Agents of Chaos — arXiv:2602.20021 (February 2026)
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
 
 ---
 
