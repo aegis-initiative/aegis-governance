@@ -359,7 +359,7 @@ Despite comprehensive preventive, detective, and responsive controls, some resid
 
 ## Conclusion
 
-AEGIS threat model provides comprehensive defense against identified threats through defense-in-depth layering. Residual risks are documented, accepted, and actively managed through continuous monitoring, compensating controls, and incident response readiness.
+AEGIS threat model provides comprehensive defense against identified threats through defense-in-depth layering.[^1][^2] Residual risks are documented, accepted, and actively managed through continuous monitoring, compensating controls, and incident response readiness.
 
 **Overall Risk Assessment**: ACCEPTABLE for operational governance of AI systems in enterprise environments with security program and incident response capability.
 
@@ -370,3 +370,11 @@ AEGIS threat model provides comprehensive defense against identified threats thr
 - [AEGIS_ATM1_INDEX.md](./AEGIS_ATM1_INDEX.md) — Threat model overview and guidance
 - [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Mitigation strategies
 - Annual threat model review and update cycle
+
+---
+
+## References
+
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../../REFERENCES.md).
