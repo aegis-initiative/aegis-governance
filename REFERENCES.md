@@ -93,6 +93,14 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ---
 
+## AI Agent Governance Frameworks
+
+[21] G. Syros et al., "SAGA: A Security Architecture for Governing AI Agentic Systems," in *Proc. Network and Distributed System Security Symposium (NDSS)*, San Diego, CA, USA, Feb. 2026. [Online]. Available: <https://www.ndss-symposium.org/wp-content/uploads/2026-s869-paper.pdf>\
+**Keywords:** AI agents; multi-agent systems; security architecture; agent governance; provider trust; communication plane\
+**Relevance to AEGIS:** Primary architectural differentiation target. SAGA governs the inter-agent communication plane — trust and identity between agents in a multi-agent pipeline. AEGIS governs the agent-to-infrastructure action plane — what agents can do against operational systems. SAGA introduces a single Provider authority as trust root, creating a cross-organization single point of failure. AEGIS GFN-1 explicitly rejects centralized trust oracles in favor of a decentralized trust-scored federation. Complementary scope; distinct trust model.
+
+---
+
 ## LLM Security
 
 [19] OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>\
@@ -114,4 +122,4 @@ When citing in a document:
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
 **Last Updated**: 2026-03-14\
-**Entries**: 20
+**Entries**: 21
