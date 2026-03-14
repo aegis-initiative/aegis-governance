@@ -34,7 +34,7 @@ AEGIS operates at the **architectural layer**, enforcing policy at the execution
 
 **Architectural vs Model-Layer:**
 - **AEGIS** enforces policy *outside* the AI model, at the boundary between agents and infrastructure
-- **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms, or training objectives
+- **Model-internal approaches** (e.g., Constitutional AI, RLHF, fine-tuning) modify model weights, attention mechanisms,[^11] or training objectives
 - AEGIS intercepts and validates agent actions *before* they reach external systems[^5]
 
 **Model-Agnostic:**
@@ -568,6 +568,8 @@ Ready to explore AEGIS governance? Follow this learning path:
 [^13]: National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Jan. 2023, doi: 10.6028/NIST.AI.100-1. See [REFERENCES.md](../../REFERENCES.md).
 
 [^15]: European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, 12 Jul. 2024. See [REFERENCES.md](../../REFERENCES.md).
+
+[^11]: W. T. Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385–11402, 2026, doi: 10.1109/ACCESS.2026.3654907. See [REFERENCES.md](../../REFERENCES.md).
 
 [^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
 
