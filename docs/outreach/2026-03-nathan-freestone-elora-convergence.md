@@ -5,9 +5,9 @@
 **Status:** Active — ongoing exchange\
 **Response:** Received\
 **Discussions:**
-- [#73 — Append-Only Pipeline Provenance](https://github.com/orgs/aegis-initiative/discussions/73)
-- [#74 — Stateless Execution Units](https://github.com/orgs/aegis-initiative/discussions/74)
-- [#75 — Cryptographic Agent Registration](https://github.com/orgs/aegis-initiative/discussions/75)
+- [#73 — Append-Only Pipeline Provenance](https://github.com/finnoybu/aegis-governance/discussions/73)
+- [#74 — Stateless Execution Units](https://github.com/finnoybu/aegis-governance/discussions/74)
+- [#75 — Cryptographic Agent Registration](https://github.com/finnoybu/aegis-governance/discussions/75)
 
 ---
 
@@ -34,9 +34,10 @@ into the AEGIS specification and IEEE paper:
 3. **Cryptographic agent registration** — hash assigned at Tape registration; travels with
    pipeline artifact; verified at Commit Boundary; unregistered agents fail at Commit.
 
-Three GitHub Discussions were opened on March 15, 2026 in the aegis-initiative repository
-crediting Nathan's work for each pattern. Nathan was informed via DM and asked to confirm
-his GitHub account for tagging.
+Three GitHub Discussions were opened on March 15, 2026 in finnoybu/aegis-governance
+crediting Nathan's work for each pattern. Nathan confirmed his GitHub account as
+@EloraTaurus and was tagged in each Discussion. Nathan gave explicit permission for
+all three patterns to be referenced or incorporated into AEGIS.
 
 ---
 
@@ -84,12 +85,18 @@ mentioned DFIR app targeting SMB under Apache 2.0, and shared personal context o
 workload and IEEE/NIST submissions.
 
 ### March 15, 2026 — Three GitHub Discussions opened
-Opened in aegis-initiative under Ideas category, crediting Nathan in each:
-- #73 — Append-Only Pipeline Provenance
-- #74 — Stateless Execution Units
-- #75 — Cryptographic Agent Registration
+Opened in finnoybu/aegis-governance under Ideas category, crediting Nathan in each:
+- [#73 — Append-Only Pipeline Provenance](https://github.com/finnoybu/aegis-governance/discussions/73)
+- [#74 — Stateless Execution Units](https://github.com/finnoybu/aegis-governance/discussions/74)
+- [#75 — Cryptographic Agent Registration](https://github.com/finnoybu/aegis-governance/discussions/75)
 
-Nathan informed via DM with discussion links. GitHub account confirmation requested.
+Nathan informed via DM with correct discussion links. Tagged as @EloraTaurus in each.
+
+### March 15, 2026 — Nathan confirms GitHub + grants permission
+Nathan confirmed GitHub account as [@EloraTaurus](https://github.com/EloraTaurus).
+Gave explicit permission for all three patterns to be referenced or incorporated into AEGIS.
+Requested AEGIS be listed on Elora's Ecosystem Collaboration page with logo and description.
+Ken provided AEGIS description and wordmark SVG link. Ecosystem listing confirmed.
 
 ---
 
@@ -148,7 +155,9 @@ the boundary is load-bearing in the problem space rather than an architectural p
 
 ## Open Items
 
-- [ ] Confirm Nathan's GitHub account (nfreesto unconfirmed — name matches, awaiting reply)
+- [x] Confirm Nathan's GitHub account — confirmed [@EloraTaurus](https://github.com/EloraTaurus)
+- [x] Nathan granted permission to incorporate all three patterns into AEGIS
+- [x] AEGIS listed on Elora Ecosystem Collaboration page — description and wordmark delivered
 - [ ] Nathan to respond to three GitHub Discussions
 - [ ] Close Discussions Monday 2026-03-16 with summary, move to RFC
 - [ ] Incorporate three patterns into AEGIS spec via RFC process
