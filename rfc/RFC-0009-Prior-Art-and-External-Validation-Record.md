@@ -1,15 +1,15 @@
 # RFC-0009: Prior Art and External Validation Record
 
-**RFC**: RFC-0009  
-**Status:** Placeholder  
-**Version:** 0.0.1  
-**Created:** 2026-03-15  
-**Updated:** 2026-03-15  
-**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
-**Repository:** aegis-governance  
-**Target milestone:** TBD — pending normative source audit  
-**Supersedes:** None  
-**Superseded by:** None  
+**RFC**: RFC-0009\
+**Status:** Placeholder\
+**Version:** 0.0.1\
+**Created:** 2026-03-15\
+**Updated:** 2026-03-15\
+**Author:** AEGIS™ Initiative, Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** TBD — pending normative source audit\
+**Supersedes:** None\
+**Superseded by:** None
 
 ---
 
@@ -21,6 +21,15 @@ implementations that converged on equivalent architectural conclusions, and the
 published standards and research that provide external grounding for AEGIS's design
 decisions. It serves two purposes: defensive publication of AEGIS's development
 timeline, and a citable evidence base for the IEEE paper and NIST submissions.
+
+---
+
+## Status Note
+
+This is a placeholder RFC. Content is pending. The Assertion-to-Evidence Register
+is not populated — it is blocked on the normative source audit, which is a hard
+prerequisite. The RFC number is reserved and the structural scaffolding is in place
+to receive audit output.
 
 ---
 
@@ -72,8 +81,8 @@ immutable public anchor (GitHub commit, Discussion URL, or RFC publication date)
 | Four-layer enforcement stack (Doctrine/Schema/Engine/Platform) | TBD | TBD | TBD |
 | Execution boundary as primary authorization point | TBD | TBD | TBD |
 | Append-only audit trail requirement | TBD | TBD | TBD |
-| Agent runtime trust — two-mechanism separation model | 2026-03-15 | RFC-0004 v0.4 §5 | https://github.com/orgs/aegis-initiative/discussions/82 |
-| Non-override constraint (reputation never overrides threat detection) | 2026-03-15 | RFC-0004 v0.4 §5.4 | https://github.com/orgs/aegis-initiative/discussions/82 |
+| Agent runtime trust — two-mechanism separation model | 2026-03-15 | RFC-0004 v0.4 §5 | <https://github.com/orgs/aegis-initiative/discussions/82> |
+| Non-override constraint (reputation never overrides threat detection) | 2026-03-15 | RFC-0004 v0.4 §5.4 | <https://github.com/orgs/aegis-initiative/discussions/82> |
 | Cryptographic agent registration at Doctrine layer | TBD | TBD | TBD |
 | Authority capture at proposal time, re-validation at commit | TBD | TBD | TBD |
 | Federation publisher trust model | TBD | GFN-1 §3.7 | TBD |
@@ -86,9 +95,9 @@ normative source audit.*
 
 #### The Elora Taurus Project
 
-**Contact:** Nathan Freestone (@EloraTaurus)  
-**Project:** The Elora Taurus Project — https://elorataurus.com  
-**Prior Art Record:** https://elorataurus.com/prior-art.html (first published 2026-03-09)  
+**Contact:** Nathan Freestone (@EloraTaurus)\
+**Project:** The Elora Taurus Project — <https://elorataurus.com>\
+**Prior Art Record:** <https://elorataurus.com/prior-art.html> (first published 2026-03-09)\
 **Permission:** Explicit — granted 2026-03-15 to reference and incorporate all three
 patterns into AEGIS spec and IEEE paper.
 
@@ -98,7 +107,7 @@ problem inward. Both systems independently concluded that inference output canno
 carry its own authorization, governance cannot share compute boundary with what it
 governs, and audit trails must be append-only, hash-linked, and forensically replayable.
 
-**Elora public milestones** (from https://elorataurus.com/prior-art.html):
+**Elora public milestones** (from <https://elorataurus.com/prior-art.html>):
 
 | Milestone | Date | Commit Fingerprint |
 |---|---|---|
@@ -112,9 +121,9 @@ governs, and audit trails must be append-only, hash-linked, and forensically rep
 
 | Pattern | AEGIS Specs Affected | Citable Discussion |
 |---|---|---|
-| Append-only pipeline provenance (`prev_hash` → `event_hash`; DB-level no-update enforcement) | State Dump Protocol; audit trail requirements | https://github.com/finnoybu/aegis-governance/discussions/73 |
-| Stateless execution units (Worker as minimal shell; Tape loaded at execution time, unloaded on completion) | Constraint Envelope sub-spec; Detached Execution sub-spec | https://github.com/finnoybu/aegis-governance/discussions/74 |
-| Cryptographic agent registration (`tape_hash_not_captured` / `tape_hash_mismatch` as normative failure modes) | Doctrine layer; Authority Binding sub-spec | https://github.com/finnoybu/aegis-governance/discussions/75 |
+| Append-only pipeline provenance (`prev_hash` → `event_hash`; DB-level no-update enforcement) | State Dump Protocol; audit trail requirements | <https://github.com/finnoybu/aegis-governance/discussions/73> |
+| Stateless execution units (Worker as minimal shell; Tape loaded at execution time, unloaded on completion) | Constraint Envelope sub-spec; Detached Execution sub-spec | <https://github.com/finnoybu/aegis-governance/discussions/74> |
+| Cryptographic agent registration (`tape_hash_not_captured` / `tape_hash_mismatch` as normative failure modes) | Doctrine layer; Authority Binding sub-spec | <https://github.com/finnoybu/aegis-governance/discussions/75> |
 
 **Tape schema (received 2026-03-15 via LinkedIn DM — pending formal mapping):**
 
@@ -136,10 +145,10 @@ State Dump Protocol sub-spec.*
 
 #### Sovereign Shield — Mattijs Moens
 
-**Contact:** Mattijs Moens  
-**Project:** Sovereign Shield — https://sovereignshield.io  
-**License:** BSL 1.1 on engine/repo code — commercial use requires license  
-**Citable artifact:** https://github.com/orgs/aegis-initiative/discussions/82 (posted 2026-03-15)
+**Contact:** Mattijs Moens\
+**Project:** Sovereign Shield — <https://sovereignshield.io>\
+**License:** BSL 1.1 on engine/repo code — commercial use requires license\
+**Citable artifact:** <https://github.com/orgs/aegis-initiative/discussions/82> (posted 2026-03-15)
 
 Mattijs Moens independently identified the structural flaw in RFC-0004 v0.3 and
 proposed the two-layer separation model: security and reputation must never share
@@ -151,11 +160,11 @@ review. He has not reviewed the full AEGIS specification.
 | Source | Relevance | Citation |
 |---|---|---|
 | *Agents of Chaos* | Validates structural enforcement boundary requirement for agentic systems | arXiv:2602.20021 |
-| NIST AI RMF 1.0 | Governance and traceability framing | https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf |
-| ISO/IEC 42001 | AI management system reference | https://www.iso.org/standard/81230.html |
-| RFC 6962 (Certificate Transparency) | Reference model for hash-chained tamper-evident logging — normative basis for append-only provenance pattern | https://datatracker.ietf.org/doc/html/rfc6962 |
-| NIST FIPS 180-4 (SHA-256) | Hash function used in cryptographic agent registration pattern | https://csrc.nist.gov/pubs/fips/180-4/final |
-| RFC 2104 (HMAC) | Message authentication used in replay integrity chain | https://www.rfc-editor.org/rfc/rfc2104 |
+| NIST AI RMF 1.0 | Governance and traceability framing | <https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf> |
+| ISO/IEC 42001 | AI management system reference | <https://www.iso.org/standard/81230.html> |
+| RFC 6962 (Certificate Transparency) | Reference model for hash-chained tamper-evident logging — normative basis for append-only provenance pattern | <https://datatracker.ietf.org/doc/html/rfc6962> |
+| NIST FIPS 180-4 (SHA-256) | Hash function used in cryptographic agent registration pattern | <https://csrc.nist.gov/pubs/fips/180-4/final> |
+| RFC 2104 (HMAC) | Message authentication used in replay integrity chain | <https://www.rfc-editor.org/rfc/rfc2104> |
 
 *Note: RFC 6962 should be added to the AEGIS normative bibliography (currently R01–R09
 in the whitepaper) during the whitepaper revision pass.*
@@ -180,12 +189,12 @@ normative source audit, not a reason to omit the record.
 
 ## Alternatives Considered
 
-**Embed prior art record in IEEE paper only, no standalone RFC.**  
+**Embed prior art record in IEEE paper only, no standalone RFC.**\
 Rejected. The IEEE paper is a point-in-time submission. The prior art record needs to
 be a living document that predates the paper, can be updated as new external validation
 arrives, and carries normative weight within the AEGIS corpus.
 
-**Maintain prior art record as session YAML files only.**  
+**Maintain prior art record as session YAML files only.**\
 Rejected. Session YAMLs are operational records, not normative documents. A prior art
 record needs to be in the RFC corpus to be citable.
 
@@ -241,16 +250,16 @@ No breaking changes. No deprecations.
 - RFC-0004 v0.4 — Runtime Trust Model (two-mechanism separation)
 - GFN-1 — `aegis-governance/federation/AEGIS_GFN1_TRUST_MODEL.md`
 - normative-source-audit.yaml — audit scope and sequencing
-- Elora Taurus prior art record — https://elorataurus.com/prior-art.html
-- GitHub Discussion #73 — https://github.com/finnoybu/aegis-governance/discussions/73
-- GitHub Discussion #74 — https://github.com/finnoybu/aegis-governance/discussions/74
-- GitHub Discussion #75 — https://github.com/finnoybu/aegis-governance/discussions/75
-- GitHub Discussion #82 — https://github.com/orgs/aegis-initiative/discussions/82
+- Elora Taurus prior art record — <https://elorataurus.com/prior-art.html>
+- GitHub Discussion #73 — <https://github.com/finnoybu/aegis-governance/discussions/73>
+- GitHub Discussion #74 — <https://github.com/finnoybu/aegis-governance/discussions/74>
+- GitHub Discussion #75 — <https://github.com/finnoybu/aegis-governance/discussions/75>
+- GitHub Discussion #82 — <https://github.com/orgs/aegis-initiative/discussions/82>
 - *Agents of Chaos* — arXiv:2602.20021
-- NIST AI RMF 1.0 — https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
-- RFC 6962 (Certificate Transparency) — https://datatracker.ietf.org/doc/html/rfc6962
+- NIST AI RMF 1.0 — <https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf>
+- RFC 6962 (Certificate Transparency) — <https://datatracker.ietf.org/doc/html/rfc6962>
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*

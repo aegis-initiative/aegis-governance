@@ -19,6 +19,12 @@ One paragraph. What is this RFC proposing and why does it matter? A reader shoul
 
 ---
 
+## Status Note
+
+This is a placeholder RFC. Content is pending. The RFC number is reserved to maintain index continuity with the README and roadmap.
+
+---
+
 ## Motivation
 
 Why does this need to exist? What problem does it solve? What happens if we do nothing?
