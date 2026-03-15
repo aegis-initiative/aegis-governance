@@ -18,6 +18,7 @@ Position papers are organized by receiving organization:
 ```
 position-papers/
 ├── nist/              # National Institute of Standards and Technology
+├── cets225/           # Council of Europe Framework Convention on AI (CETS No. 225)
 ├── iso/               # International Organization for Standardization
 ├── cisa/              # Cybersecurity & Infrastructure Security Agency
 ├── eu-ai-office/      # European Union AI Office
@@ -61,6 +62,12 @@ Position papers should use a consistent header format that balances internal doc
 Position papers and comments submitted to NIST on AI governance, cybersecurity frameworks, and standards development.
 
 - [nist/](nist/)
+
+### Council of Europe — CETS No. 225
+
+Positioning statements related to the Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law — the first legally binding international AI governance treaty.
+
+- [cets225/](cets225/)
 
 ---
 
