@@ -93,7 +93,7 @@ Opened in finnoybu/aegis-governance under Ideas category, crediting Nathan in ea
 Nathan informed via DM with correct discussion links. Tagged as @EloraTaurus in each.
 
 ### March 15, 2026 — Nathan confirms GitHub + grants permission
-Nathan confirmed GitHub account as @EloraTaurus (https://github.com/EloraTaurus).
+Nathan confirmed GitHub account as [@EloraTaurus](https://github.com/EloraTaurus).
 Gave explicit permission for all three patterns to be referenced or incorporated into AEGIS.
 Requested AEGIS be listed on Elora's Ecosystem Collaboration page with logo and description.
 Ken provided AEGIS description and wordmark SVG link. Ecosystem listing confirmed.
@@ -155,7 +155,7 @@ the boundary is load-bearing in the problem space rather than an architectural p
 
 ## Open Items
 
-- [x] Confirm Nathan's GitHub account — confirmed @EloraTaurus (https://github.com/EloraTaurus)
+- [x] Confirm Nathan's GitHub account — confirmed [@EloraTaurus](https://github.com/EloraTaurus)
 - [x] Nathan granted permission to incorporate all three patterns into AEGIS
 - [x] AEGIS listed on Elora Ecosystem Collaboration page — description and wordmark delivered
 - [ ] Nathan to respond to three GitHub Discussions
