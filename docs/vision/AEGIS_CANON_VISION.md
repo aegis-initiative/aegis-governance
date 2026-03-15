@@ -319,5 +319,5 @@ The theory informs the practice. The practice validates the theory. Both evolve 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
-*AEGIS Initiative — Finnoybu IP LLC*
+_AEGIS™_ | _"Capability without constraint is not intelligence"™_
+_AEGIS Initiative — Finnoybu IP LLC_
