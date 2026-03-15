@@ -102,6 +102,14 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 **Keywords:** Decentralized identifiers; DID; self-sovereign identity; verifiable credentials; cryptographic identity; W3C\
 **Relevance to AEGIS:** Normative specification for the decentralized identifier format underpinning GFN-1 node identity (`did:aegis:<network>:<node-id>`). DIDs provide the cryptographic identity foundation that enables federation nodes to publish signed governance signals that consuming nodes can verify without a central authority. Combined with RFC 8705 [18], DIDs close ATM-1's T3 (Identity Spoofing) vector at the federation layer.
 
+[31] Council of Europe, *Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law*, Council of Europe Treaty Series (CETS) No. 225, Opened for signature, Vilnius, Lithuania, 5 Sep. 2024. [Online]. Available: <https://rm.coe.int/1680afae3c>\
+**Keywords:** AI governance; human rights; democracy; rule of law; international treaty; lifecycle oversight; transparency; auditability; risk management\
+**Relevance to AEGIS:** The first legally binding international treaty dedicated specifically to AI governance. Article 3 §1(b) establishes that parties may address private-sector AI risks either by applying the convention's obligations directly or by "taking other appropriate measures to fulfil the obligation" — the foundational framing for AEGIS's positioning as an architectural conformance pathway. The convention requires transparency, auditability, risk management, and effective oversight throughout AI system lifecycles, all of which AEGIS's deterministic enforcement architecture directly satisfies. Signatories include the EU, UK, Ukraine, Canada, Israel, and the United States (negotiations began September 2022 under the Council of Europe's Committee on AI). EU Parliament consent vote confirmed March 11, 2026 (455 in favour, 101 against, 74 abstentions); EP press release archived at `resources/1773236648570.pdf`. **Primary citation for the "other appropriate measures" conformance flexibility; note that "equivalent protection by other means" in the EP press release is a paraphrase of Article 3 §1(b) — use treaty language in formal documents.**
+
+[32] European Parliament, "Parliament backs EU signature of Framework Convention on Artificial Intelligence," Press Release 20260306IPR37524, 11 Mar. 2026. [Online]. Available: <https://www.europarl.europa.eu/news/en/press-room/20260306IPR37524/parliament-backs-eu-signature-of-framework-convention-on-artificial-intelligence>\
+**Keywords:** Council of Europe; Framework Convention on AI; EU signature; European Parliament; consent vote; ratification\
+**Relevance to AEGIS:** Secondary source for the ratification narrative. Confirms Parliament's consent vote (455 in favour, 101 against, 74 abstentions) on March 11, 2026 for the EU's signature of the Framework Convention [31]. Source of the "equivalent protection by other means" paraphrase of Article 3 §1(b) — useful for positioning copy but not a substitute for the treaty text in formal citations. Confirms signatory states: EU, UK, Ukraine, Canada, Israel, United States. Source document archived at `resources/1773236648570.pdf`.
+
 ---
 
 ## AI Agent Governance Frameworks
@@ -171,5 +179,5 @@ When citing in a document:
 
 **Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative\
-**Last Updated**: 2026-03-14\
-**Entries**: 30
+**Last Updated**: 2026-03-13\
+**Entries**: 32
