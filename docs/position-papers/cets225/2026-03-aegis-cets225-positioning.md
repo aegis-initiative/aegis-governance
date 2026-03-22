@@ -1,11 +1,11 @@
 # AEGIS™ and the Council of Europe Framework Convention on Artificial Intelligence
 
-**Document**: `docs/position-papers/cets225/2026-03-aegis-cets225-positioning.md`\
-**Version**: 0.1 (Living — not submitted)\
-**Status**: Active — update as ratification progresses\
-**Created**: 2026-03-15\
-**Updated**: 2026-03-15\
-**Author**: AEGIS™ Initiative, Finnoybu IP LLC\
+**Document**: `docs/position-papers/cets225/2026-03-aegis-cets225-positioning.md`  
+**Version**: 0.1 (Living — not submitted)  
+**Status**: Active — update as ratification progresses  
+**Created**: 2026-03-15  
+**Updated**: 2026-03-15 
+**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
 **Part of**: AEGIS™ Position Papers
 
 > **NOTE — LIVING DOCUMENT**: Unlike the NIST AI RMF position paper, this document is not
@@ -146,13 +146,13 @@ See [REFERENCES.md](../../../REFERENCES.md).
 
 [^31]: Council of Europe, *Framework Convention on Artificial Intelligence and Human Rights,
 Democracy and the Rule of Law*, CETS No. 225, Vilnius, 5 Sep. 2024. [Online]. Available:
-<https://rm.coe.int/1680afae3c>. See [REFERENCES.md](../../../REFERENCES.md).
+https://rm.coe.int/1680afae3c. See [REFERENCES.md](../../../REFERENCES.md).
 **Note**: "equivalent protection by other means" in the EP press release [^32] is a paraphrase
 of Article 3 §1(b) — use treaty language ("other appropriate measures") in formal documents.
 
 [^32]: European Parliament, "Parliament backs EU signature of Framework Convention on
 Artificial Intelligence," Press Release 20260306IPR37524, 11 Mar. 2026. [Online]. Available:
-<https://www.europarl.europa.eu/news/en/press-room/20260306IPR37524/parliament-backs-eu-signature-of-framework-convention-on-artificial-intelligence>.
+https://www.europarl.europa.eu/news/en/press-room/20260306IPR37524/parliament-backs-eu-signature-of-framework-convention-on-artificial-intelligence.
 See [REFERENCES.md](../../../REFERENCES.md).
 
 ---
