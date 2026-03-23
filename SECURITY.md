@@ -6,21 +6,22 @@ The AEGIS™ project takes security seriously. We appreciate your efforts to res
 
 ### Scope
 
-This security policy covers:
+This security policy covers all repositories in the [aegis-initiative](https://github.com/aegis-initiative) organization, including:
 
-- **AEGIS™ specifications and RFCs** — Design flaws or security issues in the architecture
-- **Reference implementations** — Vulnerabilities in the Python runtime or examples
+- **Specifications and RFCs** — Design flaws or security issues in the architecture
+- **Reference implementations** — Vulnerabilities in runtime code or examples
 - **Governance protocols** — Issues with AGP message handling or validation
 - **Schema definitions** — Validation bypasses or injection vulnerabilities
+- **Infrastructure** — CI/CD, deployment, and operational security concerns
 
 ### How to Report
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, report security vulnerabilities by:
+Instead, use one of the following methods:
 
-1. **Email:** Contact the project maintainer through GitHub with "SECURITY" in the subject line
-2. **GitHub Security Advisories:** Use the [private vulnerability reporting feature](https://github.com/aegis-initiative/aegis-governance/security/advisories/new)
+1. **GitHub Private Vulnerability Reporting:** Use the "Report a security vulnerability" link in the relevant repository's Issues tab
+2. **Email:** Contact the project maintainer through GitHub with "SECURITY" in the subject line
 
 ### What to Include
 
@@ -54,16 +55,6 @@ We request that you:
 - Allow reasonable time for remediation before public disclosure
 - Act in good faith to avoid privacy violations or service disruption
 - Do not exploit the vulnerability beyond what is necessary for demonstration
-
-### Security Considerations for Implementations
-
-Organizations implementing AEGIS™ specifications should consider:
-
-- **Defense in depth** — AEGIS™ is a governance layer, not a replacement for other security controls
-- **Secure deployment** — Follow deployment best practices for your runtime environment
-- **Audit logging** — Enable comprehensive audit logging and monitoring
-- **Policy review** — Regularly review and test governance policies
-- **Capability management** — Use least-privilege principles when granting capabilities
 
 ---
 
@@ -134,3 +125,7 @@ Security updates will be published through:
 ---
 
 **Thank you for helping keep AEGIS™ secure.**
+
+---
+
+*AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of Finnoybu IP LLC.*
