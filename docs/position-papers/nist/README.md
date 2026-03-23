@@ -16,14 +16,21 @@ This directory contains AEGIS™ responses to:
 
 ### 2026-03 AI Risk Management Framework Position
 
-- **File**: [2026-03-aegis-nist-ai-rmf-position-statement.md](2026-03-aegis-nist-ai-rmf-position-statement.md)
-- **Date**: March 7, 2026
+- **File**: [FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md](FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md) — Markdown version of the formal submission
+- **PDF**: [FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf](FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf) — Authoritative PDF as submitted
+- **Submission Date**: March 7, 2026
+- **Submitted by**: Kenneth Tannenbaum, AEGIS Initiative
+- **Contact**: ktannenbaum@aegis-initiative.com
 - **Topic**: AEGIS™ architecture as reference implementation for AI RMF execution-time governance
 - **Status**: Submitted for Public Comment and Community Review
-- **Submission Date**: March 7, 2026
 - **Submission Type**: Unsolicited Position Paper
+
+## Notes
+
+- The Markdown file is for reference only. The PDF is the authoritative version as submitted to NIST.
+- For citation, use the PDF and include the DOI if available.
 
 ---
 
-**Part of**: AEGIS™ Documentation  
+**Part of**: AEGIS™ Documentation\
 **Maintained by**: AEGIS™ Initiative
