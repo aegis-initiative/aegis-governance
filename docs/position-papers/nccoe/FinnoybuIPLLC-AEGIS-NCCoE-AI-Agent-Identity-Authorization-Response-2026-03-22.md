@@ -208,4 +208,4 @@ AEGIS™ Governance Protocol (AGP-1). Normative Specification v0.2.0. AEGIS Init
 
 ---
 
-*© 2026 AEGIS Initiative. AEGIS™ and "Capability without constraint is not intelligence"™ are trademarks of AEGIS Initiative.*
+*© 2026 AEGIS Initiative. AEGIS™ and "Capability without constraint is not intelligence"™ are trademarks of Finnoybu IP LLC.*
