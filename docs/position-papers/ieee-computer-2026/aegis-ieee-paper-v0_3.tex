@@ -1,7 +1,7 @@
 \documentclass{IEEEcsmag}
 \usepackage[colorlinks,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
 \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\/\do\*\do\-\do\~\do\'\do\"\do\-}
-\usepackage{upmath,color}
+\usepackage{upmath,color,amssymb}
 
 \jvol{XX}
 \jnum{XX}
@@ -80,12 +80,12 @@ Saltzer and Schroeder's 1975 enumeration of eight design principles for informat
 
 The AEGIS enforcement point is defined precisely: post-reasoning, pre-infrastructure execution. This location is distinct from the three alternative enforcement locations available in agentic AI systems.
 
-\begin{figure}[!t]
-% TODO: Architecture diagram
+\begin{figure*}[!t]
 \centering
-\caption{AEGIS architecture: the Tool Proxy intercepts agent tool calls, routes them through the Governance Gateway to the Decision Engine, and records every decision in the tamper-evident audit trail. No action reaches infrastructure without a governance decision.}
+\fbox{\parbox{34pc}{\vspace{6pc}\centering\large\sf [Architecture Diagram Placeholder]\par\vspace{4pt}\small AI Agent $\rightarrow$ Tool Proxy $\rightarrow$ Governance Gateway $\rightarrow$ Decision Engine $\rightarrow$ Audit Trail $\rightarrow$ DECISION\_RESPONSE\par\vspace{4pt}\small If log succeeds: original decision $\rightarrow$ Agent \quad If log fails: forced DENY $\rightarrow$ Agent\vspace{6pc}}}
+\caption{AEGIS architecture: the Tool Proxy intercepts agent tool calls, routes them through the Governance Gateway to the Decision Engine. Every decision passes through the tamper-evident audit trail before reaching the agent. If audit logging fails, the decision is overridden to DENY. No action reaches infrastructure without both a governance decision and an audit record.}
 \label{fig:architecture}
-\end{figure}
+\end{figure*}
 
 The {\it prompt layer} intercepts inputs before reasoning begins. Prompt-layer controls (system prompts, instruction hierarchies) can be overridden by prompt injection, cannot govern the full space of emergent agent behaviors, and produce no audit record of what was blocked.
 
@@ -100,8 +100,8 @@ This design reflects an architectural parallel to industrial control system boun
 \subsection{The Four-Layer Stack}
 
 \begin{figure}[!t]
-% TODO: Four-layer stack diagram
 \centering
+\fbox{\parbox{16pc}{\vspace{3pc}\centering\small\sf [Four-Layer Stack Placeholder]\par\vspace{4pt}\scriptsize L4: Platform/GFN-1 $\leftrightarrow$ MANAGE\par L3: Engine/Runtime $\leftrightarrow$ MEASURE\par L2: Schema/AGP-1 $\leftrightarrow$ MAP\par L1: Doctrine/Constitution $\leftrightarrow$ GOVERN\vspace{3pc}}}
 \caption{The AEGIS four-layer stack mapped to the four functions of the NIST AI Risk Management Framework: Govern, Map, Measure, and Manage.}
 \label{fig:fourlayer}
 \end{figure}
@@ -125,10 +125,20 @@ The {\it Governance Gateway} is the single entry point for all AGP-1 requests. I
 The {\it Tool Proxy} is the integration layer that mediates between the AI agent and its registered tools. When an agent calls a tool, the proxy intercepts the call, constructs an ACTION\_PROPOSE message from the call context, submits it to the gateway, and executes the actual tool function only if the governance decision is ALLOW. If the decision is DENY, ESCALATE, or REQUIRE\_CONFIRMATION, the proxy raises a structured exception without executing the tool. The agent's interface to its tools is unchanged from its perspective---it calls tools in the normal way---but no tool invocation reaches infrastructure without governance evaluation.
 
 \begin{table}[!t]
-% TODO: NEAT property mapping
 \centering
 \caption{Mapping of Anderson's NEAT reference monitor properties to AEGIS architectural components.}
 \label{tab:neat}
+\tablefont
+\begin{tabular*}{21pc}{@{}p{52pt}<{\raggedright}p{65pt}<{\raggedright}p{90pt}<{\raggedright}@{}}
+\toprule
+{\bf Property} & {\bf AEGIS Component} & {\bf Mechanism} \\
+\colrule
+Non-bypassable & Tool Proxy & Only execution path to infrastructure; no side channel \\[3pt]
+Evaluatable & Policy Engine, Capability Registry & Deterministic rules; inspectable configuration \\[3pt]
+Always-invoked & Tool Proxy & Every tool call intercepted; no exemptions \\[3pt]
+Tamper-proof & Governance Gateway & External to agent; agent cannot modify governance logic \\
+\botrule
+\end{tabular*}
 \end{table}
 
 This architecture satisfies Anderson's NEAT properties$^{2}$ directly: the gateway is Non-bypassable because the tool proxy provides the only execution path; Evaluatable because the policy engine and capability registry are deterministic and inspectable; Always-invoked because every tool call passes through the proxy; and Tamper-proof because the governance pathway is external to the AI agent and cannot be modified by it.
@@ -159,12 +169,26 @@ This threat model draws on established precedents in both industrial control sys
 
 \section{RELATED WORK}
 
-\begin{table}[!t]
-% TODO: Related work differentiation matrix
+\begin{table*}[!t]
 \centering
-\caption{Differentiation of AEGIS from representative related work across five governance dimensions: action-boundary enforcement, federated trust, tamper-evident audit, NIST AI RMF alignment, and open specification.}
+\caption{Differentiation of AEGIS from representative related work across five governance dimensions.}
 \label{tab:relatedwork}
-\end{table}
+\tablefont
+\begin{tabular*}{42pc}{@{}p{62pt}<{\raggedright}p{50pt}<{\centering}p{50pt}<{\centering}p{50pt}<{\centering}p{50pt}<{\centering}p{50pt}<{\centering}@{}}
+\toprule
+{\bf Approach} & {\bf Action Boundary} & {\bf Federated Trust} & {\bf Tamper-Evident Audit} & {\bf NIST RMF Aligned} & {\bf Open Spec} \\
+\colrule
+AEGIS & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\[3pt]
+GaaS (Gaurav) & --- & --- & --- & Partial & --- \\[3pt]
+MI9 (Wang) & --- & --- & --- & --- & \checkmark \\[3pt]
+SAGA (Syros) & --- & Centralized & --- & --- & \checkmark \\[3pt]
+LOKA (Rodriguez) & --- & --- & --- & --- & \checkmark \\[3pt]
+TRiSM (Gartner) & --- & --- & --- & Partial & --- \\[3pt]
+POLYNIX & \checkmark & --- & --- & --- & --- \\[3pt]
+CPS Enforce. & \checkmark & --- & --- & --- & --- \\
+\botrule
+\end{tabular*}
+\end{table*}
 
 We compare AEGIS against five categories of related work, characterizing in each case what governance property the approach provides and what it leaves ungoverned.
 
