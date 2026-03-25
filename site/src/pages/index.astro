@@ -295,6 +295,60 @@ const atxFiles = [
       .file-meta { text-align: left; }
     }
   </style>
+
+  <!-- Structured Data — Google Dataset Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "ATX-1: AEGIS Threat Matrix for Agentic AI Systems",
+    "description": "Machine-readable threat taxonomy for autonomous AI agent behavior. 9 tactics, 20 techniques, 20 mitigations in STIX 2.1 and structured JSON.",
+    "url": "https://aegis-governance.com",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "creator": {
+      "@type": "Organization",
+      "name": "AEGIS Initiative",
+      "url": "https://aegis-initiative.com"
+    },
+    "datePublished": "2026-03-25",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://aegis-governance.com/atx-1/stix-bundle.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://aegis-governance.com/atx-1/techniques.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://aegis-governance.com/atx-1/regulatory-crossref.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://aegis-governance.com/schemas/atx-technique.schema.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://aegis-governance.com/atx-1/index.json"
+      }
+    ],
+    "citation": {
+      "@type": "ScholarlyArticle",
+      "name": "AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents",
+      "author": {
+        "@type": "Person",
+        "name": "Kenneth Tannenbaum"
+      },
+      "url": "https://doi.org/10.5281/zenodo.15223923"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="header">
