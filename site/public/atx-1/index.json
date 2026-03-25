@@ -1,0 +1,42 @@
+{
+  "name": "ATX-1",
+  "full_name": "AEGIS Threat Matrix — Agentic Exploitation and Governance Intelligence Schema",
+  "version": "1.0.0",
+  "date": "2026-03-24",
+  "description": "A structured adversarial knowledge base for agentic AI behavior. 9 tactics, 20 techniques, 20 mitigations grounded in the Agents of Chaos study (Shapira et al., 2026).",
+  "license": "Apache-2.0",
+  "publisher": "AEGIS Initiative / Finnoybu IP LLC",
+  "artifacts": [
+    {
+      "name": "STIX 2.1 Bundle",
+      "description": "Complete taxonomy in STIX 2.1 format — tactics, techniques, mitigations, and relationships",
+      "path": "/atx-1/stix-bundle.json",
+      "format": "application/json",
+      "spec": "STIX 2.1 (OASIS)"
+    },
+    {
+      "name": "Technique Database",
+      "description": "All 20 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations",
+      "path": "/atx-1/techniques.json",
+      "format": "application/json"
+    },
+    {
+      "name": "Regulatory Cross-Reference",
+      "description": "Techniques mapped to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 scenarios",
+      "path": "/atx-1/regulatory-crossref.json",
+      "format": "application/json"
+    },
+    {
+      "name": "Technique JSON Schema",
+      "description": "JSON Schema (Draft 2020-12) for validating ATX-1 technique definitions",
+      "path": "/schemas/atx-technique.schema.json",
+      "format": "application/schema+json"
+    }
+  ],
+  "documentation": "https://aegis-docs.com/threat-matrix",
+  "source": "https://github.com/aegis-initiative/aegis-governance/tree/main/docs/atx",
+  "citation": {
+    "ieee": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.15223923.",
+    "doi": "10.5281/zenodo.15223923"
+  }
+}

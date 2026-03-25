@@ -1,0 +1,29 @@
+{
+  "name": "AEGIS Governance Data",
+  "description": "Machine-readable governance artifacts — datasets, schemas, and threat intelligence for the AEGIS ecosystem",
+  "url": "https://aegis-governance.com",
+  "version": "1.0.0",
+  "updated": "2026-03-25",
+  "license": "Apache-2.0",
+  "access": "unrestricted",
+  "note": "This entire site is intended for machine consumption. All paths are open to all bots.",
+  "datasets": {
+    "atx-1": {
+      "index": "/atx-1/index.json",
+      "stix_bundle": "/atx-1/stix-bundle.json",
+      "techniques": "/atx-1/techniques.json",
+      "regulatory_crossref": "/atx-1/regulatory-crossref.json"
+    },
+    "schemas": {
+      "atx_technique": "/schemas/atx-technique.schema.json"
+    }
+  },
+  "related_sites": {
+    "documentation": "https://aegis-docs.com",
+    "constitution": "https://aegis-constitution.com",
+    "initiative": "https://aegis-initiative.com",
+    "federation": "https://aegis-federation.com",
+    "demo_api": "https://demo.aegis-platform.net",
+    "repository": "https://github.com/aegis-initiative/aegis-governance"
+  }
+}

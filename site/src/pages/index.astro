@@ -1,0 +1,399 @@
+---
+const atxFiles = [
+  { name: "STIX 2.1 Bundle", path: "/atx-1/stix-bundle.json", size: "61 KB", desc: "Complete taxonomy — tactics, techniques, mitigations, relationships" },
+  { name: "Technique Database", path: "/atx-1/techniques.json", size: "19 KB", desc: "All 20 techniques with severity, case studies, OWASP mapping" },
+  { name: "Regulatory Cross-Reference", path: "/atx-1/regulatory-crossref.json", size: "13 KB", desc: "NIST AI RMF, EU AI Act, OWASP LLM Top 10 mapping" },
+  { name: "Technique JSON Schema", path: "/schemas/atx-technique.schema.json", size: "2.5 KB", desc: "Validation schema for technique definitions" },
+  { name: "ATX-1 Index", path: "/atx-1/index.json", size: "1.5 KB", desc: "Machine-readable index of all ATX-1 artifacts" },
+];
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGIS Governance Data — Machine-Readable Governance Artifacts</title>
+  <meta name="description" content="Machine-readable governance artifacts for the AEGIS ecosystem. ATX-1 threat taxonomy, JSON schemas, STIX 2.1 bundles, and regulatory cross-references.">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-hover: #1c2129;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f3a5f;
+      --green: #3fb950;
+      --orange: #d29922;
+      --border: #30363d;
+      --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .logo sup { font-size: 0.6em; vertical-align: super; }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .header-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover { color: var(--accent); }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .hero-note code {
+      font-family: var(--mono);
+      color: var(--accent);
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-intro {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .file-item:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+
+    .file-icon {
+      font-size: 1.5rem;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .file-info { flex: 1; }
+
+    .file-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .file-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .file-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .file-size {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .file-format {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--green);
+      background: #0d2818;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.2rem;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+
+    .consume-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+
+    .consume-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .code-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .code-block .comment { color: #484f58; }
+    .code-block .cmd { color: var(--green); }
+    .code-block .str { color: var(--accent); }
+    .code-block .kw { color: var(--orange); }
+
+    .code-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .ecosystem {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .eco-card {
+      display: block;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .eco-card:hover {
+      border-color: var(--accent);
+    }
+
+    .eco-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .eco-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer .tagline { font-style: italic; margin-bottom: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.6rem; }
+      .header { flex-direction: column; gap: 1rem; }
+      .file-item { flex-direction: column; align-items: flex-start; }
+      .file-meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">AEGIS<sup>TM</sup></div>
+      <span class="badge">Governance Data</span>
+    </div>
+    <nav class="header-links">
+      <a href="https://aegis-docs.com">Docs</a>
+      <a href="https://aegis-constitution.com">Constitution</a>
+      <a href="https://demo.aegis-platform.net">Demo API</a>
+      <a href="https://github.com/aegis-initiative/aegis-governance">GitHub</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Governance Data</h1>
+    <p>Machine-readable governance artifacts for the AEGIS ecosystem. Structured datasets, schemas, and threat intelligence for automated consumption.</p>
+    <div class="hero-note">
+      Humans read docs at <code><a href="https://aegis-docs.com" style="color: inherit; text-decoration: none;">aegis-docs.com</a></code> &mdash; machines consume data here.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>ATX-1 Threat Matrix</h2>
+    <p class="section-intro">AEGIS Threat Matrix v1.0 &mdash; 9 tactics, 20 techniques, 20 mitigations. Empirically grounded in the Agents of Chaos study. Available in STIX 2.1 and structured JSON.</p>
+    <div class="file-list">
+      {atxFiles.map((file) => (
+        <a href={file.path} class="file-item">
+          <div class="file-icon">{"{}"}</div>
+          <div class="file-info">
+            <div class="file-name">{file.name}</div>
+            <div class="file-desc">{file.desc}</div>
+          </div>
+          <div class="file-meta">
+            <div class="file-size">{file.size}</div>
+            <div class="file-format">JSON</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="consume-section">
+    <h2>Consume</h2>
+
+    <div class="code-label">Fetch the STIX bundle</div>
+    <div class="code-block">
+      <span class="cmd">curl</span> <span class="str">https://aegis-governance.com/atx-1/stix-bundle.json</span> | <span class="cmd">jq</span> <span class="str">'.objects[] | select(.type == "attack-pattern") | .name'</span>
+    </div>
+
+    <div class="code-label">Python &mdash; load techniques</div>
+    <div class="code-block">
+      <span class="kw">import</span> json, urllib.request<br><br>
+      url = <span class="str">"https://aegis-governance.com/atx-1/techniques.json"</span><br>
+      techniques = json.loads(urllib.request.urlopen(url).read())<br><br>
+      <span class="kw">for</span> t <span class="kw">in</span> techniques:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;print(f"&#123;t['id']&#125;: &#123;t['name']&#125; (&#123;t['severity']&#125;)")
+    </div>
+
+    <div class="code-label">Validate against schema</div>
+    <div class="code-block">
+      <span class="cmd">npx</span> ajv validate <span class="str">-s https://aegis-governance.com/schemas/atx-technique.schema.json</span> <span class="str">-d techniques.json</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Ecosystem</h2>
+    <div class="ecosystem">
+      <a href="https://aegis-docs.com" class="eco-card">
+        <h3>Documentation</h3>
+        <p>Human-readable specs, architecture, API reference, guides</p>
+      </a>
+      <a href="https://aegis-constitution.com" class="eco-card">
+        <h3>Constitution</h3>
+        <p>The governance charter &mdash; 11 articles defining AI governance requirements</p>
+      </a>
+      <a href="https://demo.aegis-platform.net" class="eco-card">
+        <h3>Demo API</h3>
+        <p>Live governance runtime &mdash; submit proposals, see all four outcomes</p>
+      </a>
+      <a href="https://aegis-federation.com" class="eco-card">
+        <h3>Federation</h3>
+        <p>Decentralized governance intelligence sharing via AT Protocol</p>
+      </a>
+      <a href="https://aegis-initiative.com" class="eco-card">
+        <h3>Initiative</h3>
+        <p>Organization home &mdash; mission, policy, press</p>
+      </a>
+      <a href="https://github.com/aegis-initiative/aegis-governance" class="eco-card">
+        <h3>Source</h3>
+        <p>Governance specs, ATX-1 taxonomy, schemas &mdash; Apache 2.0</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="tagline">Capability without constraint is not intelligence.&trade;</div>
+    <div>&copy; 2026 <a href="https://aegis-initiative.com">AEGIS Initiative</a> &middot; Finnoybu IP LLC &middot; <a href="https://aegis-docs.com">Documentation</a> &middot; <a href="https://github.com/aegis-initiative">GitHub</a></div>
+  </footer>
+</body>
+</html>
