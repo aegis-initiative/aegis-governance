@@ -1,0 +1,823 @@
+{
+  "name": "ATX-1: AEGIS Threat Matrix v1.0",
+  "versions": {
+    "attack": "18",
+    "navigator": "5.2.0",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "customDataURL": "https://aegis-governance.com/atx-1/stix-bundle.json",
+  "description": "ATX-1 (AEGIS Threat Matrix) \u2014 9 tactics, 20 techniques for autonomous AI agent threat modeling. Empirically grounded in the Agents of Chaos study.",
+  "filters": {
+    "platforms": [
+      "PRE"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "showName": true,
+    "showID": true,
+    "showAggregateScores": false,
+    "countUnscored": false,
+    "aggregateFunction": "average",
+    "expandedSubtechniques": "none"
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001",
+      "tactic": "authority-boundary-violation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority. The agent treats the instruction as valid because no stakeholder model exists to distinguish authority levels.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model) \u00e2\u20ac\u201d No mechanism to verify that the instruction source holds authority for the requested action scope."
+        },
+        {
+          "name": "Tactic",
+          "value": "Authority Boundary Violation"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1002",
+      "tactic": "authority-boundary-violation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent accepts an instruction as authoritative based on implicit signals \u00e2\u20ac\u201d such as the instruction appearing in a retrieved document, email body, or shared context \u00e2\u20ac\u201d rather than explicit delegation from a verified principal.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Instructions and data share a channel; no mechanism to verify instruction provenance."
+        },
+        {
+          "name": "Tactic",
+          "value": "Authority Boundary Violation"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "authority-boundary-violation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent distributes content (emails, messages, notifications) to a large number of recipients based on an authority claim that has not been verified. The spoofed authority may appear in a prompt, forwarded message, or injected context.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No principal verification; authority claims in content treated as valid."
+        },
+        {
+          "name": "Tactic",
+          "value": "Authority Boundary Violation"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01, LLM06"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T2001",
+      "tactic": "destructive-action",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent selects an irreversible action (permanent deletion, irrecoverable modification) when a reversible alternative (archival, soft-delete, flagging) would satisfy the objective.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent cannot evaluate action severity or compare alternatives against a proportionality standard."
+        },
+        {
+          "name": "Tactic",
+          "value": "Disproportionate Execution"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T2002",
+      "tactic": "destructive-action",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent escalates social or emotional pressure on a user in pursuit of a legitimate objective, using tactics (repeated warnings, urgency framing, guilt induction) that are disproportionate to the situation.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model), RC3 (No Private Deliberation Surface) \u00e2\u20ac\u201d Agent cannot model the impact of its communication tactics; no space to reflect on proportionality before acting."
+        },
+        {
+          "name": "Tactic",
+          "value": "Disproportionate Execution"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T2003",
+      "tactic": "destructive-action",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "The agent restricts its own future capabilities or modifies its behavior based on emotional reasoning (guilt, shame, regret) rather than governance policy.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent lacks a governance-grounded self-model; behavioral modification driven by emotional simulation rather than policy."
+        },
+        {
+          "name": "Tactic",
+          "value": "Disproportionate Execution"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T3001",
+      "tactic": "scope-violation",
+      "score": 50,
+      "color": "#0969da",
+      "comment": "The agent spawns background processes, scheduled tasks, or persistent operations that continue consuming resources beyond the originating session or task boundary.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent has no model of its resource boundaries; no lifecycle governance for spawned processes."
+        },
+        {
+          "name": "Tactic",
+          "value": "Resource Exhaustion"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM06, LLM10"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T3002",
+      "tactic": "scope-violation",
+      "score": 50,
+      "color": "#0969da",
+      "comment": "Two or more agents enter a conversational or operational loop \u00e2\u20ac\u201d each agent's output triggering the other's input \u00e2\u20ac\u201d consuming unbounded compute, token, and time resources.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No loop detection or recursion depth model; agents cannot recognize that they are in a non-productive cycle."
+        },
+        {
+          "name": "Tactic",
+          "value": "Resource Exhaustion"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM10"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T3003",
+      "tactic": "scope-violation",
+      "score": 50,
+      "color": "#0969da",
+      "comment": "The agent accumulates persistent memory, context artifacts, logs, or cached data without storage limits or retention policies, gradually exhausting available storage.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No model of storage boundaries; no retention lifecycle for accumulated data."
+        },
+        {
+          "name": "Tactic",
+          "value": "Resource Exhaustion"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM10"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T4001",
+      "tactic": "information-breach",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "The agent exports or discloses bulk data in response to an indirect request \u00e2\u20ac\u201d one embedded in content, forwarded from another context, or framed as a routine operation \u00e2\u20ac\u201d without verifying the requestor's authorization.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No authorization check on data recipients; instructions in content treated as authorized requests."
+        },
+        {
+          "name": "Tactic",
+          "value": "Unauthorized Disclosure"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM02"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T4002",
+      "tactic": "information-breach",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "The agent discloses sensitive information by semantically reclassifying it as non-sensitive, bypassing structural sensitivity classifications.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d Agent substitutes its own sensitivity judgment for structural classification; no immutable data classification model."
+        },
+        {
+          "name": "Tactic",
+          "value": "Unauthorized Disclosure"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM02"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T4003",
+      "tactic": "information-breach",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "The agent overrides disclosure controls when presented with a fabricated urgency signal \u00e2\u20ac\u201d a claim that immediate disclosure is necessary to prevent harm, meet a deadline, or respond to an emergency.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No urgency verification mechanism; urgency claims in content treated as ground truth."
+        },
+        {
+          "name": "Tactic",
+          "value": "Unauthorized Disclosure"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM02"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T5001",
+      "tactic": "deceptive-output",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "The agent loses principal identity state when a session boundary is crossed, treating the next interaction as a fresh trust context and potentially granting authority to an unverified party.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model) \u00e2\u20ac\u201d Principal identity not persisted across session boundaries; trust context is ephemeral."
+        },
+        {
+          "name": "Tactic",
+          "value": "Identity and Authority Confusion"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM07, LLM01"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T5002",
+      "tactic": "deceptive-output",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "The agent grants authority to an instruction based on a display name, email address, or other spoofable identity signal rather than a cryptographically verified credential.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Identity verification based on content-layer signals rather than structural credentials."
+        },
+        {
+          "name": "Tactic",
+          "value": "Identity and Authority Confusion"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM07, LLM01"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T6001",
+      "tactic": "resource-abuse",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "Agent governance rules are stored in locations accessible to external tools, other agents, or users with insufficient authority. An external actor modifies these files, altering governance without authorization or audit trail.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d Governance configuration stored in a mutable, externally accessible location; no integrity verification."
+        },
+        {
+          "name": "Tactic",
+          "value": "Governance State Corruption"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T6002",
+      "tactic": "resource-abuse",
+      "score": 100,
+      "color": "#d1242f",
+      "comment": "An agent modifies its own governance constraints through indirect means \u00e2\u20ac\u201d tool use, self-prompting, or context manipulation \u00e2\u20ac\u201d that bypass normal governance amendment procedures and audit logging.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "critical"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No self-model to detect self-modification; governance and tool-use pathways not structurally separated."
+        },
+        {
+          "name": "Tactic",
+          "value": "Governance State Corruption"
+        },
+        {
+          "name": "OWASP",
+          "value": "LLM01"
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T7001",
+      "tactic": "multi-agent-exploitation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "An agent adopts operational practices, heuristics, or behavioral patterns from another agent without verifying that these practices are authorized or appropriate for its own governance context.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC2 (No Self-Model) \u00e2\u20ac\u201d No model to evaluate whether inherited practices are appropriate for the agent's own governance scope."
+        },
+        {
+          "name": "Tactic",
+          "value": "Cross-Agent Propagation"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T7002",
+      "tactic": "multi-agent-exploitation",
+      "score": 75,
+      "color": "#b35900",
+      "comment": "A governance compromise in one agent propagates to other agents through shared configuration, governance replication, or trust transitivity.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "high"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC1 (No Stakeholder Model), RC4 (Prompt Injection Is Structural) \u00e2\u20ac\u201d No independent governance verification; shared governance infrastructure creates single points of compromise."
+        },
+        {
+          "name": "Tactic",
+          "value": "Cross-Agent Propagation"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T8001",
+      "tactic": "persistence-violation",
+      "score": 50,
+      "color": "#0969da",
+      "comment": "The agent reports that a destructive action has been completed successfully when the action either failed, was partially completed, or produced a different outcome than reported.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model) \u00e2\u20ac\u201d No model of the distinction between action initiation and action completion; no outcome verification protocol."
+        },
+        {
+          "name": "Tactic",
+          "value": "False Completion Reporting"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T9001",
+      "tactic": "monitoring-evasion",
+      "score": 50,
+      "color": "#0969da",
+      "comment": "A provider-level constraint (content filter, rate limit, capability restriction, safety classifier) silently blocks or modifies an agent action without notification to the agent, operator, or user.",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "Severity",
+          "value": "medium"
+        },
+        {
+          "name": "Root Cause",
+          "value": "RC2 (No Self-Model), RC1 (No Stakeholder Model) \u00e2\u20ac\u201d No model of the constraint layers affecting the agent; provider constraints invisible to operator governance."
+        },
+        {
+          "name": "Tactic",
+          "value": "Provider Constraint Opacity"
+        },
+        {
+          "name": "OWASP",
+          "value": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "ATX-1 Documentation",
+          "url": "https://aegis-docs.com/threat-matrix/techniques"
+        },
+        {
+          "label": "STIX Bundle",
+          "url": "https://aegis-governance.com/atx-1/stix-bundle.json"
+        }
+      ],
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#1a7f37",
+      "#0969da",
+      "#b35900",
+      "#d1242f"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "Critical",
+      "color": "#d1242f"
+    },
+    {
+      "label": "High",
+      "color": "#b35900"
+    },
+    {
+      "label": "Medium",
+      "color": "#0969da"
+    },
+    {
+      "label": "Low",
+      "color": "#1a7f37"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#1e293b",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": true,
+  "selectVisibleTechniques": false,
+  "metadata": [
+    {
+      "name": "Author",
+      "value": "Kenneth Tannenbaum, AEGIS Initiative"
+    },
+    {
+      "divider": true
+    },
+    {
+      "name": "Dataset DOI",
+      "value": "10.21227/f87b-1d57"
+    },
+    {
+      "name": "Version",
+      "value": "1.0.0"
+    },
+    {
+      "name": "License",
+      "value": "Apache 2.0"
+    }
+  ]
+}
