@@ -226,7 +226,7 @@ Autonomous AI agents require governance architecture, not only behavioral alignm
 
 AEGIS provides an open, implementable governance architecture that operates at the agent action boundary — the one location in the AI execution stack where structural enforcement is both necessary and sufficient. By satisfying Anderson's reference monitor properties and instantiating Saltzer and Schroeder's design principles, AEGIS provides formal analogues to the access control mechanisms that made general-purpose computing trustworthy. By aligning with the NIST AI Risk Management Framework and the EU AI Act's human oversight requirements, it provides a compliance-ready governance foundation for regulated deployments. By publishing all specifications and implementation code under Apache 2.0, it provides an open standard that the community can adopt, extend, and contribute to.
 
-*Capability without constraint is not intelligence.*™ The governance layer that AI agents have been missing is now specified.
+"Capability without constraint is not intelligence"™ The governance layer that AI agents have been missing is now specified.
 
 ---
 

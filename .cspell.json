@@ -186,7 +186,15 @@
     "Xplore",
     "xlarge",
     "XVCJ",
-    "yamllint"
+    "yamllint",
+    "Zenodo",
+    "zenodo",
+    "crossref",
+    "STIX",
+    "stix",
+    "DataPort",
+    "OWASP",
+    "OpenAIRE"
   ],
   "ignorePaths": [
     "archive/**",
