@@ -1,8 +1,9 @@
 # RFC-0004: AEGIS™ Governance Event Model
 
 **RFC:** RFC-0004  
-**Status:** Draft  
-**Version:** 0.4  
+**Status:** Final (v1.0)
+**Frozen:** 2026-03-26
+**Version:** 0.4
 **Created:** 2026-03-05  
 **Updated:** 2026-03-15  
 **Author:** AEGIS™ Initiative, Finnoybu IP LLC  

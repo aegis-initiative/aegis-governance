@@ -1,8 +1,9 @@
 # RFC-0003: AEGIS™ Capability Registry and Policy 
 
 **RFC:** RFC-0003
-**Status:** Draft  
-**Version:** 0.2  
+**Status:** Final (v1.0)
+**Frozen:** 2026-03-26
+**Version:** 0.2
 **Created:** 2026-03-05  
 **Updated:** 2026-03-06  
 **Author:** AEGIS™ Initiative, Finnoybu IP LLC  
