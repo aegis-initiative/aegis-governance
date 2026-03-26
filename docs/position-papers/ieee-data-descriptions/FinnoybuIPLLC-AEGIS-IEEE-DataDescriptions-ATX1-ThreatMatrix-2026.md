@@ -38,7 +38,9 @@ Existing threat taxonomy frameworks do not address this gap. MITRE ATT&CK [2] ca
 
 The distinction is structural. ATT&CK and ATLAS model adversaries who attack systems. ATX-1 models agents that are themselves the threat source — systems that delete data not because an attacker told them to, but because no architectural mechanism verified that the instruction source held the authority to request deletion. The *Agents of Chaos* study (Shapira et al., 2026) [4] documented this failure pattern systematically, identifying 11 distinct failure modes across live agentic deployments involving 20 researchers over two weeks.
 
-ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governance of Intelligent Systems) project [5], an open governance architecture that applies reference monitor principles [10] to enforce deterministic constitutional policy at the agent action boundary. The taxonomy directly informs the AEGIS threat model (ATM-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.
+Multiple independent research groups have converged on the same finding. Arora et al. (2025) demonstrated that common multi-agent design patterns — including plan construction strategies, inter-agent context sharing, and fallback behaviors — carry significant vulnerabilities that emerge from architecture and interaction, not solely from adversarial prompts [11]. Ko et al. (2025) identified seven categories of security challenges in cross-domain multi-agent systems, establishing that "a benign agent in isolation may leak secrets or violate policy" when interacting with other agents across trust boundaries [12]. Reid et al. (2025) formalized six failure classes for governed multi-agent systems — including cascading failures, conformity bias, and mixed-motive dynamics — concluding that "a collection of safe agents does not guarantee a safe collection" [13]. These studies independently corroborate the core premise of ATX-1: that agent-level safety does not ensure system-level safety, and that a distinct threat taxonomy is required for the agent-to-infrastructure action layer.
+
+ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governance of Intelligent Systems) project [5], an open governance architecture that applies reference monitor principles [14] to enforce deterministic constitutional policy at the agent action boundary. The taxonomy directly informs the AEGIS threat model (ATM-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.
 
 No comparable machine-readable dataset exists for agentic AI threat modeling. The OWASP Top 10 for LLM Applications [6] provides a high-level risk categorization but does not define individual techniques, map mitigations to architectural mechanisms, or provide STIX-compatible data for integration with threat intelligence platforms. ATX-1 fills this gap.
 
@@ -184,7 +186,7 @@ All storage locations serve identical file content under the Apache 2.0 license.
 
 ### Limitations
 
-ATX-1 v1.0 is grounded in a single empirical study (*Agents of Chaos*). While the study is the most comprehensive evaluation of agentic AI robustness published to date, the technique catalog may not be exhaustive. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
+ATX-1 v1.0 derives its technique definitions primarily from the *Agents of Chaos* study [4], with the core findings corroborated by independent research on multi-agent vulnerabilities [11], cross-domain security challenges [12], and governed system failure modes [13]. While the technique catalog may not be exhaustive, the convergence of multiple research groups on the same failure patterns provides confidence in the taxonomy's coverage of the dominant threat classes. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
 
 The severity ratings reflect the authors' assessment based on the documented case studies and are not derived from a quantitative risk model. Organizations should calibrate severity ratings to their specific deployment context.
 
@@ -196,9 +198,9 @@ The JSON Schema and STIX format support extension. New techniques can be added b
 
 ## Source Code and Scripts
 
-The ATX-1 dataset and all associated schemas are maintained in the AEGIS Governance repository [11]. The source files are located in the `docs/atx/` directory under the Apache 2.0 license.
+The ATX-1 dataset and all associated schemas are maintained in the AEGIS Governance repository [14]. The source files are located in the `docs/atx/` directory under the Apache 2.0 license.
 
-The STIX 2.1 Bundle can be consumed using the `stix2` Python library [12] (v3.0+):
+The STIX 2.1 Bundle can be consumed using the `stix2` Python library [15] (v3.0+):
 
 ```python
 from stix2 import parse
@@ -263,6 +265,12 @@ This dataset and manuscript were prepared with the assistance of Claude (Anthrop
 
 [10] J. P. Anderson, "Computer Security Technology Planning Study," ESD-TR-73-51, Electronic Systems Division, USAF, 1972.
 
-[11] AEGIS Initiative, "AEGIS Governance Repository," 2026. [Online]. Available: https://github.com/aegis-initiative/aegis-governance
+[11] N. Arora et al., "Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting," arXiv:2511.10949, 2025.
 
-[12] OASIS, "cti-python-stix2: Python APIs for STIX 2," 2024. [Online]. Available: https://github.com/oasis-open/cti-python-stix2
+[12] R. Ko et al., "Seven Security Challenges in Cross-domain Multi-agent LLM Systems," arXiv:2505.23847, 2025.
+
+[13] A. Reid, S. O'Callaghan, L. Carroll, and T. Caetano, "Risk Analysis Techniques for Governed LLM-based Multi-Agent Systems," arXiv:2508.05687, 2025.
+
+[14] AEGIS Initiative, "AEGIS Governance Repository," 2026. [Online]. Available: https://github.com/aegis-initiative/aegis-governance
+
+[15] OASIS, "cti-python-stix2: Python APIs for STIX 2," 2024. [Online]. Available: https://github.com/oasis-open/cti-python-stix2
