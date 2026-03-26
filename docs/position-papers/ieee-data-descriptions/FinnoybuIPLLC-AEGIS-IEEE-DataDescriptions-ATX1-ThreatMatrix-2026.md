@@ -26,7 +26,7 @@ ATX-1 (AEGIS Threat Matrix) is a structured adversarial knowledge base that cata
 
 **DATA DOI/PID** 10.21227/f87b-1d57
 
-**INDEX TERMS** AI governance, threat taxonomy, autonomous agents, STIX 2.1, agentic AI, NIST AI RMF, EU AI Act, OWASP LLM, constitutional enforcement.
+**INDEX TERMS** Agentic AI, AI governance, autonomous agents, constitutional enforcement, EU AI Act, NIST AI RMF, OWASP LLM, STIX 2.1, threat taxonomy.
 
 ---
 
@@ -196,13 +196,9 @@ The JSON Schema and STIX format support extension. New techniques can be added b
 
 ## Source Code and Scripts
 
-The ATX-1 dataset and all associated schemas are maintained in the AEGIS Governance repository:
+The ATX-1 dataset and all associated schemas are maintained in the AEGIS Governance repository [11]. The source files are located in the `docs/atx/` directory under the Apache 2.0 license.
 
-- **Repository**: https://github.com/aegis-initiative/aegis-governance
-- **ATX-1 directory**: `docs/atx/`
-- **License**: Apache 2.0
-
-The STIX 2.1 Bundle can be consumed using the `stix2` Python library (v3.0+):
+The STIX 2.1 Bundle can be consumed using the `stix2` Python library [12] (v3.0+):
 
 ```python
 from stix2 import parse
@@ -225,7 +221,7 @@ No custom software was developed specifically for the dataset. The taxonomy was 
 
 ---
 
-## Acknowledgments and Interests
+## Acknowledgements and Interests
 
 ### Author Contributions
 
@@ -233,7 +229,7 @@ Kenneth Tannenbaum: conceptualization, taxonomy design, data collection and anal
 
 ### Funding
 
-This work was produced independently under Finnoybu IP LLC. No external funding was received.
+This work was done independently of any grants or awards, produced under Finnoybu IP LLC.
 
 ### Conflicts of Interest
 
@@ -266,3 +262,7 @@ This dataset and manuscript were prepared with the assistance of Claude (Anthrop
 [9] European Parliament and Council of the EU, "Regulation (EU) 2024/1689 (EU AI Act)," Official Journal of the European Union, Jul. 2024.
 
 [10] J. P. Anderson, "Computer Security Technology Planning Study," ESD-TR-73-51, Electronic Systems Division, USAF, 1972.
+
+[11] AEGIS Initiative, "AEGIS Governance Repository," 2026. [Online]. Available: https://github.com/aegis-initiative/aegis-governance
+
+[12] OASIS, "cti-python-stix2: Python APIs for STIX 2," 2024. [Online]. Available: https://github.com/oasis-open/cti-python-stix2
