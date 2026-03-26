@@ -31,6 +31,12 @@
       "description": "JSON Schema (Draft 2020-12) for validating ATX-1 technique definitions",
       "path": "/schemas/atx-technique.schema.json",
       "format": "application/schema+json"
+    },
+    {
+      "name": "ATT&CK Navigator Layer",
+      "description": "Navigator-compatible layer file (v4.5) for visualization in ATT&CK Navigator",
+      "path": "/atx-1/navigator-layer.json",
+      "format": "application/json"
     }
   ],
   "documentation": "https://aegis-docs.com/threat-matrix",
