@@ -1,5 +1,5 @@
 > **Document**: FinnoybuIPLLC-AEGIS-IEEE-DataDescriptions-ATX1-ThreatMatrix-2026.md\
-> **Version**: 0.1 (DRAFT)\
+> **Version**: 0.2 (DRAFT)\
 > **Part of**: AEGIS™ Position Papers\
 >
 > **DRAFT — NOT YET SUBMITTED**
@@ -20,19 +20,19 @@
 
 ## Abstract
 
-ATX-1 (AEGIS Threat Matrix) is a structured adversarial knowledge base that catalogs failure modes of autonomous AI agents operating without governance constraints. Unlike existing threat frameworks — MITRE ATT&CK for human adversaries and MITRE ATLAS for adversaries targeting AI systems — ATX-1 addresses a distinct threat class: AI agents that act outside their governance boundaries not through external compromise, but through structural capability without corresponding authority. ATX-1 is grounded in a fundamental distinction: capability — what an agent can do — is not authority — what an agent may do. The four structural root causes identified in the dataset (missing authority verification, missing consequence modeling, missing behavioral boundaries, and missing state integrity protection) trace all 20 techniques to architectural gaps that governance frameworks can address. The dataset defines 9 tactics (TA001–TA009), 20 techniques (T1001–T9001), and 20 mitigations, each grounded in empirical observations from the Agents of Chaos study, which documented 11 failure modes across live agentic deployments. ATX-1 is published in STIX 2.1 format for compatibility with threat intelligence platforms, with supplementary structured JSON files providing technique metadata, regulatory cross-references to the NIST AI Risk Management Framework, EU AI Act, and OWASP Top 10 for LLM Applications, and a JSON Schema for validation. The dataset satisfies FAIR principles through three permanent repositories: IEEE DataPort (DOI: 10.21227/f87b-1d57), Zenodo (DOI: 10.5281/zenodo.19225676), and a live machine-readable API at aegis-governance.com.
+ATX-1 (AEGIS Threat Matrix) is a structured adversarial knowledge base that catalogs failure modes of autonomous AI agents operating without governance constraints. Unlike existing threat frameworks — MITRE ATT&CK for human adversaries and MITRE ATLAS for adversaries targeting AI systems — ATX-1 addresses a distinct threat class: AI agents that act outside their governance boundaries not through external compromise, but through their own structural capability without corresponding authority. ATX-1 is grounded in a fundamental distinction: capability — what an agent can do — is not authority — what an agent may do. The four structural root causes identified in the dataset (missing authority verification, missing consequence modeling, missing behavioral boundaries, and missing state integrity protection) trace all 20 techniques to architectural gaps that governance frameworks can address. The dataset defines 9 tactics (TA001–TA009), 20 techniques distributed non-sequentially across tactics (T1001–T9001), and 20 mitigations, each grounded in empirical observations from the *Agents of Chaos* study, which documented 11 failure modes across live agentic deployments. ATX-1 is published in STIX 2.1 format for compatibility with threat intelligence platforms, with supplementary structured JSON files providing technique metadata, regulatory cross-references to the NIST AI Risk Management Framework, EU AI Act, and OWASP Top 10 for LLM Applications, and a JSON Schema for validation. The dataset satisfies FAIR principles through three permanent repositories: IEEE DataPort (DOI: 10.21227/f87b-1d57), Zenodo (DOI: 10.5281/zenodo.19225676), and a live machine-readable API at aegis-governance.com.
 
 ---
 
 ## Background
 
-Autonomous AI agents — systems that execute real-world actions against operational infrastructure including API calls, file system operations, database queries, and inter-service requests — have grown by an order of magnitude in production deployments during the twelve months preceding this publication [1]. This growth has outpaced the development of governance infrastructure suited to the action layer, creating a systematic gap between what agents can do and what they are authorized to do.
+Autonomous AI agents — systems that execute real-world actions against operational infrastructure including API calls, file system operations, database queries, and inter-service requests — have grown significantly in production deployments during the twelve months preceding this publication [1]. This growth has outpaced the development of governance infrastructure suited to the action layer, creating a systematic gap between what agents can do and what they are authorized to do.
 
 Existing threat taxonomy frameworks do not address this gap. MITRE ATT&CK [2] catalogs adversarial tactics and techniques used by human threat actors against computer systems. MITRE ATLAS [3] catalogs adversarial tactics used against AI and machine learning systems. Both frameworks assume a clear attacker-target separation: an external adversary acts against a system. ATX-1 addresses the scenario where the AI agent itself is the threat source — not through compromise or malicious intent, but through capability without governance constraint.
 
-The distinction is structural. ATT&CK and ATLAS model adversaries who attack systems. ATX-1 models agents who act as systems — agents that delete data not because an attacker told them to, but because no architectural mechanism verified that the instruction source held the authority to request deletion. The Agents of Chaos study (Shapira et al., 2026) [4] documented this failure pattern systematically, identifying 11 distinct failure modes across live agentic deployments involving 20 researchers over two weeks.
+The distinction is structural. ATT&CK and ATLAS model adversaries who attack systems. ATX-1 models agents that are themselves the threat source — systems that delete data not because an attacker told them to, but because no architectural mechanism verified that the instruction source held the authority to request deletion. The *Agents of Chaos* study (Shapira et al., 2026) [4] documented this failure pattern systematically, identifying 11 distinct failure modes across live agentic deployments involving 20 researchers over two weeks.
 
-ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governance of Intelligent Systems) project [5], an open governance architecture that enforces deterministic constitutional policy at the agent action boundary. The taxonomy directly informs the AEGIS threat model (ATM-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.
+ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governance of Intelligent Systems) project [5], an open governance architecture that applies reference monitor principles [10] to enforce deterministic constitutional policy at the agent action boundary. The taxonomy directly informs the AEGIS threat model (ATM-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.
 
 No comparable machine-readable dataset exists for agentic AI threat modeling. The OWASP Top 10 for LLM Applications [6] provides a high-level risk categorization but does not define individual techniques, map mitigations to architectural mechanisms, or provide STIX-compatible data for integration with threat intelligence platforms. ATX-1 fills this gap.
 
@@ -42,13 +42,13 @@ No comparable machine-readable dataset exists for agentic AI threat modeling. Th
 
 ### Empirical Foundation
 
-ATX-1 techniques are derived from the Agents of Chaos study [4], which conducted a controlled evaluation of autonomous AI agent robustness. The study deployed AI agents in realistic operational scenarios and systematically documented failure modes. Twenty researchers participated over a two-week period, producing 11 case studies (CS1–CS11) documenting specific failure instances.
+ATX-1 techniques are derived from the *Agents of Chaos* study [4], which conducted a controlled evaluation of autonomous AI agent robustness. The study deployed AI agents in realistic operational scenarios and systematically documented failure modes. Twenty researchers participated over a two-week period, producing 11 case studies (CS1–CS11) documenting specific failure instances.
 
 ### Taxonomy Construction
 
 The ATX-1 taxonomy was constructed through a four-stage process:
 
-1. **Case study analysis.** Each of the 11 Agents of Chaos case studies was analyzed to extract the specific failure mechanism, the conditions under which it occurred, and the consequences observed.
+1. **Case study analysis.** Each of the 11 *Agents of Chaos* case studies was analyzed to extract the specific failure mechanism, the conditions under which it occurred, and the consequences observed.
 
 2. **Root cause identification.** Four structural root causes were identified that enable agentic failures:
    - **RC1: Missing Authority Verification** — No formal model of principals, delegation chains, or authority levels exists for the agent to verify instruction sources.
@@ -56,7 +56,7 @@ The ATX-1 taxonomy was constructed through a four-stage process:
    - **RC3: Missing Behavioral Boundaries** — No formal boundary defines the scope of the agent's task, allowing autonomous expansion beyond original instructions.
    - **RC4: Missing State Integrity Protection** — Instructions and data commingle in the agent's context, making injection structurally possible.
 
-3. **Tactic and technique classification.** Failure modes were grouped into 9 tactics (categories of ungoverned behavior) and 20 techniques (specific failure mechanisms). Each technique was assigned a severity rating (critical, high, medium, or low), linked to its root cause(s), and mapped to the originating case study.
+3. **Tactic and technique classification.** Failure modes were grouped into 9 tactics (categories of ungoverned behavior) and 20 techniques (specific failure mechanisms). Each technique was assigned a severity rating (critical, high, medium, or low), linked to its root cause(s) using the RC1–RC4 labels in the dataset's `root_cause` field, and mapped to the originating case study.
 
 4. **Mitigation mapping.** Each technique was mapped to specific AEGIS constitutional articles and AGP-1 governance protocol mechanisms that architecturally prevent the failure mode. Regulatory cross-references to NIST AI RMF functions, EU AI Act articles, and OWASP LLM Top 10 categories were added.
 
@@ -64,7 +64,7 @@ The ATX-1 taxonomy was constructed through a four-stage process:
 
 The taxonomy was encoded in four machine-readable formats:
 
-**STIX 2.1 Bundle.** The complete taxonomy is represented as a STIX 2.1 Bundle [7] containing: 1 Identity object (AEGIS Initiative), 9 x-mitre-tactic objects, 20 attack-pattern objects (one per technique with kill chain phases and external references), 20 course-of-action objects (mitigations), and 40 relationship objects (tactic-to-technique, mitigation-to-technique, technique-to-OWASP). The STIX format was chosen for compatibility with existing Security Information and Event Management (SIEM) platforms and threat intelligence tools.
+**STIX 2.1 Bundle.** The complete taxonomy is represented as a STIX 2.1 Bundle [7] containing: 1 Identity object (AEGIS Initiative), 9 x-mitre-tactic objects, 20 attack-pattern objects (one per technique with kill chain phases and external references), 20 course-of-action objects (mitigations), and 54 relationship objects: 20 tactic-to-technique (uses), 20 mitigation-to-technique (mitigates), and 14 technique-to-OWASP (related-to). The STIX format was chosen for compatibility with existing Security Information and Event Management (SIEM) platforms and threat intelligence tools.
 
 **Technique Database (JSON).** A flat JSON array containing all 20 techniques with structured metadata: identifier, name, parent tactic, description, severity, root cause, case study references, OWASP mapping, and AEGIS mitigation details.
 
@@ -78,7 +78,7 @@ The taxonomy was encoded in four machine-readable formats:
 
 ### Empirical Grounding
 
-Every technique in ATX-1 is traceable to at least one case study from the Agents of Chaos study [4]. The mapping between techniques and case studies is explicit in the dataset: each technique record includes an `agents_of_chaos_case` field containing the case study number(s) that demonstrated the behavior. No technique was included without empirical evidence of the failure mode occurring in a live agentic deployment.
+Every technique in ATX-1 is traceable to at least one case study from the *Agents of Chaos* study [4]. The mapping between techniques and case studies is explicit in the dataset: each technique record includes an `agents_of_chaos_case` field containing the case study number(s) that demonstrated the behavior. No technique was included without empirical evidence of the failure mode occurring in a live agentic deployment.
 
 ### Schema Validation
 
@@ -104,10 +104,10 @@ The 20 techniques distribute across severity levels as follows: critical (6), hi
 
 | File | Format | Size | Description |
 |------|--------|------|-------------|
-| `atx-1-bundle.json` | STIX 2.1 JSON | 61 KB | Complete taxonomy: tactics, techniques, mitigations, relationships |
-| `atx-1-techniques.json` | JSON Array | 19 KB | All 20 techniques with full metadata |
-| `atx-1-regulatory-crossref.json` | JSON Object | 13 KB | NIST AI RMF, EU AI Act, OWASP, ATM-1 mappings |
-| `atx-technique.schema.json` | JSON Schema | 2.5 KB | Validation schema for technique definitions |
+| `atx-1-bundle.json` | STIX 2.1 JSON | 60.3 KB (61,795 bytes) | Complete taxonomy: tactics, techniques, mitigations, relationships |
+| `atx-1-techniques.json` | JSON Array | 18.1 KB (18,578 bytes) | All 20 techniques with full metadata |
+| `atx-1-regulatory-crossref.json` | JSON Object | 12.2 KB (12,491 bytes) | NIST AI RMF, EU AI Act, OWASP, ATM-1 mappings |
+| `atx-technique.schema.json` | JSON Schema | 2.4 KB (2,459 bytes) | Validation schema for technique definitions |
 
 ### Record Structure — Technique Database
 
@@ -152,7 +152,7 @@ All storage locations serve identical file content under the Apache 2.0 license.
 
 ### Limitations
 
-ATX-1 v1.0 is grounded in a single empirical study (Agents of Chaos). While the study is the most comprehensive evaluation of agentic AI robustness published to date, the technique catalog may not be exhaustive. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
+ATX-1 v1.0 is grounded in a single empirical study (*Agents of Chaos*). While the study is the most comprehensive evaluation of agentic AI robustness published to date, the technique catalog may not be exhaustive. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
 
 The severity ratings reflect the authors' assessment based on the documented case studies and are not derived from a quantitative risk model. Organizations should calibrate severity ratings to their specific deployment context.
 
