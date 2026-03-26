@@ -1,4 +1,11 @@
 <p align="center">
+  <img src="https://img.shields.io/badge/ip--owner-Finnoybu%20IP%20LLC-blueviolet?style=flat-square" alt="IP Owner">
+  <a href="https://github.com/aegis-initiative"><img src="https://img.shields.io/badge/org-aegis--initiative-0084e7?style=flat-square&logo=github" alt="Org"></a>
+  <a href="https://aegis-governance.com"><img src="https://img.shields.io/badge/domain-aegis--governance.com-0084e7?style=flat-square" alt="Domain"></a>
+  <img src="https://img.shields.io/badge/visibility-public-lightgrey?style=flat-square" alt="Public">
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="aegis-core/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="aegis-core/assets/AEGIS_wordmark_light.svg">
