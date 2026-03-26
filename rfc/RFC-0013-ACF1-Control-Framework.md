@@ -12,6 +12,8 @@ ACF-1 (AEGIS Control Framework) defines the operational defensive layer for auto
 
 Where ATX-1 answers "what can go wrong" and ATM-1 answers "how to prevent it," ACF-1 answers "how do I know it's happening and what do I do about it."
 
+ACF-1 enforces a closed-loop model: **Behavior → Detection → Validation → Response.**
+
 ## Motivation
 
 ATX-1 v2.0 provides a comprehensive threat taxonomy (9 tactics, 25 techniques). ATM-1 provides system-level controls. But neither defines:
@@ -118,25 +120,47 @@ ACF-1 uses explicit STIX relationship objects:
 | `validates` | x-acf-validation | attack-pattern | This validation verifies against this technique |
 | `responds-to` | x-acf-response | attack-pattern | This response activates for this technique |
 
+### Relationship Semantics
+
+- **detects**: Indicates that a detection object produces observable evidence of a specific ATX-1 technique. The detection signal is sufficient to raise awareness that the technique may be occurring, but does not constitute proof.
+
+- **validates**: Indicates that a validation object enforces or verifies correctness constraints associated with a technique. Validation produces a boolean assertion: the system state either satisfies the constraint or it does not.
+
+- **responds-to**: Indicates that a response action is triggered by detection or validation failure related to a technique. Responses range from alerts (informational) through containment (halt execution) to intervention (override agent behavior).
+
 ## Coverage Requirements
 
 ### Detection Requirement
 
-Every ATX-1 technique MUST have at least one `x-acf-detection` relationship.
+Every ATX-1 technique SHALL have at least one `x-acf-detection` relationship. Every detection object SHALL reference at least one ATX-1 technique.
 
 ### Validation Requirement
 
-Every ATX-1 technique MUST have at least one `x-acf-validation` relationship.
+Every ATX-1 technique SHALL have at least one `x-acf-validation` relationship. Every validation object SHALL reference at least one ATX-1 technique.
 
 ### Critical Technique Rule
 
-For techniques rated `critical` severity, MUST have:
+For techniques classified as `critical` severity, implementations SHALL provide:
 
 - At least one detection
 - At least one validation
 - At least one response
 
 Critical techniques in ATX-1 v2.0: T1003, T3001, T3002, T4001, T7001, T8002.
+
+### Relationship Integrity
+
+All ACF-1 objects SHALL participate in at least one relationship:
+
+- `x-acf-detection` → `detects` → `attack-pattern`
+- `x-acf-validation` → `validates` → `attack-pattern`
+- `x-acf-response` → `responds-to` → `attack-pattern`
+
+### Logical Completeness
+
+For each technique, the following control loop SHOULD be representable:
+
+Detection → Validation → Response
 
 ## Multi-Agent Semantics
 
@@ -181,6 +205,10 @@ The v0.1 STIX bundle is published as a companion artifact at `docs/atx/v2/acf/ac
 | ACF-1 v0.1 | Initial detection model (3 anchor techniques) |
 | ACF-1 v1.0 | Full coverage of all 25 ATX-1 v2.0 techniques |
 | ACF-1 v1.1+ | Incremental signal expansion, new detection patterns |
+
+### Version Binding
+
+ACF-1 v1.0 is defined against ATX-1 v2.0. Implementations SHALL declare compatibility with a specific ATX version. ACF-1 objects that reference ATX-1 technique IDs are only valid when the referenced ATX version is loaded.
 
 ## Acceptance Criteria
 
