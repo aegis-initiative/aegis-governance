@@ -22,9 +22,10 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 
 | Title | Repository | DOI | Date |
 |---|---|---|---|
-| ATX-1: AEGIS Threat Matrix for Agentic AI Systems | Zenodo (dataset) | [10.5281/zenodo.19225676](https://doi.org/10.5281/zenodo.19225676) | 2026-03-25 |
-| ATX-1: AEGIS Threat Matrix for Agentic AI Systems | IEEE DataPort | [10.21227/f87b-1d57](https://doi.org/10.21227/f87b-1d57) | 2026-03-25 |
-| ATX-1 v1.0 Source Repository Snapshot | Zenodo (source) | [10.5281/zenodo.19235296](https://doi.org/10.5281/zenodo.19235296) | 2026-03-26 |
+| ATX-1 v1.0: AEGIS Threat Matrix (dataset) | Zenodo | [10.5281/zenodo.19225676](https://doi.org/10.5281/zenodo.19225676) | 2026-03-25 |
+| ATX-1 v1.0: AEGIS Threat Matrix (dataset) | IEEE DataPort | [10.21227/f87b-1d57](https://doi.org/10.21227/f87b-1d57) | 2026-03-25 |
+| ATX-1 v1.0 Source Repository Snapshot | Zenodo | [10.5281/zenodo.19235296](https://doi.org/10.5281/zenodo.19235296) | 2026-03-26 |
+| ATX-1 v2.0 Source Repository Snapshot | Zenodo | DOI pending (auto-archive from GitHub release) | 2026-03-26 |
 
 ## Archived Repositories
 
@@ -42,6 +43,8 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | ATX-1 Regulatory Cross-Reference | https://aegis-governance.com/atx-1/regulatory-crossref.json |
 | ATX-1 JSON Schema | https://aegis-governance.com/schemas/atx-technique.schema.json |
 | ATX-1 ATT&CK Navigator Layer | https://aegis-governance.com/atx-1/navigator-layer.json |
+| ATX-1 ↔ ATM-1 Mapping | https://aegis-governance.com/atx-1/atm1-mapping.json |
+| ACF-1 Control Framework Bundle | https://aegis-governance.com/atx-1/acf-1-bundle.json |
 
 ## Submission Portals
 

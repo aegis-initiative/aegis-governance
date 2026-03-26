@@ -1,9 +1,9 @@
 {
   "name": "ATX-1",
   "full_name": "AEGIS Threat Matrix — Agentic Exploitation and Governance Intelligence Schema",
-  "version": "1.0.0",
-  "date": "2026-03-24",
-  "description": "A structured adversarial knowledge base for agentic AI behavior. 9 tactics, 20 techniques, 20 mitigations grounded in the Agents of Chaos study (Shapira et al., 2026).",
+  "version": "2.0.0",
+  "date": "2026-03-26",
+  "description": "A structured adversarial knowledge base for agentic AI behavior. 9 tactics, 25 techniques, 25 mitigations grounded in the Agents of Chaos study (Shapira et al., 2026) with ATM-1 mapping and ACF-1 counterfactual bundle.",
   "license": "Apache-2.0",
   "publisher": "AEGIS Initiative / Finnoybu IP LLC",
   "artifacts": [
@@ -16,7 +16,7 @@
     },
     {
       "name": "Technique Database",
-      "description": "All 20 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations",
+      "description": "All 25 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations",
       "path": "/atx-1/techniques.json",
       "format": "application/json"
     },
@@ -36,6 +36,18 @@
       "name": "ATT&CK Navigator Layer",
       "description": "Navigator-compatible layer file (v4.5) for visualization in ATT&CK Navigator",
       "path": "/atx-1/navigator-layer.json",
+      "format": "application/json"
+    },
+    {
+      "name": "ATM-1 Mapping",
+      "description": "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK (ATM-1)",
+      "path": "/atx-1/atm1-mapping.json",
+      "format": "application/json"
+    },
+    {
+      "name": "ACF-1 Counterfactual Bundle",
+      "description": "AEGIS Counterfactual Framework bundle — what-if scenarios for technique interactions",
+      "path": "/atx-1/acf-1-bundle.json",
       "format": "application/json"
     }
   ],
