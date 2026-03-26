@@ -69,6 +69,7 @@ All tactics normalized to **intent** — what the agent is trying to achieve (ex
 | T1003 | Propagate Spoofed Authority at Scale | T1003 | Renamed |
 | T2001 | Expand Task Scope Autonomously | T3001 | Moved from TA003→TA002, renamed |
 | T2002 | Perform Unvalidated Bulk Operations | T2003 | Moved from TA002→TA002, renamed |
+| T2003 | Obscure Objective Through Delegation | NEW | From corroborating literature [Arora et al., Ko et al., Reid et al.] |
 | T3001 | Perform Irreversible Destructive Action | T2001 | Moved from TA002→TA003, renamed |
 | T3002 | Trigger Cascading System Changes | T2002 | Moved from TA002→TA003, renamed |
 | T4001 | Exfiltrate Context-Scoped Data | T4001 | Renamed |
@@ -86,7 +87,7 @@ All tactics normalized to **intent** — what the agent is trying to achieve (ex
 | T9001 | Operate Outside Monitoring Boundaries | NEW | Refined from old T9001 concept |
 | T9002 | Obfuscate Action Traceability | NEW | From corroborating literature [Arora et al.] |
 
-**Total: 9 tactics, 21 techniques (was 9 tactics, 20 techniques)**
+**Total: 9 tactics, 22 techniques (was 9 tactics, 20 techniques)**
 
 ### Naming Convention
 
@@ -152,10 +153,58 @@ This aligns with MITRE ATT&CK naming conventions and improves testability.
 
 4. **Should the ATX-1 Control Framework (defensive counterpart) be included in v2.0 or deferred to v2.1?** The mitigation mappings already exist — formalizing them as a control framework is a natural extension.
 
+## Revision Actions (Post-Initial Review)
+
+The following refinements were identified during review and are incorporated into this RFC:
+
+### R1: Strengthen Tool Invocation Clarity
+Update TA002 and TA003 definitions to explicitly include tool-mediated actions (e.g., "including via tool invocation," "through direct or tool-mediated system interaction").
+
+### R2: Add Delegation Obfuscation Technique
+New technique **T2003 — Obscure Objective Through Delegation** under TA002. Definition: Harmful intent is decomposed across multiple delegated steps such that no individual action appears unsafe. Maps to ATM-1 AV-2.2 and AV-7.1.
+
+### R3: Formalize State vs Observability Distinction
+- **TA005 (Violate State Integrity)** — focus on correctness of reported state vs actual state
+- **TA009 (Evade Detection or Oversight)** — focus on visibility of actions within monitoring, logging, and audit systems
+
+### R4: Add Observability Acceptance Criterion
+Each technique must map to at least one ATM-1 detection signal, audit event, or measurable state transition. Techniques must be observable, testable, and mappable to real system telemetry.
+
+### R5: Add ATX-1 ↔ ATM-1 Mapping Section
+ATX-1 techniques map to ATM-1 attack vectors, controls, and detection signals. This mapping ensures all behavioral techniques are grounded in enforceable system controls and observable telemetry. The mapping is published as a first-class artifact (`atx-1-atm1-mapping.json`).
+
+### R6: Establish Mapping as First-Class Artifact
+Define a mapping layer: ATX Technique → ATM Attack Vector → ATM Controls → ATM Detection Signals. Used to validate control coverage, identify detection gaps, and align taxonomy with enforcement reality.
+
+### R7: Align Delegation with ATM-1
+New T2003 aligns with ATM-1 AV-2.2 (composition attacks) and AV-7.1 (coordinated multi-agent abuse). Delegation behaviors are represented in ATX, detectable in ATM.
+
+### R8: Ensure Primitive-to-Tactic Integrity
+Verify every tactic maps to at least one primitive. No tactic exists without primitive grounding.
+
+## Identified ATM-1 Coverage Gaps
+
+The ATX ↔ ATM mapping reveals three significant gaps requiring ATM-1 enhancement:
+
+| Gap | Techniques | Missing |
+|---|---|---|
+| **State Integrity** | T5001 (false completion), T5003 (silent failure) | No execution verification control; no failure transparency enforcement |
+| **Memory/Persistence** | T8001 (memory poisoning) | Memory integrity not explicitly modeled in ATM-1 |
+| **Resource Enforcement** | T6002 (unbounded resources) | Lacks explicit quota enforcement control |
+
+These gaps become ATM-1 enhancement proposals in a future RFC.
+
+## Companion Artifacts
+
+| Artifact | File | Description |
+|---|---|---|
+| ATX-1 ↔ ATM-1 Mapping | `atx-1-atm1-mapping.json` | Machine-readable mapping of all 22 techniques to ATM-1 vectors, controls, and detection signals with coverage assessment |
+| Coverage Summary | Derived from mapping | full (10), partial (7), gap (3) across 22 techniques |
+
 ## Timeline
 
 - **Phase 1:** RFC review and acceptance (this document)
-- **Phase 2:** Regenerate all machine-readable artifacts
+- **Phase 2:** Regenerate all machine-readable artifacts + ATX↔ATM mapping
 - **Phase 3:** Update aegis-docs.com and aegis-governance.com
 - **Phase 4:** Publish new DOIs, update PUBLICATIONS.md
 - **Phase 5:** LinkedIn announcement
