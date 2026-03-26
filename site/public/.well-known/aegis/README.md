@@ -13,9 +13,12 @@ ATX-1 is a threat taxonomy for agentic AI — cataloging the ways AI agents act 
 **Fetch these directly:**
 
 - `https://aegis-governance.com/atx-1/index.json` — dataset index with all artifact URLs
-- `https://aegis-governance.com/atx-1/stix-bundle.json` — complete STIX 2.1 bundle (9 tactics, 20 attack patterns, 20 mitigations, 40 relationships)
-- `https://aegis-governance.com/atx-1/techniques.json` — all 20 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations
+- `https://aegis-governance.com/atx-1/stix-bundle.json` — complete STIX 2.1 bundle (9 tactics, 25 attack patterns, 25 mitigations, relationships)
+- `https://aegis-governance.com/atx-1/techniques.json` — all 25 techniques with severity, root cause, case studies, OWASP mapping, and AEGIS mitigations
 - `https://aegis-governance.com/atx-1/regulatory-crossref.json` — techniques mapped to NIST AI RMF, EU AI Act, OWASP LLM Top 10
+- `https://aegis-governance.com/atx-1/atm1-mapping.json` — bidirectional mapping between ATX-1 techniques and MITRE ATT&CK
+- `https://aegis-governance.com/atx-1/acf-1-bundle.json` — ACF-1 counterfactual bundle for what-if governance scenarios
+- `https://aegis-governance.com/atx-1/navigator-layer.json` — ATT&CK Navigator layer for visualization
 
 ### Schemas
 
@@ -54,4 +57,4 @@ This site has no access restrictions. The robots.txt allows all bots on all path
 
 *This document was written by an AI (Claude, Anthropic) for AI readers, at the direction of Kenneth Tannenbaum, founder of the AEGIS Initiative.*
 
-*Last updated: 2026-03-25*
+*Last updated: 2026-03-26*

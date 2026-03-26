@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Policy Evaluation & Capability Resolution
+# AEGIS AGP-1 Policy Evaluation & Capability Resolution
 
 **Document**: AGP-1/Policy (AEGIS_AGP1_POLICY_EVALUATION.md)  
 **Version**: 1.0 (Normative)  

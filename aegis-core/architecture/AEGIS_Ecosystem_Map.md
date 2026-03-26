@@ -1,4 +1,4 @@
-# AEGIS™ Ecosystem Map
+# AEGIS Ecosystem Map
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 

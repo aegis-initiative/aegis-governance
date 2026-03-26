@@ -15,5 +15,5 @@ See [README.md](README.md) for conventions and how to add new entries.
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative

@@ -35,7 +35,7 @@ When using AEGIS™ in presentation titles or materials:
 **Recommended formats:**
 
 - "Implementing Architectural Enforcement & Governance of Intelligent Systems (AEGIS™)"
-- "Building AI Safety with AEGIS™ Governance"
+- "Building AI Safety with AEGIS Governance"
 - "AEGIS™: A New Approach to AI Governance"
 
 **Best practices:**

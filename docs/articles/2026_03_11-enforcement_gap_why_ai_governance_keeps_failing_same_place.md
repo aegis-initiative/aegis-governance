@@ -209,7 +209,7 @@ AEGIS™ separates AI reasoning from operational execution:¹⁵
 AI Agent
    │
    ▼
-AEGIS™ Governance Gateway
+AEGIS Governance Gateway
    │
    ▼
 Decision Engine
@@ -292,7 +292,7 @@ This is not governance by documentation. It is governance by constraint.
 
 And it aligns with the core insight that runs through all of these articles: governance fails when it remains aspirational. It succeeds when it becomes structural.
 
-## Where AEGIS™ Stands in the Landscape
+## Where AEGIS Stands in the Landscape
 
 AEGIS™ is aligned with the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) and released under the [Apache 2.0 license](https://github.com/aegis-initiative/aegis-governance/blob/main/LICENSE).¹⁵ It operationalizes Krimmelbein's ten pillars—not as separate programs to be managed, but as layers of an integrated enforcement architecture.
 
@@ -336,7 +336,7 @@ The conversation doesn't end here. It begins.
 12. Fehring, Pamela (JD, CIPP/US). ["Building an AI Governance Program that Works for You."](https://www.linkedin.com/pulse/building-ai-governance-program-works-you-fehring-jd-cipp-us--owudc/) LinkedIn, February 15, 2026.
 13. Mann, Philip. ["AI Governance Starts Below the Model (Part 1 of 3)."](https://www.linkedin.com/pulse/ai-governance-starts-below-model-part-1-3-philip-mann-tgdze/) LinkedIn, March 10, 2026.
 14. Mann, Philip. ["Agentic AI Needs Real Guardrails (Part 2 of 3)."](https://www.linkedin.com/pulse/agentic-ai-needs-real-guardrails-part-2-3-philip-mann-69nie/) LinkedIn, March 11, 2026.
-15. AEGIS™ Governance. GitHub Repository: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance) | Constitution: [aegissystems.app](https://aegissystems.app) | Apache 2.0 License
+15. AEGIS Governance. GitHub Repository: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance) | Constitution: [aegissystems.app](https://aegissystems.app) | Apache 2.0 License
 
 ---
 
@@ -362,7 +362,7 @@ The project is released under the Apache 2.0 license and is actively seeking con
 
 ## About the Author
 
-Kenneth Tannenbaum is the founder of the AEGIS™ Initiative, the brand name under which Finnoybu IP LLC develops and stewards the AEGIS™ governance architecture. Ken bridges AI policy doctrine and production enforcement, working to close the gap between what organizations say about their AI systems and what those systems actually do.
+Kenneth Tannenbaum is the founder of the AEGIS Initiative, the brand name under which Finnoybu IP LLC develops and stewards the AEGIS™ governance architecture. Ken bridges AI policy doctrine and production enforcement, working to close the gap between what organizations say about their AI systems and what those systems actually do.
 
 **Connect**: [linkedin.com/in/kenneth-tannenbaum](https://linkedin.com/in/kenneth-tannenbaum)
 

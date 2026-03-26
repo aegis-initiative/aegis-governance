@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Trust Model & Actor Reputation
+# AEGIS AGP-1 Trust Model & Actor Reputation
 
 **Document**: AGP-1/Trust (AEGIS_AGP1_TRUST_MODEL.md)  
 **Version**: 1.0 (Normative)  
@@ -10,7 +10,7 @@
 
 ## Overview
 
-The AEGIS™ Trust Model establishes a **capability-based reputation system** for actors (users, services, LLMs) in a federated governance environment. Each actor has a trust score [0.0 - 1.0] that influences:
+The AEGIS Trust Model establishes a **capability-based reputation system** for actors (users, services, LLMs) in a federated governance environment. Each actor has a trust score [0.0 - 1.0] that influences:
 
 1. **Decision thresholds** (AEGIS_AGP1_RISK_SCORING.md)
 2. **Escalation requirements** (when human review is needed)

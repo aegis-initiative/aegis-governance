@@ -1,10 +1,10 @@
-# AEGIS™ AI Kernel Mediation Model
+# AEGIS AI Kernel Mediation Model
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
 **Version**: 0.2\
 **Status**: Reference Architecture\
-**Part of**: AEGIS™ Architecture\
+**Part of**: AEGIS Architecture\
 **Author**: Kenneth Tannenbaum\
 **Last Updated**: March 6, 2026
 

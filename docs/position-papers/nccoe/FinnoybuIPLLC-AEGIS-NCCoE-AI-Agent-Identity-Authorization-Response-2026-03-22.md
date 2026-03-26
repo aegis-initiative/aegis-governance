@@ -1,13 +1,13 @@
 > **Document**: FinnoybuIPLLC-AEGIS-NCCoE-AI-Agent-Identity-Authorization-Response-2026-03-22.md\
 > **Version**: 0.1.0\
-> **Part of**: AEGIS™ Position Papers\
+> **Part of**: AEGIS Position Papers\
 >
 > **SUBMITTED — DO NOT EDIT**
 > This document has been formally submitted to NCCoE. The authoritative submitted version is [FinnoybuIPLLC-AEGIS-NCCoE-AI-Agent-Identity-Authorization-Response-2026-03-22.pdf](FinnoybuIPLLC-AEGIS-NCCoE-AI-Agent-Identity-Authorization-Response-2026-03-22.pdf). This markdown is preserved as a readable reference only. Any future updates must be issued as a new submission, not edits to this file.
 
 ---
 
-# AEGIS™ Governance Architecture
+# AEGIS Governance Architecture
 
 ## Response to NCCoE Concept Paper: Accelerating the Adoption of *Software and AI Agent Identity and Authorization*
 
@@ -26,7 +26,7 @@
 
 ---
 
-# AEGIS™ Governance Architecture
+# AEGIS Governance Architecture
 
 ## Response to NCCoE Concept Paper: Accelerating the Adoption of *Software and AI Agent Identity and Authorization*
 
@@ -202,9 +202,9 @@ Shapira, N., et al. Agents of Chaos. arXiv:2602.20021. February 23, 2026. https:
 
 ### AEGIS Initiative
 
-Tannenbaum, K. (2026). AEGIS™ Governance Architecture: A Position Statement for the NIST AI Risk Management Framework. Finnoybu IP LLC, March 2026. DOI: 10.5281/zenodo.19162696. https://github.com/finnoybu/aegis-governance
+Tannenbaum, K. (2026). AEGIS Governance Architecture: A Position Statement for the NIST AI Risk Management Framework. Finnoybu IP LLC, March 2026. DOI: 10.5281/zenodo.19162696. https://github.com/finnoybu/aegis-governance
 
-AEGIS™ Governance Protocol (AGP-1). Normative Specification v0.2.0. AEGIS Initiative. March 2026. DOI: 10.5281/zenodo.19162696. github.com/aegis-initiative/aegis-governance
+AEGIS Governance Protocol (AGP-1). Normative Specification v0.2.0. AEGIS Initiative. March 2026. DOI: 10.5281/zenodo.19162696. github.com/aegis-initiative/aegis-governance
 
 ---
 

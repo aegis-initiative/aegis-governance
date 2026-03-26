@@ -1,4 +1,4 @@
-# AEGIS™ Public Announcements
+# AEGIS Public Announcements
 
 Public announcements, launch materials, and readiness assessments for major AEGIS™ events.
 
@@ -30,5 +30,5 @@ AEGIS™ public launch announcement and readiness materials.
 
 ---
 
-**Part of**: AEGIS™ Documentation  
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation  
+**Maintained by**: AEGIS Initiative

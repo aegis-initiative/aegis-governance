@@ -81,6 +81,6 @@ An agent whose output has been filtered by GaaS retains full capacity to invoke 
 
 ---
 
-*Part of: AEGIS™ Documentation*\
-*Maintained by: AEGIS™ Initiative*\
+*Part of: AEGIS Documentation*\
+*Maintained by: AEGIS Initiative*\
 *Last Updated: 2026-03-14*

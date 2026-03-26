@@ -1,4 +1,4 @@
-# RFC-0006: AEGIS™ Claude Code Plugin
+# RFC-0006: AEGIS Claude Code Plugin
 
 **RFC:** RFC-0006\
 **Status:** Draft\
@@ -15,7 +15,7 @@
 
 ## Summary
 
-This RFC defines the AEGIS™ Claude Code Plugin: a governance enforcement layer for the Claude Code development environment. The plugin intercepts proposed tool actions before execution, evaluates them against a declarative capability registry, and records every governance decision in an append-only, hash-chained audit log. It is the first deployable reference implementation of the AEGIS governance architecture in a real-world execution environment, and the canonical demonstration that AEGIS governance is observable, auditable, and operational — not theoretical.
+This RFC defines the AEGIS Claude Code Plugin: a governance enforcement layer for the Claude Code development environment. The plugin intercepts proposed tool actions before execution, evaluates them against a declarative capability registry, and records every governance decision in an append-only, hash-chained audit log. It is the first deployable reference implementation of the AEGIS governance architecture in a real-world execution environment, and the canonical demonstration that AEGIS governance is observable, auditable, and operational — not theoretical.
 
 ---
 

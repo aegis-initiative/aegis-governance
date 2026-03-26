@@ -1,4 +1,4 @@
-# AEGIS™ Roadmap
+# AEGIS Roadmap
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 

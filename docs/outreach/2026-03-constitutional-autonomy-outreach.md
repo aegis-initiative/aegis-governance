@@ -14,7 +14,7 @@ William -
 
 I recently read your paper ["Toward Constitutional Autonomy in AI Systems"](https://ieeexplore.ieee.org/document/11354471) (IEEE Access 2026) and wanted to reach out regarding potential synergies between your work and a governance framework I've been developing.
 
-**Brief Introduction:** I'm Kenneth Tannenbaum, founder of the AEGIS™ Initiative. AEGIS (Architectural Enforcement & Governance of Intelligent Systems) is an open governance architecture for agentic AI systems, released under Apache 2.0 and submitted to NIST as a position paper for the AI Risk Management Framework.
+**Brief Introduction:** I'm Kenneth Tannenbaum, founder of the AEGIS Initiative. AEGIS (Architectural Enforcement & Governance of Intelligent Systems) is an open governance architecture for agentic AI systems, released under Apache 2.0 and submitted to NIST as a position paper for the AI Risk Management Framework.
 
 **Why I'm Reaching Out:** Your Constitutional Autonomy paper addresses governance inside the AI model through attention mechanism modification. AEGIS addresses governance outside the AI model at the architectural boundary between agents and infrastructure. I believe these approaches are highly complementary rather than competitive.
 

@@ -1,4 +1,4 @@
-# RFC-0002: AEGIS™ Governance Runtime Specification
+# RFC-0002: AEGIS Governance Runtime Specification
 
 **RFC:** RFC-0002
 **Status:** Final (v1.0)
@@ -6,7 +6,7 @@
 **Version:** 0.2
 **Created:** 2026-03-05  
 **Updated:** 2026-03-06  
-**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Author:** AEGIS Initiative, Finnoybu IP LLC  
 **Repository:** aegis-governance  
 **Target milestone:** v1.0  
 **Supersedes:** None  
@@ -16,7 +16,7 @@
 
 ## Summary
 
-This RFC specifies the runtime APIs, state model, error behavior, deployment topology, and performance expectations for the AEGIS™ Governance Runtime: the component responsible for accepting action proposals, evaluating them against governance controls, and enforcing decisions at the execution boundary.
+This RFC specifies the runtime APIs, state model, error behavior, deployment topology, and performance expectations for the AEGIS Governance Runtime: the component responsible for accepting action proposals, evaluating them against governance controls, and enforcing decisions at the execution boundary.
 
 ---
 

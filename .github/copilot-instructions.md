@@ -1,4 +1,4 @@
-# AEGIS™ Copilot Instructions
+# AEGIS Copilot Instructions
 
 **Document**: copilot-instructions.md\
 **Version**: 2.0.0 (Operational)\

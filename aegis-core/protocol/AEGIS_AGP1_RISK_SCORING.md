@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Risk Scoring & Decision Thresholds
+# AEGIS AGP-1 Risk Scoring & Decision Thresholds
 
 **Document**: AGP-1/Risk (AEGIS_AGP1_RISK_SCORING.md)  
 **Version**: 1.0 (Normative)  

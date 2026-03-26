@@ -1,4 +1,4 @@
-# AEGIS™ Terminology
+# AEGIS Terminology
 
 Architectural Enforcement & Governance of Intelligent Systems
 

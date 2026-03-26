@@ -24,5 +24,5 @@ This directory archives outreach communications to maintain transparency in the 
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative

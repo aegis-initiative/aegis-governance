@@ -1,4 +1,4 @@
-# AEGIS™ Reference Architecture
+# AEGIS Reference Architecture
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
@@ -28,7 +28,7 @@ This design ensures that AI systems cannot directly execute operational actions 
 AI Agent
    │
    ▼
-AEGIS™ Governance Gateway
+AEGIS Governance Gateway
    │
    ▼
 Decision Engine

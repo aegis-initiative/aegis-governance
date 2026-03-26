@@ -1,13 +1,13 @@
 > **Document**: FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.md\
 > **Version**: 0.1.0\
-> **Part of**: AEGIS™ Position Papers\
+> **Part of**: AEGIS Position Papers\
 >
 > **SUBMITTED — DO NOT EDIT**
 > This document has been formally submitted to NIST. The authoritative submitted version is [FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf](FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf). This markdown is preserved as a readable reference only. Any future updates must be issued as a new submission, not edits to this file.
 
 ---
 
-# AEGIS™ Governance Architecture
+# AEGIS Governance Architecture
 **A Position Statement for the NIST AI Risk Management Framework**
 
 **Submitted to**: NIST AI Risk Management Framework\
@@ -15,7 +15,7 @@
 **Submission Type**: Unsolicited Position Paper
 
 **Submission Date**: March 7, 2026\
-**Steward**: Finnoybu IP LLC | AEGIS™ Initiative\
+**Steward**: Finnoybu IP LLC | AEGIS Initiative\
 **Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)\
 **Constitution**: [aegissystems.app](https://aegissystems.app)
 
@@ -62,7 +62,7 @@ The distinction is precise: AEGIS™ does not replace organizational AI governan
 
 The AEGIS™ governance runtime sits between AI agent reasoning and external system execution. No AI-generated action may reach operational infrastructure without passing through the governance evaluation pathway.
 
-The runtime enforces what the AEGIS™ Constitution defines as Article III — Deterministic Enforcement: governance decisions must be enforced through system architecture rather than relying solely on AI model behavior.
+The runtime enforces what the AEGIS Constitution defines as Article III — Deterministic Enforcement: governance decisions must be enforced through system architecture rather than relying solely on AI model behavior.
 
 **Execution flow:**
 
@@ -74,7 +74,7 @@ The runtime enforces what the AEGIS™ Constitution defines as Article III — D
 
 ### 2.2 Constitutional Governance Principles
 
-The AEGIS™ Constitution establishes eight articles that define architectural requirements, not aspirational guidelines:
+The AEGIS Constitution establishes eight articles that define architectural requirements, not aspirational guidelines:
 
 - **Article I — Bounded Capability:** default-deny model; actions referencing undefined capabilities are rejected
 - **Article II — Authority Verification:** all actions attributable to authenticated actors; anonymous actions rejected
@@ -100,7 +100,7 @@ AI Agent → ACTION_PROPOSE
   actor: soc-agent-01
   risk_factors: [high_impact, broad_scope]
 
-AEGIS™ Runtime → DECISION_RESPONSE
+AEGIS Runtime → DECISION_RESPONSE
   decision: ESCALATE
   rationale: Broad network action exceeds autonomous authority threshold
   required: multi-party-authorization
@@ -121,7 +121,7 @@ If authorization does not arrive within the timeout window, the action is implic
 
 ### 2.4 Threat Model (ATM-1)
 
-The AEGIS™ Adaptive Threat Model (ATM-1) defines five normative documents covering threat actors, 20+ attack vectors across seven attack surface categories, security properties, mitigation controls, and residual risk analysis.
+The AEGIS Adaptive Threat Model (ATM-1) defines five normative documents covering threat actors, 20+ attack vectors across seven attack surface categories, security properties, mitigation controls, and residual risk analysis.
 
 Priority threat scenarios addressed include governance bypass, policy tampering, identity spoofing, audit log manipulation, coordinated low-risk abuse, and prompt injection. The threat model maps to STRIDE and identifies specific detection metrics for each threat category.
 
@@ -143,9 +143,9 @@ The ATM-1 control specification for T6 states explicitly: governance remains out
 
 ## 3. Mapping to NIST AI RMF Functions
 
-| NIST AI RMF Function | RMF Category / Sub-Category | AEGIS™ Architectural Component |
+| NIST AI RMF Function | RMF Category / Sub-Category | AEGIS Architectural Component |
 |---|---|---|
-| GOVERN | GV-1: Policies, Processes, Procedures | AEGIS™ Constitution (8 Articles); Policy Engine; RFC Process |
+| GOVERN | GV-1: Policies, Processes, Procedures | AEGIS Constitution (8 Articles); Policy Engine; RFC Process |
 | GOVERN | GV-2: Accountability | Authority Verification (Article II); Actor Attribution (ATM-1 SP-2); Audit Trail |
 | GOVERN | GV-3: Organizational Teams | Governance Federation Network (GFN-1); Escalation pathways |
 | GOVERN | GV-4: Organizational Culture | Open RFC process; Community governance principles; Transparency mandate |
@@ -165,7 +165,7 @@ AEGIS™ most directly operationalizes the GOVERN function. The AI RMF's GOVERN 
 
 Specific GOVERN sub-categories addressed:
 
-- **GV-1.1:** Policies and procedures are established and communicated — AEGIS™ Constitution provides the constitutional framework; AGP-1 provides the protocol specification
+- **GV-1.1:** Policies and procedures are established and communicated — AEGIS Constitution provides the constitutional framework; AGP-1 provides the protocol specification
 - **GV-1.2:** Roles and responsibilities are established — Authority verification and actor attribution enforce accountability at execution time
 - **GV-1.4:** Organizational teams are committed to risk management — Federation network enables cross-organizational governance intelligence sharing
 - **GV-2.2:** Accountability is established for AI system outcomes — Every governance decision is attributable to a verified actor with cryptographic proof
@@ -220,7 +220,7 @@ AEGIS™ was publicly released on March 5, 2026 as an open governance architectu
 | Layers 1–3 (Principles, Architecture, Protocol) | Complete at v0.1 |
 | AGP-1 Protocol Specification | Normative, v0.1 |
 | ATM-1 Threat Model (5 documents) | Normative, v0.1 |
-| AEGIS™ Constitution (8 Articles) | Draft v0.1 |
+| AEGIS Constitution (8 Articles) | Draft v0.1 |
 | RFC-0001 Architecture Specification | Complete |
 | Layer 4 Reference Runtime (Python) | In active development, targeted Q2 2026 |
 | RFC-0002 through RFC-0004 | In progress, targeted Q2 2026 |
@@ -228,7 +228,7 @@ AEGIS™ was publicly released on March 5, 2026 as an open governance architectu
 
 ### 5.2 Invitation for NIST Engagement
 
-This document is submitted as an unsolicited position statement in advance of the NIST AI RMF 2.0 development process. The AEGIS™ Initiative makes the following specific requests:
+This document is submitted as an unsolicited position statement in advance of the NIST AI RMF 2.0 development process. The AEGIS Initiative makes the following specific requests:
 
 **Request 1 — Recognize execution-time enforcement as a governance mechanism.** We request that NIST AI RMF 2.0 explicitly recognize governance runtime architectures as a valid and recommended implementation pattern for the GOVERN function, particularly for agentic AI systems with operational infrastructure access.
 
@@ -236,13 +236,13 @@ This document is submitted as an unsolicited position statement in advance of th
 
 **Request 3 — Establish an agentic AI governance working group.** The current framework does not adequately address the governance requirements of systems that can initiate irreversible operational actions autonomously. We request a dedicated working group or supplemental publication addressing this gap.
 
-**For organizations seeking adoption guidance:** Contact the AEGIS™ Initiative through GitHub Discussions at [github.com/finnoybu/aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions).
+**For organizations seeking adoption guidance:** Contact the AEGIS Initiative through GitHub Discussions at [github.com/finnoybu/aegis-governance/discussions](https://github.com/finnoybu/aegis-governance/discussions).
 
-**Feedback timeline:** The AEGIS™ Initiative welcomes responses through Q2 2026 as we prepare v1.0 of the specification for community ratification.
+**Feedback timeline:** The AEGIS Initiative welcomes responses through Q2 2026 as we prepare v1.0 of the specification for community ratification.
 
 ### 5.3 Minimum Viable Implementation
 
-The AEGIS™ FAQ defines a three-level adoption model. For organizations beginning their governance journey, the minimum viable AEGIS™ implementation requires two components:
+The AEGIS FAQ defines a three-level adoption model. For organizations beginning their governance journey, the minimum viable AEGIS™ implementation requires two components:
 
 - **A Capability Registry** defining the operations your AI systems are permitted to perform, with explicit scope and actor grants
 - **A Governance Gateway** interposing between your AI agents and operational infrastructure, enforcing default-deny evaluation against the registry
@@ -274,14 +274,14 @@ AEGIS™ was developed through active human-AI collaboration, with strategic dir
 ## References and Resources
 
 - NIST AI Risk Management Framework (AI RMF 1.0) — [nist.gov](https://www.nist.gov/system/files/documents/2023/01/26/NIST_AI_RMF_1.0.pdf)
-- AEGIS™ Governance Repository — [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
-- AEGIS™ Constitution — [aegissystems.app](https://aegissystems.app)
-- AEGIS™ Manifesto — [aegis-core/manifesto](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/manifesto/AEGIS_Manifesto.md)
+- AEGIS Governance Repository — [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)
+- AEGIS Constitution — [aegissystems.app](https://aegissystems.app)
+- AEGIS Manifesto — [aegis-core/manifesto](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/manifesto/AEGIS_Manifesto.md)
 - AGP-1 Protocol Specification — [aegis-core/protocol](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/protocol/AEGIS_AGP1_INDEX.md)
 - ATM-1 Threat Model — [aegis-core/threat-model](https://github.com/finnoybu/aegis-governance/blob/main/aegis-core/threat-model/AEGIS_ATM1_INDEX.md)
 - RFC-0001 Architecture Specification — [rfc/RFC-0001](https://github.com/finnoybu/aegis-governance/blob/main/rfc/RFC-0001-AEGIS-Architecture.md)
-- AEGIS™ Reference Implementation — [github.com/finnoybu/aegis-runtime](https://github.com/finnoybu/aegis-runtime)
-- AEGIS™ Announcement (March 2026) — [docs/announcements](https://github.com/finnoybu/aegis-governance/blob/main/docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)
+- AEGIS Reference Implementation — [github.com/finnoybu/aegis-runtime](https://github.com/finnoybu/aegis-runtime)
+- AEGIS Announcement (March 2026) — [docs/announcements](https://github.com/finnoybu/aegis-governance/blob/main/docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)
 
 ---
 

@@ -5,7 +5,7 @@
 **Version:** 0.0.1  
 **Created:** 2026-03-08  
 **Updated:** 2026-03-08  
-**Author:** AEGIS™ Initiative, Finnoybu IP LLC  
+**Author:** AEGIS Initiative, Finnoybu IP LLC  
 **Repository:** aegis-governance  
 **Target milestone:** TBD  
 **Supersedes:** None  

@@ -1,4 +1,4 @@
-# AEGIS™ FAQ
+# AEGIS FAQ
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
@@ -8,7 +8,7 @@ Effective Date: March 5, 2026
 
 ---
 
-# AEGIS™ Adoption Model
+# AEGIS Adoption Model
 
 AEGIS™ is designed to be **incrementally deployable**. Organizations can introduce governance controls gradually without rewriting existing AI systems or infrastructure.
 
@@ -26,7 +26,7 @@ In this model, AI systems send action requests to the gateway instead of executi
 AI Agent
    │
    ▼
-AEGIS™ Governance Gateway
+AEGIS Governance Gateway
    │
    ▼
 External APIs / Infrastructure

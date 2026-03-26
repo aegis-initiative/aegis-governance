@@ -1,6 +1,6 @@
 # Contributing to AEGIS™
 
-Thank you for your interest in contributing to **AEGIS™ Governance**.
+Thank you for your interest in contributing to **AEGIS Governance**.
 
 AEGIS™ is an open architectural specification for governing AI system actions. Contributions are welcome from engineers, researchers, security practitioners, and organizations interested in advancing safe and accountable AI systems.
 
@@ -87,7 +87,7 @@ Example:
 **Version**: 0.2  
 **Created**: 2026-03-05  
 **Updated**: 2026-03-06  
-**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
+**Author**: AEGIS Initiative, Finnoybu IP LLC  
 **Repository**: aegis-governance  
 **Target milestone**: v1.0  
 **Supersedes**: None  

@@ -5,8 +5,8 @@
 **Status**: Active — update as ratification progresses  
 **Created**: 2026-03-15  
 **Updated**: 2026-03-15 
-**Author**: AEGIS™ Initiative, Finnoybu IP LLC  
-**Part of**: AEGIS™ Position Papers
+**Author**: AEGIS Initiative, Finnoybu IP LLC  
+**Part of**: AEGIS Position Papers
 
 > **NOTE — LIVING DOCUMENT**: Unlike the NIST AI RMF position paper, this document is not
 > a submitted statement. It is a living positioning resource that will require updates as the

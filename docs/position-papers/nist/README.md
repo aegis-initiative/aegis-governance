@@ -32,5 +32,5 @@ This directory contains AEGIS™ responses to:
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative

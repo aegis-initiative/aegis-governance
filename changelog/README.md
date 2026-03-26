@@ -46,5 +46,5 @@ Each file contains:
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative

@@ -1,10 +1,10 @@
-# AEGIS™ System Principles
+# AEGIS System Principles
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
 **Version**: 0.2\
 **Status**: Informational\
-**Part of**: AEGIS™ Architecture\
+**Part of**: AEGIS Architecture\
 **Author**: Kenneth Tannenbaum\
 **Last Updated**: March 6, 2026
 

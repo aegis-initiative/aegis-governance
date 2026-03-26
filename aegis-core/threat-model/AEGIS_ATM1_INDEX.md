@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Threat Model & Security Analysis
+# AEGIS ATM-1 Threat Model & Security Analysis
 
 **Document**: ATM-1/Index (AEGIS_ATM1_INDEX.md)\
 **Version**: 1.0 (Normative)\
@@ -9,7 +9,7 @@
 
 ## Document Structure
 
-The AEGIS™ Adaptive Threat Model (ATM-1) comprises five normative documents:
+The AEGIS Adaptive Threat Model (ATM-1) comprises five normative documents:
 
 1. **AEGIS_ATM1_INDEX.md** (this document) — Overview, threat actor summary, high-level scenarios
 2. **AEGIS_ATM1_THREAT_ACTORS.md** — Detailed profiles of 5 threat actor types with capability/motivation analysis

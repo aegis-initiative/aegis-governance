@@ -1,4 +1,4 @@
-# AEGIS™ References
+# AEGIS References
 
 Canonical bibliography for the AEGIS™ governance framework. All papers cited anywhere in the repository should appear here. Documents cite inline using IEEE footnote style and reference this file for the full entry.
 
@@ -177,7 +177,7 @@ When citing in a document:
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative\
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative\
 **Last Updated**: 2026-03-13\
 **Entries**: 32

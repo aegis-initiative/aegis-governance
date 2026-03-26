@@ -1,16 +1,16 @@
-# AEGIS™ Architecture Overview
+# AEGIS Architecture Overview
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
 **Version**: 0.2\
 **Status**: Informational\
-**Part of**: AEGIS™ Architecture\
+**Part of**: AEGIS Architecture\
 **Author**: Kenneth Tannenbaum\
 **Last Updated**: March 6, 2026
 
 ---
 
-# AEGIS™ System Overview
+# AEGIS System Overview
 
 ## Executive Summary
 

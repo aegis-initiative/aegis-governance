@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Authentication & Authorization
+# AEGIS AGP-1 Authentication & Authorization
 
 **Document**: AGP-1/Auth (AEGIS_AGP1_AUTHENTICATION.md)\
 **Version**: 1.0 (Normative)\

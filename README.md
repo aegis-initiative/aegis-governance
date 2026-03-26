@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="aegis-core/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="aegis-core/assets/AEGIS_wordmark_light.svg">
-    <img src="aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
+    <img src="aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS Governance Logo">
   </picture>
 </p>
 
@@ -20,7 +20,7 @@
 
 ---
 
-# AEGIS™ Governance
+# AEGIS Governance
 
 Architectural Enforcement & Governance of Intelligent Systems
 
@@ -72,7 +72,7 @@ AEGIS™ separates **AI reasoning** from **operational execution**.
 AI Agent
    │
    ▼
-AEGIS™ Governance Gateway
+AEGIS Governance Gateway
    │
    ▼
 Decision Engine

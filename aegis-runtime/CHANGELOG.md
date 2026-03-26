@@ -1,8 +1,8 @@
-# AEGIS™ Runtime Changelog
+# AEGIS Runtime Changelog
 
-All notable changes to the AEGIS™ Runtime reference implementation will be documented in this file.
+All notable changes to the AEGIS Runtime reference implementation will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and versions are synchronized with the main [AEGIS™ Initiative Changelog](../CHANGELOG.md).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and versions are synchronized with the main [AEGIS Initiative Changelog](../CHANGELOG.md).
 
 ---
 
@@ -254,7 +254,7 @@ The AEGIS Runtime v0.1.0 defines the **reference architecture and design** for g
 
 ## Roadmap
 
-See [AEGIS™ Initiative Roadmap](../aegis-core/roadmap/AEGIS_Roadmap.md) and [CHANGELOG](../CHANGELOG.md) for overall initiative timeline.
+See [AEGIS Initiative Roadmap](../aegis-core/roadmap/AEGIS_Roadmap.md) and [CHANGELOG](../CHANGELOG.md) for overall initiative timeline.
 
 ---
 

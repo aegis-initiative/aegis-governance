@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Complete Specification Suite & Index
+# AEGIS AGP-1 Complete Specification Suite & Index
 
 **Document**: AGP-1/Index (AEGIS_AGP1_INDEX.md)\
 **Version**: 1.0 (Normative)\
@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-The **AEGIS™ Governance Protocol (AGP-1)** is the normative wire protocol for deterministic governance of AI-generated actions within the AEGIS Federation Network. This is a comprehensive, multi-document specification suite that defines:
+The **AEGIS Governance Protocol (AGP-1)** is the normative wire protocol for deterministic governance of AI-generated actions within the AEGIS Federation Network. This is a comprehensive, multi-document specification suite that defines:
 
 - **Wire protocol** for request-response communication between AI systems and governance runtimes
 - **Complete message schemas** with field specifications, validation rules, and examples
@@ -292,7 +292,7 @@ A client implementation MUST:
 ## Document Maintenance
 
 **Last Updated**: March 5, 2026  
-**Maintained By**: AEGIS™ Initiative  
+**Maintained By**: AEGIS Initiative  
 **Review Cycle**: Quarterly (every 3 months)  
 **Next Review**: June 5, 2026
 

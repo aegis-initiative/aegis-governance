@@ -2,11 +2,11 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
-    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS™ Governance Logo">
+    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="90" alt="AEGIS Governance Logo">
   </picture>
 </p>
 
-# AEGIS™ Governance Federation Network
+# AEGIS Governance Federation Network
 
 **Document Pack Status**: Normative  
 **Version**: 1.1  

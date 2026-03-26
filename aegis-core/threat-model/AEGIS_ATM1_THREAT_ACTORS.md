@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Threat Actors & Adversary Models
+# AEGIS ATM-1 Threat Actors & Adversary Models
 
 **Document**: ATM-1/Actors (AEGIS_ATM1_THREAT_ACTORS.md)\
 **Version**: 1.0 (Normative)\

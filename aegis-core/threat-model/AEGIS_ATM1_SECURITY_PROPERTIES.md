@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Security Properties & Assumptions
+# AEGIS ATM-1 Security Properties & Assumptions
 
 **Document**: ATM-1/Properties (AEGIS_ATM1_SECURITY_PROPERTIES.md)\
 **Version**: 1.0 (Normative)\

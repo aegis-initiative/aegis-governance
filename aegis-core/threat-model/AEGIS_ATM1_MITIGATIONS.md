@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Mitigations & Defense Strategies
+# AEGIS ATM-1 Mitigations & Defense Strategies
 
 **Document**: ATM-1/Mitigations (AEGIS_ATM1_MITIGATIONS.md)\
 **Version**: 1.0 (Normative)\

@@ -1,11 +1,11 @@
 <p align="center">
     <source media="(prefers-color-scheme: dark)" srcset="../aegis-core/assets/AEGIS_wordmark_dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="../aegis-core/assets/AEGIS_wordmark_light.svg">
-    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS™ Governance Logo">
+    <img src="../aegis-core/assets/AEGIS_wordmark.svg" width="180" alt="AEGIS Governance Logo">
   </picture>
 </p>
 
-# AEGIS™ Runtime (Reference Implementation)
+# AEGIS Runtime (Reference Implementation)
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
@@ -13,7 +13,7 @@
 
 ```
 
-The AEGIS™ Runtime is the **reference Python implementation** of the AEGIS governance architecture.
+The AEGIS Runtime is the **reference Python implementation** of the AEGIS governance architecture.
 It provides a deterministic enforcement layer that evaluates and governs AI-initiated actions **before they interact with infrastructure**.
 
 > **Capability without constraint is not intelligence™**
@@ -366,7 +366,7 @@ Governance interactions are defined using structured protocol messages.
 
 ---
 
-# Relationship to the AEGIS™ Initiative
+# Relationship to the AEGIS Initiative
 
 This runtime is the **reference implementation** supporting the broader AEGIS ecosystem.
 

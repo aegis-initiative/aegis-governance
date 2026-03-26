@@ -1,6 +1,6 @@
 > **Document**: FinnoybuIPLLC-AEGIS-IEEE-Computer-Constitutional-Governance-Architecture-2026-03.md\
 > **Version**: 0.3\
-> **Part of**: AEGIS™ Position Papers\
+> **Part of**: AEGIS Position Papers\
 >
 > **SUBMITTED — DO NOT EDIT**
 > This document has been formally submitted to IEEE Computer. The authoritative submitted version is [FinnoybuIPLLC-AEGIS-IEEE-Computer-Constitutional-Governance-Architecture-2026-03.pdf](FinnoybuIPLLC-AEGIS-IEEE-Computer-Constitutional-Governance-Architecture-2026-03.pdf). This markdown is preserved as a readable reference only. Any future updates must be issued as a new submission, not edits to this file.
@@ -14,7 +14,7 @@
 **Submission Type**: Theme Article
 
 **Submission Date**: March 2026\
-**Steward**: Finnoybu IP LLC | AEGIS™ Initiative\
+**Steward**: Finnoybu IP LLC | AEGIS Initiative\
 **Author**: Kenneth Tannenbaum\
 **Affiliation**: AEGIS Initiative, Lovettsville, Virginia, USA\
 **ORCID**: 0009-0007-4215-1789\

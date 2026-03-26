@@ -1,4 +1,4 @@
-# AEGIS™ Specification
+# AEGIS Specification
 
 Architectural Enforcement & Governance of Intelligent Systems
 

@@ -1,4 +1,4 @@
-# AEGIS™ Position Papers
+# AEGIS Position Papers
 
 Position statements, comments, and submissions to standards bodies, regulatory agencies, and governance organizations.
 
@@ -37,12 +37,12 @@ Position papers should use a consistent header format that balances internal doc
 
 **Document**: YYYY-MM-topic-description.md  
 **Version**: 0.1.0 (Draft)  
-**Part of**: AEGIS™ Position Papers  
+**Part of**: AEGIS Position Papers  
 **Date**: Month DD, YYYY  
 **Submitted to**: [Organization Name / Framework / Docket]  
 **Status**: Draft | Submitted | Acknowledged | Published  
 **Docket Number**: [If applicable]  
-**Steward**: Finnoybu IP LLC | AEGIS™ Initiative  
+**Steward**: Finnoybu IP LLC | AEGIS Initiative  
 
 **Repository**: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)  
 **Constitution**: [aegissystems.app](https://aegissystems.app)
@@ -83,8 +83,8 @@ When adding position papers:
 
 ---
 
-**Part of**: AEGIS™ Documentation  
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation  
+**Maintained by**: AEGIS Initiative
 
 ---
 

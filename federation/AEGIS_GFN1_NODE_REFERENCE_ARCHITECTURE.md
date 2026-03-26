@@ -1,4 +1,4 @@
-# AEGIS™ GFN-1 Node Reference Architecture & Deployment
+# AEGIS GFN-1 Node Reference Architecture & Deployment
 
 **Document**: GFN-1/Nodes (AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md)\
 **Version**: 1.0 (Normative)\

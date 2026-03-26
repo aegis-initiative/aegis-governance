@@ -1,6 +1,6 @@
 > **Document**: FinnoybuIPLLC-AEGIS-IEEE-DataDescriptions-ATX1-ThreatMatrix-2026.md\
 > **Version**: 0.3 (DRAFT)\
-> **Part of**: AEGIS™ Position Papers\
+> **Part of**: AEGIS Position Papers\
 > **Target Venue**: IEEE Data Descriptions\
 > **Article Type**: Descriptor\
 > **Author**: Kenneth Tannenbaum (AEGIS Initiative)\

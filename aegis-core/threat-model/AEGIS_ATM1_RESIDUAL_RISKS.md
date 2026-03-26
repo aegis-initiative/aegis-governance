@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Residual Risks & Risk Acceptance
+# AEGIS ATM-1 Residual Risks & Risk Acceptance
 
 **Document**: ATM-1/Residual (AEGIS_ATM1_RESIDUAL_RISKS.md)\
 **Version**: 1.0 (Normative)\

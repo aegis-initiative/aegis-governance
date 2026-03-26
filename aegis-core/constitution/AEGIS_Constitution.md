@@ -1,4 +1,4 @@
-# AEGIS™ Constitution
+# AEGIS Constitution
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 
@@ -14,7 +14,7 @@ AEGIS™ (Architectural Enforcement & Governance of Intelligent Systems) exists 
 
 This constitution establishes the foundational principles governing all AEGIS™-compliant systems. These articles are not aspirational guidelines—they define **architectural requirements** that must be enforced by implementation.
 
-The AEGIS™ Constitution ensures that AI systems operate within explicitly defined boundaries, maintaining accountability and operational safety regardless of model behavior or reasoning capabilities.
+The AEGIS Constitution ensures that AI systems operate within explicitly defined boundaries, maintaining accountability and operational safety regardless of model behavior or reasoning capabilities.
 
 This constitution is not framed as master-slave control. It is a governance compact for coexistence: AI systems may propose actions, governance systems evaluate those proposals deterministically, and humans retain accountable authority over high-impact outcomes.
 

@@ -1,4 +1,4 @@
-# AEGIS™ ATM-1 Attack Vectors & Exploitation Techniques
+# AEGIS ATM-1 Attack Vectors & Exploitation Techniques
 
 **Document**: ATM-1/Vectors (AEGIS_ATM1_ATTACK_VECTORS.md)\
 **Version**: 1.0 (Normative)\

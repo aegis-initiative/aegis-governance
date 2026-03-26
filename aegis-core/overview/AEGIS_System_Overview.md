@@ -1,4 +1,4 @@
-# AEGIS™ System Overview
+# AEGIS System Overview
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 

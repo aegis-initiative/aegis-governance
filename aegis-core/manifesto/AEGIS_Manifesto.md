@@ -1,4 +1,4 @@
-# AEGIS™ Manifesto
+# AEGIS Manifesto
 
 ### Architectural Enforcement & Governance of Intelligent Systems
 

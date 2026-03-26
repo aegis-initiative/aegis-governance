@@ -32,5 +32,5 @@ Current signatories: EU, United Kingdom, Ukraine, Canada, Israel, United States.
 
 ---
 
-**Part of**: AEGIS™ Documentation\
-**Maintained by**: AEGIS™ Initiative
+**Part of**: AEGIS Documentation\
+**Maintained by**: AEGIS Initiative

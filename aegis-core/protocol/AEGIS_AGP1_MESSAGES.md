@@ -1,4 +1,4 @@
-# AEGIS™ AGP-1 Message Schemas & Field Specifications
+# AEGIS AGP-1 Message Schemas & Field Specifications
 
 **Document**: AGP-1/Messages (AEGIS_AGP1_MESSAGES.md)  
 **Version**: 1.0 (Normative)  
