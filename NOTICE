@@ -2,8 +2,16 @@
 AEGIS Governance
 Copyright (c) 2026 Finnoybu IP LLC
 
-Licensed under the Apache License, Version 2.0.
-See the LICENSE file for details.
+This repository is dual-licensed:
+
+  Code (plugins/, aegis-runtime/, aegis-core/, examples/):
+    Apache License, Version 2.0 — see LICENSE
+
+  Documentation, specifications, and threat taxonomies (docs/, rfc/, site/):
+    Creative Commons Attribution-ShareAlike 4.0 International — see LICENSE-DOCS
+
+Note: ATX-1 v1.0 was published under Apache 2.0 (DOI: 10.5281/zenodo.19225676,
+IEEE DataPort: 10.21227/f87b-1d57). The CC-BY-SA-4.0 license applies to v2.1+.
 
 AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of Finnoybu IP LLC.
 Use of the marks is governed separately by TRADEMARKS.md.

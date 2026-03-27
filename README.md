@@ -197,5 +197,16 @@ The project includes:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*  
+## License
+
+This repository is dual-licensed:
+
+| Content | License | File |
+|---------|---------|------|
+| Code (`plugins/`, `aegis-runtime/`, `aegis-core/`, `examples/`) | Apache License 2.0 | [LICENSE](LICENSE) |
+| Documentation, specifications, threat taxonomies (`docs/`, `rfc/`, `site/`) | CC-BY-SA-4.0 | [LICENSE-DOCS](LICENSE-DOCS) |
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*
 *AEGIS Initiative — Finnoybu IP LLC*

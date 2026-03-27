@@ -4,7 +4,7 @@
   "version": "0.1",
   "generated": "2026-03-26",
   "description": "Mapping of ATX-1 v2.0 techniques to ATM-1 attack vectors, controls, and detection signals",
-  "license": "Apache-2.0",
+  "license": "CC-BY-SA-4.0",
 
   "mappings": [
     {
