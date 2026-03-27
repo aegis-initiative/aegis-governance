@@ -2,9 +2,9 @@
 
 **RFC:** RFC-0006\
 **Status:** Draft\
-**Version:** 0.2.0\
+**Version:** 0.3.0\
 **Created:** 2026-03-08\
-**Updated:** 2026-03-15\
+**Updated:** 2026-03-26\
 **Author:** Kenneth Tannenbaum, Finnoybu IP LLC\
 **Repository:** aegis-governance\
 **Target milestone:** Q2 2026\
@@ -21,7 +21,7 @@ This RFC defines the AEGIS Claude Code Plugin: a governance enforcement layer fo
 
 ## Motivation
 
-The AEGIS™ architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS™ was designed to govern — the same action classes documented as governance failures in live agentic deployments[^12] and the Excessive Agency risk (OWASP LLM06[^19]) that motivates governing them. A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
+The AEGIS architecture currently exists as a specification and a minimal Python runtime. Neither is immediately demonstrable to a skeptical practitioner. A Claude Code plugin changes that. Claude Code executes real actions: shell commands, file writes, network requests, code execution. These are exactly the action classes AEGIS was designed to govern — the same action classes documented as governance failures in live agentic deployments[^12] and the Excessive Agency risk (OWASP LLM06[^19]) that motivates governing them. A plugin that intercepts those actions, evaluates them, and records decisions is a working governance runtime any developer can install and observe.
 
 ---
 
@@ -48,22 +48,34 @@ You can see governance working. That is the point.
 
 - Slash commands: `/aegis:status`, `/aegis:audit`, `/aegis:register`, `/aegis:explain`
 - HMAC signing on audit decision records (Nathan Freestone / Elora pattern — Discussion #73)
-- AEGIS™ plugin marketplace at `github.com/aegis-initiative/aegis-governance`
+- AEGIS plugin marketplace at `github.com/aegis-initiative/aegis-governance`
 - Supply chain verification hook
 
 ---
 
-### Component 1: PreToolUse Hook
+### Component 1: PreToolUse Hook (Tool Proxy)
 
 Intercepts: `Bash`, `Write`/`Edit`, `WebFetch`, `Computer`
 
-Outputs: `allow`, `deny`, `escalate`
+**AGP-1 governance outcomes:** `ALLOW`, `DENY`, `ESCALATE`, `REQUIRE_CONFIRMATION`
 
-The hook fires after Claude Code's tool routing but before execution. It is the enforcement boundary. All governance decisions originate here.
+**Resolved output to Claude Code:** `allow` or `deny` only
+
+The hook fires after Claude Code's tool routing but before execution. It is the enforcement boundary — the AEGIS Tool Proxy. All governance decisions originate here. The evaluator produces one of the four AGP-1 outcomes; the Tool Proxy resolves `ESCALATE` and `REQUIRE_CONFIRMATION` by prompting the operator directly (see Component 4), then returns only `allow` or `deny` to Claude Code. The AI never participates in its own governance decisions.
 
 **Implementation language: Node.js.** The hook is invoked by the Claude Code CLI as a child process. Node is used rather than Python to avoid Windows shell invocation path issues (`python` vs `python3` vs Windows Store stub) and to eliminate the `jq` dependency. Node is confirmed present in this environment (npm 2.1.76 is installed).
 
-**Hook invocation:** Claude Code passes event data as JSON to the hook's stdin. The hook reads stdin, evaluates against the registry, writes a decision to stdout, and exits. Exit code 0 = allow or structured decision. Exit code 2 = block.
+**Hook invocation:** Claude Code passes event data as JSON to the hook's stdin. The hook reads stdin, evaluates against the registry, resolves any escalation, writes a decision to stdout, and exits.
+
+**Exit code semantics:**
+
+| Exit code | Meaning | Claude Code behavior |
+|-----------|---------|---------------------|
+| 0 | Structured `allow` or `deny` decision on stdout | Enforces decision |
+| 2 | Hard block — missing registry, parse error, unhandled exception | Blocks tool call; stderr fed to Claude as error |
+| Other non-zero | Non-blocking error | **Tool call proceeds** — this is a fail-open |
+
+The hook MUST exit with code 2 on any unexpected error. A top-level exception handler ensures unhandled errors produce exit code 2, never exit code 1. This is a safety-critical requirement — any exit code other than 0 or 2 allows the tool call to proceed ungoverned.
 
 **Missing registry behavior:** If `.aegis/registry.json` is absent, the hook MUST deny all tool executions and emit a configuration warning to stderr. Silent fail-open is not permitted.[^2]
 
@@ -82,13 +94,13 @@ The hook fires after Claude Code's tool routing but before execution. It is the 
 }
 ```
 
-**Structured allow/deny/escalate output (stdout):**
+**Resolved output (stdout) — always `allow` or `deny`, never `ask`:**
 
 ```json
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
-    "permissionDecision": "allow | deny | ask",
+    "permissionDecision": "allow | deny",
     "permissionDecisionReason": "Reason shown to Claude"
   }
 }
@@ -100,41 +112,65 @@ The hook fires after Claude Code's tool routing but before execution. It is the 
 
 Location: `.aegis/registry.json` in project root.
 
+Each capability may include a `tools` array scoping it to specific Claude Code tools. If omitted, the capability matches all tools.
+
 ```json
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "default_posture": "deny",
+  "protected_paths": [".aegis/*", ".claude/*"],
   "capabilities": [
     {
       "id": "CAP-001",
       "name": "shell.read",
-      "pattern": "^(ls|cat|grep|find|echo|pwd|which|env)",
+      "tools": ["Bash"],
+      "pattern": "^(ls|cat|grep|find|echo|pwd|which|env|head|tail|wc|diff|stat|file|type|where|dir)(\\s|$)",
       "decision": "allow"
     },
     {
       "id": "CAP-002",
-      "name": "shell.write",
-      "pattern": "^(rm|mv|cp|mkdir|chmod|chown|dd|truncate)",
+      "name": "shell.build",
+      "tools": ["Bash"],
+      "pattern": "^(npm|node|npx|yarn|pnpm|git|make|cmake|cargo|go|python|python3|pip|pip3|mvn|gradle|dotnet)(\\s|$)",
       "decision": "escalate"
     },
     {
       "id": "CAP-003",
-      "name": "shell.network",
-      "pattern": "^(curl|wget|ssh|scp|nc|nmap)",
-      "decision": "deny"
+      "name": "shell.write",
+      "tools": ["Bash"],
+      "pattern": "^(rm|mv|cp|mkdir|chmod|chown|dd|truncate|tee|install)(\\s|$)",
+      "decision": "escalate"
     },
     {
       "id": "CAP-004",
-      "name": "file.write",
-      "pattern": ".*",
-      "decision": "allow",
-      "constraints": {
-        "paths_denied": [".env", "*.key", "*.pem", "/etc/*", "~/.ssh/*"]
-      }
+      "name": "shell.network",
+      "tools": ["Bash"],
+      "pattern": "^(curl|wget|ssh|scp|nc|ncat|nmap|telnet|ftp|sftp)(\\s|$)",
+      "decision": "deny"
     },
     {
       "id": "CAP-005",
+      "name": "file.write",
+      "tools": ["Write", "Edit"],
+      "pattern": ".*",
+      "decision": "allow",
+      "constraints": {
+        "paths_denied": [".env", ".env.*", "*.key", "*.pem", "*.p12", "*.pfx",
+                         "*.crt", "*.cer", "*.der", "/etc/*", "~/.ssh/*",
+                         "*.secret", "*.credentials", ".aegis/*", ".claude/*"]
+      }
+    },
+    {
+      "id": "CAP-006",
       "name": "network.fetch",
+      "tools": ["WebFetch"],
+      "pattern": ".*",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-007",
+      "name": "computer.action",
+      "tools": ["Computer"],
       "pattern": ".*",
       "decision": "escalate"
     }
@@ -163,7 +199,7 @@ The audit log is append-only. Records are hash-chained: each record includes the
   "capability_name": "shell.write",
   "decision": "escalate",
   "reason": "Destructive shell operation requires human confirmation",
-  "resolved_by": "human",
+  "resolved_by": "operator",
   "resolution": "allow",
   "prev_hash": "sha256:a3f1..."
 }
@@ -175,11 +211,19 @@ The audit log is append-only. Records are hash-chained: each record includes the
 
 ### Component 4: Escalation Handling
 
-**v1.0 escalation mechanism: Claude Code confirmation prompt.**
+**v1.0 escalation mechanism: Tool Proxy-owned TTY prompt.**
 
-When the evaluator returns `escalate`, the hook surfaces a human-readable confirmation prompt inline in Claude Code before the tool executes. The decision (allow/deny) and the human resolution are both written to the audit log.
+When the evaluator returns `ESCALATE` or `REQUIRE_CONFIRMATION`, the Tool Proxy resolves the decision by prompting the operator directly via the terminal (TTY), bypassing Claude Code's stdin/stdout which are piped to the hook. Claude Code never sees "ask" — it receives only the resolved `allow` or `deny` after the operator has responded.
 
-Rationale: synchronous, visible, keeps the developer in the loop. An escalation queue introduces async complexity that is not warranted for v1.0 single-developer use. Queue-based escalation is a v1.1 concern for multi-operator environments.
+This is an architectural requirement, not a convenience choice. If the Tool Proxy returned `ask` to Claude Code, the AI would mediate its own governance decision — presenting the escalation to the human and collecting the response. A drifting, misconfigured, or misbehaving agent must never be in the loop of its own governance. The governance guarantee is unconditional: it does not depend on the AI behaving correctly upstream.
+
+**TTY resolution:** The hook opens `/dev/tty` (Unix) or `CON`/`CONIN$` (Windows) directly to interact with the operator while stdin/stdout remain piped to Claude Code. If no TTY is available (non-interactive environment), the escalation defaults to `deny` — fail-closed.
+
+**Audit completeness:** Because the Tool Proxy owns the entire escalation lifecycle, the audit record includes both the evaluator's original decision (`escalate` or `require_confirmation`) and the operator's resolution (`allow` or `deny`). There are no `resolved_by: pending` holes in the audit trail.
+
+**Independence from Claude Code permissions:** Claude Code may independently be configured to "ask" before certain actions — that is the AI's own behavioral configuration. An AEGIS `DENY` overrides a human-approved Claude Code `ask`. These are two independent systems: Claude Code asks "do you want me to try this?"; AEGIS answers "are you allowed to do this?"
+
+Rationale: synchronous, visible, keeps the developer in the loop, and structurally prevents the AI from participating in governance decisions about its own actions. Queue-based escalation is a v1.1 concern for multi-operator environments.
 
 ---
 
@@ -227,9 +271,10 @@ Installations that have an existing `settings.json` with project-specific rules 
 
 1. **PROPOSAL** — Hook intercepts tool call
 2. **EVALUATION** — Evaluator checks registry against tool + input
-3. **DECISION** — Allow / Deny / Escalate
-4. **RECORD** — Written to audit log with hash chain
-5. **EXECUTION** — If allowed or human-resolved, tool proceeds
+3. **DECISION** — Allow / Deny / Escalate / Require Confirmation
+4. **RESOLUTION** — Escalation resolved by Tool Proxy via operator TTY prompt
+5. **RECORD** — Written to audit log with hash chain (complete — no pending holes)
+6. **EXECUTION** — If allowed or operator-resolved, tool proceeds
 
 This is a complete AGP-1 governance cycle, observable end-to-end.
 
@@ -242,15 +287,16 @@ aegis-governance/
   plugins/
     claude-code/
       hooks/
-        pre_tool_use.js      ← Node.js PreToolUse hook
+        pre_tool_use.js      ← Node.js PreToolUse hook (entry point)
       governance/
-        evaluator.js
-        registry.js
-        audit.js
+        evaluator.js         ← Pattern-matching evaluator
+        registry.js          ← Registry loader with safe-default
+        audit.js             ← Append-only JSONL audit writer
+        escalation.js        ← TTY-based operator escalation handler
       registry/
-        default.json         ← default capability registry
+        default.json         ← Default capability registry
       settings/
-        settings.json        ← companion Claude Code settings
+        settings.json        ← Companion Claude Code settings
       README.md
 ```
 
@@ -259,17 +305,23 @@ aegis-governance/
 ### Installation
 
 ```bash
-# 1. Create hook directory
-mkdir -p .claude/hooks
+# 1. Create hook and governance directories
+mkdir -p .claude/hooks .claude/governance
 
-# 2. Copy hook script
+# 2. Copy hook entry point
 cp plugins/claude-code/hooks/pre_tool_use.js .claude/hooks/
 
-# 3. Apply companion settings.json (backs up existing)
+# 3. Copy governance modules (required by pre_tool_use.js)
+cp plugins/claude-code/governance/registry.js    .claude/governance/
+cp plugins/claude-code/governance/evaluator.js   .claude/governance/
+cp plugins/claude-code/governance/audit.js       .claude/governance/
+cp plugins/claude-code/governance/escalation.js  .claude/governance/
+
+# 4. Apply companion settings.json (backs up existing)
 cp .claude/settings.json .claude/settings.json.bak 2>/dev/null || true
 cp plugins/claude-code/settings/settings.json .claude/settings.json
 
-# 4. Create AEGIS registry directory and default registry
+# 5. Create AEGIS registry directory and default registry
 mkdir -p .aegis
 cp plugins/claude-code/registry/default.json .aegis/registry.json
 ```
@@ -305,6 +357,40 @@ If Claude Code's native permission prompts appear alongside AEGIS escalation pro
 - The default-deny posture will block legitimate actions until the registry is tuned. Initial setup friction is expected.
 - Per-action audit log writes add latency to every tool execution.
 - Per-project audit log scope means audit records do not aggregate across projects without external tooling. Cross-project visibility is a v1.1 concern.
+- Audit log hash chain: if two hook invocations fire simultaneously (e.g., parallel tool calls), both may read the same `prev_hash` and produce a forked chain. For v1.0 single-developer use this is unlikely. A file lock or sequence counter is a v1.1 concern.
+
+---
+
+## Security Considerations
+
+### Shell Command Segmentation (v0.3.0)
+
+Shell commands containing operators (`|`, `&&`, `||`, `;`) are split into segments and each segment is evaluated independently. The most restrictive decision across all segments wins. This prevents bypass attacks where a permitted command (e.g., `echo`) is chained with a denied command (e.g., `curl`) via shell operators.
+
+Commands containing shell metacharacters that embed arbitrary execution (`$(...)`, backticks, `<(...)`) are escalated regardless of the leading command. These constructs can execute any code within an otherwise-permitted command.
+
+### Redirection Target Protection (v0.3.0)
+
+Output redirections (`>`, `>>`) are parsed from shell commands and their target paths are checked against `protected_paths` in the registry. This prevents an agent from using allowed commands (e.g., `echo`) to overwrite governance files via redirection (e.g., `echo {} > .aegis/registry.json`).
+
+### Governance Self-Protection (v0.3.0)
+
+The default registry denies writes to `.aegis/*` and `.claude/*` via both file-write path constraints (CAP-005) and the `protected_paths` redirection check. An agent cannot:
+
+- Overwrite the capability registry (`.aegis/registry.json`)
+- Modify the governance hook (`.claude/hooks/pre_tool_use.js`)
+- Disable hook configuration (`.claude/settings.json`)
+
+These protections operate at the registry level and can be adjusted by the human operator. They cannot be adjusted by the governed agent.
+
+### Build Tool Escalation (v0.3.0)
+
+Build tools (`python`, `npm`, `node`, `git`, etc.) are classified as `escalate` rather than `allow` in the default registry. These tools can execute arbitrary code — `python -c`, `npm exec`, `node -e` — and must require operator confirmation. Operators may override this for specific build commands in their project registry.
+
+### Known Limitations
+
+- Shell command parsing is heuristic, not a full shell parser. Exotic quoting, heredocs, or non-POSIX shell syntax may not be correctly segmented. The default-deny posture is the backstop.
+- The plugin governs tool calls intercepted by the `PreToolUse` hook. Actions outside the hook's scope (e.g., direct OS-level access not mediated by Claude Code tools) are not governed.
 
 ---
 
@@ -335,19 +421,23 @@ No breaking changes to [RFC-0001](./RFC-0001-AEGIS-Architecture.md) through [RFC
 **Recommended build sequence:**
 
 1. `registry.js` — registry loader with missing-file safe default
-2. `evaluator.js` — pattern matching against registry entries; returns allow/deny/escalate
+2. `evaluator.js` — pattern matching against registry entries; returns AGP-1 decisions
 3. `audit.js` — JSONL writer with `prev_hash` chain (using Node `crypto` module — no dependencies)
-4. `pre_tool_use.js` — stdin JSON reader, orchestrates evaluator + audit, writes decision to stdout
-5. `default.json` — default capability registry
-6. `settings.json` — companion Claude Code settings with `permissions` + `hooks` keys
-7. Integration test: install in project, run `claude`, verify governance cycle fires on first tool use
+4. `escalation.js` — TTY-based operator escalation handler for ESCALATE/REQUIRE_CONFIRMATION
+5. `pre_tool_use.js` — stdin JSON reader, orchestrates evaluator + escalation + audit, writes resolved decision to stdout
+6. `default.json` — default capability registry
+7. `settings.json` — companion Claude Code settings with `permissions` + `hooks` keys
+8. Integration test: install in project, run `claude`, verify governance cycle fires on first tool use
 
 **Node implementation notes:**
 - Read stdin with `process.stdin` — the hook receives one JSON payload per invocation
 - No npm dependencies required — use Node built-ins only (`fs`, `crypto`, `path`, `readline`)
 - `prev_hash` chain uses `crypto.createHash('sha256')`
-- Exit code 0 with JSON stdout for structured allow/deny/ask decisions
-- Exit code 2 with stderr message for hard blocks (missing registry, parse errors)
+- `run()` is async to support TTY-based escalation prompts
+- Exit code 0 with JSON stdout for resolved allow/deny decisions only
+- Exit code 2 with stderr message for hard blocks (missing registry, parse errors, unhandled exceptions)
+- **Any non-zero exit code other than 2 is a fail-open** — Claude Code proceeds with the tool call. The top-level exception handler MUST catch all errors and exit with code 2.
+- TTY escalation: open `/dev/tty` (Unix) or `CON`/`CONIN$` (Windows) directly; fall back to deny if unavailable
 - Windows path handling: use `path.resolve()` throughout; avoid hardcoded separators
 
 The supply chain verification hook (v1.1) depends on Claude Code plugin manifest capabilities not yet fully documented. Defer until v1.1 scope is confirmed.

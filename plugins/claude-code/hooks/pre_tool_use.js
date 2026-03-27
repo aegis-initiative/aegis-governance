@@ -10,13 +10,17 @@
  * Protocol (RFC-0006 §Component 1):
  *   - Stdin:   One JSON payload (Claude Code hook event)
  *   - Stdout:  One JSON governance decision (hookSpecificOutput envelope)
- *   - Exit 0:  Structured allow/deny/ask decision written to stdout
- *   - Exit 2:  Hard failure (missing registry, stdin parse error) — stderr message
+ *   - Exit 0:  Structured allow/deny decision written to stdout
+ *   - Exit 2:  Hard block (missing registry, parse error, unhandled exception)
+ *
+ * The Tool Proxy returns only resolved decisions (allow or deny) to Claude Code.
+ * ESCALATE and REQUIRE_CONFIRMATION are resolved by the Tool Proxy via direct
+ * TTY interaction with the operator. Claude Code never sees "ask".
  *
  * Governance cycle (AGP-1):
  *   PROPOSAL → EVALUATION → DECISION → RECORD → EXECUTION
  *
- * Dependencies: Node.js built-ins only (fs, crypto, path).
+ * Dependencies: Node.js built-ins only (fs, crypto, path, readline).
  * No npm packages required.
  *
  * Installation note: this script requires the governance/ directory to be
@@ -30,9 +34,10 @@ const path = require('path');
 // Resolve governance modules relative to this file's location so the script
 // works both from the source tree and from the installed .claude/hooks/ location.
 const governanceDir = path.join(__dirname, '..', 'governance');
-const { loadRegistry } = require(path.join(governanceDir, 'registry.js'));
-const { evaluate }     = require(path.join(governanceDir, 'evaluator.js'));
-const { writeRecord }  = require(path.join(governanceDir, 'audit.js'));
+const { loadRegistry }    = require(path.join(governanceDir, 'registry.js'));
+const { evaluate }        = require(path.join(governanceDir, 'evaluator.js'));
+const { writeRecord }     = require(path.join(governanceDir, 'audit.js'));
+const { promptOperator }  = require(path.join(governanceDir, 'escalation.js'));
 
 /**
  * Extract a short, log-safe input summary for the audit record.
@@ -60,6 +65,20 @@ process.stdin.on('data', function(chunk) {
 });
 
 process.stdin.on('end', function() {
+  // Top-level safety wrapper: any unhandled exception MUST exit with code 2
+  // (deny). Claude Code treats exit code 1 as a non-blocking error and proceeds
+  // with the tool call — that is a fail-open. Exit code 2 is the only non-zero
+  // code that blocks execution.
+  run().catch(function(err) {
+    process.stderr.write(
+      '[AEGIS] FATAL: Unhandled error in governance hook: ' +
+      (err && err.message ? err.message : String(err)) + '\n'
+    );
+    process.exit(2);
+  });
+});
+
+async function run() {
   // 1. Parse the hook event from stdin
   let event;
   try {
@@ -83,7 +102,22 @@ process.stdin.on('end', function() {
   const toolInput = event.tool_input || {};
   const result    = evaluate(registry, toolName, toolInput);
 
-  // 5. Write append-only audit record with hash chain (RFC-0006 §Component 3)
+  // 5. Resolve escalation decisions via the Tool Proxy (RFC-0006 §Component 4)
+  //    ESCALATE and REQUIRE_CONFIRMATION are resolved by prompting the operator
+  //    directly via TTY. The resolved decision (allow or deny) is what gets
+  //    recorded in the audit log and returned to Claude Code.
+  let finalDecision = result.decision;
+  let resolvedBy    = 'aegis';
+
+  if (result.decision === 'escalate' || result.decision === 'require_confirmation') {
+    const summary = inputSummary(toolName, toolInput);
+    finalDecision = await promptOperator(result.decision, toolName, summary, result.reason);
+    resolvedBy    = 'operator';
+  }
+
+  // 6. Write append-only audit record with hash chain (RFC-0006 §Component 3)
+  //    The record includes the evaluator's original decision AND the resolved
+  //    outcome. No "pending" holes — the audit trail is complete.
   try {
     writeRecord(projectRoot, {
       timestamp:        new Date().toISOString(),
@@ -94,10 +128,8 @@ process.stdin.on('end', function() {
       capability_name:  result.capability_name,
       decision:         result.decision,
       reason:           result.reason,
-      // resolved_by / resolution: "ask" decisions are resolved by the human
-      // confirmation prompt; final resolution is not known at hook invocation time
-      resolved_by:      result.decision === 'ask' ? 'pending' : 'aegis',
-      resolution:       result.decision === 'ask' ? null       : result.decision,
+      resolved_by:      resolvedBy,
+      resolution:       finalDecision,
     });
   } catch (auditErr) {
     // Audit failure is surfaced as a warning but does not alter the governance
@@ -105,15 +137,18 @@ process.stdin.on('end', function() {
     process.stderr.write('[AEGIS] WARNING: Audit write failed: ' + auditErr.message + '\n');
   }
 
-  // 6. Write structured decision to stdout (RFC-0006 §Component 1)
+  // 7. Write structured decision to stdout (RFC-0006 §Component 1)
+  //    The Tool Proxy returns only resolved decisions: allow or deny.
+  //    AEGIS never returns "ask" to Claude Code — escalation is handled
+  //    by the Tool Proxy directly (see RFC-0006 §Component 4).
   const output = {
     hookSpecificOutput: {
       hookEventName:              'PreToolUse',
-      permissionDecision:         result.decision,
+      permissionDecision:         finalDecision,
       permissionDecisionReason:   result.reason,
     },
   };
 
   process.stdout.write(JSON.stringify(output) + '\n');
   process.exit(0);
-});
+}

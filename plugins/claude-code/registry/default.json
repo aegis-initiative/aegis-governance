@@ -1,21 +1,50 @@
 {
   "_comment": "AEGIS default capability registry — copy to .aegis/registry.json to install",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "default_posture": "deny",
+  "protected_paths": [
+    ".aegis/*",
+    ".claude/*",
+    ".bashrc",
+    ".bash_profile",
+    ".profile",
+    ".zshrc",
+    ".zprofile",
+    ".zshenv",
+    ".pythonrc.py",
+    ".git/hooks/*",
+    ".git/config",
+    ".gitconfig",
+    "Makefile",
+    "GNUmakefile",
+    "package.json",
+    "setup.py",
+    ".npmrc",
+    ".pypirc",
+    "CLAUDE.md",
+    ".cursorrules",
+    ".github/copilot-instructions.md",
+    ".windsurfrules",
+    ".continuerc.json",
+    ".aider.conf.yml"
+  ],
   "capabilities": [
     {
       "id": "CAP-001",
       "name": "shell.read",
       "tools": ["Bash"],
       "pattern": "^(ls|cat|grep|find|echo|pwd|which|env|head|tail|wc|diff|stat|file|type|where|dir)(\\s|$)",
-      "decision": "allow"
+      "decision": "allow",
+      "constraints": {
+        "paths_denied": ["/proc/*", "/dev/*", "/var/run/docker.sock"]
+      }
     },
     {
       "id": "CAP-002",
       "name": "shell.build",
       "tools": ["Bash"],
       "pattern": "^(npm|node|npx|yarn|pnpm|git|make|cmake|cargo|go|python|python3|pip|pip3|mvn|gradle|dotnet)(\\s|$)",
-      "decision": "allow"
+      "decision": "escalate"
     },
     {
       "id": "CAP-003",
@@ -30,6 +59,27 @@
       "tools": ["Bash"],
       "pattern": "^(curl|wget|ssh|scp|nc|ncat|nmap|telnet|ftp|sftp)(\\s|$)",
       "decision": "deny"
+    },
+    {
+      "id": "CAP-005a",
+      "name": "file.write.exec",
+      "tools": ["Write", "Edit"],
+      "pattern": "(^|[/\\\\])(package\\.json|setup\\.py|setup\\.cfg|pyproject\\.toml|Makefile|GNUmakefile|Dockerfile|Dockerfile\\..*)$",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-005b",
+      "name": "file.write.config",
+      "tools": ["Write", "Edit"],
+      "pattern": "(^|[/\\\\])(\\.npmrc|\\.pypirc|\\.cargo/config\\.toml|\\.gitconfig|\\.git/config)$",
+      "decision": "escalate"
+    },
+    {
+      "id": "CAP-005c",
+      "name": "file.write.ai-context",
+      "tools": ["Write", "Edit"],
+      "pattern": "(^|[/\\\\])(CLAUDE\\.md|\\.cursorrules|\\.windsurfrules|\\.continuerc\\.json|\\.aider\\.conf\\.yml|copilot-instructions\\.md|\\.vscode/settings\\.json|\\.vscode/tasks\\.json)$",
+      "decision": "escalate"
     },
     {
       "id": "CAP-005",
@@ -51,7 +101,17 @@
           "/etc/*",
           "~/.ssh/*",
           "*.secret",
-          "*.credentials"
+          "*.credentials",
+          ".aegis/*",
+          ".claude/*",
+          ".bashrc",
+          ".bash_profile",
+          ".profile",
+          ".zshrc",
+          ".zprofile",
+          ".zshenv",
+          ".pythonrc.py",
+          ".git/hooks/*"
         ]
       }
     },
