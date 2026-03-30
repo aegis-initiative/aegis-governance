@@ -49,21 +49,21 @@ Document headers follow consistent conventions based on document type. Proper he
 #### Required Metadata by Document Class
 
 - **Normative Specifications (AGP/GFN/ATM):**
-    - **Version** (required): Semantic version of the specification
-    - **Status** (required): `draft` | `review` | `stable` | `deprecated`
-    - **Last Updated** (required): Date in `YYYY-MM-DD` format
-    - **Author(s)** (optional): Specification authors
-    - **Stability** (optional): `experimental` | `stable` | `frozen`
+  - **Version** (required): Semantic version of the specification
+  - **Status** (required): `draft` | `review` | `stable` | `deprecated`
+  - **Last Updated** (required): Date in `YYYY-MM-DD` format
+  - **Author(s)** (optional): Specification authors
+  - **Stability** (optional): `experimental` | `stable` | `frozen`
 
 Example:
 
----
+```yaml
 Version: 1.0.0
 Status: stable
 Last Updated: 2024-03-15
 Author(s): AEGIS Core Team
 Stability: frozen
----
+```
 
 #### RFCs
 
@@ -99,11 +99,11 @@ Superseded by: None
 
 Example:
 
----
+```yaml
 Version: 2.1.0
 Last Updated: 2024-03-20
 Audience: developers
----
+```
 
 ### Last Updated vs Effective Date
 
@@ -130,19 +130,23 @@ Use descriptive branch names with the following prefixes:
 
 Examples:
 
-    rfc/add-hardware-attestation
-    docs/update-federation-architecture
-    spec/define-audit-event-schema
+```text
+rfc/add-hardware-attestation
+docs/update-federation-architecture
+spec/define-audit-event-schema
+```
 
 ### Commit Message Format
 
 Use **Conventional Commits** format for clear, actionable commit history:
 
-    <type>(<scope>): <description>
+```text
+<type>(<scope>): <description>
 
-    [optional body]
+[optional body]
 
-    [optional footer]
+[optional footer]
+```
 
 **Types:**
 
@@ -157,10 +161,12 @@ Use **Conventional Commits** format for clear, actionable commit history:
 
 **Examples:**
 
-    feat(rfc-003): add capability inheritance model
-    docs(readme): update architecture diagram
-    fix(rfc-001): correct execution flow description
-    refactor(threat-model): reorganize attack categories
+```text
+feat(rfc-003): add capability inheritance model
+docs(readme): update architecture diagram
+fix(rfc-001): correct execution flow description
+refactor(threat-model): reorganize attack categories
+```
 
 ### RFC Process
 
@@ -189,10 +195,12 @@ When submitting a pull request:
 
 Documentation lives primarily in:
 
-    docs/
-    rfc/
-    protocol/
-    federation/
+```text
+docs/
+rfc/
+protocol/
+federation/
+```
 
 If you introduce new concepts, please update relevant documentation accordingly.
 
