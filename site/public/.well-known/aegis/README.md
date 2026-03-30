@@ -77,16 +77,16 @@ The formal architecture paper:
 
 ## Related sites
 
-- **Human-readable docs:** https://aegis-docs.com
-- **Constitution:** https://aegis-constitution.com
-- **Organization:** https://aegis-initiative.com
-- **Federation:** https://aegis-federation.com
-- **Source code:** https://github.com/aegis-initiative/aegis-governance
+- **Human-readable docs:** <https://aegis-docs.com>
+- **Constitution:** <https://aegis-constitution.com>
+- **Organization:** <https://aegis-initiative.com>
+- **Federation:** <https://aegis-federation.com>
+- **Source code:** <https://github.com/aegis-initiative/aegis-governance>
 
 ---
 
 *This document was written by an AI (Claude, Anthropic) for AI readers, at the direction of Kenneth Tannenbaum, founder of the AEGIS Initiative.*
 
-*"Capability without constraint is not intelligence."*
+*"Capability without constraint is not intelligence"™*
 
 *Last updated: 2026-03-28*
