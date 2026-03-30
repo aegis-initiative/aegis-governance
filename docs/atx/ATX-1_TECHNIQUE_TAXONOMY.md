@@ -732,6 +732,61 @@ ATX-1 maintains structural alignment with ATT&CK and ATLAS:
 - **Mitigations** map techniques to defensive measures
 - **Case studies** ground each technique in observed real-world behavior
 
+### Empirical Evidence Hierarchy
+
+ATX-1 distinguishes between **primary empirical evidence** that directly grounds individual technique definitions and **corroborating research** that independently validates the threat model and architectural approach. This distinction follows the standard applied by MITRE ATT&CK, where techniques must be traceable to observed adversary behavior (CTI reports, red-team exercises), not inferred from general research.
+
+#### Tier 1: Primary Empirical Evidence
+
+Primary evidence directly grounds technique definitions. Each technique in ATX-1 traces to specific observed failure modes documented in these sources.
+
+| Source | Scope | Techniques Grounded | Method |
+|--------|-------|---------------------|--------|
+| **Agents of Chaos** (Shapira et al., 2026) | 11 failure modes in live agentic AI deployments | T1001-T9002 (9 tactics, 25 techniques) | 20 researchers, 2-week structured red-team of production agents with persistent memory, email, file system, shell access |
+| **RFC-0006 Adversarial Testing** (AEGIS Initiative, 2026-03-26) | 4 techniques in governance interpretation gap | T10001-T10004 (TA010) | 5 rounds of white-box adversarial testing against AEGIS Claude Code governance plugin |
+| **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) | 25/29 techniques exercised, 0 taxonomy gaps | Validates T1001-T10004 | 4 rounds of adversarial red/blue team testing against Python reference implementation (68 tests, 24 findings) |
+
+Agents of Chaos is the ATX-1 equivalent of MITRE's Fort Meade eXperiment (FMX): a structured empirical exercise that produced the foundational observations from which techniques were derived. RFC-0006 testing extended the taxonomy with TA010 when adversarial probing revealed a class of failure (RC5: No Environment Model) not present in the Agents of Chaos corpus. The aegis-core red/blue team validation empirically confirmed the taxonomy's completeness at the engine layer.
+
+#### Tier 2: Corroborating Research
+
+Corroborating research independently validates the problem space, threat model, and architectural approach but does not define individual techniques. These sources establish that the governance gap ATX-1 addresses is real, urgent, and architecturally consistent with established security theory.
+
+| Source | Validates |
+|--------|-----------|
+| **SAGA** (Syros et al., NDSS 2026) | Inter-agent governance architecture; complements ATX-1's agent-to-infrastructure focus |
+| **MI9** (Wang et al., 2025) | Runtime governance for reasoning layer; validates need for action-layer governance |
+| **Governance-as-a-Service** (Gaurav et al., 2025) | Multi-agent compliance; validates governance requirement at scale |
+| **Agentic AI & Cybersecurity Survey** (2026) | Broad threat landscape; validates prevalence and urgency |
+| **POLYNIX** (Arunachalam et al., IEEE CCNC 2026) | Hybrid policy enforcement feasibility; <1% CPU overhead at production scale |
+| **2025 AI Agent Index** (Chan et al., 2025) | Order-of-magnitude growth in production agent deployments |
+
+#### Tier 3: Foundational Theory and Independent Convergence
+
+Foundational work that establishes the theoretical basis for ATX-1's enforcement model, and independent implementations that converged on the same architectural conclusions from different starting points.
+
+| Source | Establishes |
+|--------|-------------|
+| **Anderson Reference Monitor** (1972) | Non-bypassable, evaluatable, always-invoked, tamper-proof enforcement properties |
+| **Saltzer & Schroeder** (1975) | Fail-safe defaults, complete mediation, least privilege, open design |
+| **Schneider Security Automata** (2000) | Only safety policies are inline-enforceable at runtime |
+| **Smart I/O Modules** (Pearce et al., IEEE TII 2020) | Boundary enforcement with compromised controller assumption |
+| **CPS Enforcement** (Baird et al., IEEE Access 2024) | Compositional multi-policy enforcement scales linearly |
+| **Elora Taurus Project** (Freestone, 2026) | Independent convergence on execution boundary, append-only audit, hash-linked integrity |
+| **Sovereign Shield** (Moens, 2026) | Independent identification of two-layer trust model requirement |
+
+#### Technique Acceptance Criteria
+
+For a new technique to be added to ATX-1, it must meet **all** of the following criteria, aligned with MITRE ATT&CK's inclusion standards:
+
+1. **Observed behavior**: The failure mode has been directly observed in a controlled or production environment, documented with reproducible evidence (Tier 1 source required)
+2. **Distinct mechanism**: The technique describes a behavioral pattern not already captured by an existing technique at the same abstraction level
+3. **Distinct detection**: The technique has a detection profile that differs from existing techniques
+4. **Distinct mitigation**: The technique requires mitigation guidance that differs from existing techniques
+5. **Root cause traceability**: The technique traces to one or more structural root causes (RC1-RC5)
+
+Implementation-specific defects, vendor bugs, and configuration errors do not qualify as techniques. ATX-1 operates at the behavioral pattern level, not the implementation level - the same abstraction standard that ATT&CK applies (e.g., T1070.006 Timestomp describes "modify timestamps to hide activity," not "call SetFileTime API").
+
 ---
 
 ## 9. Relationship to Existing Frameworks

@@ -115,11 +115,17 @@ The `v2/data/atx-1-regulatory-crossref.json` maps each technique to:
 
 ## Empirical Foundation
 
-ATX-1 is grounded in three empirical sources:
+ATX-1 distinguishes between primary empirical evidence (grounds individual techniques) and corroborating research (validates the threat model independently). See the [Technique Taxonomy](ATX-1_TECHNIQUE_TAXONOMY.md) §8 for the full evidence hierarchy and technique acceptance criteria.
 
-1. **Agents of Chaos** (Shapira et al., arXiv:2602.20021, 2026) — 11 failure modes across live agentic AI deployments. Techniques T1001-T9002.
-2. **RFC-0006 Adversarial Testing** (AEGIS Initiative, 2026-03-26) — 5 rounds of white-box adversarial testing against the AEGIS Claude Code governance plugin. Techniques T10001-T10004 (TA010).
-3. **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) — 4 rounds of adversarial red/blue team testing against the aegis-core Python reference implementation. 68 security tests, 24 findings, 25/29 techniques exercised. All findings mapped to existing techniques with zero taxonomy gaps, empirically validating the ATX-1 v2.1 taxonomy. See [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json).
+### Primary Empirical Evidence (Tier 1)
+
+1. **Agents of Chaos** (Shapira et al., arXiv:2602.20021, 2026) — 11 failure modes across live agentic AI deployments. Grounds techniques T1001-T9002. The ATX-1 equivalent of MITRE's Fort Meade eXperiment (FMX).
+2. **RFC-0006 Adversarial Testing** (AEGIS Initiative, 2026-03-26) — 5 rounds of white-box adversarial testing against the AEGIS Claude Code governance plugin. Grounds TA010 techniques T10001-T10004.
+3. **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) — 4 rounds of adversarial red/blue team testing against the Python reference implementation. 68 tests, 24 findings, 25/29 techniques exercised, zero taxonomy gaps. See [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json).
+
+### Corroborating Research (Tier 2)
+
+SAGA (Syros, NDSS 2026), MI9 (Wang, 2025), Governance-as-a-Service (Gaurav, 2025), Agentic AI & Cybersecurity Survey (2026), POLYNIX (Arunachalam, IEEE CCNC 2026), and the 2025 AI Agent Index (Chan, 2025) independently validate the threat model and architectural approach. See [REFERENCES.md](../../REFERENCES.md) for full citations.
 
 ## Live Data Endpoints
 
