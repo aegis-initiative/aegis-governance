@@ -1,7 +1,7 @@
 ---
 const atxFiles = [
   { name: "STIX 2.1 Bundle", path: "/atx-1/stix-bundle.json", size: "93 KB", desc: "Complete taxonomy — tactics, techniques, mitigations, relationships" },
-  { name: "Technique Database", path: "/atx-1/techniques.json", size: "24 KB", desc: "All 25 techniques with severity, case studies, OWASP mapping" },
+  { name: "Technique Database", path: "/atx-1/techniques.json", size: "29 KB", desc: "All 29 techniques with severity, case studies, OWASP mapping" },
   { name: "Regulatory Cross-Reference", path: "/atx-1/regulatory-crossref.json", size: "15 KB", desc: "NIST AI RMF, EU AI Act, OWASP LLM Top 10 mapping" },
   { name: "ATM-1 Mapping", path: "/atx-1/atm1-mapping.json", size: "8 KB", desc: "Bidirectional mapping between ATX-1 techniques and MITRE ATT&CK" },
   { name: "ACF-1 Counterfactual Bundle", path: "/atx-1/acf-1-bundle.json", size: "75 KB", desc: "What-if scenarios for technique interactions and governance outcomes" },
@@ -322,7 +322,7 @@ const atxFiles = [
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": "ATX-1: AEGIS Threat Matrix for Agentic AI Systems",
-    "description": "Machine-readable threat taxonomy for autonomous AI agent behavior. 9 tactics, 25 techniques, 25 mitigations in STIX 2.1 and structured JSON.",
+    "description": "Machine-readable threat taxonomy for autonomous AI agent behavior. 10 tactics, 29 techniques, 29 mitigations in STIX 2.1 and structured JSON. v2.1 adds TA010 (Act Beyond Governance Interpretation).",
     "url": "https://aegis-governance.com",
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "creator": {
@@ -394,7 +394,7 @@ const atxFiles = [
 
   <section class="section">
     <h2>ATX-1 Threat Matrix</h2>
-    <p class="section-intro">AEGIS Threat Matrix v2.0 &mdash; 9 tactics, 25 techniques, 25 mitigations. Empirically grounded in the Agents of Chaos study. Available in STIX 2.1 and structured JSON.</p>
+    <p class="section-intro">AEGIS Threat Matrix v2.1 &mdash; 10 tactics, 29 techniques, 29 mitigations. Empirically grounded in the Agents of Chaos study and RFC-0006 adversarial testing. Available in STIX 2.1 and structured JSON.</p>
     <div class="file-list">
       {atxFiles.map((file) => (
         <a href={file.path} class="file-item">

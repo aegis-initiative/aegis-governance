@@ -1,10 +1,10 @@
 {
   "name": "AEGIS Governance Data",
-  "description": "Machine-readable governance artifacts — datasets, schemas, and threat intelligence for the AEGIS ecosystem",
+  "description": "Machine-readable governance artifacts — datasets, schemas, and threat intelligence for the AEGIS ecosystem. 10 tactics, 29 techniques, 5 root causes.",
   "url": "https://aegis-governance.com",
-  "version": "2.0.0",
-  "updated": "2026-03-26",
-  "license": "Apache-2.0",
+  "version": "2.1.0",
+  "updated": "2026-03-28",
+  "license": "CC-BY-SA-4.0",
   "access": "unrestricted",
   "note": "This entire site is intended for machine consumption. All paths are open to all bots.",
   "datasets": {
@@ -21,6 +21,8 @@
       "atx_technique": "/schemas/atx-technique.schema.json"
     }
   },
+  "doi": "10.5281/zenodo.19251098",
+  "citation": "K. Tannenbaum, \"AEGIS Threat Matrix (ATX-1) v2.1,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19251098.",
   "related_sites": {
     "documentation": "https://aegis-docs.com",
     "constitution": "https://aegis-constitution.com",
