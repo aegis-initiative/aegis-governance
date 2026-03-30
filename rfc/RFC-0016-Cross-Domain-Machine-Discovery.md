@@ -11,6 +11,8 @@
 **Supersedes:** None\
 **Superseded by:** None
 
+> *Pre-ratification notice: Comment period waived per sole-maintainer authority. Will be subject to standard review process once the AEGIS contributor community is established.*
+
 ---
 
 ## Summary
