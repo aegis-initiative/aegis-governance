@@ -1,12 +1,25 @@
-# Contributing to AEGIS™
+docs/update-federation-architecture
+spec/define-audit-event-schema
+docs(readme): update architecture diagram
+fix(rfc-001): correct execution flow description
+refactor(threat-model): reorganize attack categories
+rfc/
+docs/
+rfc/
+protocol/
+federation/
+<!--
+	This repository uses the centralized CONTRIBUTING.md in the .github repo for general contribution guidelines.
+	Please refer to ../../.github/CONTRIBUTING.md for the main process. The following are aegis-governance-specific contribution details:
+-->
 
-Thank you for your interest in contributing to **AEGIS Governance**.
+# aegis-governance Contribution Guide
 
-AEGIS™ is an open architectural specification for governing AI system actions. Contributions are welcome from engineers, researchers, security practitioners, and organizations interested in advancing safe and accountable AI systems.
+For general contribution guidelines, see the [central CONTRIBUTING.md](../../.github/CONTRIBUTING.md).
 
----
+## Repository-Specific Guidelines
 
-## Ways to Contribute
+### Ways to Contribute
 
 You can contribute in several ways:
 
@@ -17,15 +30,9 @@ You can contribute in several ways:
 - Contributing reference runtime implementations
 - Reviewing and commenting on specifications
 
----
-
-## Getting Started
+### Getting Started
 
 New to AEGIS™? Here are some areas where contributions are welcome:
-
-### Open Design Discussions
-
-We're actively designing core components. Check GitHub Issues for discussions on:
 
 - **AEGIS Runtime API** — Design the governance runtime API specification
 - **Capability Registry Schema** — Standardize capability definition formats
@@ -33,42 +40,33 @@ We're actively designing core components. Check GitHub Issues for discussions on
 - **AGP Protocol Message Schemas** — Define protocol message formats
 - **Reference Runtime Architecture** — Design the reference implementation
 
-### Good First Issues
-
 Look for issues labeled `good-first-issue` for approachable contribution opportunities.
 
----
-
-## Header Conventions
+### Header Conventions
 
 Document headers follow consistent conventions based on document type. Proper headers improve discoverability and ensure critical metadata is always visible.
 
-### Required Metadata by Document Class
+#### Required Metadata by Document Class
 
-#### Normative Specifications (AGP/GFN/ATM)
-- **Version** (required): Semantic version of the specification
-- **Status** (required): `draft` | `review` | `stable` | `deprecated`
-- **Last Updated** (required): Date in `YYYY-MM-DD` format
-- **Author(s)** (optional): Specification authors
-- **Stability** (optional): `experimental` | `stable` | `frozen`
+- **Normative Specifications (AGP/GFN/ATM):**
+	- **Version** (required): Semantic version of the specification
+	- **Status** (required): `draft` | `review` | `stable` | `deprecated`
+	- **Last Updated** (required): Date in `YYYY-MM-DD` format
+	- **Author(s)** (optional): Specification authors
+	- **Stability** (optional): `experimental` | `stable` | `frozen`
 
 Example:
 
-```markdown
-
 ---
-
 Version: 1.0.0
 Status: stable
 Last Updated: 2024-03-15
 Author(s): AEGIS Core Team
 Stability: frozen
-
 ---
 
-```
-
 #### RFCs
+
 - **RFC**: RFC number (e.g., RFC-0004)
 - **Status**: Placeholder, Draft, Proposed, Accepted, Implemented, Superseded
 - **Version**: Semantic version (e.g., 0.2)
@@ -82,33 +80,30 @@ Stability: frozen
 
 Example:
 
-**RFC**: RFC-0004\
-**Status**: Draft\
-**Version**: 0.2\
-**Created**: 2026-03-05\
-**Updated**: 2026-03-06\
-**Author**: AEGIS Initiative, Finnoybu IP LLC\
-**Repository**: aegis-governance\
-**Target milestone**: v1.0\
-**Supersedes**: None\
-**Superseded by**: None
+RFC: RFC-0004  
+Status: Draft  
+Version: 0.2  
+Created: 2026-03-05  
+Updated: 2026-03-06  
+Author: AEGIS Initiative, Finnoybu IP LLC  
+Repository: aegis-governance  
+Target milestone: v1.0  
+Supersedes: None  
+Superseded by: None
 
 #### Architecture / Supporting Docs
+
 - **Version** (optional): Document version
 - **Last Updated** (required): Date in `YYYY-MM-DD` format
 - **Audience** (optional): `internal` | `external` | `developers` | `operators`
 
 Example:
 
-```markdown
 ---
-
 Version: 2.1.0
 Last Updated: 2024-03-20
 Audience: developers
-
 ---
-```
 
 ### Last Updated vs Effective Date
 
@@ -120,9 +115,7 @@ Use **Effective Date** when:
 - Document describes policies/decisions that take effect at a specific time
 - RFCs transition from `accepted` status
 
----
-
-## Branch Naming Convention
+### Branch Naming Convention
 
 Use descriptive branch names with the following prefixes:
 
@@ -137,25 +130,19 @@ Use descriptive branch names with the following prefixes:
 
 Examples:
 
-```
-rfc/add-hardware-attestation
-docs/update-federation-architecture
-spec/define-audit-event-schema
-```
+	rfc/add-hardware-attestation
+	docs/update-federation-architecture
+	spec/define-audit-event-schema
 
----
-
-## Commit Message Format
+### Commit Message Format
 
 Use **Conventional Commits** format for clear, actionable commit history:
 
-```
-<type>(<scope>): <description>
+	<type>(<scope>): <description>
 
-[optional body]
+	[optional body]
 
-[optional footer]
-```
+	[optional footer]
 
 **Types:**
 
@@ -170,37 +157,26 @@ Use **Conventional Commits** format for clear, actionable commit history:
 
 **Examples:**
 
-```
-feat(rfc-003): add capability inheritance model
-docs(readme): update architecture diagram
-fix(rfc-001): correct execution flow description
-refactor(threat-model): reorganize attack categories
-```
+	feat(rfc-003): add capability inheritance model
+	docs(readme): update architecture diagram
+	fix(rfc-001): correct execution flow description
+	refactor(threat-model): reorganize attack categories
 
----
-
-## RFC Process
+### RFC Process
 
 Major architectural or protocol changes should be proposed through the **RFC process**.
 
 1. Create a new RFC document under:
+	 rfc/
+2. Follow the format used in existing RFC documents.
+3. Open a pull request describing:
+	 - the motivation
+	 - the proposed design
+	 - compatibility considerations
+	 - security implications
+4. Community discussion will determine whether the proposal is accepted.
 
-rfc/
-
-1. Follow the format used in existing RFC documents.
-
-2. Open a pull request describing:
-
-- the motivation
-- the proposed design
-- compatibility considerations
-- security implications
-
-1. Community discussion will determine whether the proposal is accepted.
-
----
-
-## Pull Requests
+### Pull Requests
 
 When submitting a pull request:
 
@@ -209,22 +185,18 @@ When submitting a pull request:
 - Reference related issues where applicable.
 - Ensure documentation updates accompany specification changes.
 
----
-
-## Documentation
+### Documentation
 
 Documentation lives primarily in:
 
-docs/
-rfc/
-protocol/
-federation/
+	docs/
+	rfc/
+	protocol/
+	federation/
 
 If you introduce new concepts, please update relevant documentation accordingly.
 
----
-
-## Security Considerations
+### Security Considerations
 
 AEGIS™ is designed for **governance and safety infrastructure**. Contributions should prioritize:
 
@@ -233,9 +205,7 @@ AEGIS™ is designed for **governance and safety infrastructure**. Contributions
 - auditable decision logic
 - safe failure modes
 
----
-
-## Questions or Discussion
+### Questions or Discussion
 
 If you're unsure how to contribute, open a **discussion or issue** in the repository.
 
