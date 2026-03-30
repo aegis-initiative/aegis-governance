@@ -38,22 +38,22 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 
 | Dataset | URL |
 |---|---|
-| ATX-1 Index | https://aegis-governance.com/atx-1/index.json |
-| ATX-1 STIX 2.1 Bundle | https://aegis-governance.com/atx-1/stix-bundle.json |
-| ATX-1 Technique Database | https://aegis-governance.com/atx-1/techniques.json |
-| ATX-1 Regulatory Cross-Reference | https://aegis-governance.com/atx-1/regulatory-crossref.json |
-| ATX-1 JSON Schema | https://aegis-governance.com/schemas/atx-technique.schema.json |
-| ATX-1 ATT&CK Navigator Layer | https://aegis-governance.com/atx-1/navigator-layer.json |
-| ATX-1 ↔ ATM-1 Mapping | https://aegis-governance.com/atx-1/atm1-mapping.json |
-| ACF-1 Control Framework Bundle | https://aegis-governance.com/atx-1/acf-1-bundle.json |
+| ATX-1 Index | <https://aegis-governance.com/atx-1/index.json> |
+| ATX-1 STIX 2.1 Bundle | <https://aegis-governance.com/atx-1/stix-bundle.json> |
+| ATX-1 Technique Database | <https://aegis-governance.com/atx-1/techniques.json> |
+| ATX-1 Regulatory Cross-Reference | <https://aegis-governance.com/atx-1/regulatory-crossref.json> |
+| ATX-1 JSON Schema | <https://aegis-governance.com/schemas/atx-technique.schema.json> |
+| ATX-1 ATT&CK Navigator Layer | <https://aegis-governance.com/atx-1/navigator-layer.json> |
+| ATX-1 ↔ ATM-1 Mapping | <https://aegis-governance.com/atx-1/atm1-mapping.json> |
+| ACF-1 Control Framework Bundle | <https://aegis-governance.com/atx-1/acf-1-bundle.json> |
 
 ## Submission Portals
 
 | Venue | URL |
 |---|---|
-| IEEE Computer | https://ieee.submission.researchexchange.com/submission/dashboard?siteName=com-cs |
-| IEEE Data Descriptions | https://ieee.submission.researchexchange.com/submission/dashboard?siteName=ieeedata |
-| arXiv | https://arxiv.org (endorsement pending — code NETYUG) |
+| IEEE Computer | <https://ieee.submission.researchexchange.com/submission/dashboard?siteName=com-cs> |
+| IEEE Data Descriptions | <https://ieee.submission.researchexchange.com/submission/dashboard?siteName=ieeedata> |
+| arXiv | <https://arxiv.org> (endorsement pending — code NETYUG) |
 
 ## Author
 

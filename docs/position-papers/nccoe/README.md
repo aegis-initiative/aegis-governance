@@ -11,7 +11,7 @@ This folder contains AEGIS™ submissions and responses to the National Cybersec
 
 - **Submission Date:** March 22, 2026
 - **Submitted by:** Kenneth Tannenbaum, AEGIS Initiative
-- **Contact:** ktannenbaum@aegis-initiative.com
+- **Contact:** <ktannenbaum@aegis-initiative.com>
 
 ## Notes
 

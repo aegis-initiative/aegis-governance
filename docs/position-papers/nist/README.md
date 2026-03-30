@@ -20,7 +20,7 @@ This directory contains AEGIS™ responses to:
 - **PDF**: [FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf](FinnoybuIPLLC-AEGIS-NIST-AI-RMF-Position-Statement-2026-03.pdf) — Authoritative PDF as submitted
 - **Submission Date**: March 7, 2026
 - **Submitted by**: Kenneth Tannenbaum, AEGIS Initiative
-- **Contact**: ktannenbaum@aegis-initiative.com
+- **Contact**: <ktannenbaum@aegis-initiative.com>
 - **Topic**: AEGIS™ architecture as reference implementation for AI RMF execution-time governance
 - **Status**: Submitted for Public Comment and Community Review
 - **Submission Type**: Unsolicited Position Paper
