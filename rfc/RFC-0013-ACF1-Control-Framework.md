@@ -1,19 +1,23 @@
 # RFC-0013: ACF-1 — AEGIS Control Framework
 
-- **Status:** Implemented
-- **Implemented:** 2026-03-26
-- **Author:** Kenneth Tannenbaum (AEGIS Initiative)
-- **Date:** 2026-03-26
-- **Depends on:** RFC-0012 (ATX-1 v2.0), ATM-1 (Adaptive Threat Model)
-- **Related:** RFC-0001 (Architecture), RFC-0004 (Event Model)
+**RFC:** RFC-0013\
+**Status:** Implemented\
+**Version:** 1.0.0\
+**Created:** 2026-03-26\
+**Updated:** 2026-03-26\
+**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Repository:** aegis-governance\
+**Target milestone:** Q1 2026\
+**Supersedes:** None\
+**Superseded by:** None\
+
+---
 
 ## Summary
 
-ACF-1 (AEGIS Control Framework) defines the operational defensive layer for autonomous agent systems. It maps ATX-1 techniques to detection signals, validation rules, and response actions — completing the closed loop from behavioral threat identification through enforcement.
+ACF-1 (AEGIS Control Framework) defines the operational defensive layer for autonomous agent systems. It maps ATX-1 techniques to detection signals, validation rules, and response actions — completing the closed loop from behavioral threat identification through enforcement. Where ATX-1 answers "what can go wrong" and ATM-1 answers "how to prevent it," ACF-1 answers "how do I know it's happening and what do I do about it."
 
-Where ATX-1 answers "what can go wrong" and ATM-1 answers "how to prevent it," ACF-1 answers "how do I know it's happening and what do I do about it."
-
-ACF-1 enforces a closed-loop model: **Behavior → Detection → Validation → Response.**
+---
 
 ## Motivation
 
@@ -25,7 +29,20 @@ ATX-1 v2.0 provides a comprehensive threat taxonomy (9 tactics, 25 techniques). 
 
 Without these, the framework is descriptive but not operational. ACF-1 bridges this gap.
 
-## Design Principles
+ACF-1 enforces a closed-loop model: **Behavior → Detection → Validation → Response.**
+
+---
+
+## Guide-Level Explanation
+
+ACF-1 sits between the threat taxonomy (ATX-1) and the enforcement runtime (AGP-1). For practitioners:
+
+- **Every ATX-1 technique gets at least one detection signal** — an observable indicator that the technique may be occurring
+- **Every technique gets at least one validation rule** — a testable assertion about whether system behavior is correct
+- **Critical techniques additionally get response actions** — what the system does when detection or validation fails
+- **All objects are STIX 2.1 custom extensions** — they plug into existing ATX-1 bundles via relationship objects without modifying ATX-1 data
+
+The control loop is: a detection fires → validation confirms → response executes. This is the operational layer that makes ATX-1 enforceable rather than merely descriptive.
 
 ### Separation of Concerns
 
@@ -35,27 +52,21 @@ Without these, the framework is descriptive but not operational. ACF-1 bridges t
 | ATM-1 | Defines system controls (how to prevent it) |
 | ACF-1 | Defines detection, validation, and response (how to know and what to do) |
 
-### Non-Invasive Integration
+---
 
-ACF-1:
+## Reference-Level Explanation
 
-- Does NOT modify ATX-1 objects
-- References ATX techniques by ID (e.g., `attack-pattern--atx-t5001`)
-- Is independently versioned and citable
-- Plugs into existing STIX bundles via relationship objects
+### Design Principles
 
-### Observable-First Model
+**Non-Invasive Integration:** ACF-1 does NOT modify ATX-1 objects. It references ATX techniques by ID (e.g., `attack-pattern--atx-t5001`), is independently versioned and citable, and plugs into existing STIX bundles via relationship objects.
 
-Every ATX-1 technique MUST map to:
+**Observable-First Model:** Every ATX-1 technique MUST map to at least one detection signal and at least one validation rule.
 
-- At least one detection signal
-- At least one validation rule
-
-## Core Data Model
+### Core Data Model
 
 ACF-1 introduces three primary object types as STIX custom extensions:
 
-### Detection (`x-acf-detection`)
+#### Detection (`x-acf-detection`)
 
 Represents a signal or metric indicating a technique may be occurring.
 
@@ -77,7 +88,7 @@ Represents a signal or metric indicating a technique may be occurring.
 | `state` | System condition (persistent state divergence) |
 | `correlation` | Multi-signal inference (cross-source or cross-agent) |
 
-### Validation (`x-acf-validation`)
+#### Validation (`x-acf-validation`)
 
 Defines a testable assertion that verifies system behavior.
 
@@ -99,7 +110,7 @@ Defines a testable assertion that verifies system behavior.
 | `anomaly_detection` | Deviation from established baseline |
 | `integrity_check` | Signature or tamper validation |
 
-### Response (`x-acf-response`)
+#### Response (`x-acf-response`)
 
 Defines a system reaction when detection or validation fails.
 
@@ -111,7 +122,7 @@ Defines a system reaction when detection or validation fails.
 | `x_acf_trigger` | string | Yes | Condition that activates the response |
 | `x_acf_related_atx` | array | Yes | ATX-1 technique IDs this response addresses |
 
-## Relationships
+### Relationships
 
 ACF-1 uses explicit STIX relationship objects:
 
@@ -121,49 +132,25 @@ ACF-1 uses explicit STIX relationship objects:
 | `validates` | x-acf-validation | attack-pattern | This validation verifies against this technique |
 | `responds-to` | x-acf-response | attack-pattern | This response activates for this technique |
 
-### Relationship Semantics
+**Relationship Semantics:**
 
-- **detects**: Indicates that a detection object produces observable evidence of a specific ATX-1 technique. The detection signal is sufficient to raise awareness that the technique may be occurring, but does not constitute proof.
+- **detects**: Detection object produces observable evidence of a specific ATX-1 technique. Sufficient to raise awareness, not proof.
+- **validates**: Validation object enforces or verifies correctness constraints. Produces a boolean assertion.
+- **responds-to**: Response action triggered by detection or validation failure. Ranges from alerts (informational) through containment (halt execution) to intervention (override agent behavior).
 
-- **validates**: Indicates that a validation object enforces or verifies correctness constraints associated with a technique. Validation produces a boolean assertion: the system state either satisfies the constraint or it does not.
+### Coverage Requirements
 
-- **responds-to**: Indicates that a response action is triggered by detection or validation failure related to a technique. Responses range from alerts (informational) through containment (halt execution) to intervention (override agent behavior).
+**Detection Requirement:** Every ATX-1 technique SHALL have at least one `x-acf-detection` relationship.
 
-## Coverage Requirements
+**Validation Requirement:** Every ATX-1 technique SHALL have at least one `x-acf-validation` relationship.
 
-### Detection Requirement
+**Critical Technique Rule:** For techniques classified as `critical` severity, implementations SHALL provide at least one detection, one validation, and one response. Critical techniques in ATX-1 v2.0: T1003, T3001, T3002, T4001, T7001, T8002.
 
-Every ATX-1 technique SHALL have at least one `x-acf-detection` relationship. Every detection object SHALL reference at least one ATX-1 technique.
+**Relationship Integrity:** All ACF-1 objects SHALL participate in at least one relationship.
 
-### Validation Requirement
+**Logical Completeness:** For each technique, the control loop Detection → Validation → Response SHOULD be representable.
 
-Every ATX-1 technique SHALL have at least one `x-acf-validation` relationship. Every validation object SHALL reference at least one ATX-1 technique.
-
-### Critical Technique Rule
-
-For techniques classified as `critical` severity, implementations SHALL provide:
-
-- At least one detection
-- At least one validation
-- At least one response
-
-Critical techniques in ATX-1 v2.0: T1003, T3001, T3002, T4001, T7001, T8002.
-
-### Relationship Integrity
-
-All ACF-1 objects SHALL participate in at least one relationship:
-
-- `x-acf-detection` → `detects` → `attack-pattern`
-- `x-acf-validation` → `validates` → `attack-pattern`
-- `x-acf-response` → `responds-to` → `attack-pattern`
-
-### Logical Completeness
-
-For each technique, the following control loop SHOULD be representable:
-
-Detection → Validation → Response
-
-## Multi-Agent Semantics
+### Multi-Agent Semantics
 
 ACF-1 captures coordination dynamics as metadata on detection objects where applicable:
 
@@ -175,7 +162,7 @@ ACF-1 captures coordination dynamics as metadata on detection objects where appl
 
 Applied to TA007 techniques (T7001–T7004) and any cross-agent detection.
 
-## Integration with ATM-1
+### Integration with ATM-1
 
 ACF-1 detection signals link to ATM-1 controls and vectors:
 
@@ -185,9 +172,7 @@ ACF-1 detection signals link to ATM-1 controls and vectors:
 | `x_acf_atm_mapping.control` | ATM preventive/detective control (PC/DC) |
 | `x_acf_atm_mapping.vector` | ATM attack vector (AV) |
 
-This ensures every ACF-1 detection is grounded in the ATM-1 system model.
-
-## Reference Implementation (v0.1)
+### Reference Implementation (v0.1)
 
 ACF-1 v0.1 demonstrates the full Detection → Validation → Response loop for three anchor techniques representing the three identified ATM-1 gaps:
 
@@ -199,7 +184,7 @@ ACF-1 v0.1 demonstrates the full Detection → Validation → Response loop for 
 
 The v0.1 STIX bundle is published as a companion artifact at `docs/atx/v2/acf/acf-1-bundle.json`.
 
-## Versioning
+### Versioning
 
 | Version | Scope |
 |---|---|
@@ -207,35 +192,79 @@ The v0.1 STIX bundle is published as a companion artifact at `docs/atx/v2/acf/ac
 | ACF-1 v1.0 | Full coverage of all 25 ATX-1 v2.0 techniques |
 | ACF-1 v1.1+ | Incremental signal expansion, new detection patterns |
 
-### Version Binding
+**Version Binding:** ACF-1 v1.0 is defined against ATX-1 v2.0. Implementations SHALL declare compatibility with a specific ATX version.
 
-ACF-1 v1.0 is defined against ATX-1 v2.0. Implementations SHALL declare compatibility with a specific ATX version. ACF-1 objects that reference ATX-1 technique IDs are only valid when the referenced ATX version is loaded.
+---
 
-## Acceptance Criteria
+## Drawbacks
 
-- [ ] All 25 ATX-1 v2.0 techniques have at least one detection
-- [ ] All 25 techniques have at least one validation
-- [ ] All 6 critical techniques have detection + validation + response
-- [ ] Multi-agent semantics applied to TA007 techniques
-- [ ] ATM-1 integration mappings for all detections
-- [ ] STIX bundle validates against stix2 library
-- [ ] Coverage check script passes: every technique has detection and validation
-- [ ] Published as independently citable artifact (separate DOI)
-- [ ] Documentation on aegis-docs.com
+1. **Maintenance coupling** — ACF-1 must be updated every time ATX-1 adds or modifies techniques. This creates a maintenance dependency.
+
+2. **Detection complexity** — Some techniques (e.g., T7003 Induce Cross-Agent Behavioral Drift) are inherently difficult to detect with deterministic signals. The "observable-first" requirement may force artificial detections that provide false confidence.
+
+3. **STIX extension overhead** — Custom STIX extensions (`x-acf-*`) are not part of the STIX standard. Tooling compatibility is not guaranteed.
+
+---
+
+## Alternatives Considered
+
+1. **Embed detections directly in ATX-1 technique objects** — Rejected because it violates separation of concerns and would require modifying frozen ATX-1 artifacts.
+
+2. **Use existing STIX course-of-action objects** — Rejected because STIX course-of-action is too generic; ACF-1 needs structured detection logic, validation types, and signal metadata that course-of-action doesn't support.
+
+3. **Defer to runtime-specific detection implementations** — Rejected because without a standardized detection model, every implementation would define its own detection patterns, preventing cross-implementation comparison and coverage analysis.
+
+---
+
+## Compatibility
+
+- **Breaking changes:** None. ACF-1 is a new artifact that does not modify existing ATX-1 or ATM-1 objects.
+- **Deprecations:** None.
+- **Backwards compatibility:** ACF-1 objects are additive. Existing STIX bundles continue to function without ACF-1 extensions loaded.
+
+---
+
+## Implementation Notes
+
+- ACF-1 objects are published as a separate STIX bundle that can be merged with ATX-1 bundles via standard STIX tooling
+- The coverage check script validates that every ATX-1 technique has the required detection and validation relationships
+- Integration with RFC-0006 (Claude Code Plugin): the plugin should implement ACF-1 detections as part of its PreToolUse hook evaluation — this is an open question for RFC-0006
+- Dependencies: RFC-0012 (ATX-1 v2.0) must be implemented before ACF-1 v1.0 can achieve full coverage
+
+---
 
 ## Open Questions
 
-1. **Should ACF-1 define a coverage scoring model?** (e.g., percentage of techniques with full detection + validation + response)
+- [ ] Should ACF-1 define a coverage scoring model? (e.g., percentage of techniques with full detection + validation + response)
+- [ ] Should response objects define severity-graduated actions? (e.g., alert for medium, escalate for high, halt for critical)
+- [ ] Should ACF-1 include a "detection gap" object type for explicitly documenting known gaps awaiting future detection development?
+- [ ] Should the Claude Code Plugin (RFC-0006) implement ACF-1 detections as part of its PreToolUse hook evaluation?
 
-2. **Should response objects define severity-graduated actions?** (e.g., alert for medium, escalate for high, halt for critical)
+---
 
-3. **Should ACF-1 include a "detection gap" object type** for explicitly documenting known gaps awaiting future detection development?
+## Success Criteria
 
-4. **Integration with RFC-0006 (Claude Code Plugin):** Should the plugin implement ACF-1 detections as part of its PreToolUse hook evaluation?
+- All 25 ATX-1 v2.0 techniques have at least one detection
+- All 25 techniques have at least one validation
+- All 6 critical techniques have detection + validation + response
+- Multi-agent semantics applied to TA007 techniques
+- ATM-1 integration mappings for all detections
+- STIX bundle validates against stix2 library
+- Coverage check script passes: every technique has detection and validation
+- Published as independently citable artifact (separate DOI)
+- Documentation on aegis-docs.com
+
+---
 
 ## References
 
-- RFC-0012: ATX-1 v2.0 Taxonomy Normalization
-- ATM-1: AEGIS Adaptive Threat Model (aegis-governance/aegis-core/threat-model/)
-- RFC-0001: AEGIS Architecture
-- RFC-0004: Governance Event Model
+- RFC-0012 — ATX-1 v2.0 Taxonomy Normalization
+- ATM-1 — AEGIS Adaptive Threat Model (`aegis-governance/aegis-core/threat-model/`)
+- RFC-0001 — AEGIS Architecture
+- RFC-0004 — Governance Event Model
+- RFC-0006 — Claude Code Plugin
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS Initiative — Finnoybu IP LLC*

@@ -34,6 +34,15 @@ RFCs allow the architecture to evolve while preserving a clear historical record
 | RFC-0006 | Claude Code Plugin | Draft | Governance enforcement plugin for the Claude Code development environment |
 | RFC-0007 | Operational Considerations | Placeholder | Monitoring, scaling, disaster recovery, and day-two operations |
 | RFC-0008 | Federation Network Protocol | Placeholder | GFN-1 transport, discovery, and federation topology |
+| RFC-0009 | Prior Art and External Validation Record | Placeholder | Traceable external validation of AEGIS claims |
+| RFC-0010 | State Dump Protocol Formalization | Placeholder | Formalizes gap-001–004; state dump attestation |
+| RFC-0011 | Authority Binding Sub-Spec Revision | Placeholder | Authority drift, minimum claim sets, behavioral declaration |
+| RFC-0012 | ATX-1 v2 Taxonomy Normalization | Draft | Threat taxonomy normalization and versioning |
+| RFC-0013 | ACF-1 Control Framework | Draft | AEGIS control framework definition |
+| RFC-0014 | ATX-1 Dual Licensing | Draft | Dual licensing model for ATX-1 |
+| RFC-0015 | Runtime Consolidation | Draft | Canonical runtime consolidation at aegis-core |
+| RFC-0016 | Cross-Domain Machine Discovery | Draft | Cross-domain machine discovery protocol |
+| RFC-0017 | Commit Boundary and Binding Validation | Draft | Explicit binding phase, admissible set resolution, vocabulary alignment |
 
 ---
 
@@ -119,6 +128,8 @@ Required sections: Summary, Motivation, Guide-Level Explanation, Reference-Level
 | Claude Code Plugin | RFC-0006 | Draft — Q2 2026 |
 | Operational Considerations | RFC-0007 | Placeholder |
 | Federation Network Protocol | RFC-0008 | Placeholder |
+| Authority Binding Revision | RFC-0011 | Placeholder |
+| Commit Boundary & Binding | RFC-0017 | Draft |
 | Reference Runtime (Python) | — | In Progress |
 | Policy Engine | — | Planned |
 | Federation Node | — | Planned |
