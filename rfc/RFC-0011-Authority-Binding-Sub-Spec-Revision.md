@@ -9,7 +9,7 @@
 **Repository:** aegis-governance\
 **Target milestone:** TBD\
 **Supersedes:** Authority Binding sub-spec (revision — see Motivation)\
-**Superseded by:** None\
+**Superseded by:** None
 
 ---
 

@@ -1,6 +1,6 @@
 # RFC-0008: Federation Network Protocol
 
-**RFC:** RFC-0008
+**RFC:** RFC-0008\
 **Status:** Placeholder\
 **Version:** 0.0.1\
 **Created:** 2026-03-08\
@@ -9,7 +9,7 @@
 **Repository:** aegis-governance\
 **Target milestone:** TBD\
 **Supersedes:** None\
-**Superseded by:** None\
+**Superseded by:** None
 
 ---
 

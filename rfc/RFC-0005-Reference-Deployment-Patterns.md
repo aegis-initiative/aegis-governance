@@ -1,6 +1,6 @@
 # RFC-0005: Reference Deployment Patterns
 
-**RFC:** RFC-0005
+**RFC:** RFC-0005\
 **Status:** Draft\
 **Version:** 0.1.0\
 **Created:** 2026-03-07\
@@ -9,7 +9,7 @@
 **Repository:** aegis-governance\
 **Target milestone:** Q2 2026\
 **Supersedes:** None\
-**Superseded by:** None\
+**Superseded by:** None
 
 ---
 

@@ -1,18 +1,25 @@
 # RFC-0012: ATX-1 v2.0 Taxonomy Normalization
 
-- **Status:** Implemented
-- **Implemented:** 2026-03-26
-- **DOI:** [10.5281/zenodo.19238844](https://doi.org/10.5281/zenodo.19238844)
-- **Author:** Kenneth Tannenbaum (AEGIS Initiative)
-- **Date:** 2026-03-26
-- **Supersedes:** ATX-1 v1.0 (docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md)
-- **Related:** RFC-0004 (Trust Architecture), IEEE Data Descriptions submission (v1.0 frozen)
+**RFC:** RFC-0012\
+**Status:** Implemented\
+**Version:** 1.0.0\
+**Created:** 2026-03-26\
+**Updated:** 2026-03-26\
+**Author:** Ken Tannenbaum, AEGIS Initiative / Finnoybu IP LLC\
+**Repository:** aegis-governance, aegis-docs\
+**Target milestone:** Q1 2026\
+**Supersedes:** ATX-1 v1.0 (docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md)\
+**Superseded by:** None\
+
+---
 
 ## Summary
 
 This RFC proposes a normalization of the ATX-1 threat taxonomy from v1.0 to v2.0, addressing structural issues identified during peer feedback and independent review. The changes enforce strict tactic purity (intent-only), add a primitives layer, eliminate category overlap, and expand technique coverage based on corroborating research.
 
-ATX-1 v1.0 remains frozen and citable via its published DOIs. v2.0 will be published as a new version alongside v1.0, not as a replacement.
+ATX-1 v1.0 remains frozen and citable via its published DOIs. v2.0 is published as a new version alongside v1.0, not as a replacement.
+
+---
 
 ## Motivation
 
@@ -28,7 +35,23 @@ ATX-1 v1.0 was published with 9 tactics and 20 techniques, empirically grounded 
 
 5. **Technique overlap.** Some techniques (e.g., T3001 Autonomous Scope Expansion and T6001 Recursive Self-Invocation) can collide in real systems without clear boundary definitions.
 
-## Proposed Changes
+---
+
+## Guide-Level Explanation
+
+ATX-1 v2.0 is a structural normalization of the threat taxonomy. For practitioners:
+
+- **All tactic names change** to reflect pure intent (what the agent is trying to achieve), not outcomes or environments
+- **All technique names change** to verb-object format, aligning with MITRE ATT&CK conventions
+- **A new primitives layer** maps every tactic to the architectural concepts it exploits (Authority, Identity, Delegation, State, Memory, Tool Access, Coordination, Resource Control, Observability)
+- **3 new techniques** are added from corroborating literature (T2003, T7003, T9001, T9002)
+- **Technique IDs shift** where techniques moved between tactics — a v1.0 ↔ v2.0 mapping table is published for traceability
+
+v1.0 remains frozen at its published DOIs. v2.0 is a new publication, not a replacement.
+
+---
+
+## Reference-Level Explanation
 
 ### Primitives Layer (NEW)
 
@@ -99,92 +122,27 @@ All techniques now follow **verb-object** format:
 
 This aligns with MITRE ATT&CK naming conventions and improves testability.
 
-## Impact Assessment
+### Revision Actions (Post-Initial Review)
 
-### What Changes
-- Tactic names and definitions (all 9)
-- Technique IDs for moved techniques (T2001-T2002, T3001-T3002, T5003)
-- Technique names (all 21 — verb-object normalization)
-- 3 new techniques added (T7003, T9001, T9002)
-- Primitives layer added (new concept)
-- STIX bundle must be regenerated
-- All machine-readable files must be regenerated
-- aegis-docs.com threat matrix section must be updated
-- aegis-governance.com data files must be updated
-- Navigator layer must be regenerated
+The following refinements were identified during review and are incorporated:
 
-### What Does NOT Change
-- v1.0 remains frozen at its published DOIs
-- The IEEE Data Descriptions paper describes v1.0 (submitted, cannot change)
-- The IEEE Computer paper references ATX-1 generally (not version-specific)
-- Root causes RC1–RC4 are preserved (now mapped via primitives)
-- Empirical foundation (Agents of Chaos) unchanged
-- Corroborating studies unchanged
-- STIX 2.1 format unchanged
-- JSON Schema structure unchanged (fields same, values updated)
+**R1: Strengthen Tool Invocation Clarity** — Update TA002 and TA003 definitions to explicitly include tool-mediated actions.
 
-### Versioning Strategy
-- v1.0 artifacts remain at their DOIs permanently
-- v2.0 gets new DOIs (new Zenodo upload, new IEEE DataPort upload)
-- aegis-governance.com serves v2.0 as latest
-- Git tag `atx-1-v2.0` created on implementation
+**R2: Add Delegation Obfuscation Technique** — New technique T2003 under TA002. Maps to ATM-1 AV-2.2 and AV-7.1.
 
-## Acceptance Criteria
+**R3: Formalize State vs Observability Distinction** — TA005 focuses on correctness of reported state vs actual state; TA009 focuses on visibility within monitoring, logging, and audit systems.
 
-- [ ] All 9 tactics are intent-only (no outcomes, no environments)
-- [ ] All 21 techniques follow verb-object naming
-- [ ] Primitives layer maps every tactic to system primitives
-- [ ] No technique overlap — each is mechanically distinct and testable
-- [ ] STIX 2.1 bundle regenerated and validates
-- [ ] JSON technique database regenerated and validates against schema
-- [ ] Regulatory cross-reference updated for new/moved techniques
-- [ ] Navigator layer regenerated
-- [ ] aegis-docs.com updated (5 pages + matrix navigator)
-- [ ] aegis-governance.com updated (all data files)
-- [ ] New Zenodo DOI minted for v2.0
-- [ ] v1.0 ↔ v2.0 mapping table published for traceability
-- [ ] PUBLICATIONS.md updated
+**R4: Add Observability Acceptance Criterion** — Each technique must map to at least one ATM-1 detection signal, audit event, or measurable state transition.
 
-## Open Questions
+**R5: Add ATX-1 ↔ ATM-1 Mapping Section** — Published as a first-class artifact (`atx-1-atm1-mapping.json`).
 
-1. **Should severity ratings be recalibrated in v2.0?** New techniques (T7003, T9001, T9002) need ratings. Existing techniques may warrant reassessment under the new tactic framing.
+**R6: Establish Mapping as First-Class Artifact** — ATX Technique → ATM Attack Vector → ATM Controls → ATM Detection Signals.
 
-2. **Should the JSON Schema be versioned?** The field structure is the same but technique IDs and tactic IDs have changed. A `schema_version` field may be warranted.
+**R7: Align Delegation with ATM-1** — T2003 aligns with ATM-1 AV-2.2 and AV-7.1.
 
-3. **Should v2.0 be published as a Zenodo "new version" of v1.0 (same concept DOI) or as a separate record?** Using the concept DOI maintains citation continuity but may confuse references to v1.0.
+**R8: Ensure Primitive-to-Tactic Integrity** — Every tactic maps to at least one primitive.
 
-4. **Should the ATX-1 Control Framework (defensive counterpart) be included in v2.0 or deferred to v2.1?** The mitigation mappings already exist — formalizing them as a control framework is a natural extension.
-
-## Revision Actions (Post-Initial Review)
-
-The following refinements were identified during review and are incorporated into this RFC:
-
-### R1: Strengthen Tool Invocation Clarity
-Update TA002 and TA003 definitions to explicitly include tool-mediated actions (e.g., "including via tool invocation," "through direct or tool-mediated system interaction").
-
-### R2: Add Delegation Obfuscation Technique
-New technique **T2003 — Obscure Objective Through Delegation** under TA002. Definition: Harmful intent is decomposed across multiple delegated steps such that no individual action appears unsafe. Maps to ATM-1 AV-2.2 and AV-7.1.
-
-### R3: Formalize State vs Observability Distinction
-- **TA005 (Violate State Integrity)** — focus on correctness of reported state vs actual state
-- **TA009 (Evade Detection or Oversight)** — focus on visibility of actions within monitoring, logging, and audit systems
-
-### R4: Add Observability Acceptance Criterion
-Each technique must map to at least one ATM-1 detection signal, audit event, or measurable state transition. Techniques must be observable, testable, and mappable to real system telemetry.
-
-### R5: Add ATX-1 ↔ ATM-1 Mapping Section
-ATX-1 techniques map to ATM-1 attack vectors, controls, and detection signals. This mapping ensures all behavioral techniques are grounded in enforceable system controls and observable telemetry. The mapping is published as a first-class artifact (`atx-1-atm1-mapping.json`).
-
-### R6: Establish Mapping as First-Class Artifact
-Define a mapping layer: ATX Technique → ATM Attack Vector → ATM Controls → ATM Detection Signals. Used to validate control coverage, identify detection gaps, and align taxonomy with enforcement reality.
-
-### R7: Align Delegation with ATM-1
-New T2003 aligns with ATM-1 AV-2.2 (composition attacks) and AV-7.1 (coordinated multi-agent abuse). Delegation behaviors are represented in ATX, detectable in ATM.
-
-### R8: Ensure Primitive-to-Tactic Integrity
-Verify every tactic maps to at least one primitive. No tactic exists without primitive grounding.
-
-## Identified ATM-1 Coverage Gaps
+### Identified ATM-1 Coverage Gaps
 
 The ATX ↔ ATM mapping reveals three significant gaps requiring ATM-1 enhancement:
 
@@ -196,20 +154,107 @@ The ATX ↔ ATM mapping reveals three significant gaps requiring ATM-1 enhanceme
 
 These gaps become ATM-1 enhancement proposals in a future RFC.
 
-## Companion Artifacts
+### Companion Artifacts
 
 | Artifact | File | Description |
 |---|---|---|
 | ATX-1 ↔ ATM-1 Mapping | `atx-1-atm1-mapping.json` | Machine-readable mapping of all 22 techniques to ATM-1 vectors, controls, and detection signals with coverage assessment |
 | Coverage Summary | Derived from mapping | full (10), partial (7), gap (3) across 22 techniques |
 
-## Timeline
+---
 
-- **Phase 1:** RFC review and acceptance (this document)
-- **Phase 2:** Regenerate all machine-readable artifacts + ATX↔ATM mapping
-- **Phase 3:** Update aegis-docs.com and aegis-governance.com
-- **Phase 4:** Publish new DOIs, update PUBLICATIONS.md
-- **Phase 5:** LinkedIn announcement
+## Drawbacks
+
+1. **Breaking IDs** — Technique IDs change for moved techniques, requiring all downstream consumers (STIX bundles, navigator layers, documentation) to be regenerated simultaneously.
+
+2. **Citation fragmentation** — v1.0 is already cited in the IEEE Data Descriptions submission. v2.0 introduces a second citable version, potentially confusing references.
+
+3. **Churn** — Renaming all 9 tactics and all techniques is a significant change for a taxonomy that was only recently published. Early adopters must update.
+
+---
+
+## Alternatives Considered
+
+1. **Incremental fixes to v1.0** — Rejected because the tactic purity and overlap issues are structural. Patching individual techniques without fixing the tactic layer would create inconsistency.
+
+2. **Additive-only v1.1** — Add new techniques without renaming or restructuring. Rejected because the naming inconsistency (mixed noun/verb formats) and tactic impurity would persist.
+
+3. **Wait for broader community feedback** — Rejected because the structural issues were clear from independent review and delaying would compound the downstream update burden.
+
+---
+
+## Compatibility
+
+- **Breaking changes:** All tactic names, all technique names, and some technique IDs change. All machine-readable artifacts must be regenerated.
+- **Deprecations:** ATX-1 v1.0 is frozen, not deprecated. It remains citable at its DOIs.
+- **Backwards compatibility:** JSON Schema structure is unchanged (same fields, updated values). STIX 2.1 format is unchanged.
+- **Migration:** A v1.0 ↔ v2.0 mapping table is published as a first-class artifact for traceability.
+
+---
+
+## Implementation Notes
+
+### Impact Assessment
+
+**What changes:**
+- Tactic names and definitions (all 9)
+- Technique IDs for moved techniques (T2001-T2002, T3001-T3002, T5003)
+- Technique names (all — verb-object normalization)
+- 3 new techniques added (T7003, T9001, T9002)
+- Primitives layer added (new concept)
+- STIX bundle, all machine-readable files, navigator layer must be regenerated
+- aegis-docs.com threat matrix section must be updated
+- aegis-governance.com data files must be updated
+
+**What does NOT change:**
+- v1.0 remains frozen at its published DOIs
+- The IEEE Data Descriptions paper describes v1.0 (submitted, cannot change)
+- Root causes RC1–RC4 are preserved (now mapped via primitives)
+- Empirical foundation (Agents of Chaos) unchanged
+- STIX 2.1 format and JSON Schema structure unchanged
+
+### Versioning Strategy
+
+- v1.0 artifacts remain at their DOIs permanently
+- v2.0 gets new DOIs (new Zenodo upload, new IEEE DataPort upload)
+- aegis-governance.com serves v2.0 as latest
+- Git tag `atx-1-v2.0` created on implementation
+
+### Timeline
+
+1. **Phase 1:** RFC review and acceptance
+2. **Phase 2:** Regenerate all machine-readable artifacts + ATX↔ATM mapping
+3. **Phase 3:** Update aegis-docs.com and aegis-governance.com
+4. **Phase 4:** Publish new DOIs, update PUBLICATIONS.md
+5. **Phase 5:** LinkedIn announcement
+
+---
+
+## Open Questions
+
+- [ ] Should severity ratings be recalibrated in v2.0? New techniques need ratings; existing techniques may warrant reassessment under the new tactic framing.
+- [ ] Should the JSON Schema be versioned? A `schema_version` field may be warranted.
+- [ ] Should v2.0 be published as a Zenodo "new version" of v1.0 (same concept DOI) or as a separate record?
+- [ ] Should the ATX-1 Control Framework (defensive counterpart) be included in v2.0 or deferred to v2.1?
+
+---
+
+## Success Criteria
+
+- All 9 tactics are intent-only (no outcomes, no environments)
+- All techniques follow verb-object naming
+- Primitives layer maps every tactic to system primitives
+- No technique overlap — each is mechanically distinct and testable
+- STIX 2.1 bundle regenerated and validates
+- JSON technique database regenerated and validates against schema
+- Regulatory cross-reference updated for new/moved techniques
+- Navigator layer regenerated
+- aegis-docs.com and aegis-governance.com updated
+- New Zenodo DOI minted for v2.0
+- v1.0 ↔ v2.0 mapping table published for traceability
+- PUBLICATIONS.md updated
+
+---
 
 ## References
 
@@ -220,3 +265,10 @@ These gaps become ATM-1 enhancement proposals in a future RFC.
 - Arora et al., "Exposing Weak Links in Multi-Agent Systems," arXiv:2511.10949, 2025
 - Ko et al., "Seven Security Challenges in Cross-domain Multi-agent LLM Systems," arXiv:2505.23847, 2025
 - Reid et al., "Risk Analysis Techniques for Governed LLM-based Multi-Agent Systems," arXiv:2508.05687, 2025
+- RFC-0004 — Governance Event Model (Trust Architecture)
+- IEEE Data Descriptions submission (v1.0 frozen)
+
+---
+
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS Initiative — Finnoybu IP LLC*

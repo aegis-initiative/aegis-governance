@@ -9,7 +9,7 @@
 **Repository:** aegis-governance\
 **Target milestone:** TBD\
 **Supersedes:** State Dump Protocol sub-spec (partial — see Motivation)\
-**Superseded by:** None\
+**Superseded by:** None
 
 ---
 
