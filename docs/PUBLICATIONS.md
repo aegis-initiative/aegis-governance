@@ -19,6 +19,12 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | AEGIS NCCoE AI Agent Identity & Authorization Response | NCCoE | Submitted | 2026-03-22 |
 | AEGIS CETS225 Positioning | CETS225 | Submitted | 2026-03 |
 
+## Books & Ebooks
+
+| Title | Publisher | DOI | Date |
+|---|---|---|---|
+| Governing the Action Boundary: An open architecture for autonomous AI agents | AEGIS Initiative · Finnoybu IP LLC | [10.5281/zenodo.19489150](https://zenodo.org/records/19489150) | 2026-04-09 |
+
 ## Datasets
 
 | Title | Repository | DOI | Date |
