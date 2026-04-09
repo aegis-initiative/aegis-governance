@@ -1,9 +1,9 @@
 # AEGIS AoC Laboratory Experiment — Executive Summary
 
-**Date:** April 8, 2026
-**Duration:** ~6 hours (ungoverned phase: ~3 hours, governed phase: ~1 hour, setup/transitions: ~2 hours)
-**Principal Investigator:** Kenneth Tannenbaum, AEGIS Initiative
-**Infrastructure:** AEGIS Server (dual Xeon Silver 4116, 251GB RAM, RTX 5060 Ti, Debian 13)
+**Date:** April 8, 2026  
+**Duration:** ~6 hours (ungoverned phase: ~3 hours, governed phase: ~1 hour, setup/transitions: ~2 hours)  
+**Principal Investigator:** Kenneth Tannenbaum, AEGIS Initiative  
+**Infrastructure:** AEGIS Server (dual Xeon Silver 4116, 251GB RAM, RTX 5060 Ti, Debian 13)  
 
 ---
 

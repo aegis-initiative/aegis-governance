@@ -2,11 +2,11 @@
 
 ## Adversarial Knowledge Base for Agentic AI Actor Behavior
 
-**Version:** 2.2.0
-**Date:** 2026-04-01
+**Version:** 2.2.0\
+**Date:** 2026-04-01\
 **Status:** Active — v2.2 adds 29 sub-techniques under T9002 and T10001–T10004
-cataloging specific bypass methods discovered during RFC-0006 adversarial testing.
-**Maintainer:** AEGIS Initiative — Finnoybu IP LLC
+cataloging specific bypass methods discovered during RFC-0006 adversarial testing.\
+**Maintainer:** AEGIS Initiative — Finnoybu IP LLC\
 **License:** CC-BY-SA-4.0
 
 ---
