@@ -7,7 +7,8 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | Title | Venue | Status | Manuscript ID | DOI | Date |
 |---|---|---|---|---|---|
 | AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents | IEEE Computer (SI: AI Governance and Compliance) | Under Review | COMSI-2026-03-0087 | — | 2026-03-25 |
-| Descriptor: AEGIS Threat Matrix for Agentic AI Systems (ATX-1) | IEEE Data Descriptions | Submitted | — | — | 2026-03-26 |
+| Descriptor: AEGIS Threat Matrix for Agentic AI Systems (ATX-1) | IEEE Data Descriptions | Under Review | DATA-00033-2026 | — | 2026-03-26 |
+| AEGIS: Reference Monitor–Based Governance with Federated Trust for Autonomous Edge AI Agents | IEEE TNSE (SI: Secure, Trustworthy, and Autonomous Intelligent Edge Networking with Agentic AI) | Rejected (2026-04-08, Editorial Office) | TNSEJL-2026-04-1062 | — | 2026-04-08 |
 | AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents (Preprint) | Zenodo | Published | — | [10.5281/zenodo.19223924](https://doi.org/10.5281/zenodo.19223924) | 2026-03-25 |
 
 ## Position Papers & Submissions

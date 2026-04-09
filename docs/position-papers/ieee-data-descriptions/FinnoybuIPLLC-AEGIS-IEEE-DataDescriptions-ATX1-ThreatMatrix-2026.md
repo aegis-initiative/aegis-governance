@@ -8,8 +8,8 @@
 > **Preprint DOI**: 10.5281/zenodo.19223924\
 > **Dataset DOI (as submitted)**: 10.21227/f87b-1d57 (ATX-1 v1.0)
 >
-> **STATUS — SUBMITTED 2026-03-26**\
-> Submitted to IEEE Data Descriptions on 2026-03-26 as v0.4 (final).
+> **STATUS — UNDER REVIEW (Submitted 2026-03-26)**\
+> Submitted to IEEE Data Descriptions on 2026-03-26 as v0.4 (final). Manuscript ID: **DATA-00033-2026**. Currently under editorial review (verified 2026-04-09 via IEEE Author Portal).
 > Canonical submission artifact: [`submission/atx1-descriptor.tex`](submission/atx1-descriptor.tex) (LaTeX) and the accompanying PDF.
 > This markdown is the human-readable working copy of that submission and intentionally describes ATX-1 **v1.0** (9 tactics, 20 techniques) — the dataset state at submission time.
 >
