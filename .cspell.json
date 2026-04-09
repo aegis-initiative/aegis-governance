@@ -237,7 +237,12 @@
     "CONIN",
     "Unvalidated",
     "setuptools",
-    "Timestomp"
+    "Timestomp",
+    "pypirc",
+    "cursorrules",
+    "windsurfrules",
+    "continuerc",
+    "subshell"
   ],
   "ignorePaths": [
     "archive/**",
