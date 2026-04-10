@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/aiam/identity_claim.schema.json",
+  "title": "AIAM-1 Identity Claim",
+  "description": "Composite identity claim for an AI agent, comprising model provenance, orchestration layer, goal context, and principal.",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "claim_version",
+    "issued_at",
+    "expires_at",
+    "issuer",
+    "signature",
+    "model_provenance",
+    "orchestration",
+    "goal_context",
+    "principal"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for this identity claim"
+    },
+    "claim_version": {
+      "type": "string",
+      "description": "Version of the claim schema"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of claim issuance (RFC 3339)"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of claim expiration (RFC 3339)"
+    },
+    "issuer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "URN of the issuing authority"
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Cryptographic signature of the issuing authority over the claim contents"
+    },
+    "model_provenance": {
+      "type": "object",
+      "required": ["model_family", "model_version", "model_attestation"],
+      "additionalProperties": false,
+      "properties": {
+        "model_family": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Model family identifier (e.g., claude, gpt, llama)"
+        },
+        "model_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Specific model version or checkpoint identifier"
+        },
+        "model_attestation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Cryptographic hash of model artifact or signed provider attestation"
+        },
+        "provider": {
+          "type": "string",
+          "description": "Organization that produced or hosts the model"
+        },
+        "fine_tuning_id": {
+          "type": "string",
+          "description": "Identifier for fine-tuning applied on top of base model"
+        }
+      }
+    },
+    "orchestration": {
+      "type": "object",
+      "required": ["runtime", "framework", "framework_version"],
+      "additionalProperties": false,
+      "properties": {
+        "runtime": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Runtime environment identifier (e.g., python-3.13, node-22)"
+        },
+        "framework": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Agent framework identifier (e.g., langchain-0.3, aegis-core)"
+        },
+        "framework_version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Specific version of the agent framework"
+        },
+        "harness_hash": {
+          "type": "string",
+          "description": "Cryptographic hash of agent harness configuration"
+        },
+        "deployment_id": {
+          "type": "string",
+          "description": "Unique identifier for this deployment instance"
+        }
+      }
+    },
+    "goal_context": {
+      "type": "object",
+      "required": ["goal_id", "purpose", "scope"],
+      "additionalProperties": false,
+      "properties": {
+        "goal_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier for this goal context"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Structured statement of the purpose for which the agent was instantiated"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Operational boundaries: what the agent is authorized to work on"
+        },
+        "constraints": {
+          "type": "string",
+          "description": "Explicit restrictions on agent behavior within this goal context"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time at which this goal context expires (RFC 3339)"
+        }
+      }
+    },
+    "principal": {
+      "type": "object",
+      "required": ["principal_id", "principal_type"],
+      "additionalProperties": false,
+      "properties": {
+        "principal_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique identifier for the principal"
+        },
+        "principal_type": {
+          "type": "string",
+          "enum": ["individual", "organization", "legal_entity"],
+          "description": "Type of principal"
+        },
+        "principal_name": {
+          "type": "string",
+          "description": "Human-readable name of the principal"
+        },
+        "contact": {
+          "type": "string",
+          "description": "Contact information for the accountable party"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Legal jurisdiction under which the principal operates"
+        }
+      }
+    }
+  }
+}

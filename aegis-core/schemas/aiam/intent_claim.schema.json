@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/aiam/intent_claim.schema.json",
+  "title": "AIAM-1 Intent Claim",
+  "description": "Structured assertion of purpose produced by an AI agent at the moment of action.",
+  "type": "object",
+  "required": [
+    "intent_id",
+    "goal_ref",
+    "action_ref",
+    "reasoning_summary",
+    "expected_outcome",
+    "dependency_refs",
+    "timestamp"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "intent_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for this intent claim"
+    },
+    "goal_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reference to the goal context in the agent's identity claim (goal_id)"
+    },
+    "action_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reference to the action proposal this intent claim accompanies"
+    },
+    "reasoning_summary": {
+      "type": "object",
+      "required": ["trigger", "selection_rationale"],
+      "additionalProperties": false,
+      "properties": {
+        "trigger": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What event or condition prompted the agent to consider this action"
+        },
+        "alternatives_considered": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Other actions the agent evaluated before selecting this one"
+        },
+        "selection_rationale": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why this action was selected over alternatives"
+        }
+      }
+    },
+    "expected_outcome": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Structured description of the expected result of the action"
+    },
+    "dependency_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References to prior actions this action builds upon (empty array if none)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the intent claim was produced (RFC 3339)"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Agent's self-assessed confidence in the action's alignment with the goal"
+    }
+  }
+}

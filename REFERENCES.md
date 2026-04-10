@@ -159,6 +159,35 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 
 ---
 
+## Identity & Access Management
+
+[33] J.-W. Byun, E. Bertino, and N. Li, "Purpose Based Access Control of Complex Data for Privacy Protection," in *Proc. 10th ACM Symposium on Access Control Models and Technologies (SACMAT '05)*, Stockholm, Sweden, 2005, pp. 102–110, doi: 10.1145/1063979.1063998.\
+**Keywords:** Purpose-based access control; PBAC; privacy; data protection; access control\
+**Relevance to AEGIS:** Origin paper for Purpose-Based Access Control (PBAC) — the authorization model that first introduced "purpose" as a first-class input to access decisions. AIAM-1's Intent-Bound Access Control (IBAC) extends PBAC with structured intent claims, principal chains, session governance, and intent validation against declared goal context. PBAC is the closest prior art to IBAC in the authorization model literature; IBAC generalizes it for the agent actor class.\
+**Cited in:** aiam/AEGIS_AIAM1_INDEX.md, aiam/AEGIS_AIAM1_AUTHORITY.md
+
+[34] S. Bradner, "Key words for use in RFCs to Indicate Requirement Levels," RFC 2119, Internet Engineering Task Force, Mar. 1997, doi: 10.17487/RFC2119. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc2119>\
+**Keywords:** MUST; MUST NOT; SHOULD; SHALL; normative language; requirements\
+**Relevance to AEGIS:** Normative language definition used throughout AIAM-1 for requirement classification. All MUST and MUST NOT requirements in AIAM-1 use RFC 2119 semantics.\
+**Cited in:** aiam/AEGIS_AIAM1_INDEX.md, docs/position-papers/aiam/AIAM-1-position-paper-v0.1.md
+
+[35] D. Hardt, "The OAuth 2.0 Authorization Framework," RFC 6749, Internet Engineering Task Force, Oct. 2012, doi: 10.17487/RFC6749. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc6749>; see also: D. Hardt, A. Parecki, and T. Lodderstedt, "The OAuth 2.1 Authorization Framework," Internet-Draft, Internet Engineering Task Force, 2024. [Online]. Available: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11>\
+**Keywords:** OAuth; authorization; bearer tokens; client credentials; access tokens\
+**Relevance to AEGIS:** AIAM-1 interoperability target. AIAM-1 agents authenticate via OAuth 2.1 client credentials flow with JWT bearer tokens extended with `aiam_` prefixed claims. AIAM-1 adds intent and authority primitives that OAuth does not specify; OAuth provides the transport and token format.\
+**Cited in:** aiam/AEGIS_AIAM1_INTEROPERABILITY.md
+
+[36] N. Sakimura et al., "OpenID Connect Core 1.0," OpenID Foundation, Nov. 2014. [Online]. Available: <https://openid.net/specs/openid-connect-core-1_0.html>\
+**Keywords:** OpenID Connect; OIDC; identity federation; ID tokens; authentication\
+**Relevance to AEGIS:** AIAM-1 interoperability target. OIDC ID Tokens for AIAM-1 agents include `aiam_claim_ref` and `aiam_principal` claims. OIDC UserInfo endpoint may return the full AIAM-1 composite identity claim.\
+**Cited in:** aiam/AEGIS_AIAM1_INTEROPERABILITY.md
+
+[37] P. Hunt et al., "System for Cross-domain Identity Management: Protocol," RFC 7644, Internet Engineering Task Force, Sep. 2015, doi: 10.17487/RFC7644. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc7644>\
+**Keywords:** SCIM; identity provisioning; lifecycle management; cross-domain identity\
+**Relevance to AEGIS:** AIAM-1 interoperability target. AIAM-1 extends the SCIM User schema with agent-specific attributes (model provenance, orchestration, principal) via the `urn:aegis:params:scim:schemas:aiam:1.0:Agent` schema extension. Agent provisioning/deprovisioning via SCIM triggers AIAM-1 identity claim issuance/revocation.\
+**Cited in:** aiam/AEGIS_AIAM1_INTEROPERABILITY.md
+
+---
+
 ## LLM Security
 
 [19] OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>\

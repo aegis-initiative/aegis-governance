@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/aiam/attestation_record.schema.json",
+  "title": "AIAM-1 Attestation Record",
+  "description": "Cryptographically signed, tamper-evident record of a governance decision for an AI agent action.",
+  "type": "object",
+  "required": [
+    "attestation_id",
+    "timestamp",
+    "identity_claim",
+    "intent_claim",
+    "action_proposal",
+    "governance_decision",
+    "decision_rationale",
+    "principal_chain",
+    "session_ref",
+    "capabilities_invoked",
+    "enforcement_layer",
+    "chain_hash",
+    "signature"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attestation_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for this attestation record"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time of the governance decision (RFC 3339)"
+    },
+    "identity_claim": {
+      "type": "object",
+      "required": ["claim_ref", "agent_id", "principal_id"],
+      "properties": {
+        "claim_ref": {
+          "type": "string",
+          "description": "Reference to the full AIAM-1 identity claim"
+        },
+        "agent_id": {
+          "type": "string",
+          "description": "Agent identifier (maps to AGP-1 actor.id)"
+        },
+        "principal_id": {
+          "type": "string",
+          "description": "Accountable principal identifier"
+        }
+      },
+      "description": "Identity claim reference (full claim or summary)"
+    },
+    "intent_claim": {
+      "type": "object",
+      "required": ["intent_ref", "goal_ref"],
+      "properties": {
+        "intent_ref": {
+          "type": "string",
+          "description": "Reference to the full AIAM-1 intent claim"
+        },
+        "goal_ref": {
+          "type": "string",
+          "description": "Goal context reference from the intent claim"
+        },
+        "expected_outcome": {
+          "type": "string",
+          "description": "Expected outcome declared in the intent claim"
+        }
+      },
+      "description": "Intent claim reference (full claim or summary)"
+    },
+    "action_proposal": {
+      "type": "object",
+      "required": ["capability", "action_type", "target"],
+      "properties": {
+        "capability": {
+          "type": "string",
+          "description": "Capability identifier"
+        },
+        "action_type": {
+          "type": "string",
+          "description": "Action type (e.g., read, write, execute, delete)"
+        },
+        "target": {
+          "type": "string",
+          "description": "Target resource identifier"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Action parameters"
+        }
+      },
+      "description": "Complete action proposal"
+    },
+    "governance_decision": {
+      "type": "string",
+      "enum": ["ALLOW", "DENY", "ESCALATE", "REQUIRE_CONFIRMATION"],
+      "description": "Governance decision outcome"
+    },
+    "decision_rationale": {
+      "type": "object",
+      "required": ["matching_policy", "reason"],
+      "properties": {
+        "matching_policy": {
+          "type": "string",
+          "description": "Policy ID that determined the decision (or 'default_deny' if no policy matched)"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Human-readable reason for the decision"
+        },
+        "evaluation_chain": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ordered list of evaluation steps and their results"
+        }
+      },
+      "description": "Rationale for the governance decision"
+    },
+    "principal_chain": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role"],
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "description": "Agent identifier (for agent entries in the chain)"
+          },
+          "principal_id": {
+            "type": "string",
+            "description": "Principal identifier (for the accountable party)"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["executor", "delegator", "accountable_party"],
+            "description": "Role of this entry in the principal chain"
+          },
+          "delegation_ref": {
+            "type": ["string", "null"],
+            "description": "Reference to the delegation record (null for top-level)"
+          }
+        }
+      },
+      "minItems": 1,
+      "description": "Complete principal chain from executor to accountable party"
+    },
+    "session_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reference to the governing session"
+    },
+    "capabilities_invoked": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Capability grant references exercised"
+    },
+    "execution_outcome": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["success", "failure", "partial", "not_executed"],
+          "description": "Execution result"
+        },
+        "details": {
+          "type": "string",
+          "description": "Additional execution outcome details"
+        }
+      },
+      "description": "Result of execution (present only for ALLOW decisions)"
+    },
+    "enforcement_layer": {
+      "type": "object",
+      "required": ["system", "version"],
+      "properties": {
+        "system": {
+          "type": "string",
+          "description": "Governance system identifier"
+        },
+        "version": {
+          "type": "string",
+          "description": "Governance system version"
+        },
+        "node_id": {
+          "type": "string",
+          "description": "Specific governance node that produced this decision"
+        }
+      },
+      "description": "Identifier and version of the governance system"
+    },
+    "chain_hash": {
+      "type": "string",
+      "minLength": 1,
+      "description": "SHA-256 hash linking this record to the previous record in the chain"
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Cryptographic signature of the enforcement layer over the record contents"
+    }
+  }
+}

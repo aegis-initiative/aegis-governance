@@ -42,6 +42,10 @@ Do not conflate these terms.
 | **Reputation Layer** | RFC-0004 §5.3 — graduated, longitudinal, Schema layer (Layer 2) | Threat Detection Layer |
 | **Federation publisher trust** | GFN-1 §3.7 — trust score for remote governance signal sources | Agent runtime trust |
 | **Agent runtime trust** | RFC-0004 §5 — two-layer model for agent admissibility at execution boundary | Federation publisher trust |
+| **IBAC (Intent-Bound Access Control)** | AIAM-1 §3.3 — authorization as f(identity, action, intent context) | RBAC, ABAC |
+| **Principal** (AIAM-1) | AIAM-1 — the human, org, or legal entity accountable for agent actions | Actor (AGP-1/ATM-1 — any entity submitting an action proposal) |
+| **Intent claim** (AIAM-1) | AIAM-1 §3.2 — structured assertion of purpose at moment of action | AGP-1 ACTION_PROPOSE parameters (implicit intent) |
+| **Attestation** (AIAM-1) | AIAM-1 §3.7 — action-level governance decision proof | GFN-1 governance attestation (node-level posture) |
 
 **Constitutional Autonomy** (Agbemabiese 2026) is a recent, not-yet-widely-cited paper. Use it only where properly cited (outreach, Discussion #39). Do not add it to comparison tables without explicit instruction.
 
@@ -103,6 +107,7 @@ The architectural principle — that security and reputation must never share a 
 | RFC-0009 | Prior Art and External Validation Record | 0.0.1 | Placeholder | Pending normative source audit |
 | RFC-0010 | State Dump Protocol Formalization | 0.0.1 | Placeholder | Formalizes gap-001–004; pending normative source audit |
 | RFC-0011 | Authority Binding Sub-Spec Revision | 0.0.1 | Placeholder | Formalizes gap-005–006 + authority drift; pending normative source audit |
+| RFC-0019 | AIAM-1 — Identity & Access Management for AI Agents | 0.1.0 | Draft | Introduces aIAM category, IBAC authorization model, composite identity, intent claims, principal chains |
 
 **RFC-0006 is the active implementation target.** It implements RDP-03 (Embedded Lightweight) from RFC-0005 in the Claude Code execution environment. Start there.
 
@@ -131,6 +136,9 @@ Canonical files are authoritative. All other documents must **link**, not restat
 | Agent runtime trust | `rfc/RFC-0004-Governance-Event-Model.md` §5 |
 | Outreach records | `docs/outreach/` |
 | Bibliography | `REFERENCES.md` |
+| AIAM-1 specification suite | `aiam/AEGIS_AIAM1_INDEX.md` |
+| AIAM-1 position paper | `docs/position-papers/aiam/AIAM-1-position-paper-v0.1.md` |
+| AIAM-1 JSON schemas | `aegis-core/schemas/aiam/` |
 
 ---
 
@@ -147,6 +155,7 @@ Canonical files are authoritative. All other documents must **link**, not restat
 | NIST SP 800-207 | Zero Trust Architecture | Trust model, RFC-0004 |
 | Agents of Chaos (2026) | Governance failures in live agentic deployments | RFC-0006 motivation |
 | OWASP LLM Top 10 (2025) | Excessive Agency (LLM06) — motivates execution boundary governance | RFC-0006 motivation |
+| PBAC / Byun et al. (2005) | Purpose-Based Access Control — closest prior art to IBAC | AIAM-1 authority model positioning |
 
 Full entries in [`REFERENCES.md`](REFERENCES.md).
 
