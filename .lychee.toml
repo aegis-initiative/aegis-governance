@@ -16,9 +16,15 @@ exclude = [
   # CI sees rate-limit / anti-bot 404s and intermittent network errors.
   "^https://github\\.com/aegis-initiative/aegis-core",
   "^https://sovereignshield\\.io",
+  # LinkedIn returns 999 to all automated crawlers (anti-scraping).
+  # Profile URLs are valid; lychee cannot verify them.
+  "^https://(?:www\\.)?linkedin\\.com/in/",
+  # Forbes blocks automated requests with 403.
+  "^https://www\\.forbes\\.com/",
 ]
 
-accept = [200, 206, 429]
+# 202: eur-lex.europa.eu (EU AI Act) returns 202 Accepted instead of 200
+accept = [200, 202, 206, 429]
 
 exclude_path = [
   "archive/**"
