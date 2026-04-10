@@ -97,10 +97,12 @@ AIAM-1's four dimensions answer all four questions. Each is independently verifi
 | `runtime` | Runtime environment identifier (e.g., `python-3.13`, `node-22`) | MUST |
 | `framework` | Agent framework identifier (e.g., `langchain-0.3`, `openclaw-2.1`, `claude-code-1.0`) | MUST |
 | `framework_version` | Specific version of the agent framework | MUST |
-| `harness_hash` | Cryptographic hash of the agent harness configuration (system prompts, tool definitions, memory configuration) | SHOULD |
-| `deployment_id` | Unique identifier for this specific deployment instance | SHOULD |
+| `harness_hash` | Cryptographic hash of the agent harness configuration (system prompts, tool definitions, memory configuration) | MUST |
+| `deployment_id` | Unique identifier for this specific deployment instance | MUST (for replicated deployments); SHOULD (for single-instance) |
 
-**AIAM1-ID-021.** If the orchestration layer is materially modified (framework upgrade, tool set change, system prompt revision), the implementation SHOULD reissue the identity claim. Material modification is defined as any change that could alter the agent's action-selection behavior.
+**AIAM1-ID-021.** Any change that alters `harness_hash` MUST trigger identity claim reissuance. The harness hash is the authoritative indicator of orchestration-layer identity — it captures system prompts, tool definitions, and memory configuration in a single verifiable artifact. A changed hash means a changed agent, regardless of whether the framework version or runtime changed.
+
+**AIAM1-ID-022.** Each running instance of an agent MUST present a deployment-distinct identity context, even when sharing an underlying composite claim. In replicated deployments (multiple instances of the same agent configuration), `deployment_id` distinguishes instances for attestation, forensic investigation, and per-instance revocation.
 
 ### 3.4 Goal Context
 
@@ -115,6 +117,8 @@ AIAM-1's four dimensions answer all four questions. Each is independently verifi
 | `expiry` | Time at which this goal context expires | SHOULD |
 
 **AIAM1-ID-031.** Goal context MUST be sufficiently specific to distinguish one instantiation from another. A goal context of "general assistant" is not conformant. A goal context of "SOC triage analyst for network segment 10.0.0.0/8, authorized to query telemetry and escalate to human analysts" is conformant.
+
+> **Conformance note:** Conformance assessment of goal context specificity is a subjective judgment. Third-party assessors SHOULD flag goal contexts whose `scope` field is under 20 characters or lacks resource/action qualifiers as candidates for rejection. The examples above illustrate the expected level of specificity; implementations SHOULD use them as calibration references.
 
 **AIAM1-ID-032.** Goal context is the bridge between identity and intent. Intent claims (see [INTENT](AEGIS_AIAM1_INTENT.md)) are validated against the goal context declared in the identity claim. An action whose intent does not align with the declared goal context is a candidate for denial.
 
@@ -133,6 +137,8 @@ AIAM-1's four dimensions answer all four questions. Each is independently verifi
 **AIAM1-ID-041.** The principal is the accountable party for all actions taken by the agent under this identity claim. Accountability MUST NOT be delegated to the agent itself or to the model provider. If a principal cannot be identified, the agent MUST NOT be granted an identity claim.
 
 **AIAM1-ID-042.** A single principal MAY be responsible for multiple agents. A single agent MAY act on behalf of multiple principals, but MUST hold separate identity claims for each principal, and each claim MUST be independently verifiable and independently revocable.
+
+> **Operational note:** Separate identity claims per principal is a deliberate discipline. In practice, this will drive a one-instance-per-principal deployment pattern in most cases — it is simpler to deploy a dedicated agent instance per principal than to manage multiple identity claims within a single process. Implementations SHOULD expect this cost and plan deployment architecture accordingly.
 
 ### 3.6 Identity Claim Lifecycle
 
@@ -299,9 +305,7 @@ An attacker who can create agents without a valid principal can take actions wit
 
 1. **Model attestation for API-hosted models.** When the consumer does not have access to model weights (e.g., API-hosted services), model attestation depends on the provider's signed assertion. The trust chain for provider attestations requires further specification.
 
-2. **Orchestration layer materiality threshold.** AIAM1-ID-021 requires reissuance for "material modification" of the orchestration layer. A formal definition of materiality (what changes trigger reissuance and what changes do not) is deferred to v0.2.
-
-3. **Multi-model agents.** Some agents use multiple models (e.g., a planning model and an execution model). The composite identity model assumes a single model provenance dimension. Multi-model identity representation is deferred to v0.2.
+2. **Multi-model agents.** Some agents use multiple models (e.g., a planning model and an execution model). The composite identity model assumes a single model provenance dimension. Multi-model identity representation is deferred to v0.2.
 
 ---
 

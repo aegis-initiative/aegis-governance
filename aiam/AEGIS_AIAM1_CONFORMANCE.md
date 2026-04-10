@@ -179,7 +179,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 
 | ID | Requirement | Type |
 |---|---|---|
-| AIAM1-TM-001 | Address all seven threat classes; identify defenses and residual risk | MUST |
+| AIAM1-TM-001 | Address all eight threat classes; identify defenses and residual risk | MUST |
 | AIAM1-TM-003 | Trust scores and security decisions not collapsed into single metric | MUST NOT collapse |
 
 ---
@@ -220,13 +220,33 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 
 **AIAM1-CONF-012.** Third-party conformance assessment is RECOMMENDED but not required for v0.1.
 
+> **Honesty note:** v0.1 self-attested conformance is a known limitation. Implementations claiming conformance without third-party assessment SHOULD be treated by relying parties as indicative rather than authoritative. A self-attested conformance statement means "we believe we satisfy these requirements and are willing to document that belief publicly." It does not mean "an independent party has verified our claim." A normative test suite is committed for v0.2; until it exists, the gap between self-attestation and verified conformance is real and should be acknowledged by both implementers and relying parties.
+
 ---
 
-## 6. Version Compatibility
+## 6. Conformance Profile Roadmap
 
-**AIAM1-CONF-020.** Conformance is version-specific. An implementation conformant to AIAM-1 v0.1 is not automatically conformant to future versions. Each version requires its own conformance assessment.
+### 6.1 Full Conformance (v0.1 — defined)
 
-**AIAM1-CONF-021.** Future AIAM-1 versions SHOULD maintain backward compatibility with v0.1 conformant implementations where feasible. Breaking changes MUST be documented in the version's changelog with migration guidance.
+The only profile defined in v0.1. Satisfies all MUST and MUST NOT requirements across all chapters.
+
+### 6.2 Research / Individual Profile (v0.2 — planned)
+
+A lightweight profile for individual researchers, students, and personal-agent operators. ID-041 ("no principal = no identity claim") is operationally painful for a researcher running a personal agent — the researcher is both operator and principal, and the full composite identity machinery is disproportionate to their governance needs.
+
+The Research / Individual Profile is not defined in v0.1 but is named here as a commitment: AIAM-1 is not enterprise-only by accident. v0.2 will specify a conformance profile that relaxes composite identity requirements for single-user, non-delegating deployments while preserving attestation, revocation, and session governance. The exact relaxations are deferred to v0.2.
+
+### 6.3 Federation Profile (v0.2 — planned)
+
+For deployments participating in cross-organization agent governance. Will require cross-organization delegation primitives (DELEGATION §3.5) and GFN-1 integration.
+
+---
+
+## 7. Version Compatibility
+
+**AIAM1-CONF-030.** Conformance is version-specific. An implementation conformant to AIAM-1 v0.1 is not automatically conformant to future versions. Each version requires its own conformance assessment.
+
+**AIAM1-CONF-031.** Future AIAM-1 versions SHOULD maintain backward compatibility with v0.1 conformant implementations where feasible. Breaking changes MUST be documented in the version's changelog with migration guidance.
 
 ---
 

@@ -39,6 +39,8 @@ This means:
 
 **AIAM1-REV-002.** A conformant implementation MUST define and publish its revocation propagation latency guarantee. This guarantee MUST be expressed as a maximum time between revocation command and universal enforcement — the point at which no governance node in the deployment will accept the revoked credential, capability, session, or delegation.
 
+**AIAM1-REV-002a.** Kill-switch propagation latency MUST NOT exceed 60 seconds across any conformant deployment. This ceiling applies specifically to kill-switch operations (AIAM1-REV-020 through AIAM1-REV-023). Standard revocation propagation latency (for individual capability grants, sessions, or delegations) is implementation-defined but MUST be published. The 60-second kill-switch ceiling is non-negotiable — an agent that can operate for minutes after a kill-switch command is an ungoverned agent.
+
 **AIAM1-REV-003.** The propagation latency guarantee MUST be measurable and auditable. Implementations MUST provide mechanisms to verify that revocation has been fully propagated.
 
 ---
@@ -159,7 +161,7 @@ In distributed deployments, revocation state may propagate at different speeds t
 
 ## 6. Open Questions
 
-1. **Partial revocation recovery.** Can a revoked capability grant be reinstated (as opposed to issuing a new grant)? The current model requires new issuance. Whether reinstatement with attestation is appropriate for operational efficiency is deferred to v0.2.
+1. **Partial revocation recovery** — *resolved in v0.1.* Revoked capability grants MUST NOT be reinstated. Operational continuity after revocation requires issuance of a new grant, which produces its own attestation record. Reinstatement would create a gap in the attestation chain — the original grant's revocation record would be followed by a reinstatement with no intervening governance evaluation. New issuance ensures that every period of capability authority passes through the full IBAC authorization flow.
 
 2. **Revocation in federated environments.** When an agent operates across federation boundaries, how is revocation propagated to nodes in other organizations' AEGIS deployments? This intersects with GFN-1 and cross-organization delegation and is deferred to v0.2.
 

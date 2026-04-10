@@ -54,8 +54,8 @@ An AIAM-1 attestation record proves, for a specific action:
 |---|---|---|
 | `attestation_id` | Unique identifier for this record | MUST |
 | `timestamp` | Time of the governance decision | MUST |
-| `identity_claim` | Complete AIAM-1 composite identity claim (or reference) | MUST |
-| `intent_claim` | Complete AIAM-1 intent claim (or reference) | MUST |
+| `identity_claim` | AIAM-1 composite identity claim, embedded by reference: `claim_ref` plus denormalized key fields (`agent_id`, `principal_id`) | MUST |
+| `intent_claim` | AIAM-1 intent claim, embedded by reference: `intent_ref` plus denormalized key fields (`goal_ref`, `expected_outcome`) | MUST |
 | `action_proposal` | Complete action proposal (capability, action_type, target, parameters) | MUST |
 | `governance_decision` | One of: ALLOW, DENY, ESCALATE, REQUIRE_CONFIRMATION | MUST |
 | `decision_rationale` | Policy IDs evaluated, matching policy, and contributing factors | MUST |
@@ -85,6 +85,8 @@ An AIAM-1 attestation record proves, for a specific action:
 
 **AIAM1-ATT-022.** Conformant implementations MUST support at least one of: Ed25519, ECDSA P-256, or RSA-2048 for attestation signing. Implementations SHOULD prefer Ed25519 for performance in high-throughput environments.
 
+**AIAM1-ATT-023.** Conformant implementations SHOULD support algorithm negotiation and key rotation without invalidating historical attestation chains. Historical records signed with a prior key remain valid under the key that was active at signing time — chain integrity verification uses the key in effect at each record's timestamp, not the current key. v0.2 will specify normative migration procedures for algorithm transitions (e.g., Ed25519 → post-quantum algorithms).
+
 ### 3.4 Retention
 
 **AIAM1-ATT-030.** A conformant implementation MUST define and publish its attestation record retention policy. The retention policy MUST specify:
@@ -94,7 +96,9 @@ An AIAM-1 attestation record proves, for a specific action:
 - Archival procedures for records beyond the active retention window.
 - Destruction procedures (if applicable) and the authorization required to destroy records.
 
-**AIAM1-ATT-031.** Attestation records MUST be retained for at least the duration required by the most restrictive applicable regulatory requirement. In the absence of specific regulatory requirements, a minimum retention of 1 year is RECOMMENDED.
+**AIAM1-ATT-031.** Attestation records MUST be retained for a minimum of 1 year. Retention MUST NOT be less than 1 year except where a specific legal or regulatory requirement mandates a shorter period — and in that case, the shorter period and its legal basis MUST be documented in the retention policy. Where applicable regulatory requirements mandate retention longer than 1 year, the longer period applies.
+
+**AIAM1-ATT-031a.** When attestation records reference identity or intent claims rather than embedding them (embed-by-reference design), the referenced claims MUST be retained for at least the duration of the attestation retention period. An attestation record whose referenced identity claim or intent claim is no longer retrievable is forensically incomplete — the audit chain is broken. Implementations that use embed-by-reference MUST ensure that referenced claim retention matches or exceeds attestation record retention.
 
 **AIAM1-ATT-032.** Attestation records MUST be the primary accountability surface. Conformant implementations MUST NOT rely on agent-internal logging, orchestration layer logging, or model provider logging as a substitute for attestation records. These other logging mechanisms may complement attestation but do not replace it.
 

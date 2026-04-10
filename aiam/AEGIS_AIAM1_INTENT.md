@@ -34,6 +34,8 @@ An intent claim is not free text. It is not a natural language explanation. It i
 - **Not a replacement for capability checks.** An agent with a valid intent claim but without a matching capability grant is still denied. Intent is a necessary condition for authorization under IBAC, not a sufficient one.
 - **Not a human-readable explanation.** Intent claims serve governance, not user experience. They are structured for machine evaluation, not for display to end users.
 
+Intent claims are non-deterministic in origin but deterministic as input. The agent that produces an intent claim is probabilistic — its reasoning is shaped by model weights, context, and potentially adversarial inputs. But once emitted, the intent claim is a fixed data structure. Policy evaluation treats it as evidence, not as oracle. The IBAC engine evaluates the claim's fields against policy patterns with the same determinism it applies to identity and action. This is how IBAC reconciles its determinism requirement (AIAM1-AUTH-011) with intent claims produced by probabilistic agents: the authorization decision is deterministic over its inputs, even when one of those inputs was produced non-deterministically.
+
 ### 2.3 Relationship to AGP-1
 
 AGP-1 ACTION_PROPOSE messages carry action parameters (capability, action_type, target, parameters) but do not carry structured intent. Intent is implicit in the parameters — the system infers purpose from what the agent is doing, not from what the agent says it is doing.
@@ -145,6 +147,10 @@ If the same agent submitted an intent claim with `expected_outcome: "Delete DNS 
 ---
 
 ## 5. Intent Spoofing Detection
+
+### 5.0 Value Proposition
+
+IBAC does not prevent malicious intent. It raises the cost of crafting viable spoofed claims, makes attempts visible in attestation records, and enables forensic reconstruction after the fact. An attacker who must produce a structured intent claim that passes goal-context alignment, action-intent coherence, and behavioral consistency checks has a materially harder task than one who simply injects a prompt into an ungoverned agent. But the barrier is economic and forensic, not absolute. Implementations should not describe IBAC as preventive — it is detective and cost-raising, with prevention as a byproduct of the cost barrier in most practical scenarios.
 
 ### 5.1 The Problem
 

@@ -2,9 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis-initiative.com/schemas/aiam/attestation_record.schema.json",
   "title": "AIAM-1 Attestation Record",
-  "description": "Cryptographically signed, tamper-evident record of a governance decision for an AI agent action.",
+  "description": "Cryptographically signed, tamper-evident record of a governance decision for an AI agent action. Attestation records embed identity and intent by reference (claim_ref / intent_ref) — the full claims are resolvable from the AIAM-1 registry. The attestation signature covers all fields including references, making the record tamper-evident even when claims are stored separately.",
   "type": "object",
   "required": [
+    "spec_version",
     "attestation_id",
     "timestamp",
     "identity_claim",
@@ -16,188 +17,333 @@
     "session_ref",
     "capabilities_invoked",
     "enforcement_layer",
+    "is_genesis",
     "chain_hash",
-    "signature"
+    "signature",
+    "signature_metadata"
   ],
   "additionalProperties": false,
   "properties": {
+    "spec_version": {
+      "$ref": "common.schema.json#/$defs/spec_version",
+      "description": "AIAM-1 specification version this attestation record was authored against."
+    },
     "attestation_id": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Unique identifier for this attestation record"
+      "$ref": "common.schema.json#/$defs/attestation_id",
+      "description": "Unique identifier for this attestation record."
     },
     "timestamp": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Time of the governance decision (RFC 3339)"
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Time of the governance decision."
     },
     "identity_claim": {
       "type": "object",
       "required": ["claim_ref", "agent_id", "principal_id"],
+      "additionalProperties": false,
       "properties": {
         "claim_ref": {
-          "type": "string",
-          "description": "Reference to the full AIAM-1 identity claim"
+          "$ref": "common.schema.json#/$defs/claim_id",
+          "description": "Reference to the full AIAM-1 identity claim. Resolvable from the identity registry."
         },
         "agent_id": {
-          "type": "string",
-          "description": "Agent identifier (maps to AGP-1 actor.id)"
+          "$ref": "common.schema.json#/$defs/agent_id",
+          "description": "Agent identifier. Maps to AGP-1 actor.id."
         },
         "principal_id": {
-          "type": "string",
-          "description": "Accountable principal identifier"
+          "$ref": "common.schema.json#/$defs/principal_id",
+          "description": "Accountable principal identifier. Denormalized from the identity claim for query efficiency."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Identity claim reference (full claim or summary)"
+      "description": "Identity claim reference. Embeds key fields for query efficiency; full claim resolvable via claim_ref."
     },
     "intent_claim": {
       "type": "object",
-      "required": ["intent_ref", "goal_ref"],
+      "required": ["intent_ref", "goal_ref", "expected_outcome"],
+      "additionalProperties": false,
       "properties": {
         "intent_ref": {
-          "type": "string",
-          "description": "Reference to the full AIAM-1 intent claim"
+          "$ref": "common.schema.json#/$defs/intent_id",
+          "description": "Reference to the full AIAM-1 intent claim."
         },
         "goal_ref": {
-          "type": "string",
-          "description": "Goal context reference from the intent claim"
+          "$ref": "common.schema.json#/$defs/goal_id",
+          "description": "Goal context reference from the intent claim. Denormalized for query efficiency."
         },
         "expected_outcome": {
-          "type": "string",
-          "description": "Expected outcome declared in the intent claim"
+          "$ref": "common.schema.json#/$defs/expected_outcome",
+          "description": "Expected outcome from the intent claim. Denormalized to enable outcome verification (INT-040.3) without resolving the full intent claim."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Intent claim reference (full claim or summary)"
+      "description": "Intent claim reference. Embeds key fields for outcome verification; full claim resolvable via intent_ref."
     },
     "action_proposal": {
       "type": "object",
-      "required": ["capability", "action_type", "target"],
+      "required": ["action_id", "capability", "action_type", "target"],
+      "additionalProperties": false,
       "properties": {
+        "action_id": {
+          "$ref": "common.schema.json#/$defs/action_id",
+          "description": "Action proposal ID. Compatible with AGP-1 action_id."
+        },
         "capability": {
-          "type": "string",
-          "description": "Capability identifier"
+          "$ref": "common.schema.json#/$defs/capability_id",
+          "description": "Capability identifier."
         },
         "action_type": {
           "type": "string",
-          "description": "Action type (e.g., read, write, execute, delete)"
+          "enum": ["read", "write", "execute", "delete", "create", "modify", "escalate"],
+          "description": "Action type. Enumerated for consistency across attestation queries."
         },
         "target": {
           "type": "string",
-          "description": "Target resource identifier"
+          "minLength": 1,
+          "maxLength": 512,
+          "description": "Target resource identifier."
         },
         "parameters": {
           "type": "object",
-          "description": "Action parameters"
+          "description": "Action parameters. Preserved in full for forensic reconstruction."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Complete action proposal"
+      "description": "Complete action proposal. Preserved in full — this is the forensic record of what was proposed."
     },
     "governance_decision": {
       "type": "string",
       "enum": ["ALLOW", "DENY", "ESCALATE", "REQUIRE_CONFIRMATION"],
-      "description": "Governance decision outcome"
+      "description": "Governance decision outcome."
     },
     "decision_rationale": {
       "type": "object",
-      "required": ["matching_policy", "reason"],
+      "required": ["deciding_policy", "reason", "evaluation_chain", "evaluation_strategy"],
+      "additionalProperties": false,
       "properties": {
-        "matching_policy": {
+        "matching_policies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["policy_id", "decision"],
+            "additionalProperties": false,
+            "properties": {
+              "policy_id": {
+                "type": "string",
+                "minLength": 1,
+                "description": "ID of a policy whose patterns matched the (identity, action, intent) triple."
+              },
+              "decision": {
+                "type": "string",
+                "enum": ["ALLOW", "DENY", "ESCALATE", "REQUIRE_CONFIRMATION"],
+                "description": "Decision this policy would produce."
+              }
+            }
+          },
+          "description": "All policies whose patterns matched the triple, including those overridden by precedence. Preserves the full evaluation context for forensic review. When DENY > ESCALATE > ALLOW precedence resolves a conflict, the losing policies are preserved here rather than discarded."
+        },
+        "deciding_policy": {
           "type": "string",
-          "description": "Policy ID that determined the decision (or 'default_deny' if no policy matched)"
+          "minLength": 1,
+          "description": "Policy ID that determined the final decision after precedence resolution. 'default_deny' if no policy matched. Under first-match evaluation, this is the first matching policy. Under most-specific, this is the most specific matching policy after precedence."
         },
         "reason": {
           "type": "string",
-          "description": "Human-readable reason for the decision"
+          "minLength": 5,
+          "description": "Human-readable reason for the decision."
         },
         "evaluation_chain": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Ordered list of evaluation steps and their results"
+          "items": {
+            "type": "object",
+            "required": ["step", "result"],
+            "additionalProperties": false,
+            "properties": {
+              "step": {
+                "type": "string",
+                "enum": ["identity_resolution", "intent_validation", "capability_check", "policy_evaluation", "risk_scoring", "decision_assembly"],
+                "description": "Evaluation stage, matching the IBAC decision flow from AUTHORITY §4."
+              },
+              "result": {
+                "type": "string",
+                "enum": ["pass", "fail", "skip"],
+                "description": "Outcome of this stage. 'fail' at any stage short-circuits to DENY. 'skip' for stages not applicable to this decision."
+              },
+              "detail": {
+                "type": "string",
+                "description": "Stage-specific detail (e.g., 'grant:telemetry-query-001 active', 'goal_ref matches gc-soc-triage-2026Q2')."
+              }
+            }
+          },
+          "maxItems": 10,
+          "description": "Structured evaluation trail matching the IBAC decision flow. Each entry is a discrete evaluation stage with a machine-parseable result."
+        },
+        "evaluation_strategy": {
+          "type": "string",
+          "enum": ["first_match", "most_specific_match"],
+          "description": "Policy evaluation strategy in effect at decision time. Required for audit portability (AUTH-012)."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Rationale for the governance decision"
+      "description": "Rationale for the governance decision. Preserves all matching policies (not just the winner), a structured evaluation chain, and the evaluation strategy — complete forensic context."
     },
     "principal_chain": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": ["role"],
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "description": "Agent identifier (for agent entries in the chain)"
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["role", "agent_id"],
+            "additionalProperties": false,
+            "properties": {
+              "agent_id": {
+                "$ref": "common.schema.json#/$defs/agent_id",
+                "description": "Agent identifier."
+              },
+              "role": {
+                "type": "string",
+                "enum": ["executor", "delegator"],
+                "description": "Agent role in the chain: executor (performed the action) or delegator (delegated authority to the next link)."
+              },
+              "delegation_ref": {
+                "oneOf": [
+                  { "$ref": "common.schema.json#/$defs/delegation_id" },
+                  { "type": "null" }
+                ],
+                "description": "Reference to the delegation record. Null for the originating agent (not delegated from another agent)."
+              },
+              "extensions": { "$ref": "common.schema.json#/$defs/extensions" }
+            },
+            "description": "Agent entry in the principal chain. Requires agent_id."
           },
-          "principal_id": {
-            "type": "string",
-            "description": "Principal identifier (for the accountable party)"
-          },
-          "role": {
-            "type": "string",
-            "enum": ["executor", "delegator", "accountable_party"],
-            "description": "Role of this entry in the principal chain"
-          },
-          "delegation_ref": {
-            "type": ["string", "null"],
-            "description": "Reference to the delegation record (null for top-level)"
+          {
+            "type": "object",
+            "required": ["role", "principal_id"],
+            "additionalProperties": false,
+            "properties": {
+              "principal_id": {
+                "$ref": "common.schema.json#/$defs/principal_id",
+                "description": "Principal identifier — the accountable human, organization, or legal entity."
+              },
+              "role": {
+                "const": "accountable_party",
+                "description": "Always 'accountable_party' for principal entries."
+              },
+              "extensions": { "$ref": "common.schema.json#/$defs/extensions" }
+            },
+            "description": "Principal entry — always the last entry in the chain. Requires principal_id, role must be 'accountable_party'."
           }
-        }
+        ]
       },
       "minItems": 1,
-      "description": "Complete principal chain from executor to accountable party"
+      "maxItems": 50,
+      "description": "Complete principal chain ordered from executor to accountable party. First entry is the agent that executed the action (role: executor). Intermediate entries are delegating agents (role: delegator). Last entry MUST be the accountable party (role: accountable_party, requires principal_id). Ordering is semantic: the chain reads from bottom to top of the accountability hierarchy."
     },
     "session_ref": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Reference to the governing session"
+      "$ref": "common.schema.json#/$defs/session_id",
+      "description": "Reference to the governing session."
     },
     "capabilities_invoked": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Capability grant references exercised"
+      "items": {
+        "$ref": "common.schema.json#/$defs/grant_id"
+      },
+      "description": "Capability grant references exercised."
     },
     "execution_outcome": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "status": {
           "type": "string",
           "enum": ["success", "failure", "partial", "not_executed"],
-          "description": "Execution result"
+          "description": "Execution result. 'not_executed' for DENY/ESCALATE/REQUIRE_CONFIRMATION decisions."
         },
         "details": {
           "type": "string",
-          "description": "Additional execution outcome details"
+          "maxLength": 2048,
+          "description": "Additional execution outcome details."
+        },
+        "actual_outcome": {
+          "$ref": "common.schema.json#/$defs/expected_outcome",
+          "description": "Actual outcome in the same structured format as expected_outcome. Enables machine comparison for outcome verification (INT-040.3). Present only for ALLOW decisions where execution completed."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Result of execution (present only for ALLOW decisions)"
+      "description": "Result of execution. Present only for ALLOW decisions. actual_outcome uses the same structure as expected_outcome to enable direct comparison."
     },
     "enforcement_layer": {
       "type": "object",
       "required": ["system", "version"],
+      "additionalProperties": false,
       "properties": {
         "system": {
           "type": "string",
-          "description": "Governance system identifier"
+          "minLength": 1,
+          "description": "Governance system identifier."
         },
         "version": {
           "type": "string",
-          "description": "Governance system version"
+          "minLength": 1,
+          "description": "Governance system version."
         },
         "node_id": {
           "type": "string",
-          "description": "Specific governance node that produced this decision"
+          "description": "Specific governance node that produced this decision."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       },
-      "description": "Identifier and version of the governance system"
+      "description": "Identifier and version of the governance system that produced the decision and signed the record."
+    },
+    "is_genesis": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if this is the first record in an attestation chain. Genesis records MUST set chain_hash to the defined genesis value: sha256:0000000000000000000000000000000000000000000000000000000000000000."
     },
     "chain_hash": {
-      "type": "string",
-      "minLength": 1,
-      "description": "SHA-256 hash linking this record to the previous record in the chain"
+      "$ref": "common.schema.json#/$defs/hash_value",
+      "description": "SHA-256 hash linking this record to the previous record. For genesis records (is_genesis: true), MUST be sha256:0000000000000000000000000000000000000000000000000000000000000000. For all subsequent records, MUST be the SHA-256 hash of the complete previous record."
     },
     "signature": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Cryptographic signature of the enforcement layer over the record contents"
+      "$ref": "common.schema.json#/$defs/crypto_signature",
+      "description": "Cryptographic signature of the enforcement layer over all record fields. Covers the entire record including chain_hash."
+    },
+    "signature_metadata": {
+      "type": "object",
+      "required": ["algorithm", "signing_key_id"],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": ["ed25519", "ecdsa-p256", "rsa-2048"],
+          "description": "Signing algorithm used. Required for forensic verification — an auditor recovering this record years later needs to know which algorithm and key verified it at the time (ATT-022)."
+        },
+        "signing_key_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identifier of the signing key at the time of signature. Survives key rotation — the record remains verifiable against the key that was active when it was signed, not the current key."
+        },
+        "key_valid_from": {
+          "$ref": "common.schema.json#/$defs/timestamp",
+          "description": "Start of the signing key's validity period. Enables auditors to verify the key was active at signature time."
+        }
+      },
+      "description": "Metadata required for forensic signature verification across key rotations and algorithm migrations (ATT-023)."
+    },
+    "extensions": {
+      "$ref": "common.schema.json#/$defs/extensions",
+      "description": "Top-level vendor-specific or implementation-specific attestation metadata."
     }
   }
 }

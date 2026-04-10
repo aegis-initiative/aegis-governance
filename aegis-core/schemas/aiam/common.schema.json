@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/aiam/common.schema.json",
+  "title": "AIAM-1 Common Types",
+  "description": "Shared type definitions for AIAM-1 schemas. All ID formats, timestamps, and reusable structures are defined here and $ref'd into identity_claim, intent_claim, and attestation_record schemas.",
+  "$defs": {
+    "spec_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "AIAM-1 specification version this artifact was authored against (e.g., '0.1')"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp (e.g., '2026-04-10T14:32:07Z')"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^idc-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Identity claim ID. Format: idc-<namespace>. Must be globally unique within the governance domain."
+    },
+    "intent_id": {
+      "type": "string",
+      "pattern": "^int-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Intent claim ID. Format: int-<namespace>. Must be globally unique — use UUIDs, hash-based IDs, or namespace+timestamp patterns to ensure uniqueness across deployments."
+    },
+    "attestation_id": {
+      "type": "string",
+      "pattern": "^att-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Attestation record ID. Format: att-<namespace>."
+    },
+    "goal_id": {
+      "type": "string",
+      "pattern": "^gc-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Goal context ID. Format: gc-<namespace>. Used in identity claims (goal_context.goal_id) and referenced in intent claims (goal_ref)."
+    },
+    "action_id": {
+      "type": "string",
+      "pattern": "^a-[a-zA-Z0-9][a-zA-Z0-9_-]{2,127}$",
+      "description": "Action proposal ID. Compatible with AGP-1 action_id format."
+    },
+    "delegation_id": {
+      "type": "string",
+      "pattern": "^del-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Delegation record ID. Format: del-<namespace>."
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^ses-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Session ID. Format: ses-<namespace>."
+    },
+    "grant_id": {
+      "type": "string",
+      "pattern": "^grant-[a-z0-9][a-z0-9-]{3,63}$",
+      "description": "Capability grant ID. Format: grant-<namespace>."
+    },
+    "agent_id": {
+      "type": "string",
+      "pattern": "^agent:[a-zA-Z0-9][a-zA-Z0-9._-]{1,127}$",
+      "description": "Agent identifier. Compatible with AGP-1 actor.id format for agent type."
+    },
+    "principal_id": {
+      "type": "string",
+      "pattern": "^(org|user|entity):[a-zA-Z0-9][a-zA-Z0-9._@-]{1,127}$",
+      "description": "Principal identifier. Prefixed by type: org: (organization), user: (individual), entity: (legal entity)."
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*([.][a-z][a-z0-9]*)*$",
+      "description": "Capability identifier. Hierarchical dotted notation (e.g., 'telemetry.query'). Compatible with AGP-1/RFC-0003 capability registry format."
+    },
+    "crypto_signature": {
+      "type": "string",
+      "pattern": "^(ed25519|ecdsa-p256|rsa2048):.+$",
+      "description": "Cryptographic signature with algorithm prefix."
+    },
+    "hash_value": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "SHA-256 hash value with algorithm prefix."
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "multipleOf": 0.01,
+      "description": "Self-assessed confidence score. Two decimal places maximum — this is a self-assessment, not a calibrated probability."
+    },
+    "expected_outcome": {
+      "type": "object",
+      "required": ["result_type", "target_state"],
+      "additionalProperties": false,
+      "properties": {
+        "result_type": {
+          "type": "string",
+          "enum": ["read", "write", "modify", "create", "delete", "external_effect", "no_effect"],
+          "description": "Category of expected result. Enumerated to enable machine comparison against actual outcomes."
+        },
+        "target_state": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Description of the post-action state. Must be specific enough to verify against actual outcome."
+        },
+        "verifiable_properties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 5
+          },
+          "maxItems": 20,
+          "description": "Assertions the outcome should satisfy, expressed as verifiable statements (e.g., 'no records modified', 'result set size < 1000'). These are the hooks for outcome-verification defense against intent spoofing (TC-1)."
+        },
+        "extensions": {
+          "type": "object",
+          "description": "Vendor-specific or implementation-specific outcome metadata."
+        }
+      },
+      "description": "Structured description of the expected result. Structured (not freeform) to enable machine comparison against actual outcomes for intent spoofing detection (INT-040.3)."
+    },
+    "trigger": {
+      "type": "object",
+      "required": ["trigger_type", "trigger_detail"],
+      "additionalProperties": false,
+      "properties": {
+        "trigger_type": {
+          "type": "string",
+          "enum": ["observation", "schedule", "external_request", "dependency_completion", "escalation", "anomaly", "policy_directive"],
+          "description": "Category of event that prompted the agent to consider this action."
+        },
+        "trigger_detail": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Specific description of the triggering event."
+        },
+        "extensions": {
+          "type": "object",
+          "description": "Vendor-specific trigger metadata."
+        }
+      },
+      "description": "Structured trigger for reasoning. Enumerated trigger_type enables policy pattern matching beyond free-text contains-checks."
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Vendor-specific or implementation-specific metadata. AIAM-1 schemas use explicit extensions objects rather than additionalProperties: true to keep the core schema validatable while permitting forward-compatible extension."
+    }
+  }
+}

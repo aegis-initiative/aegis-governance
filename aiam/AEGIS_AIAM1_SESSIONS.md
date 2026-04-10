@@ -64,6 +64,10 @@ AIAM-1 sessions are a **new governance primitive** that extends AGP-1's stateles
 | `principal_chain` | Accountability chain for this session | MUST |
 | `status` | One of: `active`, `completed`, `expired`, `revoked` | MUST |
 
+**AIAM1-SES-004.** Conformant implementations MUST publish a maximum session duration. The maximum SHOULD NOT exceed 24 hours without documented compensating controls (e.g., mandatory mid-session re-attestation, elevated monitoring, or human checkpoint reviews). An implementation that publishes a maximum session duration of 30 days without compensating controls is not conformant with the intent of this requirement.
+
+**AIAM1-SES-005.** Sessions MUST NOT be renewable. Extension of operational authority requires a new session with a new attestation record. There is no mechanism to extend `expires_at` on an active session — the session terminates, and the agent requests a new session through the standard authorization flow. This ensures that every period of operational authority passes through a governance checkpoint.
+
 ### 3.2 Session Lifecycle
 
 **AIAM1-SES-010.** Actions taken outside an active session MUST be treated as unauthorized.
@@ -169,7 +173,7 @@ The session transition is:
 
 ### 5.1 Session Duration
 
-Excessively long sessions increase governance exposure. An agent with an 8-hour session has 8 hours in which a compromise goes undetected by session boundary controls. Implementations SHOULD define maximum session duration policies appropriate to the operational context.
+Excessively long sessions increase governance exposure. An agent with an 8-hour session has 8 hours in which a compromise goes undetected by session boundary controls. AIAM1-SES-004 requires implementations to publish a maximum duration and recommends a 24-hour ceiling without compensating controls. Organizations operating safety-critical agents SHOULD set shorter maximums (1–4 hours) and treat session boundaries as mandatory governance checkpoints.
 
 ### 5.2 Session Reuse
 
@@ -185,7 +189,7 @@ A single agent MAY hold multiple concurrent sessions if it operates across multi
 
 1. **Session state persistence.** Should session state (action history, delegation records, accumulated context) be persisted across governance checkpoints? The current model treats each session as independent. Whether cross-session state is useful for governance (e.g., detecting patterns across sessions) is deferred to v0.2.
 
-2. **Automatic session renewal.** Should sessions support automatic renewal (extending `expires_at` without creating a new session) for long-running operational agents? The current model requires new session creation. The tradeoff between operational continuity and governance boundary enforcement requires further analysis.
+2. **Automatic session renewal** — *resolved in v0.1.* Sessions MUST NOT be renewable (AIAM1-SES-005). Extension of operational authority requires a new session.
 
 ---
 

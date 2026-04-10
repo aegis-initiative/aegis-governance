@@ -2,12 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis-initiative.com/schemas/aiam/intent_claim.schema.json",
   "title": "AIAM-1 Intent Claim",
-  "description": "Structured assertion of purpose produced by an AI agent at the moment of action.",
+  "description": "Structured assertion of purpose produced by an AI agent at the moment of action. Intent claims are not independently signed — they are signed as part of the attestation record (ATTESTATION §3.3). This is by design: the governance system attests to the intent, not the agent.",
   "type": "object",
   "required": [
+    "spec_version",
     "intent_id",
     "goal_ref",
     "action_ref",
+    "action_proposal_timestamp",
     "reasoning_summary",
     "expected_outcome",
     "dependency_refs",
@@ -15,20 +17,25 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "spec_version": {
+      "$ref": "common.schema.json#/$defs/spec_version",
+      "description": "AIAM-1 specification version this intent claim was authored against."
+    },
     "intent_id": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Unique identifier for this intent claim"
+      "$ref": "common.schema.json#/$defs/intent_id",
+      "description": "Unique identifier for this intent claim. MUST be globally unique — use namespace+timestamp or UUID-based patterns. Reuse across action proposals is prohibited (INTENT §6.2)."
     },
     "goal_ref": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Reference to the goal context in the agent's identity claim (goal_id)"
+      "$ref": "common.schema.json#/$defs/goal_id",
+      "description": "Reference to the goal context in the agent's identity claim. MUST resolve to an active goal_id. Format enforced to match identity_claim goal_context.goal_id pattern."
     },
     "action_ref": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Reference to the action proposal this intent claim accompanies"
+      "$ref": "common.schema.json#/$defs/action_id",
+      "description": "Reference to the action proposal this intent claim accompanies. MUST resolve to a pending action proposal. Format compatible with AGP-1 action_id."
+    },
+    "action_proposal_timestamp": {
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Timestamp of the action proposal this intent accompanies. Included to enable runtime tolerance checking (INT-003): conformant implementations reject intent claims whose timestamp diverges from this value by more than a configured tolerance window."
     },
     "reasoning_summary": {
       "type": "object",
@@ -36,42 +43,53 @@
       "additionalProperties": false,
       "properties": {
         "trigger": {
-          "type": "string",
-          "minLength": 1,
-          "description": "What event or condition prompted the agent to consider this action"
+          "$ref": "common.schema.json#/$defs/trigger",
+          "description": "Structured trigger that prompted the agent to consider this action."
         },
         "alternatives_considered": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Other actions the agent evaluated before selecting this one"
+          "items": {
+            "type": "string",
+            "minLength": 10
+          },
+          "minItems": 1,
+          "maxItems": 10,
+          "description": "Other actions the agent evaluated before selecting this one. SHOULD in spec (INT-004), but when present MUST contain meaningful content (minLength: 10 per item, minItems: 1). An agent that always omits this field is a signal for behavioral consistency analysis."
         },
         "selection_rationale": {
           "type": "string",
-          "minLength": 1,
-          "description": "Why this action was selected over alternatives"
+          "minLength": 20,
+          "description": "Why this action was selected over alternatives. Minimum 20 characters to prevent trivial entries."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions",
+          "description": "Vendor-specific reasoning metadata, chain-of-thought traces for debugging, or forward-compatibility fields."
         }
       }
     },
     "expected_outcome": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Structured description of the expected result of the action"
+      "$ref": "common.schema.json#/$defs/expected_outcome",
+      "description": "Structured description of the expected result. This is the primary hook for outcome verification (INT-040.3) and the load-bearing field for intent spoofing detection. Structured as an object with result_type enum and target_state to enable machine comparison against actual outcomes."
     },
     "dependency_refs": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "References to prior actions this action builds upon (empty array if none)"
+      "items": {
+        "$ref": "common.schema.json#/$defs/intent_id"
+      },
+      "maxItems": 20,
+      "description": "References to prior intent claims this action builds upon. Empty array if no dependencies. Items are intent_id references to enforce structural consistency. maxItems: 20 prevents pathological dependency chains that could attack evaluation performance."
     },
     "timestamp": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Time at which the intent claim was produced (RFC 3339)"
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Time at which the intent claim was produced. MUST be at the moment of action, not synthesized after the fact (INT-003). Runtime tolerance checking compares this against action_proposal_timestamp."
     },
     "confidence": {
-      "type": "number",
-      "minimum": 0.0,
-      "maximum": 1.0,
-      "description": "Agent's self-assessed confidence in the action's alignment with the goal"
+      "$ref": "common.schema.json#/$defs/confidence_score",
+      "description": "Agent's self-assessed confidence in the action's alignment with the goal. SHOULD in spec — optional here. Two decimal places maximum (multipleOf: 0.01) to prevent false precision."
+    },
+    "extensions": {
+      "$ref": "common.schema.json#/$defs/extensions",
+      "description": "Vendor-specific or implementation-specific intent metadata. Use this for forward-compatible fields rather than expecting additionalProperties."
     }
   }
 }

@@ -24,6 +24,8 @@ Identity and access management was built for two actor classes: humans and servi
 
 Attempting to govern AI agents with existing IAM primitives results in agents that are either over-scoped (given broad credentials because narrow scoping would make them useless) or under-scoped (constrained to the point of being non-functional). Neither outcome is governance.
 
+> **Scope caveat:** AIAM-1 v0.1 is scoped to single-organization deployments. Cross-organization delegation — where principal chains cross legal and trust boundaries — is identified as an open problem in the Delegation, Threat Model, and Revocation chapters and is deferred to v0.2.
+
 ### 1.2 What AIAM-1 Defines
 
 | Primitive | Purpose | Specification Chapter |
@@ -39,6 +41,19 @@ Attempting to govern AI agents with existing IAM primitives results in agents th
 | **Interoperability** | Mappings to OAuth 2.1, OIDC, SCIM, SAML | [INTEROPERABILITY](AEGIS_AIAM1_INTEROPERABILITY.md) |
 | **Threat Model** | Seven threat classes specific to agent IAM | [THREAT MODEL](AEGIS_AIAM1_THREAT_MODEL.md) |
 | **Conformance** | Requirements checklist and conformance profiles | [CONFORMANCE](AEGIS_AIAM1_CONFORMANCE.md) |
+
+### 1.3 Out of Scope
+
+AIAM-1 v0.1 does not define:
+
+- The internal architecture of AI models or agent orchestration frameworks
+- Specific cryptographic algorithm choices beyond general requirements for attestation and signing
+- Performance benchmarks or scalability targets for conformant implementations
+- User interface or developer experience specifications
+- Billing, metering, or commercial licensing mechanisms
+- Model training or fine-tuning governance
+- Trust scoring for agents or federation nodes (see GFN-1 and RFC-0004 for trust models within the AEGIS ecosystem)
+- Cross-organization delegation primitives (deferred to v0.2)
 
 ---
 
@@ -90,14 +105,18 @@ AIAM-1 introduces several terms that either extend or complement terminology use
 
 ## 4. Authorization Model Landscape
 
-AIAM-1's IBAC model is positioned within the broader authorization model landscape:
+Authorization models have evolved to match the complexity of the actors they govern. Each model was a response to a new actor class or deployment pattern:
 
-| Model | Decision Inputs | Agent Suitability |
-|---|---|---|
-| **RBAC** (Role-Based) | Identity + role membership | Insufficient: agents shift goals within roles; roles are too coarse for action-level governance. |
-| **ABAC** (Attribute-Based) | Actor attributes + resource attributes + environment | Partial: attributes can encode some context, but intent is not a first-class attribute. |
-| **PBAC** (Purpose-Based) | Identity + declared purpose | Partial: captures purpose but lacks principal chains, session governance, and structured intent validation. |
-| **IBAC** (Intent-Bound) | Identity + action + intent context | Designed for agents: intent is structured, validated against goal context, and preserved in attestation records. Generalizes RBAC, ABAC, and PBAC. |
+| Model | Era | Decision Inputs | Core Question | Agent Suitability |
+|---|---|---|---|---|
+| **DAC** (Discretionary) | 1970s | Object owner grants | Who owns this? | Insufficient: agents do not own resources; ownership is not a meaningful governance dimension. |
+| **MAC** (Mandatory) | 1970s | Security labels | What clearance do you have? | Insufficient: static clearance levels cannot govern dynamic, goal-shifting actors. |
+| **RBAC** (Role-Based) | 1990s | Identity + role membership | What role are you in? | Insufficient: agents shift goals within roles; roles are too coarse for action-level governance. |
+| **ABAC** (Attribute-Based) | 2000s | Actor attributes + resource attributes + environment | What do you look like? | Partial: attributes can encode some context, but intent is not a first-class attribute. |
+| **PBAC** (Purpose-Based) | 2005 | Identity + declared purpose | Why do you need this? | Partial: captures purpose but lacks principal chains, session governance, and structured intent validation. |
+| **IBAC** (Intent-Bound) | 2026 | Identity + action + intent context | Why are you doing this, right now, in this context? | Designed for agents: intent is structured, validated against goal context, and preserved in attestation records. Generalizes RBAC, ABAC, and PBAC. |
+
+IBAC strictly generalizes prior models: an RBAC policy is an IBAC triple where the identity pattern matches on role, the action pattern is wildcard-scoped, and the intent context pattern is wildcard. An ABAC policy is an IBAC triple where attributes are mapped to identity and action patterns with wildcard intent. Organizations migrating from RBAC or ABAC can adopt IBAC incrementally by starting with wildcard intent patterns and progressively adding intent constraints as they mature.
 
 ---
 
@@ -124,9 +143,11 @@ AIAM-1's IBAC model is positioned within the broader authorization model landsca
 
 | Schema | Location | Description |
 |---|---|---|
+| `common.schema.json` | `aegis-core/schemas/aiam/` | Shared type definitions: ID formats, timestamps, signatures, hashes. All other schemas `$ref` into this. |
 | `identity_claim.schema.json` | `aegis-core/schemas/aiam/` | JSON Schema for AIAM-1 composite identity claims. |
 | `intent_claim.schema.json` | `aegis-core/schemas/aiam/` | JSON Schema for AIAM-1 intent claims. |
 | `attestation_record.schema.json` | `aegis-core/schemas/aiam/` | JSON Schema for AIAM-1 attestation records. |
+| `delegation_record.schema.json` | `aegis-core/schemas/aiam/` | JSON Schema for AIAM-1 delegation records. |
 
 ### 5.3 Position Paper
 

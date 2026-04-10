@@ -67,7 +67,7 @@ AGP-1 and RFC-0003 define a capability registry with hierarchical dotted identif
 
 ### 3.2 Composition Governance
 
-**AIAM1-CAP-010.** A conformant implementation MUST treat capability composition as a governed operation. Capability composition occurs when an agent executes a sequence of individually authorized capabilities that together produce an effect not achievable by any single capability in the sequence.
+**AIAM1-CAP-010.** A conformant implementation MUST treat capability composition as a governed operation. Capability composition occurs when an agent executes a sequence of individually authorized capabilities that together produce an effect not achievable by any single capability in the sequence. Composition governance applies to sequences of capabilities and to combinations of delegated and independent authority (see [AUTHORITY §3.4, AIAM1-AUTH-024](AEGIS_AIAM1_AUTHORITY.md#34-policy-lifecycle)).
 
 **AIAM1-CAP-011.** Capability authorization MUST NOT be closed under transitivity. An agent authorized to perform capability A and capability B is not, by default, authorized to perform the composition A-then-B. The composition MUST be explicitly authorized as a distinct action or evaluated against IBAC policies as a composed action.
 
@@ -150,7 +150,7 @@ Composition governance (§3.2) addresses the case where individually constrained
 
 ## 6. Open Questions
 
-1. **Composition detection scope.** How far back in an agent's action history should composition evaluation look? A sliding window of N actions? The entire session? The answer affects both security (shorter windows miss slow-drip attacks) and performance (longer windows increase evaluation cost).
+1. **Composition detection scope.** Conformant implementations MUST evaluate composition over at least the current session. Evaluation over longer windows (cross-session, historical) is permitted and encouraged — longer windows catch slow-drip composition attacks that session-scoped evaluation misses, at the cost of increased evaluation overhead. An implementation that evaluates composition over fewer actions than the current session (e.g., "last 3 actions") is not conformant. The tradeoff between detection depth and performance beyond the session floor is implementation-defined.
 
 2. **Implicit composition.** Some compositions are not sequential but concurrent — an agent that holds `database.read` and `network.send` simultaneously has the *potential* to compose them even if it hasn't yet. Should capability granting itself evaluate composition risk? This is deferred to v0.2.
 

@@ -60,6 +60,63 @@ IBAC strictly generalizes prior authorization models:
 
 This means that an IBAC policy engine can evaluate RBAC, ABAC, and PBAC policies natively — they are special cases of IBAC triples with wildcard intent. Organizations migrating from RBAC or ABAC can adopt IBAC incrementally by starting with wildcard intent patterns and progressively adding intent constraints as they mature.
 
+### 2.4 Migration Path: RBAC → IBAC
+
+The adoption story for IBAC is incremental, not revolutionary. An organization with existing RBAC policies can migrate in three steps:
+
+**Step 1: Existing RBAC policy**
+
+```yaml
+# RBAC: SOC analysts can query telemetry
+- role: soc_analyst
+  capability: telemetry.query
+  action_type: read
+  decision: ALLOW
+```
+
+This policy asks one question: *does the actor hold the soc_analyst role?* It knows nothing about intent, goal context, or expected outcome.
+
+**Step 2: Translate to IBAC with wildcard intent**
+
+```yaml
+# IBAC: same policy, expressed as a triple with wildcard intent
+- id: pol-soc-telemetry-read-v1
+  identity_pattern:
+    principal_type: "organization"
+    goal_context.scope: contains "telemetry"  # slightly tighter than role alone
+  action_pattern:
+    capability: "telemetry.query"
+    action_type: "read"
+  intent_context_pattern:
+    "*"  # any intent accepted — functionally equivalent to RBAC
+  decision: ALLOW
+```
+
+This is IBAC, but it behaves identically to the RBAC original. The intent wildcard means any stated purpose is accepted. The policy is now portable across IBAC engines and produces attestation records that include intent claims — even though intent is not yet evaluated.
+
+**Step 3: Narrow intent to close the governance gap**
+
+```yaml
+# IBAC: same policy, with intent constraints
+- id: pol-soc-telemetry-read-v2
+  identity_pattern:
+    principal_type: "organization"
+    goal_context.scope: contains "telemetry"
+  action_pattern:
+    capability: "telemetry.query"
+    action_type: "read"
+    target: starts_with "siem:10.0."  # scoped to assigned segment
+  intent_context_pattern:
+    goal_ref: starts_with "gc-soc-triage"
+    expected_outcome: contains "no data modification"
+    expected_outcome: not contains "external"
+  decision: ALLOW
+```
+
+Now the policy asks three questions: *who are you?* (identity), *what are you doing?* (action), and *why are you doing it?* (intent). The same agent, same capability, same target — but an exfiltration attempt with a spoofed intent claim declaring "export for external analysis" is denied because the intent pattern rejects outcomes containing "external."
+
+Each step is backward-compatible with the previous. Organizations can migrate at their own pace, starting with wildcard intent and progressively tightening as they build confidence in their intent claim quality and their policy authors' understanding of the agent's operational patterns.
+
 ---
 
 ## 3. Authority Policies
@@ -140,10 +197,11 @@ Where:
 
 **AIAM1-AUTH-011.** Policy evaluation MUST be deterministic. Given the same (identity, action, intent) triple and the same policy set, the evaluation MUST always produce the same decision. Policy evaluation MUST NOT depend on the internal state of the agent being evaluated, the output of a language model, or any non-deterministic input.
 
-**AIAM1-AUTH-012.** Policies MUST be evaluated in a defined order. A conformant implementation MUST specify its policy evaluation strategy. Two strategies are normatively recognized:
+**AIAM1-AUTH-012.** Policies MUST be evaluated using **first-match** semantics. Policies are ordered by priority. The first policy whose patterns match the (identity, action, intent) triple determines the decision. Remaining policies are not evaluated.
 
-1. **First-match**: Policies are ordered by priority. The first policy whose patterns match the (identity, action, intent) triple determines the decision. Remaining policies are not evaluated.
-2. **Most-specific-match**: All matching policies are collected. The policy with the most specific pattern match determines the decision. Specificity is defined as the number of non-wildcard pattern fields.
+First-match is normative because it is deterministic, auditable (the matching policy ID is unambiguous), and portable (policies authored for first-match produce the same decision on any conformant engine). Most-specific-match semantics are NOT conformant as a primary evaluation strategy because specificity ranking is engine-defined and creates a portability hole — the same policy set can produce different decisions on different engines.
+
+> **Extension point:** Implementations MAY offer most-specific-match as an opt-in mode, provided that: (a) the policy set declares `evaluation_strategy: most-specific` in a header field, (b) the engine rejects policy sets authored for a different strategy, and (c) attestation records include the evaluation strategy in effect at decision time. Policies authored without an explicit strategy header MUST be evaluated as first-match.
 
 **AIAM1-AUTH-013.** A conformant implementation MUST deny by default. Any (identity, action, intent) triple that does not match any explicit authorizing policy MUST be denied. The default-deny baseline is not a policy — it is an architectural property that applies when no policy matches.
 
@@ -158,6 +216,8 @@ Where:
 **AIAM1-AUTH-022.** Policies MUST be version-controlled. A conformant implementation MUST be able to reconstruct the policy state that was in effect at any historical point in time for audit and forensic purposes.
 
 **AIAM1-AUTH-023.** Policy authorship MUST itself be a governed operation. Only authorized principals may create, modify, or delete authority policies. Policy modification MUST NOT be performable by the agents governed by those policies.
+
+**AIAM1-AUTH-024.** When an action draws on a mix of delegated and independently granted capabilities, the combined authority MUST be evaluated as a composed action under AIAM1-CAP-010. The presence of an independent capability grant does not exempt the composed effect from composition governance. This closes the seam between delegated and independent authority: an agent cannot combine a narrow delegated grant with a broad independent grant to produce an effect that neither grant individually authorized.
 
 ---
 
@@ -332,7 +392,7 @@ If an attacker can modify IBAC policies, they can authorize any action. Mitigati
 
 ## 9. Open Questions
 
-1. **Policy language standardization.** AIAM-1 v0.1 does not mandate a specific policy language. Candidate languages include Rego (Open Policy Agent), Cedar (AWS), and XACML. A subsequent version should evaluate these for IBAC suitability — particularly whether they can natively express intent context patterns or require extension.
+1. **Policy language standardization.** AIAM-1 v0.1 does not mandate a specific policy language, but provides a directional recommendation. Of the candidate languages: **Rego** (Open Policy Agent) can express IBAC triples today without extension — identity, action, and intent are all accessible as input document fields, and Rego's rule composition maps naturally to first-match policy evaluation. **Cedar** (AWS) requires a schema extension to model intent as a principal attribute, since Cedar's native entity model does not include a purpose or intent dimension. **XACML** is not recommended for new IBAC implementations — its XML verbosity and limited tooling ecosystem make it a poor fit for the structured, high-frequency policy evaluation that agent governance demands. **Rego is the directional recommendation for v0.1 implementers.** A normative policy language binding is deferred to v0.2.
 
 2. **Intent pattern complexity.** How complex should intent context patterns be allowed to grow? Deeply nested intent patterns may be difficult to audit and may create performance concerns. A guidance on maximum pattern complexity is deferred to v0.2.
 

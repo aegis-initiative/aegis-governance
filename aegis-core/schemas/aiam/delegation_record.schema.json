@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-initiative.com/schemas/aiam/delegation_record.schema.json",
+  "title": "AIAM-1 Delegation Record",
+  "description": "Explicit record of authority delegation from one agent to another. Delegation records are first-class governance artifacts — every delegation is an attested, governed action (DEL-022). The delegation record is referenced by principal_chain entries in attestation records via delegation_ref.",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "delegation_id",
+    "timestamp",
+    "delegator",
+    "delegatee",
+    "delegated_capabilities",
+    "scope_narrowing",
+    "purpose",
+    "expires_at",
+    "cascade_on_revocation",
+    "delegation_depth",
+    "parent_delegation_ref",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "spec_version": {
+      "$ref": "common.schema.json#/$defs/spec_version",
+      "description": "AIAM-1 specification version this delegation record was authored against."
+    },
+    "delegation_id": {
+      "$ref": "common.schema.json#/$defs/delegation_id",
+      "description": "Unique identifier for this delegation."
+    },
+    "timestamp": {
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Time at which the delegation was created."
+    },
+    "delegator": {
+      "type": "object",
+      "required": ["agent_id", "identity_claim_ref"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "$ref": "common.schema.json#/$defs/agent_id",
+          "description": "Agent performing the delegation."
+        },
+        "identity_claim_ref": {
+          "$ref": "common.schema.json#/$defs/claim_id",
+          "description": "Reference to the delegating agent's identity claim. Required for monotonic narrowing verification — the delegator's capabilities at delegation time must be retrievable."
+        },
+        "session_ref": {
+          "$ref": "common.schema.json#/$defs/session_id",
+          "description": "Session under which the delegation was created. If present, delegation is scoped to this session and terminates when the session terminates."
+        },
+        "extensions": { "$ref": "common.schema.json#/$defs/extensions" }
+      },
+      "description": "The delegating agent. Must hold all capabilities being delegated at the time of delegation."
+    },
+    "delegatee": {
+      "type": "object",
+      "required": ["agent_id"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "$ref": "common.schema.json#/$defs/agent_id",
+          "description": "Agent receiving the delegation. May be a pre-existing agent or a template for instantiation."
+        },
+        "identity_claim_ref": {
+          "$ref": "common.schema.json#/$defs/claim_id",
+          "description": "Reference to the receiving agent's identity claim. May be null if the sub-agent is being instantiated as part of this delegation."
+        },
+        "extensions": { "$ref": "common.schema.json#/$defs/extensions" }
+      },
+      "description": "The receiving agent."
+    },
+    "delegated_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["capability_id", "source_grant_ref"],
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "$ref": "common.schema.json#/$defs/capability_id",
+            "description": "Capability being delegated."
+          },
+          "source_grant_ref": {
+            "$ref": "common.schema.json#/$defs/grant_id",
+            "description": "Reference to the delegator's grant for this capability. Enables monotonic narrowing verification — the delegated scope must be a subset of this grant's scope."
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 50,
+      "description": "Capabilities being delegated. Each must be a subset of the delegator's held grants (monotonic narrowing, DEL-010). minItems: 1 — a delegation with no capabilities is meaningless."
+    },
+    "scope_narrowing": {
+      "type": "object",
+      "description": "How the delegated capabilities are further constrained relative to the delegator's grants. Keys are capability IDs; values are constraint objects. The delegated scope MUST be strictly narrower than or equal to the delegator's scope — never broader (DEL-010).",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Narrowed target scope (e.g., 'siem:dns-logs' narrowed from 'siem:*')."
+          },
+          "constraints": {
+            "type": "object",
+            "description": "Additional constraints applied to the delegated capability (e.g., host, timerange_max, rate_limit)."
+          }
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Why this delegation is necessary. Required for audit and for justifying cascade_on_revocation opt-out (DEL-025). Minimum 20 characters to prevent trivial entries."
+    },
+    "expires_at": {
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "When the delegation expires. MUST NOT exceed the delegator's grant expiry for any delegated capability."
+    },
+    "cascade_on_revocation": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether revocation of the delegator's authority cascades to this delegation. Default: true (DEL-024). Setting to false requires justification in the purpose field and is subject to IBAC policy (DEL-025)."
+    },
+    "delegation_depth": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Position in the delegation chain. 1 = direct delegation from an agent with original (non-delegated) grants. Increments with each hop. Must not exceed the implementation's published maximum delegation chain depth (DEL-020)."
+    },
+    "parent_delegation_ref": {
+      "oneOf": [
+        { "$ref": "common.schema.json#/$defs/delegation_id" },
+        { "type": "null" }
+      ],
+      "description": "Reference to the delegation record from which this delegation derives. Null if the delegator holds original (non-delegated) grants for all delegated capabilities. Non-null when a sub-agent re-delegates authority it received via delegation."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "expired", "revoked", "cascaded_revocation"],
+      "description": "Current delegation status. 'cascaded_revocation' indicates this delegation was revoked due to upstream revocation cascade, distinguished from direct revocation for forensic clarity."
+    },
+    "attestation_ref": {
+      "$ref": "common.schema.json#/$defs/attestation_id",
+      "description": "Reference to the attestation record for the delegation action itself (DEL-022: sub-agent instantiation is a governed action)."
+    },
+    "revocation_ref": {
+      "$ref": "common.schema.json#/$defs/attestation_id",
+      "description": "Reference to the attestation record for the revocation event, if revoked. Null while active."
+    },
+    "extensions": {
+      "$ref": "common.schema.json#/$defs/extensions",
+      "description": "Vendor-specific or implementation-specific delegation metadata."
+    }
+  }
+}

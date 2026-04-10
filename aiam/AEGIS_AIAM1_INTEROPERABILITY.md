@@ -9,9 +9,9 @@
 
 ## 1. Purpose
 
-This chapter defines how AIAM-1 identity claims, intent claims, and attestation records interoperate with existing identity and access management standards. AIAM-1 is designed to complement, not replace, existing IAM infrastructure. Organizations deploying AIAM-1 will have OAuth 2.1 authorization servers, OIDC identity providers, SCIM provisioning systems, and SAML federation already in place. AIAM-1 must integrate with these systems without requiring them to natively understand AIAM-1 primitives.
+**AIAM-1 adds to existing IAM; it does not subtract from it.**
 
-The core design principle: **AIAM-1 adds to existing IAM; it does not subtract from it.** An AIAM-1 agent authenticates using standard OAuth 2.1 flows. It presents standard JWT tokens to resource servers. It is provisioned through standard SCIM workflows. AIAM-1 adds the composite identity, intent, and IBAC layers on top of these standard mechanisms.
+This chapter defines how AIAM-1 identity claims, intent claims, and attestation records interoperate with existing identity and access management standards. Organizations deploying AIAM-1 will have OAuth 2.1 authorization servers, OIDC identity providers, SCIM provisioning systems, and SAML federation already in place. AIAM-1 integrates with these systems without requiring them to natively understand AIAM-1 primitives. An AIAM-1 agent authenticates using standard OAuth 2.1 flows. It presents standard JWT tokens to resource servers. It is provisioned through standard SCIM workflows. AIAM-1 adds the composite identity, intent, and IBAC layers on top of these standard mechanisms — it does not replace, modify, or constrain the mechanisms already in place.
 
 ---
 
@@ -68,6 +68,8 @@ The core design principle: **AIAM-1 adds to existing IAM; it does not subtract f
 ### 2.3 Scope Mapping
 
 **AIAM1-IOP-010.** AIAM-1 capabilities SHOULD map to OAuth 2.1 scopes for compatibility with existing authorization infrastructure.
+
+**AIAM1-IOP-011.** When OAuth 2.1 scopes and AIAM-1 capability grants conflict, the AIAM-1 capability registry is authoritative. An agent whose OAuth token includes a scope not reflected in its AIAM-1 capability grants MUST NOT be permitted to exercise that scope. OAuth scopes are a first-pass filter at the resource server level; IBAC evaluation at the governance gateway is the final authority.
 
 | AIAM-1 Capability | OAuth Scope | Notes |
 |---|---|---|

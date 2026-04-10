@@ -2,11 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aegis-initiative.com/schemas/aiam/identity_claim.schema.json",
   "title": "AIAM-1 Identity Claim",
-  "description": "Composite identity claim for an AI agent, comprising model provenance, orchestration layer, goal context, and principal.",
+  "description": "Composite identity claim for an AI agent, comprising model provenance, orchestration layer, goal context, and principal. Identity claims are independently signed (ID-050) — unlike intent claims, which are signed only as part of attestation records.",
   "type": "object",
   "required": [
+    "spec_version",
     "claim_id",
-    "claim_version",
     "issued_at",
     "expires_at",
     "issuer",
@@ -18,34 +18,30 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "claim_id": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Unique identifier for this identity claim"
+    "spec_version": {
+      "$ref": "common.schema.json#/$defs/spec_version",
+      "description": "AIAM-1 specification version this identity claim was authored against."
     },
-    "claim_version": {
-      "type": "string",
-      "description": "Version of the claim schema"
+    "claim_id": {
+      "$ref": "common.schema.json#/$defs/claim_id",
+      "description": "Unique identifier for this identity claim."
     },
     "issued_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Timestamp of claim issuance (RFC 3339)"
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Timestamp of claim issuance."
     },
     "expires_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Timestamp of claim expiration (RFC 3339)"
+      "$ref": "common.schema.json#/$defs/timestamp",
+      "description": "Timestamp of claim expiration. Claims without explicit expiration MUST NOT be accepted (ID-051)."
     },
     "issuer": {
       "type": "string",
-      "minLength": 1,
-      "description": "URN of the issuing authority"
+      "pattern": "^urn:aegis:issuer:[a-z0-9][a-z0-9._-]{2,63}$",
+      "description": "URN of the issuing authority."
     },
     "signature": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Cryptographic signature of the issuing authority over the claim contents"
+      "$ref": "common.schema.json#/$defs/crypto_signature",
+      "description": "Cryptographic signature of the issuing authority over the claim contents."
     },
     "model_provenance": {
       "type": "object",
@@ -54,56 +50,71 @@
       "properties": {
         "model_family": {
           "type": "string",
-          "minLength": 1,
-          "description": "Model family identifier (e.g., claude, gpt, llama)"
+          "pattern": "^[a-z][a-z0-9-]{1,31}$",
+          "description": "Model family identifier (e.g., 'claude', 'gpt', 'llama')."
         },
         "model_version": {
           "type": "string",
           "minLength": 1,
-          "description": "Specific model version or checkpoint identifier"
+          "maxLength": 64,
+          "description": "Specific model version or checkpoint identifier."
         },
         "model_attestation": {
           "type": "string",
-          "minLength": 1,
-          "description": "Cryptographic hash of model artifact or signed provider attestation"
+          "minLength": 10,
+          "description": "Cryptographic hash of model artifact (sha256:...) or signed provider attestation. MUST be verifiable without access to model weights (ID-011)."
         },
         "provider": {
           "type": "string",
-          "description": "Organization that produced or hosts the model"
+          "minLength": 2,
+          "maxLength": 64,
+          "description": "Organization that produced or hosts the model."
         },
         "fine_tuning_id": {
           "type": "string",
-          "description": "Identifier for fine-tuning applied on top of base model"
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Identifier for fine-tuning applied on top of base model."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       }
     },
     "orchestration": {
       "type": "object",
-      "required": ["runtime", "framework", "framework_version"],
+      "required": ["runtime", "framework", "framework_version", "harness_hash"],
       "additionalProperties": false,
       "properties": {
         "runtime": {
           "type": "string",
-          "minLength": 1,
-          "description": "Runtime environment identifier (e.g., python-3.13, node-22)"
+          "pattern": "^[a-z][a-z0-9]*-[0-9][a-z0-9._-]*$",
+          "description": "Runtime environment identifier (e.g., 'python-3.13', 'node-22.1')."
         },
         "framework": {
           "type": "string",
-          "minLength": 1,
-          "description": "Agent framework identifier (e.g., langchain-0.3, aegis-core)"
+          "minLength": 2,
+          "maxLength": 64,
+          "description": "Agent framework identifier (e.g., 'langchain-0.3', 'aegis-core', 'claude-code-1.0')."
         },
         "framework_version": {
           "type": "string",
           "minLength": 1,
-          "description": "Specific version of the agent framework"
+          "maxLength": 32,
+          "description": "Specific version of the agent framework."
         },
         "harness_hash": {
-          "type": "string",
-          "description": "Cryptographic hash of agent harness configuration"
+          "$ref": "common.schema.json#/$defs/hash_value",
+          "description": "Cryptographic hash of the agent harness configuration (system prompts, tool definitions, memory configuration). MUST — any change to harness_hash triggers identity claim reissuance (ID-021)."
         },
         "deployment_id": {
           "type": "string",
-          "description": "Unique identifier for this deployment instance"
+          "minLength": 3,
+          "maxLength": 128,
+          "description": "Unique identifier for this deployment instance. MUST for replicated deployments (ID-022); SHOULD for single-instance."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       }
     },
@@ -113,28 +124,30 @@
       "additionalProperties": false,
       "properties": {
         "goal_id": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Unique identifier for this goal context"
+          "$ref": "common.schema.json#/$defs/goal_id",
+          "description": "Unique identifier for this goal context. Referenced by intent claims via goal_ref."
         },
         "purpose": {
           "type": "string",
-          "minLength": 1,
-          "description": "Structured statement of the purpose for which the agent was instantiated"
+          "minLength": 20,
+          "description": "Structured statement of the purpose for which the agent was instantiated. Minimum 20 characters."
         },
         "scope": {
           "type": "string",
-          "minLength": 1,
-          "description": "Operational boundaries: what the agent is authorized to work on"
+          "minLength": 20,
+          "description": "Operational boundaries: what the agent is authorized to work on. Minimum 20 characters — scopes under 20 characters or lacking resource/action qualifiers are candidates for rejection during conformance assessment (ID-031)."
         },
         "constraints": {
           "type": "string",
-          "description": "Explicit restrictions on agent behavior within this goal context"
+          "minLength": 10,
+          "description": "Explicit restrictions on agent behavior within this goal context."
         },
         "expiry": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Time at which this goal context expires (RFC 3339)"
+          "$ref": "common.schema.json#/$defs/timestamp",
+          "description": "Time at which this goal context expires."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       }
     },
@@ -144,28 +157,39 @@
       "additionalProperties": false,
       "properties": {
         "principal_id": {
-          "type": "string",
-          "minLength": 1,
-          "description": "Unique identifier for the principal"
+          "$ref": "common.schema.json#/$defs/principal_id",
+          "description": "Unique identifier for the principal."
         },
         "principal_type": {
           "type": "string",
           "enum": ["individual", "organization", "legal_entity"],
-          "description": "Type of principal"
+          "description": "Type of principal."
         },
         "principal_name": {
           "type": "string",
-          "description": "Human-readable name of the principal"
+          "minLength": 2,
+          "maxLength": 256,
+          "description": "Human-readable name of the principal."
         },
         "contact": {
           "type": "string",
-          "description": "Contact information for the accountable party"
+          "minLength": 5,
+          "description": "Contact information for the accountable party."
         },
         "jurisdiction": {
           "type": "string",
-          "description": "Legal jurisdiction under which the principal operates"
+          "minLength": 2,
+          "maxLength": 16,
+          "description": "Legal jurisdiction under which the principal operates (e.g., 'US-VA', 'EU', 'GB')."
+        },
+        "extensions": {
+          "$ref": "common.schema.json#/$defs/extensions"
         }
       }
+    },
+    "extensions": {
+      "$ref": "common.schema.json#/$defs/extensions",
+      "description": "Top-level vendor-specific or implementation-specific identity metadata."
     }
   }
 }

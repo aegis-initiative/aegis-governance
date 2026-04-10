@@ -127,6 +127,27 @@ AIAM-1 identifies seven threat classes. For each threat class, this chapter spec
 
 ---
 
+### 2.8 TC-8: Cross-Authority Composition
+
+**Description.** A sub-agent combines delegated authority from principal A with independent authority granted under principal B to produce an effect that neither principal alone authorized. This is the delegated/independent authority seam (see [DELEGATION §5.1](AEGIS_AIAM1_DELEGATION.md#51-authority-source-composition)) elevated to a first-class threat. Unlike TC-2 (capability composition), which concerns sequences of capabilities under a single authority source, TC-8 concerns the mixing of authority sources themselves.
+
+**Example.** Agent X holds:
+- Delegated capability `patient.query` from Hospital A's EHR system (principal: Hospital A)
+- Independent capability `analytics.export` granted by Research Institute B (principal: Research Institute B)
+
+Composed: query patient records under Hospital A's authority, export results under Research Institute B's authority. Neither principal authorized the cross-boundary data flow. Hospital A authorized the query. Research Institute B authorized the export. The composition creates a HIPAA violation that neither governance domain anticipated.
+
+**AIAM-1 Defenses.**
+- Composition governance extended to authority sources (AIAM1-AUTH-024): actions drawing on mixed delegated and independent authority are evaluated as composed actions under AIAM1-CAP-010.
+- Principal chain preservation (AIAM1-DEL-004): the attestation record shows both authority sources.
+- IBAC policies can match on principal chain composition — deny or escalate actions where the principal chain contains multiple distinct accountable parties.
+
+**Residual Risk.** MEDIUM. Detection depends on policy authors anticipating cross-authority compositions. Novel cross-authority paths not covered by policy will succeed until discovered. The attestation record ensures forensic reconstruction is possible, but prevention requires explicit composition policies for each authority-source pairing.
+
+**Informative cross-references.** ATX-1 TA007 (Manipulate Multi-Agent Systems), ATM-1 AV-7.1 (Coordinated Low-Risk Abuse).
+
+---
+
 ## 3. Threat-to-Defense Matrix
 
 | Threat Class | Primary AIAM-1 Defense | Secondary Defense | Residual Risk Level |
@@ -138,12 +159,13 @@ AIAM-1 identifies seven threat classes. For each threat class, this chapter spec
 | TC-5: Attestation Forgery | Crypto signing, hash-chaining, append-only | Fail-closed audit | LOW — requires signing key compromise |
 | TC-6: Revocation Evasion | Pre-action revocation, kill-switch | Propagation latency guarantee, cascade | LOW — bounded by propagation latency |
 | TC-7: Visibility Exploitation | Attestation of all actions, behavioral analysis | Intent validation for probes | MEDIUM — slow-drip probing is hard to detect |
+| TC-8: Cross-Authority Composition | Composition governance over authority sources (AUTH-024), principal chain preservation | IBAC policies on multi-principal chains | MEDIUM — depends on policy coverage of authority-source pairings |
 
 ---
 
 ## 4. Normative Requirements
 
-**AIAM1-TM-001.** A conformant implementation MUST explicitly address all seven threat classes defined in this chapter. For each threat class, the implementation MUST identify the mechanisms in this specification that provide defense and MUST document any residual risk not addressed.
+**AIAM1-TM-001.** A conformant implementation MUST explicitly address all eight threat classes defined in this chapter. For each threat class, the implementation MUST identify the mechanisms in this specification that provide defense and MUST document any residual risk not addressed.
 
 **AIAM1-TM-002.** A conformant implementation SHOULD align its threat model documentation with ATX-1 where applicable. ATX-1 cross-references in this chapter are informative; conformance to AIAM-1 does not require adoption of ATX-1.
 

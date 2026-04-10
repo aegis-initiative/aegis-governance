@@ -126,8 +126,21 @@ agent:soc-forensics receives:
 | `scope_narrowing` | How the delegated capabilities are further constrained | MUST |
 | `purpose` | Why this delegation is necessary | MUST |
 | `expires_at` | When the delegation expires (must not exceed delegator's grant expiry) | MUST |
+| `cascade_on_revocation` | Whether revocation of the delegator's authority cascades to this delegation. Default: `true`. | MUST |
 
-### 3.4 Cross-Organization Delegation
+### 3.4 Delegation Revocation Cascade
+
+**AIAM1-DEL-024.** Revocation of a delegating agent's authority MUST, by default, cascade to all downstream delegations derived from that authority. This is the safety default: when a source of authority is revoked, all authority derived from it is revoked.
+
+**AIAM1-DEL-025.** A delegation record MAY set `cascade_on_revocation: false` to opt out of automatic cascade for that specific delegation. This opt-out MUST be:
+- Declared at delegation time (not retroactively).
+- Documented in the delegation's attestation record.
+- Justified in the `purpose` field of the delegation record.
+- Subject to IBAC policy evaluation — policies MAY deny delegations that disable cascade.
+
+> **Rationale:** Mandatory cascade with explicit opt-out is the correct safety posture. The default protects against orphaned delegation chains (§5.4). The opt-out exists for legitimate operational scenarios — e.g., a sub-agent with independent operational continuity requirements that should survive its delegator's revocation. But the opt-out is visible, attested, and governable. An organization that prohibits cascade opt-out can enforce that prohibition through IBAC policy.
+
+### 3.5 Cross-Organization Delegation
 
 **AIAM1-DEL-030.** When an agent delegates to an agent owned by a different organization, the principal chain crosses an organizational boundary. Cross-organization delegation introduces unique governance challenges:
 
@@ -242,23 +255,52 @@ Six months later, if an auditor asks "who authorized this DNS log query?", the c
 
 ## 5. Security Considerations
 
-### 5.1 Authority Laundering
+### 5.1 Authority Source Composition
 
-An agent might attempt to widen its authority by delegating to a sub-agent with broader independent grants, then requesting the sub-agent perform the action the parent couldn't. Mitigations:
+A sub-agent with narrow delegated authority and broad independent authority is the most important failure mode in delegation governance. The sub-agent's delegated capabilities are tightly scoped by monotonic narrowing, but its independently granted capabilities may be far broader. When the sub-agent combines the two, it can produce effects that neither authority source individually authorized — and that the delegating agent never anticipated.
+
+**Worked example:**
+
+```
+Agent: agent:soc-coordinator
+  Delegated to: agent:soc-forensics
+  Delegated capability: telemetry.query (narrowed to host 10.0.5.42)
+
+agent:soc-forensics also holds independently:
+  Independent capability: network.send (granted directly, scoped to internal services)
+```
+
+The forensics agent can:
+1. Query telemetry for host 10.0.5.42 (delegated, narrow, legitimate)
+2. Send data to internal services (independent, broad, legitimate)
+
+Composed: query telemetry for 10.0.5.42, then send the results to an internal service that forwards externally. Neither action alone violates its grant. The composition creates a data leakage path the coordinator never authorized and may not know exists.
+
+**Mitigations:**
+- AIAM1-AUTH-024 requires that actions drawing on mixed delegated and independent authority be evaluated as composed actions under AIAM1-CAP-010.
+- The attestation record preserves the full principal chain, making the authority source composition visible to auditors.
+- IBAC policies can match on intent dependency chains to detect when a delegated action feeds into an independently authorized action.
+
+This is not a theoretical risk. Agents of Chaos Case Study #10 (Agent Corruption) demonstrated implicit authority composition when an agent combined externally injected governance rules with its existing operational capabilities.
+
+### 5.2 Authority Laundering
+
+An agent might attempt to widen its authority by delegating to a sub-agent with broader independent grants, then requesting the sub-agent perform the action the parent couldn't. This is a specific case of authority source composition (§5.1) where the delegation is intentionally structured to exploit the sub-agent's independent grants. Mitigations:
 - The attestation record preserves the full chain, making laundering visible.
 - IBAC policies can deny actions where the intent chain traces back to an agent without the relevant authority.
+- AIAM1-AUTH-024 ensures the composed effect is evaluated, not just the individual actions.
 
-### 5.2 Delegation Bombing
+### 5.3 Delegation Bombing
 
 An agent might rapidly instantiate many sub-agents to overwhelm governance evaluation. Mitigations:
 - Sub-agent instantiation is a governed action (AIAM1-DEL-022) subject to rate limits.
 - Maximum chain depth (AIAM1-DEL-020) bounds the recursion.
 
-### 5.3 Orphaned Delegation Chains
+### 5.4 Orphaned Delegation Chains
 
 If a delegating agent is revoked or terminated, its sub-agents may continue operating with delegated authority from a now-invalid source. Mitigations:
 - Delegation grants MUST have explicit expiration (AIAM1-DEL-023).
-- Revocation of a delegating agent SHOULD cascade to all agents holding authority delegated by it (see [REVOCATION](AEGIS_AIAM1_REVOCATION.md)).
+- Revocation of a delegating agent MUST cascade to all downstream delegated authority by default (AIAM1-DEL-024, see below and [REVOCATION](AEGIS_AIAM1_REVOCATION.md)).
 
 ---
 
@@ -268,7 +310,7 @@ If a delegating agent is revoked or terminated, its sub-agents may continue oper
 
 2. **Dynamic delegation.** The current model assumes delegation is established before the sub-agent acts. Some agent architectures delegate dynamically mid-task. Whether dynamic delegation requires different governance primitives is deferred to v0.2.
 
-3. **Delegation revocation cascading.** Should revocation of a delegating agent automatically revoke all downstream delegations? The current specification recommends this (§5.3) but does not mandate it. The tradeoffs (safety vs. operational continuity) require further analysis.
+3. **Delegation revocation cascading** — *resolved in v0.1.* Cascade is mandatory by default (AIAM1-DEL-024). See below.
 
 ---
 
