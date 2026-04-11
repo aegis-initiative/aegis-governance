@@ -143,6 +143,21 @@ AIAM-1 adoption is opt-in. The specification enriches AGP-1 when present but doe
 
 ---
 
+## Implementation Notes
+
+Implementation guidance is provided in the [AIAM-1 Specification Suite](../aiam/AEGIS_AIAM1_INDEX.md). Reference
+implementation is deferred to the aegis-core runtime roadmap.
+
+---
+
+## Success Criteria
+
+1. Identity claims are verifiable at the governance gateway without external round-trips.
+2. Intent-Bound Access Control decisions complete within the AGP-1 SLO budget.
+3. Principal chain delegation is auditable end-to-end through the governance event log.
+
+---
+
 ## References
 
 - [AIAM-1 Specification Suite](../aiam/AEGIS_AIAM1_INDEX.md)

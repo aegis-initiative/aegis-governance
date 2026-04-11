@@ -252,7 +252,17 @@
     "underclaiming",
     "Overclaimed",
     "Solana",
-    "permissioned"
+    "permissioned",
+    "AIAM",
+    "aiam",
+    "IBAC",
+    "XACML",
+    "PBAC",
+    "Bertino",
+    "Byun",
+    "Rego",
+    "SACMAT",
+    "granularities"
   ],
   "ignorePaths": [
     "archive/**",
