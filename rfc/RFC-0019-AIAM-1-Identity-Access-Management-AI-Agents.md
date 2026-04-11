@@ -87,7 +87,9 @@ The full AIAM-1 specification is a 12-chapter document suite located at [`aiam/`
 | Threat Model | `AEGIS_AIAM1_THREAT_MODEL.md` | Seven threat classes, ATX-1 cross-references |
 | Conformance | `AEGIS_AIAM1_CONFORMANCE.md` | 80+ requirement checklist |
 
-JSON schemas are located at `aegis-core/schemas/aiam/`:
+JSON schemas for AIAM-1 are currently located at `aegis-core/schemas/aiam/`. Shared cross-repository contracts are
+canonically owned by `aegis/schemas/`; AIAM-specific schemas in this repository should be treated as governance-owned
+extension artifacts until they are promoted into the canonical shared schema set.
 - `identity_claim.schema.json`
 - `intent_claim.schema.json`
 - `attestation_record.schema.json`
@@ -138,6 +140,21 @@ AIAM-1 adoption is opt-in. The specification enriches AGP-1 when present but doe
 4. AIAM-1 identity claim ↔ GFN-1 DID integration binding.
 5. Constrained conformance profiles for edge/IoT deployments.
 6. Reference implementation timeline and target language.
+
+---
+
+## Implementation Notes
+
+Implementation guidance is provided in the [AIAM-1 Specification Suite](../aiam/AEGIS_AIAM1_INDEX.md). Reference
+implementation is deferred to the aegis-core runtime roadmap.
+
+---
+
+## Success Criteria
+
+1. Identity claims are verifiable at the governance gateway without external round-trips.
+2. Intent-Bound Access Control decisions complete within the AGP-1 SLO budget.
+3. Principal chain delegation is auditable end-to-end through the governance event log.
 
 ---
 
