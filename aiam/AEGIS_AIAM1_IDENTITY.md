@@ -289,7 +289,7 @@ An attacker who can forge identity claims can impersonate any agent. Mitigations
 An agent whose model or framework has been updated but whose identity claim has not been reissued operates under a stale identity. Mitigations:
 
 - Model provenance changes MUST trigger reissuance (AIAM1-ID-012).
-- Orchestration layer changes SHOULD trigger reissuance (AIAM1-ID-021).
+- Any change that alters `harness_hash` MUST trigger identity claim reissuance (AIAM1-ID-021).
 - Identity claims MUST have a defined validity period (AIAM1-ID-051).
 
 ### 7.3 Principal Accountability Evasion

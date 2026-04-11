@@ -184,7 +184,8 @@ Acme Corp's SOC coordinator agent identifies a potential data breach. It delegat
     }
   },
   "purpose": "Investigate potential data breach on host 10.0.5.42",
-  "expires_at": "2026-04-11T14:00:00Z"
+  "expires_at": "2026-04-11T14:00:00Z",
+  "cascade_on_revocation": true
 }
 ```
 
@@ -206,7 +207,8 @@ Acme Corp's SOC coordinator agent identifies a potential data breach. It delegat
     }
   },
   "purpose": "Retrieve DNS resolution logs for host 10.0.5.42",
-  "expires_at": "2026-04-10T20:00:00Z"
+  "expires_at": "2026-04-10T20:00:00Z",
+  "cascade_on_revocation": true
 }
 ```
 

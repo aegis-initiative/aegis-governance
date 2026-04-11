@@ -15,7 +15,7 @@ This chapter defines the threat model for AIAM-1 — the specific threats that a
 
 ## 2. Threat Classes
 
-AIAM-1 identifies seven threat classes. For each threat class, this chapter specifies: the threat description, the AIAM-1 primitives that provide defense, the residual risk not addressed by this specification, and informative cross-references to related threat models.
+AIAM-1 identifies eight threat classes. For each threat class, this chapter specifies: the threat description, the AIAM-1 primitives that provide defense, the residual risk not addressed by this specification, and informative cross-references to related threat models.
 
 ### 2.1 TC-1: Intent Spoofing
 

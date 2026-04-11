@@ -59,7 +59,7 @@ AIAM-1 sessions are a **new governance primitive** that extends AGP-1's stateles
 | `goal_ref` | Reference to the goal context for this session | MUST |
 | `started_at` | Session start timestamp | MUST |
 | `expires_at` | Session expiration timestamp | MUST |
-| `max_duration` | Maximum session duration (fallback if `expires_at` is not computed) | SHOULD |
+| `max_duration` | Maximum session duration policy in effect for this session. Informational — `expires_at` is the enforcement surface. | SHOULD |
 | `capability_envelope` | List of capability grant references available in this session | MUST |
 | `principal_chain` | Accountability chain for this session | MUST |
 | `status` | One of: `active`, `completed`, `expired`, `revoked` | MUST |

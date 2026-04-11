@@ -97,6 +97,8 @@ AGP-1 and RFC-0003 define a capability registry with hierarchical dotted identif
 
 **AIAM1-CAP-021.** Constraint violations MUST result in denial of the action. Constraint enforcement MUST NOT be advisory or best-effort.
 
+**AIAM1-CAP-030.** Conformant implementations MUST evaluate capability composition over at least the current session. Evaluation over longer windows (cross-session, historical) is permitted and encouraged. An implementation that evaluates composition over fewer actions than the current session is not conformant.
+
 ---
 
 ## 4. Worked Example: Composition Detection
@@ -150,7 +152,7 @@ Composition governance (§3.2) addresses the case where individually constrained
 
 ## 6. Open Questions
 
-1. **Composition detection scope.** Conformant implementations MUST evaluate composition over at least the current session. Evaluation over longer windows (cross-session, historical) is permitted and encouraged — longer windows catch slow-drip composition attacks that session-scoped evaluation misses, at the cost of increased evaluation overhead. An implementation that evaluates composition over fewer actions than the current session (e.g., "last 3 actions") is not conformant. The tradeoff between detection depth and performance beyond the session floor is implementation-defined.
+1. **Composition detection scope beyond session floor.** The session-minimum floor is normative (AIAM1-CAP-030). The remaining open question is whether longer evaluation windows (cross-session, historical) should be normatively required for specific capability classes or deployment profiles. Longer windows catch slow-drip composition attacks that session-scoped evaluation misses, at the cost of increased evaluation overhead. The tradeoff beyond the session floor is currently implementation-defined; v0.2 may introduce tiered requirements.
 
 2. **Implicit composition.** Some compositions are not sequential but concurrent — an agent that holds `database.read` and `network.send` simultaneously has the *potential* to compose them even if it hasn't yet. Should capability granting itself evaluate composition risk? This is deferred to v0.2.
 

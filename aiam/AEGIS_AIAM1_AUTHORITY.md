@@ -205,7 +205,7 @@ First-match is normative because it is deterministic, auditable (the matching po
 
 **AIAM1-AUTH-013.** A conformant implementation MUST deny by default. Any (identity, action, intent) triple that does not match any explicit authorizing policy MUST be denied. The default-deny baseline is not a policy — it is an architectural property that applies when no policy matches.
 
-**AIAM1-AUTH-014.** When multiple policies match and produce conflicting decisions, the more restrictive decision MUST take precedence. The precedence order is: DENY > ESCALATE > REQUIRE_CONFIRMATION > ALLOW.
+**AIAM1-AUTH-014.** The precedence order for governance decisions is: DENY > ESCALATE > REQUIRE_CONFIRMATION > ALLOW. Under first-match evaluation (normative), this precedence applies when the matching policy's decision conflicts with a prerequisite check (e.g., a capability check produces DENY while the first matching policy would produce ALLOW — DENY prevails). Under most-specific-match evaluation (opt-in extension), this precedence resolves conflicts between multiple matching policies. In all cases, the more restrictive decision MUST take precedence.
 
 ### 3.4 Policy Lifecycle
 
@@ -261,7 +261,7 @@ Agent submits ACTION_PROPOSE + Intent Claim
 │    Evaluate (identity,       │
 │    action, intent) triple    │
 │    against policy set.       │
-│    First/most-specific match │
+│    First match (default)      │
 │    determines decision.      │
 │    No match → DENY.          │
 └──────────┬───────────────────┘

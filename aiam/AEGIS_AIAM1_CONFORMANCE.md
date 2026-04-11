@@ -69,6 +69,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-INT-022 | Intent claims retained for attestation retention period | MUST |
 | AIAM1-INT-030 | Sub-agents produce own intent claims; reference parent via dependency_refs | MUST |
 | AIAM1-INT-031 | Sub-agent intent independently valid against sub-agent's own identity | MUST |
+| AIAM1-INT-050 | Intent claims not reusable across action proposals; reject reused action_ref | MUST NOT reuse |
 
 ### 3.3 Authority / IBAC (AEGIS_AIAM1_AUTHORITY.md)
 
@@ -85,6 +86,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-AUTH-021 | Policy changes produce attestation records | MUST |
 | AIAM1-AUTH-022 | Policies version-controlled; historical state reconstructable | MUST |
 | AIAM1-AUTH-023 | Policy authorship governed; agents cannot modify their own policies | MUST |
+| AIAM1-AUTH-024 | Mixed delegated + independent authority evaluated as composed action (CAP-010) | MUST |
 | AIAM1-AUTH-030 | External trust scores do not override IBAC decisions | MUST NOT |
 
 ### 3.4 Capabilities (AEGIS_AIAM1_CAPABILITIES.md)
@@ -100,6 +102,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-CAP-012 | At least one composition governance mechanism implemented | MUST |
 | AIAM1-CAP-020 | Constraints enforced at every capability exercise | MUST |
 | AIAM1-CAP-021 | Constraint violation → DENY (not advisory) | MUST |
+| AIAM1-CAP-030 | Composition evaluation over at least the current session | MUST |
 
 ### 3.5 Delegation (AEGIS_AIAM1_DELEGATION.md)
 
@@ -114,7 +117,9 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-DEL-020 | Maximum delegation chain depth defined and published | MUST |
 | AIAM1-DEL-021 | Agents at max depth cannot delegate further | MUST |
 | AIAM1-DEL-022 | Sub-agent instantiation is a governed action | MUST |
-| AIAM1-DEL-023 | Delegation records include delegator, delegatee, capabilities, scope, purpose, expiry | MUST |
+| AIAM1-DEL-023 | Delegation records include delegator, delegatee, capabilities, scope, purpose, expiry, cascade_on_revocation | MUST |
+| AIAM1-DEL-024 | Revocation cascade mandatory by default for downstream delegated authority | MUST |
+| AIAM1-DEL-025 | Cascade opt-out (`cascade_on_revocation: false`) permitted with attestation, justification, and policy governance | MAY (with MUST conditions) |
 
 ### 3.6 Sessions (AEGIS_AIAM1_SESSIONS.md)
 
@@ -126,6 +131,8 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-SES-010 | Actions outside active session → unauthorized | MUST |
 | AIAM1-SES-011 | Session terminates on first of: goal completion, time expiry, capability exhaustion, explicit revocation | MUST |
 | AIAM1-SES-012 | Session termination: deny subsequent actions, produce attestation, revoke scoped delegations | MUST |
+| AIAM1-SES-004 | Maximum session duration published; SHOULD NOT exceed 24h without compensating controls | MUST |
+| AIAM1-SES-005 | Sessions not renewable; extension requires new session with new attestation | MUST NOT renew |
 | AIAM1-SES-020 | No silent session escalation | MUST NOT |
 | AIAM1-SES-021 | Exceeding session boundaries requires new session with new authorization | MUST |
 
@@ -142,7 +149,10 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-ATT-020 | Records signed by enforcement layer | MUST |
 | AIAM1-ATT-021 | Signature covers all fields | MUST |
 | AIAM1-ATT-022 | Supports Ed25519, ECDSA P-256, or RSA-2048 | MUST (at least one) |
+| AIAM1-ATT-023 | Algorithm negotiation and key rotation without invalidating historical chains | SHOULD |
 | AIAM1-ATT-030 | Retention policy defined and published | MUST |
+| AIAM1-ATT-031 | Retention minimum 1 year | MUST |
+| AIAM1-ATT-031a | Referenced claims retained for attestation retention period | MUST |
 | AIAM1-ATT-032 | Attestation is primary accountability surface; no substitution with agent logs | MUST NOT substitute |
 | AIAM1-ATT-040 | Attestation failure → DENY action (fail-closed) | MUST |
 
@@ -152,6 +162,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 |---|---|---|
 | AIAM1-REV-001 | Pre-action revocation; revoked = unusable for uncommitted actions | MUST |
 | AIAM1-REV-002 | Propagation latency guarantee defined and published | MUST |
+| AIAM1-REV-002a | Kill-switch propagation MUST NOT exceed 60 seconds | MUST NOT exceed |
 | AIAM1-REV-003 | Propagation measurable and auditable | MUST |
 | AIAM1-REV-010 | Revocation operations governed by IBAC | MUST |
 | AIAM1-REV-011 | Revocation produces attestation records | MUST |
@@ -172,6 +183,8 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-IOP-003 | Token mapping from AIAM-1 claims to JWT claims | MUST |
 | AIAM1-IOP-004 | Custom claims use `aiam_` prefix | MUST |
 | AIAM1-IOP-005 | JWT valid without AIAM-1 claims for non-AIAM resource servers | MUST |
+| AIAM1-IOP-010 | Capabilities SHOULD map to OAuth 2.1 scopes | SHOULD |
+| AIAM1-IOP-011 | OAuth scopes conflicting with AIAM-1 grants: AIAM-1 registry authoritative | MUST NOT exercise unauthorized scope |
 | AIAM1-IOP-050 | Interop mappings do not compromise AIAM-1 primitive integrity | MUST NOT compromise |
 | AIAM1-IOP-051 | Governance gateway is authoritative for IBAC; interop protocols are complementary | MUST |
 

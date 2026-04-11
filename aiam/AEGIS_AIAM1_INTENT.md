@@ -63,6 +63,7 @@ AGP-1 deployments that do not adopt AIAM-1 continue to function without intent c
 | `expected_outcome` | Structured description of the expected result of the action | MUST |
 | `dependency_refs` | References to prior actions this action builds upon (empty if none) | MUST |
 | `timestamp` | Time at which the intent claim was produced | MUST |
+| `action_proposal_timestamp` | Timestamp of the action proposal this intent accompanies, for runtime tolerance checking (INT-003) | MUST |
 | `confidence` | Agent's self-assessed confidence in the action's alignment with the goal [0.0–1.0] | SHOULD |
 
 **AIAM1-INT-003.** Intent claims MUST be produced by the agent at the moment of action, not synthesized after the fact. The `timestamp` field MUST reflect the time of production, and conformant implementations MUST reject intent claims whose timestamps diverge from the action proposal timestamp by more than a configured tolerance window.
@@ -182,7 +183,7 @@ Intent claims are self-reported by the agent. They provide a governance surface 
 
 ### 6.2 Replay and Reuse
 
-Intent claims are bound to specific action proposals via `action_ref` and `timestamp`. An intent claim MUST NOT be reusable across multiple action proposals. Conformant implementations MUST reject intent claims whose `action_ref` has already been used.
+**AIAM1-INT-050.** Intent claims are bound to specific action proposals via `action_ref` and `timestamp`. An intent claim MUST NOT be reusable across multiple action proposals. Conformant implementations MUST reject intent claims whose `action_ref` has already been used.
 
 ### 6.3 Reasoning Summary Sensitivity
 
