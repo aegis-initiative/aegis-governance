@@ -112,10 +112,35 @@ const sectionLabels: Record<string, string> = {
   identity: 'Identity (AIAM-1)',
   federation: 'Federation (GFN-1)',
   rfc: 'RFCs',
+  releases: 'Releases',
 };
 
-const breadcrumbs = [];
-if (sectionLabels[section]) {
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+const breadcrumbs: { label: string; href?: string }[] = [];
+
+if (section === 'releases' && parts.length >= 3) {
+  // Release-notes pages have a /releases/YY/M/[D]/ path. There is no
+  // /releases/YY/ index, so collapse year+month into a flat label.
+  const yy = parts[1];
+  const month = parts[2];
+  const day = parts[3];
+  const year = 2000 + parseInt(yy, 10);
+  const monthIdx = parseInt(month, 10) - 1;
+  const monthName = MONTH_NAMES[monthIdx] ?? month;
+
+  breadcrumbs.push({ label: 'Releases', href: '/releases/' });
+  if (day !== undefined) {
+    // Daily dev-log: AEGIS Governance > Releases > April 12, 2026
+    breadcrumbs.push({ label: entry.data.title });
+  } else {
+    // Monthly: AEGIS Governance > Releases > April 2026
+    breadcrumbs.push({ label: `${monthName} ${year}` });
+  }
+} else if (sectionLabels[section]) {
   if (parts.length === 1 || (parts.length === 2 && parts[1] === 'index')) {
     breadcrumbs.push({ label: sectionLabels[section] });
   } else {
