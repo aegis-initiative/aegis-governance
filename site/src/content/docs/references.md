@@ -3,6 +3,8 @@ title: References
 description: Canonical bibliography for the AEGIS governance framework — all papers cited in specs, RFCs, threat model, and protocol documents.
 ---
 
+<!-- cspell:ignore Bradner Hardt Parecki Sporny Sabadello Saltzer Schroeder Schneider Agbemabiese Shapira Rasthofer Arzt Lovat Bodden Pinisetty Majumdar Arunachalam Kayyidavazhiyil Santikellur Tetragon Leike Amodei Byun Sakimura Lodderstedt Niyato Mitchell Borchert Connelly Gaithersburg Shuhan Josang Boyd Kuo Ukil Roop Baird Panda Pearce Engin Gaurav Heikkonen Chaudhary Woodruff Tapiero -->
+
 # AEGIS References
 
 Canonical bibliography for the AEGIS™ governance framework. All papers cited anywhere in the documentation appear here. Documents cite inline using IEEE footnote style and reference this page for the full entry.

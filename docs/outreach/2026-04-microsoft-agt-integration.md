@@ -1,3 +1,4 @@
+<!-- cspell:ignore VADP -->
 # Outreach: Microsoft Agent Governance Toolkit — Integration Proposal
 
 **Date sent:** Tuesday, 2026-04-14 16:49:10 (local)\
