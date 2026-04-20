@@ -5,7 +5,7 @@ description: "AGP-1 risk scoring — threat quantification within the protocol"
 
 # AEGIS AGP-1 Risk Scoring & Decision Thresholds
 
-**Document**: AGP-1/Risk (AEGIS_AGP1_RISK_SCORING.md)\
+**Document**: AGP-1/Risk (/protocol/risk-scoring/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **References**: AGP-1/Trust, GFN-1/Nodes\
@@ -446,11 +446,11 @@ test_case: "high_risk_production_at_3am"
 
 ### Next Steps
 
-- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Complete decision flows with risk thresholds
-- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Error codes and retry logic
+- [AEGIS_AGP1_INDEX.md](/protocol/) - Complete decision flows with risk thresholds
+- [AEGIS_AGP1_INDEX.md](/protocol/) - Error codes and retry logic
 
 ---
 
 ### References
 
-[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](/references/).

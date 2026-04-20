@@ -5,7 +5,7 @@ description: "AGP-1 message types — proposals, decisions, and audit records"
 
 # AEGIS AGP-1 Message Schemas & Field Specifications
 
-**Document**: AGP-1/Messages (AEGIS_AGP1_MESSAGES.md)\
+**Document**: AGP-1/Messages (/protocol/messages/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
@@ -658,5 +658,5 @@ Action permitted only with explicit user confirmation.
 
 ## Next Steps
 
-- [AEGIS_AGP1_WIRE_FORMAT.md](./AEGIS_AGP1_WIRE_FORMAT.md) - HTTP/2 endpoints, serialization, encoding
-- [AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md) - How to authenticate with bearer tokens and mTLS
+- [AEGIS_AGP1_WIRE_FORMAT.md](/protocol/wire-format/) - HTTP/2 endpoints, serialization, encoding
+- [AEGIS_AGP1_AUTHENTICATION.md](/protocol/authentication/) - How to authenticate with bearer tokens and mTLS

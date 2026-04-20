@@ -5,7 +5,7 @@ description: "AIAM-1 capability binding — identity-scoped capability grants"
 
 # AEGIS AIAM-1: Capability Scoping
 
-**Document**: AIAM-1/Capabilities (AEGIS_AIAM1_CAPABILITIES.md)\
+**Document**: AIAM-1/Capabilities (/identity/capabilities/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -72,7 +72,7 @@ AGP-1 and RFC-0003 define a capability registry with hierarchical dotted identif
 
 ### 3.2 Composition Governance
 
-**AIAM1-CAP-010.** A conformant implementation MUST treat capability composition as a governed operation. Capability composition occurs when an agent executes a sequence of individually authorized capabilities that together produce an effect not achievable by any single capability in the sequence. Composition governance applies to sequences of capabilities and to combinations of delegated and independent authority (see [AUTHORITY §3.4, AIAM1-AUTH-024](AEGIS_AIAM1_AUTHORITY.md#34-policy-lifecycle)).
+**AIAM1-CAP-010.** A conformant implementation MUST treat capability composition as a governed operation. Capability composition occurs when an agent executes a sequence of individually authorized capabilities that together produce an effect not achievable by any single capability in the sequence. Composition governance applies to sequences of capabilities and to combinations of delegated and independent authority (see [AUTHORITY §3.4, AIAM1-AUTH-024](/identity/authority/#34-policy-lifecycle)).
 
 **AIAM1-CAP-011.** Capability authorization MUST NOT be closed under transitivity. An agent authorized to perform capability A and capability B is not, by default, authorized to perform the composition A-then-B. The composition MUST be explicitly authorized as a distinct action or evaluated against IBAC policies as a composed action.
 

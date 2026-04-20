@@ -5,7 +5,7 @@ description: "AIAM-1 conformance — compliance levels and validation criteria"
 
 # AEGIS AIAM-1: Conformance
 
-**Document**: AIAM-1/Conformance (AEGIS_AIAM1_CONFORMANCE.md)\
+**Document**: AIAM-1/Conformance (/identity/conformance/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -37,7 +37,7 @@ These are not specified in v0.1.
 
 The following checklist enumerates all MUST and MUST NOT requirements from the AIAM-1 specification suite. A conformant implementation satisfies all items marked MUST and violates no items marked MUST NOT.
 
-### 3.1 Identity (AEGIS_AIAM1_IDENTITY.md)
+### 3.1 Identity (/identity/identity/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -59,7 +59,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-ID-053 | Revocation within propagation latency guarantee | MUST |
 | AIAM1-ID-054 | Identity lifecycle events produce attestation records | MUST |
 
-### 3.2 Intent (AEGIS_AIAM1_INTENT.md)
+### 3.2 Intent (/identity/intent/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -76,7 +76,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-INT-031 | Sub-agent intent independently valid against sub-agent's own identity | MUST |
 | AIAM1-INT-050 | Intent claims not reusable across action proposals; reject reused action_ref | MUST NOT reuse |
 
-### 3.3 Authority / IBAC (AEGIS_AIAM1_AUTHORITY.md)
+### 3.3 Authority / IBAC (/identity/authority/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -94,7 +94,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-AUTH-024 | Mixed delegated + independent authority evaluated as composed action (CAP-010) | MUST |
 | AIAM1-AUTH-030 | External trust scores do not override IBAC decisions | MUST NOT |
 
-### 3.4 Capabilities (AEGIS_AIAM1_CAPABILITIES.md)
+### 3.4 Capabilities (/identity/capabilities/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -109,7 +109,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-CAP-021 | Constraint violation → DENY (not advisory) | MUST |
 | AIAM1-CAP-030 | Composition evaluation over at least the current session | MUST |
 
-### 3.5 Delegation (AEGIS_AIAM1_DELEGATION.md)
+### 3.5 Delegation (/identity/delegation/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -126,7 +126,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-DEL-024 | Revocation cascade mandatory by default for downstream delegated authority | MUST |
 | AIAM1-DEL-025 | Cascade opt-out (`cascade_on_revocation: false`) permitted with attestation, justification, and policy governance | MAY (with MUST conditions) |
 
-### 3.6 Sessions (AEGIS_AIAM1_SESSIONS.md)
+### 3.6 Sessions (/identity/sessions/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -141,7 +141,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-SES-020 | No silent session escalation | MUST NOT |
 | AIAM1-SES-021 | Exceeding session boundaries requires new session with new authorization | MUST |
 
-### 3.7 Attestation (AEGIS_AIAM1_ATTESTATION.md)
+### 3.7 Attestation (/identity/attestation/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -161,7 +161,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-ATT-032 | Attestation is primary accountability surface; no substitution with agent logs | MUST NOT substitute |
 | AIAM1-ATT-040 | Attestation failure → DENY action (fail-closed) | MUST |
 
-### 3.8 Revocation (AEGIS_AIAM1_REVOCATION.md)
+### 3.8 Revocation (/identity/revocation/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -180,7 +180,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-REV-032 | Independent grants unaffected by upstream revocation | MUST NOT revoke |
 | AIAM1-REV-033 | Cascade propagates to full chain depth | MUST |
 
-### 3.9 Interoperability (AEGIS_AIAM1_INTEROPERABILITY.md)
+### 3.9 Interoperability (/identity/interoperability/)
 
 | ID | Requirement | Type |
 |---|---|---|
@@ -193,7 +193,7 @@ The following checklist enumerates all MUST and MUST NOT requirements from the A
 | AIAM1-IOP-050 | Interop mappings do not compromise AIAM-1 primitive integrity | MUST NOT compromise |
 | AIAM1-IOP-051 | Governance gateway is authoritative for IBAC; interop protocols are complementary | MUST |
 
-### 3.10 Threat Model (AEGIS_AIAM1_THREAT_MODEL.md)
+### 3.10 Threat Model (/identity/threat-model/)
 
 | ID | Requirement | Type |
 |---|---|---|

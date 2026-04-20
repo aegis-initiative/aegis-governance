@@ -5,7 +5,7 @@ description: "AGP-1 trust model — two-layer agent admissibility"
 
 # AEGIS AGP-1 Trust Model & Actor Reputation
 
-**Document**: AGP-1/Trust (AEGIS_AGP1_TRUST_MODEL.md)\
+**Document**: AGP-1/Trust (/protocol/trust-model/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **References**: AGP-1/Risk, GFN-1/Nodes\
@@ -17,7 +17,7 @@ description: "AGP-1 trust model — two-layer agent admissibility"
 
 The AEGIS Trust Model establishes a **capability-based reputation system** for actors (users, services, LLMs) in a federated governance environment. Each actor has a trust score [0.0 - 1.0] that influences:
 
-1. **Decision thresholds** (AEGIS_AGP1_RISK_SCORING.md)
+1. **Decision thresholds** (/protocol/risk-scoring/)
 2. **Escalation requirements** (when human review is needed)
 3. **Monitoring constraints** (how closely the execution is observed)
 4. **Federation participation** (whether signals from this actor are trusted)
@@ -373,20 +373,20 @@ All trust calculations are logged:
 
 ### Next Steps
 
-- [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md) - Policy rules that use trust scores
-- [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md) - Complete risk scoring calculations
-- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](../../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md) - Trust evaluator component
+- [AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/) - Policy rules that use trust scores
+- [AEGIS_AGP1_RISK_SCORING.md](/protocol/risk-scoring/) - Complete risk scoring calculations
+- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](/federation/node-architecture/) - Trust evaluator component
 
 ---
 
 ### References
 
-[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](/references/).
 
-[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>. See [REFERENCES.md](../../REFERENCES.md).
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020. [Online]. Available: <https://www.rfc-editor.org/rfc/rfc8705>. See [REFERENCES.md](/references/).
 
-[^20]: M. Sporny, A. Guy, M. Sabadello, and D. Reed, "Decentralized Identifiers (DIDs) v1.0: Core architecture, data model, and representations," W3C Recommendation, 19 Jul. 2022. [Online]. Available: <https://www.w3.org/TR/2022/REC-did-core-20220719/>. See [REFERENCES.md](../../REFERENCES.md).
+[^20]: M. Sporny, A. Guy, M. Sabadello, and D. Reed, "Decentralized Identifiers (DIDs) v1.0: Core architecture, data model, and representations," W3C Recommendation, 19 Jul. 2022. [Online]. Available: <https://www.w3.org/TR/2022/REC-did-core-20220719/>. See [REFERENCES.md](/references/).
 
-[^25]: S. Rodriguez Garzon et al., "AI Agents with Decentralized Identifiers and Verifiable Credentials," arXiv:2511.02841v2, 2025. [Online]. Available: <https://arxiv.org/abs/2511.02841>. See [REFERENCES.md](../../REFERENCES.md).
+[^25]: S. Rodriguez Garzon et al., "AI Agents with Decentralized Identifiers and Verifiable Credentials," arXiv:2511.02841v2, 2025. [Online]. Available: <https://arxiv.org/abs/2511.02841>. See [REFERENCES.md](/references/).
 
-[^26]: A. Jøsang, R. Ismail, and C. Boyd, "A survey of trust and reputation systems for online service provision," *Decision Support Systems*, vol. 43, no. 2, pp. 618–644, Mar. 2007, doi: 10.1016/j.dss.2005.05.019. See [REFERENCES.md](../../REFERENCES.md).
+[^26]: A. Jøsang, R. Ismail, and C. Boyd, "A survey of trust and reputation systems for online service provision," *Decision Support Systems*, vol. 43, no. 2, pp. 618–644, Mar. 2007, doi: 10.1016/j.dss.2005.05.019. See [REFERENCES.md](/references/).

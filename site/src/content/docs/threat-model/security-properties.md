@@ -5,7 +5,7 @@ description: "ATM-1 security properties — invariants the system must maintain"
 
 # AEGIS ATM-1 Security Properties & Assumptions
 
-**Document**: ATM-1/Properties (AEGIS_ATM1_SECURITY_PROPERTIES.md)\
+**Document**: ATM-1/Properties (/threat-model/security-properties/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **References**: ATM-1/Vectors\
@@ -363,15 +363,15 @@ The AEGIS™ governance architecture maintains the following core security prope
 
 ## Next Steps
 
-- [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Control strategies and mitigations
-- [AEGIS_ATM1_RESIDUAL_RISKS.md](./AEGIS_ATM1_RESIDUAL_RISKS.md) — Residual risks and acceptance
+- [Mitigations](/threat-model/mitigations/) — Control strategies and mitigations
+- [Residual Risks](/threat-model/residual-risks/) — Residual risks and acceptance
 
 ---
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).
 
-[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](/references/).

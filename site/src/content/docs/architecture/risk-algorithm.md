@@ -260,6 +260,6 @@ Regularly audit risk scores for bias across:
 
 ## References
 
-[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](/references/).
 
-[^30]: Z. Engin and N. Hand, "Toward Adaptive Categories: Dimensional Governance for Agentic AI," arXiv:2505.11579v2, 2025. [Online]. Available: <https://arxiv.org/pdf/2505.11579>. See [REFERENCES.md](../../REFERENCES.md).
+[^30]: Z. Engin and N. Hand, "Toward Adaptive Categories: Dimensional Governance for Agentic AI," arXiv:2505.11579v2, 2025. [Online]. Available: <https://arxiv.org/pdf/2505.11579>. See [REFERENCES.md](/references/).

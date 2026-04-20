@@ -5,7 +5,7 @@ description: "AGP-1 wire format — serialization and transport encoding"
 
 # AEGIS AGP-1 Wire Format & Transport Specification
 
-**Document**: AGP-1/Wire (AEGIS_AGP1_WIRE_FORMAT.md)\
+**Document**: AGP-1/Wire (/protocol/wire-format/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
@@ -315,5 +315,5 @@ header("X-Signature") = base64url(signature)
 
 ## Next Steps
 
-- [AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md) - OAuth, JWT, mTLS details
-- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Full protocol flows and diagrams
+- [AEGIS_AGP1_AUTHENTICATION.md](/protocol/authentication/) - OAuth, JWT, mTLS details
+- [AEGIS_AGP1_INDEX.md](/protocol/) - Full protocol flows and diagrams

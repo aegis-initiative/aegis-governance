@@ -25,6 +25,22 @@ This directory contains AEGIS™ responses to:
 - **Status**: Submitted for Public Comment and Community Review
 - **Submission Type**: Unsolicited Position Paper
 
+#### Priority-date evidence chain
+
+Independently verifiable timestamps establishing the authorship and submission date of this position paper:
+
+| Artifact | Timestamp (ET) | Verification |
+|---|---|---|
+| First commit of paper (`bf7117d`) | 2026-03-07 11:14:21 | `git log` in this repo |
+| "Publish official NIST AI RMF position statement" (`58f31e7`) | 2026-03-07 12:01:25 | `git log` in this repo |
+| Final pre-submission refinement (`ca36690`) | 2026-03-07 12:13:52 | `git log` in this repo |
+| Public announcement on LinkedIn | 2026-03-07 12:30:34 | [Post](https://www.linkedin.com/feed/update/urn:li:activity:7436100999439732736/) — activity ID `7436100999439732736`; timestamp is Snowflake-encoded in the ID (`id >> 22` = ms since Unix epoch) |
+| Marked final in repo (`e2b4df0`) | 2026-03-13 08:05:28 | `git log` in this repo |
+
+The LinkedIn activity ID is self-authenticating: the millisecond-precision publication timestamp is cryptographically embedded in the URL and cannot be backdated.
+
+For comparison, Anthropic's response to NIST RFI NIST-2025-0035 ("Security Considerations for Artificial Intelligence Agents") is dated **2026-03-09** — 48 hours after the AEGIS submission and the LinkedIn announcement of it.
+
 ## Notes
 
 - The Markdown file is for reference only. The PDF is the authoritative version as submitted to NIST.

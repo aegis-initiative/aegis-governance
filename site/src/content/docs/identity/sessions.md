@@ -5,7 +5,7 @@ description: "AIAM-1 session management — governance-aware session lifecycle"
 
 # AEGIS AIAM-1: Session Semantics
 
-**Document**: AIAM-1/Sessions (AEGIS_AIAM1_SESSIONS.md)\
+**Document**: AIAM-1/Sessions (/identity/sessions/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026

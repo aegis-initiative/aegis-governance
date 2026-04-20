@@ -5,7 +5,7 @@ description: "AIAM-1 revocation — credential and authority withdrawal"
 
 # AEGIS AIAM-1: Revocation and Kill-Switch Semantics
 
-**Document**: AIAM-1/Revocation (AEGIS_AIAM1_REVOCATION.md)\
+**Document**: AIAM-1/Revocation (/identity/revocation/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -123,7 +123,7 @@ Acme Corp's SOC monitoring detects that agent `agent:soc-forensics` has been com
 
 1. `agent:soc-forensics` identity claim is revoked.
 2. All sessions held by `agent:soc-forensics` are terminated.
-3. All delegations from `agent:soc-forensics` are revoked — including `agent:dns-log-reader`'s delegated `telemetry.query` capability (cascade from [DELEGATION §4](AEGIS_AIAM1_DELEGATION.md#4-worked-example-multi-agent-delegation)).
+3. All delegations from `agent:soc-forensics` are revoked — including `agent:dns-log-reader`'s delegated `telemetry.query` capability (cascade from [DELEGATION §4](/identity/delegation/#4-worked-example-multi-agent-delegation)).
 4. Any in-flight action proposals from `agent:soc-forensics` or `agent:dns-log-reader` (using delegated authority) are denied.
 5. `agent:dns-log-reader`'s independent capability grants (if any) remain active.
 

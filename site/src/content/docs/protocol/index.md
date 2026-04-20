@@ -5,7 +5,7 @@ description: "AGP-1 specification suite index — the AEGIS governance protocol"
 
 # AEGIS AGP-1 Complete Specification Suite & Index
 
-**Document**: AGP-1/Index (AEGIS_AGP1_INDEX.md)\
+**Document**: AGP-1/Index (/protocol/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
@@ -40,13 +40,13 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Core Protocol (Read in this order)
 
-1. **[AEGIS_AGP1_OVERVIEW.md](./AEGIS_AGP1_OVERVIEW.md)** - Protocol overview, principles, and design rationale
+1. **[AEGIS_AGP1_OVERVIEW.md](/protocol/overview/)** - Protocol overview, principles, and design rationale
    - Purpose and scope
    - Core principles (determinism, default-deny, attribution, auditable)
    - Message categories
    - Integration with RFCs and federation
 
-2. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Complete message schemas and field specifications
+2. **[AEGIS_AGP1_MESSAGES.md](/protocol/messages/)** - Complete message schemas and field specifications
    - ACTION_PROPOSE schema with 15+ fields
    - DECISION_RESPONSE schema with decision outcomes
    - EXECUTION_REPORT for outcome tracking
@@ -54,21 +54,21 @@ This specification suite consists of **9 modular documents** organized by domain
    - AUDIT_QUERY for evidence retrieval
    - HEALTH_CHECK for connectivity testing
 
-3. **[AEGIS_AGP1_WIRE_FORMAT.md](./AEGIS_AGP1_WIRE_FORMAT.md)** - Transport, serialization, and encoding
+3. **[AEGIS_AGP1_WIRE_FORMAT.md](/protocol/wire-format/)** - Transport, serialization, and encoding
    - HTTP/1.1 and HTTP/2 endpoints and methods
    - Protocol Buffers alternative format
    - Request/response envelopes
    - Content encoding (JSON, gzip, protobuf)
    - Header specifications
 
-4. **[AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)** - Protocol flows, diagrams, and state machines
+4. **[AEGIS_AGP1_INDEX.md](/protocol/)** - Protocol flows, diagrams, and state machines
    - Happy path (allow decision)
    - Escalation flow (human review)
    - Comprehensive decision tree
    - Complete state machine with all paths
    - Justification for flow design
 
-5. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - Authentication and authorization
+5. **[AEGIS_AGP1_AUTHENTICATION.md](/protocol/authentication/)** - Authentication and authorization
    - Bearer tokens with JWT claims
    - Mutual TLS (mTLS) certificate validation
    - API key authentication (deprecated)
@@ -77,14 +77,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Decision Logic (Critical for evaluation)
 
-1. **[AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)** - Capability registry and policy evaluation
+1. **[AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/)** - Capability registry and policy evaluation
    - Integration with RFC-0003 Capability Registry
    - Policy language specification with examples
    - Capability inheritance and composition
    - Conflict resolution (precedence rules)
    - Deterministic evaluation algorithm
 
-2. **[AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)** - Risk assessment and decision logic
+2. **[AEGIS_AGP1_RISK_SCORING.md](/protocol/risk-scoring/)** - Risk assessment and decision logic
    - 5-factor risk scoring model with weights
    - Historical attempt rate calculations
    - Actor reputation/trust integration
@@ -96,14 +96,14 @@ This specification suite consists of **9 modular documents** organized by domain
 
 ### Operational Specifications
 
-1. **[AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)** - Error handling and recovery
+1. **[AEGIS_AGP1_INDEX.md](/protocol/)** - Error handling and recovery
    - Error response envelope format
    - 15 error codes with HTTP mappings
    - Retryable vs. non-retryable errors
    - Exponential backoff strategies
    - Timeout and deadline handling
 
-2. **[AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)** - Deployment, configuration, and operations
+2. **[AEGIS_AGP1_INDEX.md](/protocol/)** - Deployment, configuration, and operations
    - Deployment topologies (single-instance, HA, authority nodes)
    - Performance requirements and SLOs
    - Kubernetes and Docker examples
@@ -240,21 +240,21 @@ A client implementation MUST:
 
 ### AEGIS Core Specifications
 
-- [RFC-0001: AEGIS Architecture](../../rfc/RFC-0001-AEGIS-Architecture.md)
-- [RFC-0002: Governance Runtime](../../rfc/RFC-0002-Governance-Runtime.md)
-- [RFC-0003: Capability Registry](../../rfc/RFC-0003-Capability-Registry.md)
-- [RFC-0004: Governance Event Model](../../rfc/RFC-0004-Governance-Event-Model.md)
+- [RFC-0001: AEGIS Architecture](/rfc/0001/)
+- [RFC-0002: Governance Runtime](/rfc/0002/)
+- [RFC-0003: Capability Registry](/rfc/0003/)
+- [RFC-0004: Governance Event Model](/rfc/0004/)
 
 ### Federation Specifications
 
-- [AEGIS Node Reference Architecture](../../federation/AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md)
-- [AEGIS Trust Model](../../federation/AEGIS_GFN1_TRUST_MODEL.md)
-- [Federation README with Reading Order](../../federation/README.md)
+- [AEGIS Node Reference Architecture](/federation/node-architecture/)
+- [AEGIS Trust Model](/federation/trust-model/)
+- [Federation README with Reading Order](/federation/)
 
 ### Supporting Documents
 
 - [AEGIS Constitution](https://aegis-constitution.com) - Governance principles
-- [AEGIS Threat Model](../../aegis-core/threat-model/AEGIS_ATM1_INDEX.md) - Security analysis
+- [AEGIS Threat Model](/threat-model/) - Security analysis
 
 ---
 
@@ -262,32 +262,32 @@ A client implementation MUST:
 
 ### For Implementers (Building AGP-1 Servers)
 
-1. Start with [AEGIS_AGP1_OVERVIEW.md](./AEGIS_AGP1_OVERVIEW.md) to understand principles
-2. Review [AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md) for exact schemas
-3. Implement message parsing and validation per [AEGIS_AGP1_WIRE_FORMAT.md](./AEGIS_AGP1_WIRE_FORMAT.md)
-4. Integrate policy evaluation per [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)
-5. Implement risk scoring per [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)
-6. Add error handling per [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)
-7. Deploy per [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)
+1. Start with [AEGIS_AGP1_OVERVIEW.md](/protocol/overview/) to understand principles
+2. Review [AEGIS_AGP1_MESSAGES.md](/protocol/messages/) for exact schemas
+3. Implement message parsing and validation per [AEGIS_AGP1_WIRE_FORMAT.md](/protocol/wire-format/)
+4. Integrate policy evaluation per [AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/)
+5. Implement risk scoring per [AEGIS_AGP1_RISK_SCORING.md](/protocol/risk-scoring/)
+6. Add error handling per [AEGIS_AGP1_INDEX.md](/protocol/)
+7. Deploy per [AEGIS_AGP1_INDEX.md](/protocol/)
 
 ### For Client Developers (Calling AGP-1 Runtimes)
 
-1. Review [AEGIS_AGP1_OVERVIEW.md](./AEGIS_AGP1_OVERVIEW.md) for protocol overview
-2. Learn message structure from [AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)
-3. Implement authentication per [AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)
-4. Handle all decision outcomes from [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)
-5. Implement error handling from [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)
+1. Review [AEGIS_AGP1_OVERVIEW.md](/protocol/overview/) for protocol overview
+2. Learn message structure from [AEGIS_AGP1_MESSAGES.md](/protocol/messages/)
+3. Implement authentication per [AEGIS_AGP1_AUTHENTICATION.md](/protocol/authentication/)
+4. Handle all decision outcomes from [AEGIS_AGP1_INDEX.md](/protocol/)
+5. Implement error handling from [AEGIS_AGP1_INDEX.md](/protocol/)
 
 ### For Policy Authors
 
-1. Review policy evaluation in [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md)
+1. Review policy evaluation in [AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/)
 2. Study policy language syntax and examples
 3. Understand capability resolution and inheritance
 4. Review conflict resolution rules for ordering policies
 
 ### For Risk Analysts
 
-1. Review risk scoring in [AEGIS_AGP1_RISK_SCORING.md](./AEGIS_AGP1_RISK_SCORING.md)
+1. Review risk scoring in [AEGIS_AGP1_RISK_SCORING.md](/protocol/risk-scoring/)
 2. Understand 5-factor risk model and weights
 3. Review risk-based decision thresholds
 4. Analyze confidence score calculations
@@ -311,6 +311,6 @@ All AEGIS governance specifications are published under the AEGIS Governance fra
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).

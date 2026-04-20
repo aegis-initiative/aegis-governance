@@ -5,7 +5,7 @@ description: "AGP-1 authentication — identity verification and binding"
 
 # AEGIS AGP-1 Authentication & Authorization
 
-**Document**: AGP-1/Auth (AEGIS_AGP1_AUTHENTICATION.md)\
+**Document**: AGP-1/Auth (/protocol/authentication/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
@@ -404,11 +404,11 @@ If token must be revoked before expiration (compromise):
 
 ### Next Steps
 
-- [AEGIS_AGP1_POLICY_EVALUATION.md](./AEGIS_AGP1_POLICY_EVALUATION.md) - Capability and policy evaluation
-- [AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md) - Complete protocol flows
+- [AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/) - Capability and policy evaluation
+- [AEGIS_AGP1_INDEX.md](/protocol/) - Complete protocol flows
 
 ---
 
 ### References
 
-[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. See [REFERENCES.md](../../REFERENCES.md).
+[^18]: B. Campbell, J. Bradley, N. Sakimura, and T. Lodderstedt, "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens," RFC 8705, Internet Engineering Task Force, Feb. 2020, doi: 10.17487/RFC8705. See [REFERENCES.md](/references/).

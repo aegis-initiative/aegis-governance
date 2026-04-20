@@ -9,7 +9,6 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ## 2026
 
-
 ### [April](/releases/26/4/)
 
 - [v26.4.13](/releases/26/4/#release--v26413) — Improved navigation consistency and fixed breadcrumb display issues

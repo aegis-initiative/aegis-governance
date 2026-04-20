@@ -5,7 +5,7 @@ description: "AIAM-1 identity model — composite agent identity and principal c
 
 # AEGIS AIAM-1: Identity
 
-**Document**: AIAM-1/Identity (AEGIS_AIAM1_IDENTITY.md)\
+**Document**: AIAM-1/Identity (/identity/identity/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -125,7 +125,7 @@ AIAM-1's four dimensions answer all four questions. Each is independently verifi
 
 > **Conformance note:** Conformance assessment of goal context specificity is a subjective judgment. Third-party assessors SHOULD flag goal contexts whose `scope` field is under 20 characters or lacks resource/action qualifiers as candidates for rejection. The examples above illustrate the expected level of specificity; implementations SHOULD use them as calibration references.
 
-**AIAM1-ID-032.** Goal context is the bridge between identity and intent. Intent claims (see [INTENT](AEGIS_AIAM1_INTENT.md)) are validated against the goal context declared in the identity claim. An action whose intent does not align with the declared goal context is a candidate for denial.
+**AIAM1-ID-032.** Goal context is the bridge between identity and intent. Intent claims (see [INTENT](/identity/intent/)) are validated against the goal context declared in the identity claim. An action whose intent does not align with the declared goal context is a candidate for denial.
 
 ### 3.5 Principal
 
@@ -153,9 +153,9 @@ AIAM-1's four dimensions answer all four questions. Each is independently verifi
 
 **AIAM1-ID-052.** Identity claims MUST be revocable at any time by the issuing authority or by an authorized principal.
 
-**AIAM1-ID-053.** Revocation of an identity claim MUST take effect within the revocation propagation latency guarantee defined by the implementation (see [REVOCATION](AEGIS_AIAM1_REVOCATION.md)).
+**AIAM1-ID-053.** Revocation of an identity claim MUST take effect within the revocation propagation latency guarantee defined by the implementation (see [REVOCATION](/identity/revocation/)).
 
-**AIAM1-ID-054.** Identity claim issuance, renewal, and revocation events MUST produce attestation records (see [ATTESTATION](AEGIS_AIAM1_ATTESTATION.md)).
+**AIAM1-ID-054.** Identity claim issuance, renewal, and revocation events MUST produce attestation records (see [ATTESTATION](/identity/attestation/)).
 
 ---
 

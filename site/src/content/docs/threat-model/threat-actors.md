@@ -5,7 +5,7 @@ description: "ATM-1 threat actors — adversary profiles and motivations"
 
 # AEGIS ATM-1 Threat Actors & Adversary Models
 
-**Document**: ATM-1/Actors (AEGIS_ATM1_THREAT_ACTORS.md)\
+**Document**: ATM-1/Actors (/threat-model/threat-actors/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **References**: ATM-1/Index\
@@ -230,16 +230,16 @@ The compromised internal agent threat model is grounded in two independent resea
 
 ## Next Steps
 
-- [AEGIS_ATM1_ATTACK_VECTORS.md](./AEGIS_ATM1_ATTACK_VECTORS.md) — Detailed attack techniques and scenarios
-- [AEGIS_ATM1_SECURITY_PROPERTIES.md](./AEGIS_ATM1_SECURITY_PROPERTIES.md) — Security assumptions and invariants
-- [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Defense strategies and controls
+- [Attack Vectors](/threat-model/attack-vectors/) — Detailed attack techniques and scenarios
+- [Security Properties](/threat-model/security-properties/) — Security assumptions and invariants
+- [Mitigations](/threat-model/mitigations/) — Defense strategies and controls
 
 ---
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../REFERENCES.md).
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](/references/).
 
-[^19]: OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>. See [REFERENCES.md](../../REFERENCES.md).
+[^19]: OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>. See [REFERENCES.md](/references/).

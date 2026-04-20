@@ -1,0 +1,322 @@
+---
+import { getCollection } from 'astro:content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AegisLogo from '@aegis-initiative/design-system/components/AegisLogo.astro';
+
+// Auto-collect every valid doc route so the fuzzy matcher always reflects current content.
+const docs = await getCollection('docs');
+const routes = docs
+  .filter((d) => !d.data?.sidebar?.hidden)
+  .map((d) => {
+    const slug = d.id.replace(/\.(md|mdx)$/, '').replace(/\/index$/, '');
+    const path = slug ? `/${slug}/` : '/';
+    const label = d.data?.title || slug.replace(/\//g, ' / ');
+    return { path, label };
+  });
+---
+
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found | AEGIS Governance</title>
+    <meta name="description" content="The requested page could not be found." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script is:inline src="https://aegis-initiative.com/shared/aegis-nav.js" defer></script>
+    <script is:inline>
+      document.documentElement.style.setProperty('--aegis-nav-height', '32px');
+    </script>
+
+    <link rel="preload" href="/fonts/ibmplexsans-variablefont_wdthwght-webfont.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/poppins-light-webfont.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('aegis-theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = stored || preferred;
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+
+    <main class="error-page">
+      <div class="error-logo">
+        <AegisLogo size={80} />
+      </div>
+      <h1 class="error-code">404</h1>
+      <p class="error-message">The requested page could not be found.</p>
+      <div class="error-suggestions" id="suggestions" style="display:none;">
+        <p class="suggestions-label">Did you mean:</p>
+        <ul class="suggestions-list" id="suggestions-list"></ul>
+      </div>
+      <div class="error-actions">
+        <a href="/" class="error-link">Return to Home</a>
+        <a href="#" id="report-link" class="error-report">Report this broken link</a>
+      </div>
+      <p class="error-path" id="error-path"></p>
+    </main>
+
+    <div class="error-footer">
+      <Footer />
+    </div>
+
+    <script is:inline define:vars={{ routes }}>
+      (function () {
+        const requested = window.location.pathname;
+
+        // Render the requested path for transparency
+        var pathEl = document.getElementById('error-path');
+        if (pathEl) pathEl.textContent = 'Requested: ' + requested;
+
+        // Fire-and-forget beacon to the 404-reporting endpoint (endpoint TBD — safe no-op if absent)
+        try {
+          var body = JSON.stringify({
+            domain: window.location.host,
+            path: requested,
+            referrer: document.referrer || null,
+            userAgent: navigator.userAgent,
+            timestamp: new Date().toISOString(),
+          });
+          // Use sendBeacon for resilience across page-unload scenarios
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon('https://notify.aegis-initiative.com/404', body);
+          }
+        } catch (_e) { /* swallow — reporting is best-effort */ }
+
+        // Wire up explicit "Report" link as a mailto fallback in case the beacon is blocked
+        var reportLink = document.getElementById('report-link');
+        if (reportLink) {
+          reportLink.href = 'mailto:ken@aegis-initiative.com?subject=Broken%20link%20on%20' + encodeURIComponent(window.location.host) + '&body=' + encodeURIComponent('Requested: ' + requested + '\nReferrer: ' + (document.referrer || '(none)'));
+        }
+
+        // Levenshtein-based fuzzy route suggestions
+        function distance(a, b) {
+          var m = a.length, n = b.length;
+          var d = [];
+          for (var i = 0; i <= m; i++) { d[i] = [i]; }
+          for (var j = 0; j <= n; j++) { d[0][j] = j; }
+          for (var j = 1; j <= n; j++) {
+            for (var i = 1; i <= m; i++) {
+              if (a[i - 1] === b[j - 1]) { d[i][j] = d[i - 1][j - 1]; }
+              else { d[i][j] = Math.min(d[i - 1][j], d[i][j - 1], d[i - 1][j - 1]) + 1; }
+            }
+          }
+          return d[m][n];
+        }
+
+        var current = requested.toLowerCase().replace(/\/+$/, '').replace(/\/+/g, '/');
+        if (!current) return;
+
+        var scored = routes.map(function (r) {
+          var rPath = r.path.replace(/\/+$/, '');
+          var currentTail = current.split('/').pop() || '';
+          var routeTail = rPath.split('/').pop() || '';
+          var contains = rPath.indexOf(currentTail) >= 0 || current.indexOf(routeTail) >= 0;
+          var dist = distance(current, rPath);
+          return { path: r.path, label: r.label, score: contains ? dist * 0.5 : dist };
+        });
+
+        scored.sort(function (a, b) { return a.score - b.score; });
+        var matches = scored.slice(0, 5).filter(function (s) { return s.score < 12; });
+
+        if (matches.length > 0) {
+          var list = document.getElementById('suggestions-list');
+          var container = document.getElementById('suggestions');
+          matches.forEach(function (m) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = m.path;
+            a.textContent = m.label;
+            li.appendChild(a);
+            list.appendChild(li);
+          });
+          container.style.display = 'block';
+        }
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "IBM Plex Sans";
+    src: url("/fonts/ibmplexsans-variablefont_wdthwght-webfont.woff2") format("woff2");
+    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/poppins-light-webfont.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root,
+  [data-theme="light"] {
+    --color-bg: #ffffff;
+    --color-text: #1b1b1b;
+    --color-text-secondary: #454545;
+    --color-text-muted: #5c5c5c;
+    --color-accent: #005ea2;
+    --color-accent-high: #1a4480;
+    --color-border: #c9c9c9;
+    --color-border-subtle: #e6e6e6;
+    --header-bg: #fafafa;
+    --header-border: #777777;
+    --header-text: #707070;
+    --header-text-muted: #707070;
+    --sidebar-bg: #ffffff;
+    --search-modal-bg: rgba(10, 22, 40, 0.5);
+    --search-dialog-bg: #ffffff;
+    --search-border: #d4d4d4;
+    --search-accent: #0062a5;
+    --search-text: #161616;
+    --search-shortcut-bg: #eeeeee;
+  }
+
+  [data-theme="dark"] {
+    --color-bg: #1b1b1b;
+    --color-text: #f0f0f0;
+    --color-text-secondary: #c9c9c9;
+    --color-text-muted: #adadad;
+    --color-accent: #73b3e7;
+    --color-accent-high: #a3cef1;
+    --color-border: #5c5c5c;
+    --color-border-subtle: #2e2e2e;
+    --header-bg: #000000;
+    --header-border: #000000;
+    --header-text: #e8e8e8;
+    --header-text-muted: #999999;
+    --sidebar-bg: #161616;
+    --search-modal-bg: rgba(10, 22, 40, 0.7);
+    --search-dialog-bg: #161616;
+    --search-border: #3a3a3a;
+    --search-accent: #4da6f0;
+    --search-text: #e8e8e8;
+    --search-shortcut-bg: #2a2a2a;
+  }
+
+  .menu-btn { display: none !important; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+
+  body {
+    font-family: "Poppins", system-ui, sans-serif;
+    font-weight: 300;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-accent); text-decoration: underline; }
+  a:hover { color: var(--color-accent-high); }
+</style>
+
+<style>
+  .error-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .error-logo { opacity: 0.3; margin-bottom: 0.5rem; }
+
+  .error-code {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+
+  .error-message { font-size: 1.125rem; color: var(--color-text-secondary); }
+
+  .error-suggestions { margin-top: 0.5rem; }
+
+  .suggestions-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .suggestions-list a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    font-size: 0.9375rem;
+  }
+
+  .suggestions-list a:hover { color: var(--color-accent-high); }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .error-link {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    border-radius: 999px;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background-color 0.15s;
+  }
+
+  .error-link:hover {
+    background-color: var(--color-accent-high);
+    color: #ffffff;
+  }
+
+  .error-report {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: underline;
+  }
+
+  .error-path {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-family: monospace;
+    word-break: break-all;
+    max-width: 640px;
+  }
+
+  .error-footer {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+</style>

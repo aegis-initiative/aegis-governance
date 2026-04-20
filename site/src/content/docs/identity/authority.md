@@ -5,7 +5,7 @@ description: "AIAM-1 authority model — IBAC authorization framework"
 
 # AEGIS AIAM-1: Authority Binding (IBAC)
 
-**Document**: AIAM-1/Authority (AEGIS_AIAM1_AUTHORITY.md)\
+**Document**: AIAM-1/Authority (/identity/authority/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -47,9 +47,9 @@ Authorization Decision = f(Identity, Action, Intent Context)
 
 Where:
 
-- **Identity** is an AIAM-1 composite identity claim (see [IDENTITY](AEGIS_AIAM1_IDENTITY.md)): model provenance, orchestration layer, goal context, and principal.
+- **Identity** is an AIAM-1 composite identity claim (see [IDENTITY](/identity/identity/)): model provenance, orchestration layer, goal context, and principal.
 - **Action** is a structured action proposal: capability identifier, action type, target resource, and parameters.
-- **Intent Context** is an AIAM-1 intent claim (see [INTENT](AEGIS_AIAM1_INTENT.md)): goal reference, reasoning summary, expected outcome, and dependency chain.
+- **Intent Context** is an AIAM-1 intent claim (see [INTENT](/identity/intent/)): goal reference, reasoning summary, expected outcome, and dependency chain.
 
 An authorization decision based on identity and action alone — without intent context — is not IBAC. It may be valid access control, but it is not conformant with AIAM-1.
 
@@ -382,7 +382,7 @@ An incomplete policy set may fail to deny actions that should be denied. The def
 #### 8.2 Intent Pattern Evasion
 
 An attacker who understands the intent patterns in IBAC policies could craft intent claims that match authorizing patterns while pursuing malicious goals. Mitigations:
-- Intent spoofing detection mechanisms (see [INTENT §5](AEGIS_AIAM1_INTENT.md#5-intent-spoofing-detection)).
+- Intent spoofing detection mechanisms (see [INTENT §5](/identity/intent/#5-intent-spoofing-detection)).
 - Action-intent coherence checks that verify parameters are consistent with declared intent.
 - Outcome verification that compares actual results against declared expected outcomes.
 
