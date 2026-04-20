@@ -5,7 +5,7 @@ description: "GFN-1 trust model — federated publisher reputation scoring"
 
 # AEGIS GFN-1 Trust Model & Federated Reputation
 
-**Document**: GFN-1/Trust (AEGIS_GFN1_TRUST_MODEL.md)\
+**Document**: GFN-1/Trust (/federation/trust-model/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Federation Network\
 **Last Updated**: March 15, 2026
@@ -902,8 +902,8 @@ Nodes MUST implement safe defaults:
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).
 
-[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207. See [REFERENCES.md](../REFERENCES.md).
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: https://doi.org/10.6028/NIST.SP.800-207. See [REFERENCES.md](/references/).

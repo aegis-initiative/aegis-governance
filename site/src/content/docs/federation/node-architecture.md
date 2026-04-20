@@ -5,7 +5,7 @@ description: "GFN-1 node reference architecture — federation participant desig
 
 # AEGIS GFN-1 Node Reference Architecture & Deployment
 
-**Document**: GFN-1/Nodes (AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md)\
+**Document**: GFN-1/Nodes (/federation/node-architecture/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Federation Network\
 **Last Updated**: March 6, 2026
@@ -1362,17 +1362,17 @@ Detailed configuration schema document available in accompanying `AEGIS_NODE_CON
 
 ## Related Documents
 
-- [AEGIS_GFN1_TRUST_MODEL.md](./AEGIS_GFN1_TRUST_MODEL.md) - Trust scoring and bootstrap mechanisms
-- [AEGIS_Governance_Event_Model.md](../rfc/RFC-0004-Governance-Event-Model.md) - Event envelope schemas
-- [AEGIS_AGP1_INDEX.md](../aegis-core/protocol/AEGIS_AGP1_INDEX.md) - Wire protocol specification
+- [AEGIS_GFN1_TRUST_MODEL.md](/federation/trust-model/) - Trust scoring and bootstrap mechanisms
+- [AEGIS_Governance_Event_Model.md](/rfc/0004/) - Event envelope schemas
+- [AEGIS_AGP1_INDEX.md](/protocol/) - Wire protocol specification
 - [AEGIS Constitution](https://aegis-constitution.com) - Governance principles
 
 ---
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, Fribourg, Switzerland, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../REFERENCES.md).
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, Fribourg, Switzerland, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](/references/).
 
-[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](../REFERENCES.md).
+[^17]: National Institute of Standards and Technology, *Zero Trust Architecture*, NIST SP 800-207, Aug. 2020. [Online]. Available: <https://doi.org/10.6028/NIST.SP.800-207>. See [REFERENCES.md](/references/).

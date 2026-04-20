@@ -5,7 +5,7 @@ description: "GFN-1 schema — AT Protocol lexicons for governance federation"
 
 # AEGIS GFN-1 Event Schemas & Data Definitions
 
-**Document**: GFN-1/Schema (AEGIS_GFN1_SCHEMA.md)\
+**Document**: GFN-1/Schema (/federation/schema/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Federation Network\
 **Last Updated**: March 6, 2026

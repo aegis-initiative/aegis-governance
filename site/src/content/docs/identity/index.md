@@ -5,7 +5,7 @@ description: "AIAM-1 specification suite — identity and access management for 
 
 # AEGIS AIAM-1 Specification Suite
 
-**Document**: AIAM-1/Index (AEGIS_AIAM1_INDEX.md)\
+**Document**: AIAM-1/Index (/identity/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -35,17 +35,17 @@ Attempting to govern AI agents with existing IAM primitives results in agents th
 
 | Primitive | Purpose | Specification Chapter |
 |---|---|---|
-| **Composite Identity** | Four-dimensional agent identity: model provenance, orchestration layer, goal context, principal | [IDENTITY](AEGIS_AIAM1_IDENTITY.md) |
-| **Intent Claims** | Structured assertions of purpose at the moment of action | [INTENT](AEGIS_AIAM1_INTENT.md) |
-| **Intent-Bound Access Control (IBAC)** | Authorization as a function of (identity, action, intent) | [AUTHORITY](AEGIS_AIAM1_AUTHORITY.md) |
-| **Capability Scoping** | Time-bounded, non-transitive, composition-governed capabilities | [CAPABILITIES](AEGIS_AIAM1_CAPABILITIES.md) |
-| **Delegation & Principal Chains** | Explicit accountability chains with monotonic authority narrowing | [DELEGATION](AEGIS_AIAM1_DELEGATION.md) |
-| **Session Governance** | Sessions as first-class governance boundaries | [SESSIONS](AEGIS_AIAM1_SESSIONS.md) |
-| **Attestation Records** | Action-level tamper-evident proof of governance decisions | [ATTESTATION](AEGIS_AIAM1_ATTESTATION.md) |
-| **Revocation & Kill-Switch** | Pre-action revocation with propagation latency guarantees | [REVOCATION](AEGIS_AIAM1_REVOCATION.md) |
-| **Interoperability** | Mappings to OAuth 2.1, OIDC, SCIM, SAML | [INTEROPERABILITY](AEGIS_AIAM1_INTEROPERABILITY.md) |
-| **Threat Model** | Seven threat classes specific to agent IAM | [THREAT MODEL](AEGIS_AIAM1_THREAT_MODEL.md) |
-| **Conformance** | Requirements checklist and conformance profiles | [CONFORMANCE](AEGIS_AIAM1_CONFORMANCE.md) |
+| **Composite Identity** | Four-dimensional agent identity: model provenance, orchestration layer, goal context, principal | [IDENTITY](/identity/identity/) |
+| **Intent Claims** | Structured assertions of purpose at the moment of action | [INTENT](/identity/intent/) |
+| **Intent-Bound Access Control (IBAC)** | Authorization as a function of (identity, action, intent) | [AUTHORITY](/identity/authority/) |
+| **Capability Scoping** | Time-bounded, non-transitive, composition-governed capabilities | [CAPABILITIES](/identity/capabilities/) |
+| **Delegation & Principal Chains** | Explicit accountability chains with monotonic authority narrowing | [DELEGATION](/identity/delegation/) |
+| **Session Governance** | Sessions as first-class governance boundaries | [SESSIONS](/identity/sessions/) |
+| **Attestation Records** | Action-level tamper-evident proof of governance decisions | [ATTESTATION](/identity/attestation/) |
+| **Revocation & Kill-Switch** | Pre-action revocation with propagation latency guarantees | [REVOCATION](/identity/revocation/) |
+| **Interoperability** | Mappings to OAuth 2.1, OIDC, SCIM, SAML | [INTEROPERABILITY](/identity/interoperability/) |
+| **Threat Model** | Seven threat classes specific to agent IAM | [THREAT MODEL](/identity/threat-model/) |
+| **Conformance** | Requirements checklist and conformance profiles | [CONFORMANCE](/identity/conformance/) |
 
 ### 1.3 Out of Scope
 
@@ -131,18 +131,18 @@ IBAC strictly generalizes prior models: an RBAC policy is an IBAC triple where t
 
 | Document | Status | Description |
 |---|---|---|
-| [AEGIS_AIAM1_INDEX.md](AEGIS_AIAM1_INDEX.md) | Draft | This document. Suite index and overview. |
-| [AEGIS_AIAM1_IDENTITY.md](AEGIS_AIAM1_IDENTITY.md) | Draft | Composite identity model, cryptographic attestation, JSON schema. |
-| [AEGIS_AIAM1_INTENT.md](AEGIS_AIAM1_INTENT.md) | Draft | Intent claims as structured assertions, validation, spoofing detection. |
-| [AEGIS_AIAM1_AUTHORITY.md](AEGIS_AIAM1_AUTHORITY.md) | Draft | Intent-Bound Access Control (IBAC), authority binding triples, policy format. |
-| [AEGIS_AIAM1_CAPABILITIES.md](AEGIS_AIAM1_CAPABILITIES.md) | Draft | Capability scoping, composition governance, non-transitivity, revocation. |
-| [AEGIS_AIAM1_DELEGATION.md](AEGIS_AIAM1_DELEGATION.md) | Draft | Principal chains, monotonic authority narrowing, delegation depth limits. |
-| [AEGIS_AIAM1_SESSIONS.md](AEGIS_AIAM1_SESSIONS.md) | Draft | Session as governance boundary, four-dimensional bounding. |
-| [AEGIS_AIAM1_ATTESTATION.md](AEGIS_AIAM1_ATTESTATION.md) | Draft | Attestation records, tamper-evidence, retention. |
-| [AEGIS_AIAM1_REVOCATION.md](AEGIS_AIAM1_REVOCATION.md) | Draft | Kill-switch, propagation latency, pre-action enforcement. |
-| [AEGIS_AIAM1_INTEROPERABILITY.md](AEGIS_AIAM1_INTEROPERABILITY.md) | Draft | OAuth 2.1, OIDC, SCIM, SAML mappings. |
-| [AEGIS_AIAM1_THREAT_MODEL.md](AEGIS_AIAM1_THREAT_MODEL.md) | Draft | Seven threat classes, ATX-1 cross-references, residual risk. |
-| [AEGIS_AIAM1_CONFORMANCE.md](AEGIS_AIAM1_CONFORMANCE.md) | Draft | Conformance checklist, profiles, conformance statements. |
+| [AEGIS_AIAM1_INDEX.md](/identity/) | Draft | This document. Suite index and overview. |
+| [AEGIS_AIAM1_IDENTITY.md](/identity/identity/) | Draft | Composite identity model, cryptographic attestation, JSON schema. |
+| [AEGIS_AIAM1_INTENT.md](/identity/intent/) | Draft | Intent claims as structured assertions, validation, spoofing detection. |
+| [AEGIS_AIAM1_AUTHORITY.md](/identity/authority/) | Draft | Intent-Bound Access Control (IBAC), authority binding triples, policy format. |
+| [AEGIS_AIAM1_CAPABILITIES.md](/identity/capabilities/) | Draft | Capability scoping, composition governance, non-transitivity, revocation. |
+| [AEGIS_AIAM1_DELEGATION.md](/identity/delegation/) | Draft | Principal chains, monotonic authority narrowing, delegation depth limits. |
+| [AEGIS_AIAM1_SESSIONS.md](/identity/sessions/) | Draft | Session as governance boundary, four-dimensional bounding. |
+| [AEGIS_AIAM1_ATTESTATION.md](/identity/attestation/) | Draft | Attestation records, tamper-evidence, retention. |
+| [AEGIS_AIAM1_REVOCATION.md](/identity/revocation/) | Draft | Kill-switch, propagation latency, pre-action enforcement. |
+| [AEGIS_AIAM1_INTEROPERABILITY.md](/identity/interoperability/) | Draft | OAuth 2.1, OIDC, SCIM, SAML mappings. |
+| [AEGIS_AIAM1_THREAT_MODEL.md](/identity/threat-model/) | Draft | Seven threat classes, ATX-1 cross-references, residual risk. |
+| [AEGIS_AIAM1_CONFORMANCE.md](/identity/conformance/) | Draft | Conformance checklist, profiles, conformance statements. |
 
 ### 5.2 Schemas
 
@@ -165,7 +165,7 @@ IBAC strictly generalizes prior models: an RBAC policy is an IBAC triple where t
 
 | Document | Location | Description |
 |---|---|---|
-| [AIAM-1-position-paper-v0.1.md](../docs/position-papers/aiam/AIAM-1-position-paper-v0.1.md) | `docs/position-papers/aiam/` | Position paper establishing the normative scope of AIAM-1 v0.1. |
+| [AIAM-1-position-paper-v0.1.md](https://github.com/aegis-initiative/aegis-governance/blob/main/docs/position-papers/aiam/AIAM-1-position-paper-v0.1.md) | `docs/position-papers/aiam/` | Position paper establishing the normative scope of AIAM-1 v0.1. |
 
 ---
 

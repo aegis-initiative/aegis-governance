@@ -5,7 +5,7 @@ description: "AIAM-1 threat model — identity-specific attack surfaces"
 
 # AEGIS AIAM-1: Threat Model
 
-**Document**: AIAM-1/Threat Model (AEGIS_AIAM1_THREAT_MODEL.md)\
+**Document**: AIAM-1/Threat Model (/identity/threat-model/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -134,7 +134,7 @@ AIAM-1 identifies eight threat classes. For each threat class, this chapter spec
 
 ### 2.8 TC-8: Cross-Authority Composition
 
-**Description.** A sub-agent combines delegated authority from principal A with independent authority granted under principal B to produce an effect that neither principal alone authorized. This is the delegated/independent authority seam (see [DELEGATION §5.1](AEGIS_AIAM1_DELEGATION.md#51-authority-source-composition)) elevated to a first-class threat. Unlike TC-2 (capability composition), which concerns sequences of capabilities under a single authority source, TC-8 concerns the mixing of authority sources themselves.
+**Description.** A sub-agent combines delegated authority from principal A with independent authority granted under principal B to produce an effect that neither principal alone authorized. This is the delegated/independent authority seam (see [DELEGATION §5.1](/identity/delegation/#51-authority-source-composition)) elevated to a first-class threat. Unlike TC-2 (capability composition), which concerns sequences of capabilities under a single authority source, TC-8 concerns the mixing of authority sources themselves.
 
 **Example.** Agent X holds:
 - Delegated capability `patient.query` from Hospital A's EHR system (principal: Hospital A)

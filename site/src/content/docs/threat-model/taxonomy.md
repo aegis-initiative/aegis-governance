@@ -1,6 +1,6 @@
 ---
 title: "ATX-1: AEGIS Threat Matrix — Technique Taxonomy"
-description: "ATX-1 technique taxonomy — 10 tactics, 58 techniques for agentic AI threats"
+description: "ATX-1 technique taxonomy — 10 tactics, 29 techniques for agentic AI threats"
 ---
 
 # ATX-1: AEGIS Threat Matrix — Technique Taxonomy

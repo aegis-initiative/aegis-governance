@@ -5,7 +5,7 @@ description: "ATM-1 residual risks — known gaps and deferred mitigations"
 
 # AEGIS ATM-1 Residual Risks & Risk Acceptance
 
-**Document**: ATM-1/Residual (AEGIS_ATM1_RESIDUAL_RISKS.md)\
+**Document**: ATM-1/Residual (/threat-model/residual-risks/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **References**: ATM-1/Mitigations\
@@ -372,14 +372,14 @@ AEGIS threat model provides comprehensive defense against identified threats thr
 
 ## Next Steps
 
-- [AEGIS_ATM1_INDEX.md](./AEGIS_ATM1_INDEX.md) — Threat model overview and guidance
-- [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Mitigation strategies
+- [Threat Model Index](/threat-model/) — Threat model overview and guidance
+- [Mitigations](/threat-model/mitigations/) — Mitigation strategies
 - Annual threat model review and update cycle
 
 ---
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).

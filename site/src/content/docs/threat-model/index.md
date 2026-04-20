@@ -5,7 +5,7 @@ description: "ATM-1 threat model index — security analysis for AEGIS-governed 
 
 # AEGIS ATM-1 Threat Model & Security Analysis
 
-**Document**: ATM-1/Index (AEGIS_ATM1_INDEX.md)\
+**Document**: ATM-1/Index (/threat-model/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **Last Updated**: March 6, 2026
@@ -14,14 +14,14 @@ description: "ATM-1 threat model index — security analysis for AEGIS-governed 
 
 ## Document Structure
 
-The AEGIS Adaptive Threat Model (ATM-1) comprises five normative documents:
+The AEGIS Adaptive Threat Model (ATM-1) comprises six normative documents:
 
-1. **AEGIS_ATM1_INDEX.md** (this document) — Overview, threat actor summary, high-level scenarios
-2. **AEGIS_ATM1_THREAT_ACTORS.md** — Detailed profiles of 5 threat actor types with capability/motivation analysis
-3. **AEGIS_ATM1_ATTACK_VECTORS.md** — 20+ attack vectors organized in 7 attack surface categories
-4. **AEGIS_ATM1_SECURITY_PROPERTIES.md** — 5 core security properties, trust boundaries, security assumptions
-5. **AEGIS_ATM1_MITIGATIONS.md** — 6 preventive controls, 5 detective controls, 3 responsive controls, and mitigation coverage matrix
-6. **AEGIS_ATM1_RESIDUAL_RISKS.md** — Residual risks, risk acceptance criteria, continuous monitoring plan
+1. **[Index](/threat-model/)** (this document) — Overview, threat actor summary, high-level scenarios
+2. **[Threat Actors](/threat-model/threat-actors/)** — Detailed profiles of 5 threat actor types with capability/motivation analysis
+3. **[Attack Vectors](/threat-model/attack-vectors/)** — 20+ attack vectors organized in 7 attack surface categories
+4. **[Security Properties](/threat-model/security-properties/)** — 5 core security properties, trust boundaries, security assumptions
+5. **[Mitigations](/threat-model/mitigations/)** — 6 preventive controls, 5 detective controls, 3 responsive controls, and mitigation coverage matrix
+6. **[Residual Risks](/threat-model/residual-risks/)** — Residual risks, risk acceptance criteria, continuous monitoring plan
 
 ### Recommended Reading Paths
 
@@ -279,7 +279,7 @@ Planned extensions:
 - Runtime anomaly detection tuning based on production baselines.
 - Governance reputation systems within the federation network.
 
-[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../REFERENCES.md).
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](/references/).
 
 ---
 

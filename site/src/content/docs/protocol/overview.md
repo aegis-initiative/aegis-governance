@@ -5,7 +5,7 @@ description: "AGP-1 protocol overview — design goals, scope, and terminology"
 
 # AEGIS AGP-1 Protocol Overview & Design Principles
 
-**Document**: AGP-1/Overview (AEGIS_AGP1_OVERVIEW.md)\
+**Document**: AGP-1/Overview (/protocol/overview/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Governance Protocol\
 **Last Updated**: March 6, 2026
@@ -299,14 +299,14 @@ AGP-1 does **NOT** address:
 
 Continue reading:
 
-1. **[AEGIS_AGP1_MESSAGES.md](./AEGIS_AGP1_MESSAGES.md)** - Exact message schemas and field specifications
-2. **[AEGIS_AGP1_AUTHENTICATION.md](./AEGIS_AGP1_AUTHENTICATION.md)** - How to authenticate as a client
-3. **[AEGIS_AGP1_INDEX.md](./AEGIS_AGP1_INDEX.md)** - Visual protocol flows and state machines
+1. **[AEGIS_AGP1_MESSAGES.md](/protocol/messages/)** - Exact message schemas and field specifications
+2. **[AEGIS_AGP1_AUTHENTICATION.md](/protocol/authentication/)** - How to authenticate as a client
+3. **[AEGIS_AGP1_INDEX.md](/protocol/)** - Visual protocol flows and state machines
 
 ---
 
 ## References
 
-[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../REFERENCES.md).
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](/references/).
 
-[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](/references/).

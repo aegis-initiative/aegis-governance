@@ -5,7 +5,7 @@ description: "ATM-1 attack vectors — threat surfaces and exploitation paths"
 
 # AEGIS ATM-1 Attack Vectors & Exploitation Techniques
 
-**Document**: ATM-1/Vectors (AEGIS_ATM1_ATTACK_VECTORS.md)\
+**Document**: ATM-1/Vectors (/threat-model/attack-vectors/)\
 **Version**: 1.0 (Normative)\
 **Part of**: AEGIS Adaptive Threat Model (ATM-1)\
 **References**: ATM-1/Actors\
@@ -264,15 +264,15 @@ description: "ATM-1 attack vectors — threat surfaces and exploitation paths"
 
 ## Next Steps
 
-- [AEGIS_ATM1_SECURITY_PROPERTIES.md](./AEGIS_ATM1_SECURITY_PROPERTIES.md) — Security assumptions and invariants
-- [AEGIS_ATM1_MITIGATIONS.md](./AEGIS_ATM1_MITIGATIONS.md) — Mitigation strategies for each vector
+- [Security Properties](/threat-model/security-properties/) — Security assumptions and invariants
+- [Mitigations](/threat-model/mitigations/) — Mitigation strategies for each vector
 
 ---
 
 ## References
 
-[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](/references/).
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).
 
-[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Message-Based Communication Contracts," *IEEE Transactions on Software Engineering*, vol. 38, no. 3, pp. 531–550, May–June 2012, doi: 10.1109/TSE.2011.31. See [REFERENCES.md](../../REFERENCES.md).
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Message-Based Communication Contracts," *IEEE Transactions on Software Engineering*, vol. 38, no. 3, pp. 531–550, May–June 2012, doi: 10.1109/TSE.2011.31. See [REFERENCES.md](/references/).

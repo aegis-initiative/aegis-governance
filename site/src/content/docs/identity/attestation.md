@@ -5,7 +5,7 @@ description: "AIAM-1 attestation — action-level governance decision proof"
 
 # AEGIS AIAM-1: Attestation and Audit
 
-**Document**: AIAM-1/Attestation (AEGIS_AIAM1_ATTESTATION.md)\
+**Document**: AIAM-1/Attestation (/identity/attestation/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026

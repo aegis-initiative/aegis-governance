@@ -255,6 +255,6 @@ When multiple policies match:
 
 ## References
 
-[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](/references/).
 
-[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../../REFERENCES.md).
+[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](/references/).

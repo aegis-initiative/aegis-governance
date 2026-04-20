@@ -486,25 +486,25 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ### Step 1: Understand the Why
 
-- **Read:** [The AEGIS Manifesto](../manifesto/AEGIS_Manifesto.md) — Learn why architectural governance matters
+- **Read:** [The AEGIS Manifesto](/foundation/) — Learn why architectural governance matters
 - **Review:** The "Why AEGIS?" section above — Compare governance approaches
 - **Key Takeaway:** Governance must be architectural, not aspirational
 
 ### Step 2: Learn the Architecture
 
-- **Read:** [AEGIS Reference Architecture](../architecture/AEGIS_Reference_Architecture.md) — Understand core components
-- **Review:** [Ecosystem Map](../architecture/AEGIS_Ecosystem_Map.md) — See how components interact
+- **Read:** [AEGIS Reference Architecture](/architecture/reference/) — Understand core components
+- **Review:** [Ecosystem Map](/architecture/ecosystem-map/) — See how components interact
 - **Key Takeaway:** Governance sits between AI reasoning and execution
 
 ### Step 3: Understand Governance Principles
 
-- **Read:** [AEGIS Constitution](../constitution/AEGIS_Constitution.md) — Learn the 8 foundational articles
+- **Read:** [AEGIS Constitution](https://aegis-constitution.com/) — Learn the 8 foundational articles
 - **Review:** Constitutional compliance mechanisms and enforcement
 - **Key Takeaway:** Governance is enforced by architecture, not model behavior
 
 ### Step 4: Assess Adoption Level
 
-- **Read:** [AEGIS FAQ - Adoption Model](../faq/AEGIS_FAQ.md#aegis-adoption-model) — Understand the 3-level maturity framework
+- **Read:** [AEGIS FAQ - Adoption Model](/foundation/faq/#aegis-adoption-model) — Understand the 3-level maturity framework
 - **Level 1:** Gateway (capability boundaries, action governance)
 - **Level 2:** Full Runtime (policies, risk evaluation, audit)
 - **Level 3:** Federation (distributed intelligence, collective defense)
@@ -512,13 +512,13 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ### Step 5: Review Threat Model
 
-- **Read:** [AEGIS Threat Model](../threat-model/AEGIS_ATM1_INDEX.md) — Understand attack vectors
+- **Read:** [AEGIS Threat Model](/threat-model/) — Understand attack vectors
 - **Review:** STRIDE-based threat analysis and mitigation strategies
 - **Key Takeaway:** Governance must defend against adversarial behavior
 
 ### Step 6: Explore Implementation
 
-- **Read:** [AEGIS FAQ](../faq/AEGIS_FAQ.md) — Practical integration questions
+- **Read:** [AEGIS FAQ](/foundation/faq/) — Practical integration questions
 - **Review:** Integration examples (LangChain, CrewAI, AutoGPT)
 - **Study:** "Hello AEGIS" code examples
 - **Key Takeaway:** AEGIS integrates with existing agent frameworks
@@ -542,12 +542,12 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 | If you want to... | Start here |
 |-------------------|------------|
-| Understand the vision | [Manifesto](../manifesto/AEGIS_Manifesto.md) |
-| Learn the architecture | [Reference Architecture](../architecture/AEGIS_Reference_Architecture.md) |
-| See integration examples | [FAQ](../faq/AEGIS_FAQ.md) |
-| Understand principles | [Constitution](../constitution/AEGIS_Constitution.md) |
-| Assess security | [Threat Model](../threat-model/AEGIS_ATM1_INDEX.md) |
-| Plan adoption | [FAQ - Adoption Model](../faq/AEGIS_FAQ.md#aegis-adoption-model) |
+| Understand the vision | [Manifesto](/foundation/) |
+| Learn the architecture | [Reference Architecture](/architecture/reference/) |
+| See integration examples | [FAQ](/foundation/faq/) |
+| Understand principles | [Constitution](https://aegis-constitution.com/) |
+| Assess security | [Threat Model](/threat-model/) |
+| Plan adoption | [FAQ - Adoption Model](/foundation/faq/#aegis-adoption-model) |
 | Join the community | [GitHub Discussions](https://github.com/aegis-initiative/aegis-governance/discussions) |
 
 ---
@@ -556,31 +556,31 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 ### References
 
-[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](../../REFERENCES.md).
+[^3]: S. Hallé and R. Villemaire, "Runtime Enforcement of Web Service Message Contracts with Data," *IEEE Transactions on Services Computing*, vol. 5, no. 2, pp. 192–206, April–June 2012, doi: 10.1109/TSC.2011.10. See [REFERENCES.md](/references/).
 
-[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](/references/).
 
-[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](../../REFERENCES.md).
+[^5]: H. Pearce, S. Pinisetty, P. S. Roop, M. M. Y. Kuo, and A. Ukil, "Smart I/O Modules for Mitigating Cyber-Physical Attacks on Industrial Control Systems," *IEEE Transactions on Industrial Informatics*, vol. 16, no. 7, pp. 4659–4669, July 2020, doi: 10.1109/TII.2019.2945520. See [REFERENCES.md](/references/).
 
-[^6]: S. Majumdar et al., "ProSAS: Proactive Security Auditing System for Clouds," *IEEE Transactions on Dependable and Secure Computing*, vol. 19, no. 4, pp. 2517–2534, July–Aug. 2022, doi: 10.1109/TDSC.2021.3062204. See [REFERENCES.md](../../REFERENCES.md).
+[^6]: S. Majumdar et al., "ProSAS: Proactive Security Auditing System for Clouds," *IEEE Transactions on Dependable and Secure Computing*, vol. 19, no. 4, pp. 2517–2534, July–Aug. 2022, doi: 10.1109/TDSC.2021.3062204. See [REFERENCES.md](/references/).
 
-[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../REFERENCES.md).
+[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](/references/).
 
-[^9]: P. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei, "Deep Reinforcement Learning from Human Preferences," in *Advances in Neural Information Processing Systems (NeurIPS)*, 2017, arXiv:1706.03741. See [REFERENCES.md](../../REFERENCES.md).
+[^9]: P. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei, "Deep Reinforcement Learning from Human Preferences," in *Advances in Neural Information Processing Systems (NeurIPS)*, 2017, arXiv:1706.03741. See [REFERENCES.md](/references/).
 
-[^10]: Y. Bai et al., "Constitutional AI: Harmlessness from AI Feedback," arXiv:2212.08073, Dec. 2022. [Online]. Available: <https://arxiv.org/abs/2212.08073>. See [REFERENCES.md](../../REFERENCES.md).
+[^10]: Y. Bai et al., "Constitutional AI: Harmlessness from AI Feedback," arXiv:2212.08073, Dec. 2022. [Online]. Available: <https://arxiv.org/abs/2212.08073>. See [REFERENCES.md](/references/).
 
-[^13]: National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Jan. 2023, doi: 10.6028/NIST.AI.100-1. See [REFERENCES.md](../../REFERENCES.md).
+[^13]: National Institute of Standards and Technology, "Artificial Intelligence Risk Management Framework (AI RMF 1.0)," NIST AI 100-1, U.S. Department of Commerce, Jan. 2023, doi: 10.6028/NIST.AI.100-1. See [REFERENCES.md](/references/).
 
-[^15]: European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, 12 Jul. 2024. See [REFERENCES.md](../../REFERENCES.md).
+[^15]: European Parliament and Council of the European Union, "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)," *Official Journal of the European Union*, 12 Jul. 2024. See [REFERENCES.md](/references/).
 
-[^11]: W. T. Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385–11402, 2026, doi: 10.1109/ACCESS.2026.3654907. See [REFERENCES.md](../../REFERENCES.md).
+[^11]: W. T. Agbemabiese, "Toward Constitutional Autonomy in AI Systems: A Theoretical Framework for Aligned Agentic Intelligence," *IEEE Access*, vol. 14, pp. 11385–11402, 2026, doi: 10.1109/ACCESS.2026.3654907. See [REFERENCES.md](/references/).
 
-[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](/references/).
 
-[^28]: Various authors, "A survey of agentic AI and cybersecurity: Challenges, opportunities and use-case prototypes," arXiv:2601.05293v1, 2026. [Online]. Available: <https://arxiv.org/abs/2601.05293>. See [REFERENCES.md](../../REFERENCES.md).
+[^28]: Various authors, "A survey of agentic AI and cybersecurity: Challenges, opportunities and use-case prototypes," arXiv:2601.05293v1, 2026. [Online]. Available: <https://arxiv.org/abs/2601.05293>. See [REFERENCES.md](/references/).
 
-[^29]: R. Chan et al., "The 2025 AI Agent Index," arXiv:2602.17753v1, 2025. [Online]. Available: <https://arxiv.org/abs/2602.17753>. See [REFERENCES.md](../../REFERENCES.md).
+[^29]: R. Chan et al., "The 2025 AI Agent Index," arXiv:2602.17753v1, 2025. [Online]. Available: <https://arxiv.org/abs/2602.17753>. See [REFERENCES.md](/references/).
 
 ---
 

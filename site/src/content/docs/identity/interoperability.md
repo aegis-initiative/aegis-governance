@@ -5,7 +5,7 @@ description: "AIAM-1 interoperability — cross-system identity federation"
 
 # AEGIS AIAM-1: Interoperability
 
-**Document**: AIAM-1/Interoperability (AEGIS_AIAM1_INTEROPERABILITY.md)\
+**Document**: AIAM-1/Interoperability (/identity/interoperability/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026

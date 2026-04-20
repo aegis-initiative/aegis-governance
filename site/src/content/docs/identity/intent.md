@@ -5,7 +5,7 @@ description: "AIAM-1 intent claims — structured purpose assertions at moment o
 
 # AEGIS AIAM-1: Intent
 
-**Document**: AIAM-1/Intent (AEGIS_AIAM1_INTENT.md)\
+**Document**: AIAM-1/Intent (/identity/intent/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -95,7 +95,7 @@ AGP-1 deployments that do not adopt AIAM-1 continue to function without intent c
 
 ### 3.3 Intent Claim Preservation
 
-**AIAM1-INT-020.** Intent claims MUST be preserved as part of the attestation record for every action (see [ATTESTATION](AEGIS_AIAM1_ATTESTATION.md)).
+**AIAM1-INT-020.** Intent claims MUST be preserved as part of the attestation record for every action (see [ATTESTATION](/identity/attestation/)).
 
 **AIAM1-INT-021.** Intent claims MUST NOT be modifiable after production. Once an intent claim is submitted with an action proposal, it is immutable. Any correction requires a new action proposal with a new intent claim.
 
@@ -113,7 +113,7 @@ AGP-1 deployments that do not adopt AIAM-1 continue to function without intent c
 
 ### Scenario
 
-The Acme SOC triage agent (identity claim from [IDENTITY §6](AEGIS_AIAM1_IDENTITY.md#6-worked-example-single-principal-single-agent)) detects an anomalous spike in DNS queries from a specific host. It decides to query the SIEM for related network telemetry.
+The Acme SOC triage agent (identity claim from [IDENTITY §6](/identity/identity/#6-worked-example-single-principal-single-agent)) detects an anomalous spike in DNS queries from a specific host. It decides to query the SIEM for related network telemetry.
 
 ### Intent Claim
 

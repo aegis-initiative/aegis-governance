@@ -23,7 +23,7 @@ This design ensures that AI systems cannot directly execute operational actions 
 
 ---
 
-> **Architectural Layer Enforcement**: AEGIS operates at the architectural layer, enforcing policy at the execution boundary between AI agents and infrastructure. Unlike model-internal approaches (Constitutional AI, RLHF, fine-tuning), AEGIS is model-agnostic, deterministic, and federated. See [System Overview](../overview/AEGIS_System_Overview.md#architectural-positioning) for detailed positioning.
+> **Architectural Layer Enforcement**: AEGIS operates at the architectural layer, enforcing policy at the execution boundary between AI agents and infrastructure. Unlike model-internal approaches (Constitutional AI, RLHF, fine-tuning), AEGIS is model-agnostic, deterministic, and federated. See [System Overview](/foundation/overview/#architectural-positioning) for detailed positioning.
 
 ---
 
@@ -955,15 +955,15 @@ Together these documents define the complete AEGIS™ governance architecture.
 
 ### References
 
-[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](../../REFERENCES.md).
+[^4]: S. Rasthofer, S. Arzt, E. Lovat, and E. Bodden, "DroidForce: Enforcing Complex, Data-centric, System-wide Policies in Android," *2014 Ninth International Conference on Availability, Reliability and Security (ARES)*, 2014, pp. 40–49, doi: 10.1109/ARES.2014.13. See [REFERENCES.md](/references/).
 
-[^7]: A. Baird, A. Panda, H. Pearce, S. Pinisetty, and P. Roop, "Scalable Security Enforcement for Cyber Physical Systems," *IEEE Access*, vol. 12, pp. 14385–14410, 2024, doi: 10.1109/ACCESS.2024.3357714. See [REFERENCES.md](../../REFERENCES.md).
+[^7]: A. Baird, A. Panda, H. Pearce, S. Pinisetty, and P. Roop, "Scalable Security Enforcement for Cyber Physical Systems," *IEEE Access*, vol. 12, pp. 14385–14410, 2024, doi: 10.1109/ACCESS.2024.3357714. See [REFERENCES.md](/references/).
 
-[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](../../REFERENCES.md).
+[^8]: K. Arunachalam, A. Kayyidavazhiyil, and P. Santikellur, "POLYNIX: A Hybrid Policy Enforcement Framework for Zero-Trust Security in Virtualized Systems," *2026 IEEE 23rd Consumer Communications & Networking Conference (CCNC)*, 2026, doi: 10.1109/CCNC65079.2026.11366307. See [REFERENCES.md](/references/).
 
-[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](../../REFERENCES.md).
+[^14]: Open Policy Agent Project, "Open Policy Agent," The Linux Foundation, 2016–present. [Online]. Available: <https://www.openpolicyagent.org>. See [REFERENCES.md](/references/).
 
-[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](../../REFERENCES.md).
+[^17]: S. Rose, O. Borchert, S. Mitchell, and S. Connelly, "Zero Trust Architecture," National Institute of Standards and Technology, Gaithersburg, MD, NIST Special Publication 800-207, Aug. 2020, doi: 10.6028/NIST.SP.800-207. See [REFERENCES.md](/references/).
 
 ---
 

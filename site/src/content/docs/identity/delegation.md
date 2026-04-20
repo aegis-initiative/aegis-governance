@@ -5,7 +5,7 @@ description: "AIAM-1 delegation — authority transfer and chain validation"
 
 # AEGIS AIAM-1: Delegation and Principal Chains
 
-**Document**: AIAM-1/Delegation (AEGIS_AIAM1_DELEGATION.md)\
+**Document**: AIAM-1/Delegation (/identity/delegation/)\
 **Version**: 0.1 (Draft)\
 **Part of**: AEGIS Identity & Access Management for AI Agents\
 **Last Updated**: April 10, 2026
@@ -307,7 +307,7 @@ An agent might rapidly instantiate many sub-agents to overwhelm governance evalu
 
 If a delegating agent is revoked or terminated, its sub-agents may continue operating with delegated authority from a now-invalid source. Mitigations:
 - Delegation grants MUST have explicit expiration (AIAM1-DEL-023).
-- Revocation of a delegating agent MUST cascade to all downstream delegated authority by default (AIAM1-DEL-024, see below and [REVOCATION](AEGIS_AIAM1_REVOCATION.md)).
+- Revocation of a delegating agent MUST cascade to all downstream delegated authority by default (AIAM1-DEL-024, see below and [REVOCATION](/identity/revocation/)).
 
 ---
 
