@@ -1,3 +1,4 @@
+<!-- cspell:ignore Batzner Imran Siddique -->
 # Outreach
 
 Records of outreach to researchers, practitioners, and organizations related to AEGIS™ development.
