@@ -1,13 +1,14 @@
-<!-- cspell:ignore VADP -->
+<!-- cspell:ignore VADP Batzner Imran Siddique -->
 # Outreach: Microsoft Agent Governance Toolkit — Integration Proposal
 
 **Date sent:** Tuesday, 2026-04-14 16:49:10 (local)\
-**Response received:** Sunday, 2026-04-19 20:38 — from "Jack" (AGT team)\
+**Response received:** Sunday, 2026-04-19 20:38 — Jack Batzner (Senior Software Engineer, AGT)\
+**Reply sent:** Tuesday, 2026-04-21\
 **From:** Kenneth Tannenbaum (AEGIS Initiative, AEGIS Operations LLC)\
-**To:** Microsoft Agent Governance Toolkit (AGT) team\
-**Channel:** Email (direct)\
-**Status:** Response received\
-**Response:** Received — content to be archived\
+**Counterparties:** Jack Batzner (Senior Software Engineer, MSFT AGT); Imran Siddique (Group Engineering Manager, Microsoft)\
+**Channel:** Email — team alias and direct\
+**Status:** Active — ongoing exchange\
+**Response:** Received — proposal requested, targeting delivery by EOD Friday 2026-04-24 US Eastern\
 **Discussion:** n/a
 
 ---
@@ -55,15 +56,75 @@ Framed these as *governance terms problems, not enforcement problems* — the la
 > - [doi.org/10.5281/zenodo.19225675](https://doi.org/10.5281/zenodo.19225675) · ATX-1: AEGIS Threat Matrix for Agentic AI Systems
 > - [doi.org/10.5281/zenodo.19355478](https://doi.org/10.5281/zenodo.19355478) · AEGIS Core — Python Reference Implementation
 
-## Response
+## Response Thread
 
-Jack (AGT team) replied on 2026-04-19 20:38. Full response content to be archived here once pasted into this record.
+### 2026-04-14 — Imran Siddique (Group Engineering Manager)
+
+First response to the original email, acknowledging receipt and looping in Jack Batzner while Imran was on vacation.
+
+> Adding @Jack Batzner to have a look as I'm on vacation. Thanks so much for the email.
+>
+> — Imran Siddique, Group Engineering Manager, Microsoft
+
+### 2026-04-19 — Imran Siddique (follow-up)
+
+Following up from vacation to check on progress.
+
+> Following up on this — were we able to discuss this further and have any proposal to review?
+>
+> Regards,\
+> Imran Siddique\
+> Group Engineering Manager, Microsoft
+
+### 2026-04-19 — Jack Batzner (Senior Software Engineer)
+
+Jack picked up the thread and made the explicit ask.
+
+> @Ken Tannenbaum,
+>
+> Would you be able to draft an integration proposal for us to review?
+>
+> In the meantime, is there anything else to review besides the provided selected works?
+>
+> Thanks,
+>
+> Jack Batzner\
+> Senior Software Engineer, Microsoft
+
+## Reply Sent — 2026-04-21
+
+Kenneth Tannenbaum, replying to Jack and Imran (team alias on thread).
+
+> Jack,
+>
+> Thanks for getting back to me.
+>
+> Yes — I'll have an integration proposal to you by end of day Friday, 2026-04-24 (US Eastern). I'll mirror the format of your existing proposals so it drops cleanly into your review process.
+>
+> On additional material: a few pieces beyond the selected works that directly frame the integration space:
+>
+> - **AEGIS Governance Protocol (AGP-1)** — <https://aegis-governance.com/protocol/>. Wire format, ACTION_PROPOSE to ACTION_DECIDE to ACTION_EXECUTE flow, and policy evaluation model. This is the layer the adapter bridges from.
+> - **AIAM-1, Identity and Access Management for AI Agents** — <https://aegis-governance.com/identity/>. Principal delegation, intent-bound access control, capability authorization. Most directly relevant to the principal-accountability thread running through A2A trust extensions, NEXUS, and REPUTATION-GATED-AUTHORITY.
+> - **ATX-1 Threat Matrix v2.2** — <https://aegis-docs.com/threat-matrix/>. The failure-mode taxonomy the policy model optimizes against.
+> - **Governance Federation Network (GFN-1)** — <https://aegis-governance.com/federation/>. Cross-organization governance signal propagation and trust scoring. Relevant to multi-agent and multi-org deployments.
+> - **RFC-0006, Claude Code Plugin** — <https://aegis-governance.com/rfc/0006/>. Our current active implementation target and concrete prior art for what an AGT adapter would look like.
+>
+> All open source. Dual licensed: Apache 2.0 for code, CC-BY-SA-4.0 for specs.
+>
+> If a 30-minute scoping call before Friday would sharpen the proposal, I'm happy to find time. Otherwise you'll have it Friday.
+>
+> Ken
+>
+> Kenneth Tannenbaum\
+> Founder, AEGIS Initiative\
+> AEGIS Operations LLC\
+> <https://aegis-initiative.com>
 
 ## Next Steps
 
-- Archive Jack's response text in this file
-- Draft reply based on response content
-- If the thread moves toward collaboration: decide between proposal-doc contribution to AGT's public repo vs. draft adapter spec in aegis-labs
+- **By 2026-04-24 (Friday, US Eastern)**: deliver integration proposal to Jack and Imran, mirroring the format of AGT's existing proposals folder (A2A trust extensions, NEXUS, REPUTATION-GATED-AUTHORITY).
+- **In parallel**: if Jack/Imran request a scoping call before Friday, accept and use the call to clarify adapter scope and format expectations.
+- **Framing**: keep the engagement in research / integration / open-source posture consistent with the AEGIS Initiative's published stance. Signed AEGIS Initiative / AEGIS Operations LLC throughout.
 
 ---
 

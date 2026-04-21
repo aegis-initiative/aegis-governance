@@ -1,3 +1,4 @@
+<!-- cspell:ignore Batzner Imran Siddique -->
 # Outreach
 
 Records of outreach to researchers, practitioners, and organizations related to AEGIS™ development.
@@ -21,7 +22,7 @@ This directory archives outreach communications to maintain transparency in the 
 | 2026-03-10 | Nathan Freestone (The Elora Taurus Project) | Architectural convergence — Elora/AEGIS execution boundary; three patterns for AEGIS spec | Active — ongoing exchange | Received — Discussions [#73](https://github.com/aegis-initiative/aegis-governance/discussions/73), [#74](https://github.com/aegis-initiative/aegis-governance/discussions/74), [#75](https://github.com/aegis-initiative/aegis-governance/discussions/75) |
 | 2026-03-13 | William Torgbi Agbemabiese | Constitutional Autonomy + AEGIS multi-layer governance | Initial outreach sent | Pending |
 | 2026-03-14 | Mattijs Moens (Sovereign Shield) | Trust decay determinism objection — GFN-1 §3.8 / RFC-0004 | Response received | Received — Discussion [#72](https://github.com/aegis-initiative/aegis-governance/discussions/72) |
-| 2026-04-14 | Microsoft Agent Governance Toolkit (AGT) team (Jack) | Integration proposal — AEGIS as policy source of truth upstream of AGT enforcement runtime | Response received | Received — 2026-04-19 |
+| 2026-04-14 | Microsoft Agent Governance Toolkit (AGT) team — Jack Batzner, Imran Siddique | Integration proposal — AEGIS as policy source of truth upstream of AGT enforcement runtime | Active — ongoing exchange | Received 2026-04-19; proposal requested, AEGIS reply sent 2026-04-21, proposal targeted for 2026-04-24 |
 
 ---
 
