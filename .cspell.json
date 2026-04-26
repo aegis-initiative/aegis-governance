@@ -271,7 +271,11 @@
     "miscalibration",
     "miscalibrated",
     "codepaths",
-    "triaging"
+    "triaging",
+    "Finnoybu",
+    "predev",
+    "prebuild",
+    "mojibake"
   ],
   "ignorePaths": [
     "archive/**",
