@@ -9,3 +9,5 @@ Allow: /
 # Specification docs: 73 pages across /foundation/, /architecture/, /protocol/,
 #   /threat-model/, /identity/, /federation/, /rfc/
 # Data downloads: /data/, /atx-1/, /schemas/
+
+Sitemap: https://aegis-governance.com/sitemap-index.xml
