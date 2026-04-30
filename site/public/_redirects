@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects
+# ──────────────────────────
+# Federation content has moved to aegis-federation.com.
+# Redirect /federation/* to the corresponding /spec/* path on aegis-federation.com.
+#
+# Format: <from>  <to>  <status>
+
+# Federation section root
+/federation                  https://aegis-federation.com/spec/                          301
+/federation/                 https://aegis-federation.com/spec/                          301
+
+# Federation pages (the previous published set)
+/federation/trust-model           https://aegis-federation.com/spec/trust-model/         301
+/federation/trust-model/          https://aegis-federation.com/spec/trust-model/         301
+/federation/schema                https://aegis-federation.com/spec/schema/              301
+/federation/schema/               https://aegis-federation.com/spec/schema/              301
+/federation/node-architecture     https://aegis-federation.com/spec/node-architecture/   301
+/federation/node-architecture/    https://aegis-federation.com/spec/node-architecture/   301
+/federation/feeds                 https://aegis-federation.com/spec/feeds/               301
+/federation/feeds/                https://aegis-federation.com/spec/feeds/               301
+
+# Catch-all for any remaining /federation/* paths
+/federation/*                https://aegis-federation.com/spec/:splat                    301

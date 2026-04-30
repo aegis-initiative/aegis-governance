@@ -33,7 +33,7 @@ RFCs allow the architecture to evolve while preserving a clear historical record
 | RFC-0005 | Reference Deployment Patterns | Draft | Deployment-agnostic patterns for Kubernetes, sidecar, embedded, and serverless |
 | RFC-0006 | Claude Code Plugin | Draft | Governance enforcement plugin for the Claude Code development environment |
 | RFC-0007 | Operational Considerations | Placeholder | Monitoring, scaling, disaster recovery, and day-two operations |
-| RFC-0008 | Federation Network Protocol | Placeholder | GFN-1 transport, discovery, and federation topology |
+| RFC-0008 | Federation Network Transport | — | Moved to [aegis-federation.com/rfc/0008/](https://aegis-federation.com/rfc/0008/) |
 | RFC-0009 | Prior Art and External Validation Record | Placeholder | Traceable external validation of AEGIS claims |
 | RFC-0010 | State Dump Protocol Formalization | Placeholder | Formalizes gap-001–004; state dump attestation |
 | RFC-0011 | Authority Binding Sub-Spec Revision | Placeholder | Authority drift, minimum claim sets, behavioral declaration |
@@ -111,7 +111,7 @@ Required sections: Summary, Motivation, Guide-Level Explanation, Reference-Level
 | Reference Architecture | `/aegis-core/architecture/` | Detailed system design |
 | Threat Model (ATM-1) | `/aegis-core/threat-model/` | Security analysis |
 | Protocol (AGP-1) | `/aegis-core/protocol/` | Governance protocol definition |
-| Federation (GFN-1) | `/federation/` | Governance federation architecture |
+| Federation (GFN-1) | [aegis-federation.com](https://aegis-federation.com/spec/) | Federated governance intelligence (separate repository) |
 | RFC Template | `/rfc/RFC-0000-TEMPLATE.md` | Standard RFC format |
 
 ---
@@ -127,7 +127,7 @@ Required sections: Summary, Motivation, Guide-Level Explanation, Reference-Level
 | Reference Deployment Patterns | RFC-0005 | Draft Complete |
 | Claude Code Plugin | RFC-0006 | Draft — Q2 2026 |
 | Operational Considerations | RFC-0007 | Placeholder |
-| Federation Network Protocol | RFC-0008 | Placeholder |
+| Federation Network Transport | [RFC-0008 (aegis-federation)](https://aegis-federation.com/rfc/0008/) | Placeholder (in aegis-federation) |
 | Authority Binding Revision | RFC-0011 | Placeholder |
 | Commit Boundary & Binding | RFC-0017 | Draft |
 | Reference Runtime (Python) | — | In Progress |

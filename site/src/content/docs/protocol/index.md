@@ -247,9 +247,9 @@ A client implementation MUST:
 
 ### Federation Specifications
 
-- [AEGIS Node Reference Architecture](/federation/node-architecture/)
-- [AEGIS Trust Model](/federation/trust-model/)
-- [Federation README with Reading Order](/federation/)
+- [GFN-1 Node Reference Architecture](https://aegis-federation.com/spec/node-architecture/)
+- [GFN-1 Trust Model](https://aegis-federation.com/spec/trust-model/)
+- [GFN-1 Specification (with reading order)](https://aegis-federation.com/spec/)
 
 ### Supporting Documents
 
