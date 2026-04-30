@@ -375,7 +375,7 @@ All trust calculations are logged:
 
 - [AEGIS_AGP1_POLICY_EVALUATION.md](/protocol/policy-evaluation/) - Policy rules that use trust scores
 - [AEGIS_AGP1_RISK_SCORING.md](/protocol/risk-scoring/) - Complete risk scoring calculations
-- [AEGIS_GFN1_NODE_REFERENCE_ARCHITECTURE.md](/federation/node-architecture/) - Trust evaluator component
+- [GFN-1 Node Reference Architecture](https://aegis-federation.com/spec/node-architecture/) - Trust evaluator component (in aegis-federation)
 
 ---
 

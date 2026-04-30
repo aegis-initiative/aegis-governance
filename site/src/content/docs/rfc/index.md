@@ -38,4 +38,4 @@ The RFC series documents the technical design decisions behind the AEGIS governa
 
 ---
 
-RFC-0007 (Operational Considerations) and RFC-0008 (Federation Network Protocol) are reserved placeholders — content pending.
+RFC-0007 (Operational Considerations) is a reserved placeholder — content pending. RFC-0008 (Federation Network Transport) has moved to [aegis-federation.com/rfc/0008/](https://aegis-federation.com/rfc/0008/) as part of the consolidation of all Federation content into the [aegis-federation](https://github.com/aegis-initiative/aegis-federation) repository.
