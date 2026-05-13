@@ -38,7 +38,7 @@
     },
     "root_cause": {
       "type": "string",
-      "description": "Structural root cause(s) from RC1-RC4 that enable this technique"
+      "description": "Structural root cause(s) from RC1-RC5 that enable this technique"
     },
     "agents_of_chaos_case": {
       "type": "array",
