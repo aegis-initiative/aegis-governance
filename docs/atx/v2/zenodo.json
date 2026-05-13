@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "title": "ATX-1: AEGIS Threat Matrix for Agentic AI Systems, Version 2.3",
+    "upload_type": "dataset",
+    "description": "<p>ATX-1 (AEGIS Threat Matrix) is a structured adversarial knowledge base cataloguing failure modes of autonomous AI agents operating without governance constraints. Unlike MITRE ATT&CK (which targets human adversaries) or MITRE ATLAS (which targets adversaries against AI systems), ATX-1 addresses a distinct threat class: AI agents that act outside their governance boundaries through structural capability without authority, not through external compromise.</p><p>Version 2.3 removes the <code>severity</code> field from technique definitions to align with MITRE ATT&CK and ATLAS conventions, which leave contextual scoring to the consumer. Tactic, technique, sub-technique, root cause, and mitigation structure carries over unchanged from v2.2.</p><p><strong>Contents:</strong></p><ul><li>10 tactics (TA001–TA010), 29 techniques, 29 sub-techniques, 5 structural root causes, 29 mitigations</li><li>STIX 2.1 Bundle (204 objects: identity, x-mitre-tactic, attack-pattern, course-of-action, relationship)</li><li>Technique database (JSON Array with parent–sub-technique structure)</li><li>Regulatory cross-reference matrix mapping each technique to NIST AI Risk Management Framework functions, EU AI Act articles, OWASP Top 10 for LLM Applications, and ATM-1 threat scenarios</li><li>JSON Schema (Draft 2020-12) for technique validation</li><li>ATT&CK Navigator layer (v4.5)</li><li>ATM-1 attack-vector mapping</li></ul><p>All files are published under the Apache License 2.0. The empirical foundation derives from the Agents of Chaos study (Shapira et al., 2026), with corroborating evidence from independent multi-agent vulnerability research. The taxonomy directly informs the AEGIS governance architecture (AGP-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.</p>",
+    "creators": [
+      {
+        "name": "Tannenbaum, Kenneth",
+        "affiliation": "AEGIS Initiative, AEGIS Operations LLC",
+        "orcid": "0009-0007-4215-1789"
+      }
+    ],
+    "keywords": [
+      "Agentic AI",
+      "AI governance",
+      "AI threat taxonomy",
+      "STIX 2.1",
+      "MITRE ATT&CK",
+      "MITRE ATLAS",
+      "Autonomous agents",
+      "NIST AI RMF",
+      "EU AI Act",
+      "OWASP LLM Top 10",
+      "AEGIS",
+      "ATX-1"
+    ],
+    "access_right": "open",
+    "license": "Apache-2.0",
+    "language": "eng",
+    "communities": [],
+    "related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.19251098",
+        "relation": "isNewVersionOf",
+        "scheme": "doi",
+        "resource_type": "dataset"
+      },
+      {
+        "identifier": "10.5281/zenodo.19483999",
+        "relation": "isNewVersionOf",
+        "scheme": "doi",
+        "resource_type": "dataset"
+      },
+      {
+        "identifier": "arXiv:2602.20021",
+        "relation": "isDerivedFrom",
+        "scheme": "arxiv",
+        "resource_type": "publication-article"
+      },
+      {
+        "identifier": "10.5281/zenodo.19223924",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-article"
+      },
+      {
+        "identifier": "10.5281/zenodo.20159697",
+        "relation": "cites",
+        "scheme": "doi",
+        "resource_type": "publication-report"
+      }
+    ],
+    "notes": "Source repository: https://github.com/aegis-initiative/aegis-governance under docs/atx/v2/. Change history documented at changelog/2026-04-24-atx1-v2.3.md. Frozen prior versions remain available at their published DOIs.",
+    "version": "2.3.0"
+  }
+}

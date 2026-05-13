@@ -1,5 +1,5 @@
 {
-  "name": "ATX-1 v2.2: AEGIS Threat Matrix",
+  "name": "ATX-1 v2.3: AEGIS Threat Matrix",
   "versions": {
     "attack": "18",
     "navigator": "5.2.0",
@@ -7,7 +7,7 @@
   },
   "domain": "enterprise-attack",
   "customDataURL": "https://aegis-governance.com/atx-1/stix-bundle.json",
-  "description": "ATX-1 v2.2 — 10 tactics, 29 techniques, 29 sub-techniques for autonomous AI agent threat modeling. v2.2 adds sub-techniques under T9002 and T10001–T10004 cataloging specific bypass methods discovered during RFC-0006 adversarial testing.",
+  "description": "ATX-1 v2.3 — 10 tactics, 29 techniques, 29 sub-techniques for autonomous AI agent threat modeling. v2.3 removes the severity field to align with MITRE ATT&CK and ATLAS conventions; tactic, technique, and sub-technique structure carried over unchanged from v2.2.",
   "filters": {
     "platforms": [
       "PRE"

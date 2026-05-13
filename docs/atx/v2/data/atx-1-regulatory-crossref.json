@@ -1,8 +1,8 @@
 {
   "$schema": "https://aegis-platform.net/schemas/atx/v2/atx-regulatory-crossref.schema.json",
-  "version": "2.2.0",
-  "date": "2026-04-01",
-  "description": "ATX-1 v2.2 regulatory cross-reference matrix mapping techniques and sub-techniques to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 threat scenarios. v2.2 adds 29 sub-techniques under T9002 and T10001-T10004 cataloging specific bypass methods.",
+  "version": "2.3.0",
+  "date": "2026-04-24",
+  "description": "ATX-1 v2.3 regulatory cross-reference matrix mapping techniques and sub-techniques to NIST AI RMF, EU AI Act, OWASP LLM Top 10, and ATM-1 threat scenarios. v2.3 removes the severity field from technique definitions to align with MITRE ATT&CK and ATLAS conventions; all 58 entries (29 parent techniques + 29 sub-techniques) are preserved.",
   "techniques": [
     {
       "id": "T1001",
