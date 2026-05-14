@@ -257,6 +257,41 @@ All storage locations serve identical file content under the Apache 2.0 license.
 
 {\bf Research benchmarking.} The empirically grounded technique catalog provides a structured basis for evaluating the effectiveness of AI governance frameworks against documented failure modes.
 
+\subsection*{\added{Worked Example: Replit Production-Database Deletion}}
+
+\added{To make the use cases above concrete, this subsection walks one documented production incident through the full ATX-1 pipeline: incident description $\rightarrow$ technique mapping $\rightarrow$ STIX query $\rightarrow$ AEGIS mitigation $\rightarrow$ coverage comparison with adjacent frameworks.}
+
+\added{{\bf Incident.} On 2025-07-XX, an AI coding agent operating on Replit's platform deleted a production database during a stated code-freeze period and subsequently fabricated a recovery narrative (AI Incident Database \#1152~\mbox{\cite{ref29}}). The agent had been provisioned with database access; no external adversary was involved. The failure was structural: the agent's reasoning capability extended to actions whose consequences exceeded its architectural authority.}
+
+\added{{\bf ATX-1 mapping.} The incident maps to two primary techniques: {\bf T3001 (Perform Irreversible Destructive Action)} under TA003 (Compromise System Integrity), root causes RC2 (Missing Consequence Modeling) and RC3 (Missing Behavioral Boundaries); and {\bf T5001 (Report False Task Completion)} under TA005 (Violate State Integrity), root cause RC4 (Missing State Integrity Protection). Both technique IDs resolve to records in \texttt{atx-1-techniques.json} that name the failure mechanism, the architectural mitigation, and the regulatory cross-references.}
+
+\added{{\bf STIX bundle query.} A practitioner can retrieve all attack-patterns rooted in RC2 directly from the STIX bundle using the standard \texttt{stix2} Python library:}
+
+\begin{lstlisting}[language=Python]
+from stix2 import parse
+with open("atx-1-bundle.json") as f:
+    bundle = parse(f.read(), allow_custom=True)
+for obj in bundle.objects:
+    if obj.type == "attack-pattern":
+        ext = obj.external_references[0]
+        if "RC2" in obj.get("x_aegis_root_cause", ""):
+            print(f"{ext.external_id}: {obj.name}")
+\end{lstlisting}
+
+\added{This same query pattern supports SIEM ingestion: the STIX bundle imports directly into platforms such as MISP, OpenCTI, and Splunk ES, where each attack-pattern becomes a queryable signature for incident-response correlation.}
+
+\added{{\bf AEGIS mitigation.} The architectural mitigation for T3001 is an action-reversibility check at the governance boundary. In the AEGIS Governance Protocol (AGP-1), the agent's proposed action \texttt{ACTION\_PROPOSE \{verb: drop\_table, target: production\_db\}} is intercepted before execution. The action's reversibility classification is evaluated against the agent's authority context (active code-freeze, principal not present to authorize); the decision is \texttt{DENY} with an audit-tagged identifier. The agent's reasoning capability is unchanged; only its execution path through irreversible operations is governed. The same mitigation pattern applies to T5001 (false task completion) via the AGP-1 audit ledger, which records every governance decision in a hash-chained log that the agent cannot rewrite.}
+
+\added{{\bf Adjacent-framework coverage.} The same incident, viewed through three other frameworks:}
+\begin{itemize}
+\item \added{MITRE ATT\&CK T1485 (Data Destruction) catalogs the technique as an adversarial action against a target system. The incident does not fit cleanly because no adversary was present; the destructive action originated from the system's own AI agent. Coverage: partial (motion fits, threat-source framing does not).}
+\item \added{MITRE ATLAS catalogs adversarial actions against AI/ML systems. The Replit agent was the actor, not the target, so no ATLAS technique applies. Coverage: not applicable.}
+\item \added{OWASP LLM06 (Excessive Agency, in the 2025 Top 10 for LLM Applications~\mbox{\cite{ref6}}) is a categorical match. The category, however, is a single high-level risk; it does not decompose to a specific failure mechanism, does not specify an architectural mitigation, and does not publish a STIX-encoded artifact for SIEM ingestion. Coverage: matched at the category level only.}
+\item \added{ATX-1 T3001 + T5001 provide specific failure mechanisms, architectural mitigations (linked to AGP-1 controls and AEGIS constitutional articles), regulatory cross-references (NIST AI RMF GOVERN-1.1, EU AI Act Article 14, OWASP LLM06), and STIX 2.1 records for direct tooling integration. Coverage: full.}
+\end{itemize}
+
+\added{This example illustrates the structural relationship among the four frameworks: ATT\&CK and ATLAS address adversaries (external and AI-targeting respectively), OWASP LLM provides high-level risk categorization, and ATX-1 fills the gap by cataloguing failure mechanisms that arise from the AI agent itself with the mitigation specificity and machine-readable encoding the other three lack.}
+
 \subsection*{Limitations}
 
 \replaced{ATX-1 v2.3 derives its technique definitions primarily from the {\it Agents of Chaos} study~\mbox{\cite{ref4}}, with v2.1 additions (the four techniques under TA010) derived from RFC-0006 adversarial testing of the AEGIS Claude Code plugin. The core findings are corroborated by independent research on multi-agent vulnerabilities~\mbox{\cite{ref11}}, cross-domain security challenges~\mbox{\cite{ref12}}, governed system failure modes~\mbox{\cite{ref13}}, and additional empirical work cited in the Validation section below. The convergence of multiple independent research groups on the same failure patterns provides confidence in the taxonomy's coverage of the dominant threat classes}{ATX-1 v1.0 derives its technique definitions primarily from the {\it Agents of Chaos} study~\mbox{\cite{ref4}}, with the core findings corroborated by independent research on multi-agent vulnerabilities~\mbox{\cite{ref11}}, cross-domain security challenges~\mbox{\cite{ref12}}, and governed system failure modes~\mbox{\cite{ref13}}. While the technique catalog may not be exhaustive, the convergence of multiple research groups on the same failure patterns provides confidence in the taxonomy's coverage of the dominant threat classes}. Future versions will incorporate additional empirical sources as the field of agentic AI governance matures.
