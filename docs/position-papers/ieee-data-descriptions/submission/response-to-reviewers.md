@@ -189,7 +189,7 @@ This subsection also responds to Reviewer 2 comments R2-3 (a–d) and R2-4c.
 
 (a) *Why are 11 case studies sufficient to abstract 20 techniques?* The new *Construction Reproducibility* subsection documents the case-to-technique abstraction criteria explicitly. The 11-cases-to-20-techniques ratio arises because some cases (e.g., AoC CS#1) surface multiple distinct mechanisms, and some techniques aggregate multiple cases on a common mechanism. The criteria for both directions are now in writing.
 
-(b) *Is there overfitting?* The new *External Validation* subsection establishes that the taxonomy is independently observable outside the AoC dataset. Eight of ten v2.3 tactics were reproduced in a controlled multi-agent evaluation (Round 1) that the authors did not have access to when constructing the v1.0 taxonomy. Cemri et al.'s independent MAST taxonomy (200+ multi-agent traces, NeurIPS 2025) converges on overlapping failure categories.
+(b) *Is there overfitting?* The new *External Validation* subsection establishes that the taxonomy is independently observable outside the AoC dataset. Eight of ten v2.3 tactics were reproduced in a controlled multi-agent evaluation (Round 1) conducted after v1.0 was constructed; the Round 1 dataset therefore tests rather than informs the taxonomy. Cemri et al.'s independent MAST taxonomy (200+ multi-agent traces, NeurIPS 2025) converges on overlapping failure categories.
 
 (c) *Independent sources to test coverage?* The corroborating-studies coverage matrix cites fourteen independent studies; each tactic has at least three independent observation sources.
 
