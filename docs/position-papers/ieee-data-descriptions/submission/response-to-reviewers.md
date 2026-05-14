@@ -105,9 +105,11 @@ The complete pipeline is published in `atx-1-techniques.json` (records) and `atx
 
 2. **Corroborating-studies coverage.** Each of the ten v2.3 tactics is independently observed in at least three studies outside the original AoC dataset. The new subsection cites the Microsoft AI Red Team taxonomy [17], Anthropic's *Agentic Misalignment* study [18], Cemri et al.'s MAST taxonomy [19], MITRE ATLAS v5.4.0 agentic techniques [3], AgentHarm [20], AgentDojo [21], InjecAgent [22], OpenAgentSafety [23], HAICosystem [24], Alignment Faking [25], In-Context Scheming [26], and Greshake et al.'s foundational indirect-prompt-injection paper [27].
 
-3. **Production-incident corroboration.** Two documented production incidents are cited: *EchoLeak* (CVE-2025-32711) [28] and the *Replit Production-Database Deletion* incident [29]. Both map to specific ATX-1 techniques outside controlled-experiment contexts.
+3. **Production-incident corroboration.** Five documented production incidents are cited: *EchoLeak* (CVE-2025-32711, Aim Labs) [28], *Reprompt* (CVE-2025-64671, Varonis Threat Labs) [33], the *Replit Production-Database Deletion* incident [29], *Microsoft Semantic Kernel RCE* (CVE-2026-26030 and CVE-2026-25592, Microsoft Defender) [34], and *IDEsaster* (twenty-four CVEs across ten AI coding assistants including Cursor, GitHub Copilot, Claude Code, Windsurf, Kiro, Zed, Roo Code, JetBrains Junie, Cline, and Gemini CLI) [35]. The Microsoft Semantic Kernel disclosure is particularly relevant because it directly validates the v2.1 TA010 thesis that governance abstractions cannot model the execution environment's full capabilities; IDEsaster corroborates T10003 (Inject Persistent Agent Instructions) with the same RFC-0006 plugin-injection class we cite as the technique's origin.
 
-The cumulative empirical base now includes approximately thirty frontier-lab incidents, 200+ hand-coded multi-agent failure traces (Cemri MAST), 350+ OpenAgentSafety scenarios, fourteen new MITRE ATLAS agentic techniques, a parallel Microsoft Red Team taxonomy, two documented production incidents, and the Round 1 controlled replication.
+In addition, two research benchmarks not in the original submission are now cited: *Breaking Agents* (Zhang et al., 2024) [31], which demonstrated that autonomous agents can be induced into malfunction loops with failure rates exceeding 80% in multi-agent scenarios (corroborating TA006/TA009); and *CVE-Bench* (Zhu et al., ICML 2025) [32], which evaluated frontier AI agents against 40 real-world web-application CVEs and reported state-of-the-art agents resolving approximately 13% of the critical vulnerabilities, establishing a measurable baseline for autonomous offensive capability that motivates the TA002/TA003 framing.
+
+The cumulative empirical base now includes approximately thirty frontier-lab incidents, 200+ hand-coded multi-agent failure traces (Cemri MAST), 350+ OpenAgentSafety scenarios, the Breaking Agents malfunction-amplification benchmark, the CVE-Bench autonomous-exploitation benchmark, fourteen new MITRE ATLAS agentic techniques, a parallel Microsoft Red Team taxonomy, five documented production incidents, and the Round 1 controlled replication.
 
 ## AE-4. Dataset appears derived from limited sources; generalization is a concern. {-}
 
@@ -115,7 +117,7 @@ The cumulative empirical base now includes approximately thirty frontier-lab inc
 
 **Response.** This concern is addressed by the same actions as AE-3. The v1.0 manuscript reflected an 11-case-study empirical base; the v2.3 revision reflects an empirical base of approximately 30 frontier-lab incidents, 200+ MAST traces, 350+ OpenAgentSafety scenarios, plus production incidents and a sister-framework taxonomy.
 
-**Action.** Bibliography expanded from 15 to 29 entries (14 new). The Limitations subsection is rewritten to reflect the cumulative evidence base rather than the v1.0 single-source posture. The taxonomy is no longer reasonably characterized as "derived from limited sources."
+**Action.** Bibliography expanded from 15 to 35 entries (20 new). The Limitations subsection is rewritten to reflect the cumulative evidence base rather than the v1.0 single-source posture. The taxonomy is no longer reasonably characterized as "derived from limited sources."
 
 ## AE-5. "Agentic AI" and "governance boundary" should be more rigorously defined. {-}
 
@@ -252,7 +254,7 @@ The subsection also includes an end-to-end processing flow specifying inputs and
 | EiC: ™ in title | Removed via tracked-changes deletion |
 | AE-1, R1-1: severity ratings | `severity` field removed in v2.3; new *Severity Removed in v2.3* subsection |
 | AE-2, R2-2 (4 sub-questions), R2-Q-replication | New *Construction Reproducibility* subsection |
-| AE-3, AE-4, R1-2, R2-1 (3 sub-questions), R2-Q-tech | New *External Validation and Corroborating Evidence* subsection; bibliography expanded 15 → 29 entries; Limitations rewritten |
+| AE-3, AE-4, R1-2, R2-1 (3 sub-questions), R2-Q-tech | New *External Validation and Corroborating Evidence* subsection; bibliography expanded 15 → 35 entries (20 new); Limitations rewritten |
 | AE-5, R1-3 | New *Definitions* subsection (5 formal definitions) |
 | AE-6, R2-3 (4 sub-questions), R2-4c | New *Worked Example: Replit Production-Database Deletion* subsection |
 | R2-4a, R2-4b | Background framing softened; *Scope (not exclusionary)* paragraph added in Definitions |
