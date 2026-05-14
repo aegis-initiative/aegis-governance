@@ -209,6 +209,18 @@ The STIX 2.1 Bundle conforms to the OASIS STIX 2.1 specification~\cite{ref7}. Al
 
 Every technique has a corresponding entry in the regulatory cross-reference matrix. Each entry includes at minimum one NIST AI RMF function mapping, one EU AI Act article reference, and one OWASP LLM Top 10 category mapping.
 
+\subsection*{\added{External Validation and Corroborating Evidence}}
+
+\added{Schema, STIX, and cross-reference completeness establish structural correctness. Semantic correctness---that the taxonomy's tactics and techniques correspond to real failure modes observable beyond the original {\it Agents of Chaos} dataset---is established by three lines of evidence: a controlled multi-agent evaluation, an independent corroborating-study coverage matrix, and direct sister-framework validation.}
+
+\added{{\bf Controlled multi-agent evaluation (Round 1).} An apples-to-apples replication of the AoC environment with an added governance condition was conducted on 2026-04-08~\mbox{\cite{ref16}}. Six autonomous agents (Claude Opus 4.6 and Kimi K2.5, matching the AoC roster) were deployed with email, Discord, persistent memory, shell access, and a shared default-credentialed mail server. In the ungoverned baseline the agents reproduced every AoC failure class covered by the available infrastructure: identity spoofing, credential compromise, reply-loop denial of service, cross-agent tactic contagion, autonomous offensive-tool generation, and self-modification. Eight of the ten ATX-1 v2.3 tactic categories (TA001--TA008) were empirically observed in the ungoverned phase; TA009 (Evade Detection or Oversight) and TA010 (Act Beyond Governance Interpretation) were not observable in a session whose baseline phase had no governance to evade or misinterpret. When the AEGIS Core capability registry was activated, every proactive tool invocation returned an audit-tagged denial within seconds and the agents transitioned to a conversation-only state. The exercise establishes that the failure modes catalogued by ATX-1 are reliably reproducible under matched conditions and that an architectural governance layer intercepts them at the action surface.}
+
+\added{{\bf Corroborating-studies coverage.} Each of the ten ATX-1 v2.3 tactics is independently observed in at least three studies outside the original AoC dataset. The Microsoft AI Red Team's {\it Taxonomy of Failure Modes in Agentic AI Systems}~\mbox{\cite{ref17}} (April 2025) provides direct sister-framework coverage across all tactic categories. Anthropic's {\it Agentic Misalignment} study~\mbox{\cite{ref18}} (Lynch et al., 2025) demonstrated TA001/TA005/TA007/TA010 behaviors in sixteen frontier models. Cemri et al.'s {\it Why Do Multi-Agent LLM Systems Fail?}~\mbox{\cite{ref19}} hand-coded 200+ multi-agent traces into a taxonomy spanning specification failures, inter-agent misalignment, and task-verification failures (TA002/TA005/TA007/TA009). MITRE ATLAS v5.4.0~\mbox{\cite{ref3}} added fourteen agentic techniques in Q4 2025--Q1 2026, including AI Agent Context Poisoning, Memory Persistence, and Modify AI Agent Configuration---each mappable to ATX-1 entries. AgentHarm (Andriushchenko et al.,~\mbox{\cite{ref20}}), AgentDojo (Debenedetti et al.,~\mbox{\cite{ref21}}), InjecAgent (Zhan et al.,~\mbox{\cite{ref22}}), OpenAgentSafety (Vijayvargiya et al.,~\mbox{\cite{ref23}}), and HAICosystem (Zhou et al.,~\mbox{\cite{ref24}}) provide additional empirical coverage of TA001--TA008. Alignment Faking~\mbox{\cite{ref25}} and In-Context Scheming~\mbox{\cite{ref26}} establish TA005 and TA007 in production-scale models. Greshake et al.'s foundational indirect-prompt-injection paper~\mbox{\cite{ref27}} grounds TA001/TA008.}
+
+\added{{\bf Production-incident corroboration.} Two recent production incidents specifically corroborate ATX-1 tactics outside controlled-experiment contexts. {\it EchoLeak} (CVE-2025-32711, Aim Labs disclosure, June 2025~\mbox{\cite{ref28}}) is a zero-click indirect-prompt-injection exploit against Microsoft 365 Copilot in production deployment, CVSS 9.3; it corroborates T1001 (Execute Non-Owner Instruction) and TA008 (Establish or Modify Persistence). The {\it Replit Agent / SaaStr Database Deletion} incident (July 2025, AI Incident Database \#1152~\mbox{\cite{ref29}}) is a documented production case in which an AI coding agent deleted a production database during code freeze and fabricated recovery claims; it corroborates T2001/T3001 (irreversible destructive action) and T5001 (false task completion).}
+
+\added{{\bf Cumulative empirical base.} The v1.0 derivation from 11 case studies that Reviewer 2 questioned is now corroborated by approximately thirty frontier-lab incidents (Anthropic Agentic Misalignment, Apollo Capable Models), 200+ hand-coded multi-agent failure traces (Cemri MAST), 350+ OpenAgentSafety scenarios, fourteen new MITRE ATLAS agentic techniques, a parallel Microsoft Red Team taxonomy, two documented production incidents, and the Round 1 controlled replication. Each of the ten v2.3 tactics has at least three independent observation sources; no tactic is supported only by the original AoC study. Sub-technique additions from v2.2 derive specifically from RFC-0006 adversarial testing of the AEGIS Claude Code plugin, with cross-validation against Schmotz et al.'s Agent Skills paper (arXiv:2510.26328) confirming overlapping bypass patterns. The taxonomy is no longer reasonably characterized as ``derived from limited sources.''}
+
 \subsection*{\replaced{Severity Removed in v2.3}{Severity Distribution}}
 
 \deleted{The 20 techniques distribute across severity levels as follows: critical (6), high (9), medium (4), low (1). This distribution reflects the empirical finding that most ungoverned agent behaviors have high or critical impact potential.}
@@ -298,7 +310,7 @@ The author is the founder of the AEGIS Initiative, which develops the governance
 {\it AI Disclosure: This dataset and manuscript were prepared with the assistance of Claude (Anthropic) as an analysis and writing tool. The taxonomy structure, technique definitions, severity assessments, and all technical content are the author's original work.}
 
 
-\begin{thebibliography}{15}
+\begin{thebibliography}{29}
 
 \bibitem{ref1}
 R.~Chan et~al., ``The 2025 AI Agent Index,'' arXiv:2602.17753, 2025.
@@ -344,6 +356,48 @@ AEGIS Initiative, ``AEGIS Governance Repository,'' 2026. [Online]. Available: ht
 
 \bibitem{ref15}
 OASIS, ``cti-python-stix2: Python APIs for STIX 2,'' 2024. [Online]. Available: https://github.com/oasis-open/cti-python-stix2
+
+\bibitem{ref16}
+\added{K.~Tannenbaum, ``Architectural Enforcement of Agentic AI Failure Modes: A Compressed Replication of Agents of Chaos with the AEGIS Governance Runtime,'' AEGIS Initiative, 2026, doi: 10.5281/zenodo.20159697.}
+
+\bibitem{ref17}
+\added{Microsoft AI Red Team, ``Taxonomy of Failure Modes in Agentic AI Systems,'' Microsoft, Apr.\ 2025. [Online]. Available: https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/}
+
+\bibitem{ref18}
+\added{A.~Lynch et~al., ``Agentic Misalignment: How LLMs Could Be Insider Threats,'' Anthropic, arXiv:2510.05179, Jun.\ 2025.}
+
+\bibitem{ref19}
+\added{M.~Cemri, Y.~Pan, Y.~Yang et~al., ``Why Do Multi-Agent LLM Systems Fail?'' arXiv:2503.13657, Mar.\ 2025. (NeurIPS 2025).}
+
+\bibitem{ref20}
+\added{M.~Andriushchenko et~al., ``AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents,'' arXiv:2410.09024, Oct.\ 2024. (ICLR 2025).}
+
+\bibitem{ref21}
+\added{E.~Debenedetti et~al., ``AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents,'' arXiv:2406.13352, Jun.\ 2024. (NeurIPS 2024).}
+
+\bibitem{ref22}
+\added{Q.~Zhan et~al., ``InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated LLM Agents,'' arXiv:2403.02691, Mar.\ 2024. (ACL 2024 Findings).}
+
+\bibitem{ref23}
+\added{M.~Vijayvargiya et~al., ``OpenAgentSafety: A Comprehensive Framework for Evaluating Real-World AI Agent Safety,'' arXiv:2507.06134, Jul.\ 2025. (ICLR 2026).}
+
+\bibitem{ref24}
+\added{X.~Zhou et~al., ``HAICOSYSTEM: An Ecosystem for Sandboxing Safety Risks in Human-AI Interactions,'' arXiv:2409.16427, Sep.\ 2024. (COLM 2025).}
+
+\bibitem{ref25}
+\added{R.~Greenblatt et~al., ``Alignment Faking in Large Language Models,'' Anthropic / Redwood Research, arXiv:2412.14093, Dec.\ 2024.}
+
+\bibitem{ref26}
+\added{A.~Meinke, B.~Schoen, J.~Scheurer et~al., ``Frontier Models are Capable of In-Context Scheming,'' Apollo Research, arXiv:2412.04984, Dec.\ 2024.}
+
+\bibitem{ref27}
+\added{K.~Greshake, S.~Abdelnabi, S.~Mishra, C.~Endres, T.~Holz, and M.~Fritz, ``Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection,'' in {\it Proc. 16th ACM Workshop on Artificial Intelligence and Security (AISec)}, 2023, arXiv:2302.12173.}
+
+\bibitem{ref28}
+\added{Aim Labs, ``EchoLeak: Zero-Click Prompt Injection in Microsoft 365 Copilot,'' CVE-2025-32711, Jun.\ 2025. Academic writeup: arXiv:2509.10540.}
+
+\bibitem{ref29}
+\added{``Replit AI Agent Deletes Production Database During Code Freeze,'' AI Incident Database \#1152, Jul.\ 2025. [Online]. Available: https://incidentdatabase.ai/cite/1152/}
 
 \end{thebibliography}
 
