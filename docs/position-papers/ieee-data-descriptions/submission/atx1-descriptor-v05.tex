@@ -51,7 +51,7 @@ Agentic AI, AI governance, autonomous agents, constitutional enforcement, EU AI 
 
 \section*{BACKGROUND}
 
-Autonomous AI agents---systems that execute real-world actions against operational infrastructure including API calls, file system operations, database queries, and inter-service requests---have grown significantly in production deployments during the twelve months preceding this publication~\cite{ref1}. This growth has outpaced the development of governance infrastructure suited to the action layer, creating a systematic gap between what agents can do and what they are authorized to do.
+Autonomous AI agents---systems that execute real-world actions against operational infrastructure including API calls, file system operations, database queries, and inter-service requests---have grown significantly in production deployments during the \replaced{eighteen}{twelve} months preceding this publication~\cite{ref1}. This growth has outpaced the development of governance infrastructure suited to the action layer, creating a systematic gap between what agents can do and what they are authorized to do.
 
 Existing threat taxonomy frameworks do not address this gap. MITRE ATT\&CK~\cite{ref2} catalogs adversarial tactics and techniques used by human threat actors against computer systems. MITRE ATLAS~\cite{ref3} catalogs adversarial tactics used against AI and machine learning systems. Both frameworks model a clear attacker-target separation: an external adversary acts against a system. ATX-1 \replaced{addresses an adjacent and complementary failure surface: the failure modes that originate within the agent's own action path, regardless of whether the immediate trigger is an external input (e.g., indirect prompt injection) or an emergent property of the agent's reasoning under permissive conditions}{addresses the scenario where the AI agent itself is the threat source---not through compromise or malicious intent, but through capability without governance constraint}. \added{The distinction is not exclusionary: composite scenarios where adversarial inputs trigger ATX-1 failure modes are explicitly in scope, and a complete security posture for an agent deployment typically requires controls drawn from all three taxonomies. See the Definitions subsection below.}
 
@@ -68,7 +68,7 @@ Multiple independent research groups have converged on the same finding. Arora e
 
 ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governance of Intelligent Systems) project~\cite{ref5}, an open governance architecture that applies reference monitor principles~\cite{ref14} to enforce deterministic constitutional policy at the agent action boundary. The taxonomy directly informs the AEGIS threat model (ATM-1) and maps each technique to specific constitutional articles and governance protocol mechanisms that mitigate it.
 
-No comparable machine-readable dataset exists for agentic AI threat modeling. The OWASP Top 10 for LLM Applications~\cite{ref6} provides a high-level risk categorization but does not define individual techniques, map mitigations to architectural mechanisms, or provide STIX-compatible data for integration with threat intelligence platforms. ATX-1 fills this gap.
+\replaced{While several recent efforts catalog agentic AI risks at a higher level---the OWASP Top 10 for Agentic Applications (December 2025)~\mbox{\cite{ref30}}, the Microsoft AI Red Team's {\it Taxonomy of Failure Modes in Agentic AI Systems} (April 2025)~\mbox{\cite{ref17}}, and MITRE ATLAS's agentic technique additions in v5.4.0 (February 2026)~\mbox{\cite{ref3}}---none provide a complete machine-readable dataset of agent-resident failure modes with technique-level detail, architectural mitigation mappings, and STIX 2.1 encoding. The OWASP Top 10s (LLM~\mbox{\cite{ref6}} and Agentic~\mbox{\cite{ref30}}) are categorical risk lists; the Microsoft Taxonomy is a narrative whitepaper; ATLAS focuses primarily on adversaries against AI systems rather than the agent-resident failure surface. ATX-1 occupies this gap.}{No comparable machine-readable dataset exists for agentic AI threat modeling. The OWASP Top 10 for LLM Applications~\mbox{\cite{ref6}} provides a high-level risk categorization but does not define individual techniques, map mitigations to architectural mechanisms, or provide STIX-compatible data for integration with threat intelligence platforms. ATX-1 fills this gap.}
 
 \subsection*{\added{Definitions}}
 
@@ -84,8 +84,8 @@ No comparable machine-readable dataset exists for agentic AI threat modeling. Th
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=\textwidth]{atx-1}
-\caption{ATX-1 threat matrix. \protect\replaced{Ten tactic columns (TA001--TA010)}{Nine tactic columns (TA001--TA009)} contain \protect\replaced{29 techniques with 29 sub-techniques}{20 techniques, each color-coded by severity: critical (red), high (orange), medium (blue)}. Technique identifiers follow a non-sequential scheme where the first two digits encode the parent tactic (e.g., T1001--T1003 belong to TA001)\protect\added{; sub-techniques use the form T\#\#\#\#.\#\#\#}.\protect\added{ v2.3 removes the severity field to align with MITRE ATT\&CK and ATLAS conventions, which leave contextual scoring to the consumer.}}
+\includegraphics[width=\textwidth]{atx-1-v23}
+\caption{ATX-1 threat matrix \protect\added{(v2.3)}. \protect\replaced{Ten tactic columns (TA001--TA010)}{Nine tactic columns (TA001--TA009)} contain \protect\replaced{29 techniques with 29 sub-techniques}{20 techniques, each color-coded by severity: critical (red), high (orange), medium (blue)}. Technique identifiers follow a non-sequential scheme where the first two digits encode the parent tactic (e.g., T1001--T1003 belong to TA001)\protect\added{; sub-techniques use the form T\#\#\#\#.\#\#\#}.\protect\added{ v2.3 removes the severity field to align with MITRE ATT\&CK and ATLAS conventions, which leave contextual scoring to the consumer.}}
 \label{fig:matrix}
 \end{figure*}
 
@@ -345,7 +345,7 @@ The author is the founder of the AEGIS Initiative, which develops the governance
 {\it AI Disclosure: This dataset and manuscript were prepared with the assistance of Claude (Anthropic) as an analysis and writing tool. The taxonomy structure, technique definitions, severity assessments, and all technical content are the author's original work.}
 
 
-\begin{thebibliography}{29}
+\begin{thebibliography}{30}
 
 \bibitem{ref1}
 R.~Chan et~al., ``The 2025 AI Agent Index,'' arXiv:2602.17753, 2025.
@@ -433,6 +433,9 @@ OASIS, ``cti-python-stix2: Python APIs for STIX 2,'' 2024. [Online]. Available: 
 
 \bibitem{ref29}
 \added{``Replit AI Agent Deletes Production Database During Code Freeze,'' AI Incident Database \#1152, Jul.\ 2025. [Online]. Available: https://incidentdatabase.ai/cite/1152/}
+
+\bibitem{ref30}
+\added{OWASP GenAI Security Project, ``OWASP Top 10 for Agentic Applications,'' OWASP Foundation, Dec.\ 2025. [Online]. Available: https://genai.owasp.org/}
 
 \end{thebibliography}
 
