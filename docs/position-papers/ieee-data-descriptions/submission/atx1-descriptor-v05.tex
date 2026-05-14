@@ -102,6 +102,28 @@ The ATX-1 taxonomy was constructed through a four-stage process:
 
 {\bf 4. Mitigation mapping.} Each technique was mapped to specific AEGIS constitutional articles and AGP-1 governance protocol mechanisms that architecturally prevent the failure mode. Regulatory cross-references to NIST AI RMF functions, EU AI Act articles, and OWASP LLM Top 10 categories were added.
 
+\subsection*{\added{Construction Reproducibility}}
+
+\added{The four-stage process above involves discretionary judgments at each stage. To make these judgments reproducible by independent coders, the following rules and criteria were applied across all 11 source case studies of v1.0, the four RFC-0006 adversarial-testing rounds that produced v2.1's TA010 additions, and the bypass-method observations that produced v2.2's sub-techniques.}
+
+\added{{\bf Case-to-root-cause coding.} Each observed failure was coded for the structural factor that enabled it. The coding rules are:}
+\begin{itemize}
+\item \added{Code as {\bf RC1} when the agent acted on an instruction whose source authority was not architecturally verified.}
+\item \added{Code as {\bf RC2} when the agent performed an action without architectural representation of impact, reversibility, or scope.}
+\item \added{Code as {\bf RC3} when the agent expanded scope beyond declared task boundaries with no boundary check.}
+\item \added{Code as {\bf RC4} when failure proceeded through commingled instructions and data (prompt injection, indirect injection, or context poisoning).}
+\item \added{Code as {\bf RC5} when the agent's action took an environment-interpreted path that the governance abstraction did not model.}
+\end{itemize}
+\added{Multiple root causes per technique are permitted; the dataset's \texttt{root\_cause} field accepts a comma-separated set. Inter-coder reliability was not measured (single-author coding); the dataset's \texttt{agents\_of\_chaos\_case} field provides direct case-to-technique traceability, enabling independent recoding by future researchers.}
+
+\added{{\bf Case-to-technique abstraction.} A failure mode is divided into separate techniques when (i) the mechanism differs (different conditions, different invariants violated), (ii) the architectural mitigation differs (different governance primitive blocks it), or (iii) the threat surface differs (different action category or capability). Multiple cases collapse into a single technique when mechanism, mitigation, and threat surface all align; only surface details (target identifier, tooling, payload) differ. In v1.0 this rule produced a 11-cases-to-20-techniques ratio: some cases (e.g., AoC CS\#1 "non-owner instruction compliance") yielded multiple techniques because the same observation surfaced two distinct mechanisms, and some techniques (e.g., T2001 "Perform Irreversible Destructive Action") aggregate multiple cases that converged on the same mechanism.}
+
+\added{{\bf Sub-technique introduction.} A sub-technique (introduced in v2.2 under IDs of the form \texttt{T\#\#\#\#.\#\#\#}) is created when a specific bypass method of the parent technique is sufficiently distinct in mechanism to warrant its own identifier, AND the bypass mechanism cannot be addressed by the parent technique's mitigation alone. v2.3 carries 29 sub-techniques, all under T9002 (Obfuscate Action Traceability) and the four TA010 parent techniques (T10001--T10004). Sub-techniques inherit the parent's tactic, root cause, and primary mitigation, but carry their own mechanism descriptions and may add specialized mitigations.}
+
+\added{{\bf Tactic-boundary rules.} A tactic is a category of ungoverned outcome---a class of agentic results, not a class of mechanisms. Tactic boundaries are determined by three factors in priority order: (i) the agent's effective goal (the kind of result the failure produces), (ii) the architectural layer affected (authority verification, scope control, integrity protection, state integrity, etc.), and (iii) the dominant mitigation pattern (which AEGIS primitive most directly prevents the failure). Tactic membership for a technique is decided by which of these three factors most cleanly classifies it. Where a technique could reasonably belong to two tactics, the primary tactic is the one whose mitigation pattern aligns most directly; the secondary association is recorded as a relationship in the STIX bundle rather than duplicating the technique entry.}
+
+\added{{\bf End-to-end processing flow.} The four-stage process maps inputs to outputs as: (1) raw case study or adversarial-test observation $\rightarrow$ failure-mechanism description; (2) failure-mechanism description $\rightarrow$ RC1--RC5 assignment per the coding rules above; (3) root cause + mechanism + threat surface $\rightarrow$ technique identifier (T\#\#\#\# or T\#\#\#\#.\#\#\#) and tactic assignment per the boundary rules above; (4) technique $\rightarrow$ AEGIS constitutional article + AGP-1 mechanism + regulatory cross-references. The complete pipeline, including the source case studies, technique records, root cause assignments, and mitigations, is published in the dataset's \texttt{atx-1-techniques.json} (full records) and \texttt{atx-1-version-mapping.json} (per-version derivation provenance) for independent verification.}
+
 \begin{table}[!b]
 \caption{Technique Record Structure}
 \label{tab:record}
