@@ -70,6 +70,18 @@ ATX-1 was developed as part of the AEGIS (Architectural Enforcement and Governan
 
 No comparable machine-readable dataset exists for agentic AI threat modeling. The OWASP Top 10 for LLM Applications~\cite{ref6} provides a high-level risk categorization but does not define individual techniques, map mitigations to architectural mechanisms, or provide STIX-compatible data for integration with threat intelligence platforms. ATX-1 fills this gap.
 
+\subsection*{\added{Definitions}}
+
+\added{{\bf Agentic AI.} A system in which a large language model (or other AI mechanism) produces actions that execute against operational infrastructure---API calls, file-system operations, database queries, inter-service requests---without per-action human authorization. Humans set goals and constraints; the agent's reasoning loop selects individual actions and targets. AI-generated text or recommendations are not, by this definition, agentic; AI-invoked tool calls against systems, APIs, or files are.}
+
+\added{{\bf Governance boundary.} The architectural point at which an agent's proposed actions are evaluated against policy and either allowed, denied, or escalated. The governance boundary sits between the agent's reasoning loop and the action surface; it is structurally distinct from training-time alignment (e.g., RLHF, Constitutional AI), which operates inside the model. Equivalent boundaries appear in classical security architectures: the reference monitor concept~\mbox{\cite{ref10}}, the policy-decision-point/policy-enforcement-point pattern, and runtime contract enforcement in service-oriented systems.}
+
+\added{{\bf Threat source.} In ATT\&CK, the threat source is a human adversary external to the system. In ATLAS, the threat source is an adversary (external or internal) targeting an AI/ML system. In ATX-1, the threat source is the AI agent itself---not as an adversary but as a system whose structural capability exceeds its architectural authority. Composite scenarios are explicitly in scope: external adversarial inputs (e.g., indirect prompt injection) routinely trigger ATX-1 failure modes, and ATX-1 catalogs the agent-resident failure surface that such triggers exploit.}
+
+\added{{\bf Capability and authority.} {\it Capability} is what an agent technically can do given its tool access, network reach, and execution permissions. {\it Authority} is the architectural representation of what the agent is permitted to do, conditioned on its identity, the action's principal, and the consequences. ATX-1 catalogs failure modes that arise from gaps in this distinction.}
+
+\added{{\bf Scope (not exclusionary).} ATX-1 v2.3 is complementary, not exclusionary. A production agent deployment will routinely encounter composite risk scenarios that combine adversarial inputs with structural agent vulnerabilities; a complete security posture requires controls drawn from ATX-1 (agent-resident failure modes), ATT\&CK (human adversaries against the supporting infrastructure), and ATLAS (adversaries against the agent's model or pipeline). Practitioners should treat the three taxonomies as a layered defense, not as competing accounts.}
+
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{atx-1}
