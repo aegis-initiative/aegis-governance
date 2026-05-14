@@ -85,10 +85,10 @@
         <mxCell id="7PSrkkkQC3rZMr-ar-ry-180" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="&lt;font style=&quot;color: rgb(102, 102, 102);&quot;&gt;Tactics &amp;amp; techniques for adversaries targeting AI/ML models&lt;/font&gt;" vertex="1">
           <mxGeometry height="45" width="235" x="428" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="7PSrkkkQC3rZMr-ar-ry-181" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="&lt;font style=&quot;color: rgb(102, 102, 102);&quot;&gt;Tactics &amp;amp; techniques ungoverned AI agents acting as the threat source&lt;/font&gt;" vertex="1">
+        <mxCell id="7PSrkkkQC3rZMr-ar-ry-181" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="&lt;font style=&quot;color: rgb(102, 102, 102);&quot;&gt;Tactics &amp;amp; techniques for the agent-resident failure surface&lt;/font&gt;" vertex="1">
           <mxGeometry height="45" width="235" x="685" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="7PSrkkkQC3rZMr-ar-ry-182" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;fillColor=#f5f5f5;strokeColor=#B85450;fontColor=#333333;" value="&lt;font style=&quot;color: rgb(184, 84, 80);&quot;&gt;&lt;b style=&quot;&quot;&gt;AEGIS ATX-1 fills the gap: AI agents that are themselves the threat source&lt;/b&gt;&lt;/font&gt;" vertex="1">
+        <mxCell id="7PSrkkkQC3rZMr-ar-ry-182" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=0;fillColor=#f5f5f5;strokeColor=#B85450;fontColor=#333333;" value="&lt;font style=&quot;color: rgb(184, 84, 80);&quot;&gt;&lt;b style=&quot;&quot;&gt;AEGIS ATX-1 fills the gap: agent-resident failure modes&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="45" width="745" x="175" y="540" as="geometry" />
         </mxCell>
       </root>
