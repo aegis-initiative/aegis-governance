@@ -275,7 +275,10 @@
     "Finnoybu",
     "predev",
     "prebuild",
-    "mojibake"
+    "mojibake",
+    "Cemri",
+    "Reprompt",
+    "IDEsaster"
   ],
   "ignorePaths": [
     "archive/**",
