@@ -5,7 +5,7 @@ This document collects the metadata for depositing ATX-1 v2.3 on IEEE DataPort a
 ## Existing record (v1.0)
 
 - **DOI:** [10.21227/f87b-1d57](https://doi.org/10.21227/f87b-1d57)
-- **URL:** https://ieee-dataport.org/documents/atx-1-aegis-threat-matrix-agentic-ai-systems
+- **URL:** <https://ieee-dataport.org/documents/atx-1-aegis-threat-matrix-agentic-ai-systems>
 - **Status:** Frozen; reflects the v1.0 baseline reviewed in the original DATA-00033-2026 submission.
 
 ## What to deposit
@@ -32,11 +32,13 @@ This document collects the metadata for depositing ATX-1 v2.3 on IEEE DataPort a
 ## Metadata (web form fields)
 
 ### Title
+
 ```
 ATX-1: AEGIS Threat Matrix for Agentic AI Systems, Version 2.3
 ```
 
 ### Authors
+
 ```
 Kenneth Tannenbaum (AEGIS Initiative, AEGIS Operations LLC, ORCID 0009-0007-4215-1789)
 ```
