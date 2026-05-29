@@ -2,16 +2,17 @@
 
 This directory contains the ATX-1 technique taxonomy, a structured adversarial knowledge base for agentic AI actor behavior.
 
-**Current version:** v2.3 (2026-04-24) — 10 tactics, 29 techniques, 29 sub-techniques, 5 root causes\
+**Current version:** v2.4 (2026-05-29) — 10 tactics, 30 techniques, 39 sub-techniques, 5 root causes\
 **DOI:** _pending — Zenodo + IEEE DataPort minting in progress_
 
-**v2.3 changes:** Removes the `severity` field from technique definitions in
-alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual
-scoring to the consumer. All v2.2 tactics, techniques, sub-techniques, root
-causes, and mitigations are preserved unchanged.
+**v2.4 changes:** Adds Termination Poisoning (T6003) under TA006 with 10
+sub-techniques mapped to the strategies of Xu et al. (LoopTrap,
+arXiv:2605.05846). Purely additive; all prior tactics, techniques,
+sub-techniques, root causes, and mitigations are preserved unchanged.
 
 **Previous versions (frozen at published DOIs):**
 
+- v2.3: [10.5281/zenodo.20171712](https://doi.org/10.5281/zenodo.20171712) (2026-04-24) — severity field removed for MITRE alignment
 - v2.2: [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999) (2026-04-01)
 - v2.1: [10.5281/zenodo.19251098](https://doi.org/10.5281/zenodo.19251098) (2026-03-27)
 - v2.0: [10.5281/zenodo.19238844](https://doi.org/10.5281/zenodo.19238844)
@@ -26,10 +27,10 @@ causes, and mitigations are preserved unchanged.
 
 - [v2/stix/atx-1-bundle.json](v2/stix/atx-1-bundle.json) — Complete STIX 2.1 Bundle with all ATX-1 objects
 - [v2/schema/atx-technique.schema.json](v2/schema/atx-technique.schema.json) — JSON Schema for ATX-1 technique definitions
-- [v2/data/atx-1-techniques.json](v2/data/atx-1-techniques.json) — All 29 techniques as structured JSON
+- [v2/data/atx-1-techniques.json](v2/data/atx-1-techniques.json) — All 30 techniques + 39 sub-techniques (69 entries) as structured JSON
 - [v2/data/atx-1-regulatory-crossref.json](v2/data/atx-1-regulatory-crossref.json) — Regulatory cross-reference matrix
 - [v2/data/atx-1-navigator-layer.json](v2/data/atx-1-navigator-layer.json) — ATT&CK Navigator layer
-- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.3)
+- [v2/data/atx-1-version-mapping.json](v2/data/atx-1-version-mapping.json) — Version mapping (v1.0 → v2.4)
 - [v2/data/atx-1-atm1-mapping.json](v2/data/atx-1-atm1-mapping.json) — ATX-1 ↔ ATM-1 mapping
 - [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json) — aegis-core red/blue team validation results
 
@@ -55,8 +56,8 @@ The taxonomy defines:
 
 - **5 structural root causes** (RC1-RC5)
 - **10 tactics** (TA001-TA010)
-- **29 techniques** (T1001-T10004)
-- **29 mitigations** (M001-M029) mapped to AEGIS constitutional articles and AGP mechanisms
+- **30 techniques** (T1001-T10004, incl. T6003) + 39 sub-techniques
+- **30 mitigations** (M001-M030) mapped to AEGIS constitutional articles and AGP mechanisms
 - **Cross-references** to OWASP Top 10 for LLM Applications, NIST AI RMF, and EU AI Act
 
 ATX-1 models three dimensions of governance failure:
@@ -73,8 +74,8 @@ The `v2/stix/atx-1-bundle.json` file is a complete [STIX 2.1](https://docs.oasis
 
 - **1 Identity** — AEGIS Initiative (creator)
 - **10 x-mitre-tactic objects** — One per ATX-1 tactic (TA001-TA010)
-- **29 attack-pattern objects** — One per technique (T1001-T10004), each with kill chain phases, external references, and OWASP mappings
-- **29 course-of-action objects** — One per mitigation (M001-M029), each referencing constitutional articles and AGP mechanisms
+- **69 attack-pattern objects** — One per technique and sub-technique, each with kill chain phases, external references, and OWASP mappings
+- **30 course-of-action objects** — One per mitigation (M001-M030), each referencing constitutional articles and AGP mechanisms
 - **Relationship objects** — Tactic-to-technique (uses), mitigation-to-technique (mitigates), and technique-to-OWASP (related-to) relationships
 
 **Consuming the STIX bundle:**
@@ -108,7 +109,7 @@ ajv validate -s v2/schema/atx-technique.schema.json -d 'v2/data/atx-1-techniques
 
 ### Technique Data
 
-The `v2/data/atx-1-techniques.json` file contains all 29 techniques as a flat JSON array. Each technique includes:
+The `v2/data/atx-1-techniques.json` file contains all 30 techniques and 39 sub-techniques (69 entries) as a flat JSON array. Each technique includes:
 
 - Technique ID, name, tactic, and description
 - Structural root cause(s)
@@ -133,7 +134,8 @@ ATX-1 distinguishes between primary empirical evidence (grounds individual techn
 
 1. **Agents of Chaos** (Shapira et al., arXiv:2602.20021, 2026) — 11 failure modes across live agentic AI deployments. Grounds techniques T1001-T9002. The ATX-1 equivalent of MITRE's Fort Meade eXperiment (FMX).
 2. **RFC-0006 Adversarial Testing** (AEGIS Initiative, 2026-03-26) — 5 rounds of white-box adversarial testing against the AEGIS Claude Code governance plugin. Grounds TA010 techniques T10001-T10004.
-3. **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) — 4 rounds of adversarial red/blue team testing against the Python reference implementation. 68 tests, 24 findings, 25/29 techniques exercised, zero taxonomy gaps. See [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json).
+3. **LoopTrap** (Xu et al., arXiv:2605.05846, 2026) — Termination Poisoning attack on the agentic control loop; 3.57× average step amplification (peak 25×) across 8 LLM agents over 60 GAIA tasks. Grounds T6003 and its 10 sub-techniques; inclusion endorsed by the authors (2026-05-22).
+4. **aegis-core Red/Blue Team Validation** (AEGIS Initiative, 2026-03-30) — 4 rounds of adversarial red/blue team testing against the Python reference implementation. 68 tests, 24 findings, 25/29 techniques exercised, zero taxonomy gaps. See [v2/data/atx-1-validation-aegis-core.json](v2/data/atx-1-validation-aegis-core.json).
 
 ### Corroborating Research (Tier 2)
 
