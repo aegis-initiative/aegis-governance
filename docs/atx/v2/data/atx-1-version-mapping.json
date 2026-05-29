@@ -1,7 +1,7 @@
 {
-  "version": "1.0-to-2.3",
-  "date": "2026-04-24",
-  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.2 to v2.3 for traceability. v1.0, v2.0, v2.1, and v2.2 remain frozen at their published DOIs. v2.3 removes the `severity` field from technique definitions in alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual scoring to the consumer; no tactics, techniques, sub-techniques, root causes, or mitigations were renamed, moved, removed, or added relative to v2.2. v2.2 introduced 29 sub-techniques (T####.###) under T9002, T10001, T10002, T10003, and T10004 — no v2.1 techniques were renamed, moved, or removed.",
+  "version": "1.0-to-2.4",
+  "date": "2026-05-29",
+  "description": "Mapping of ATX-1 technique IDs from v1.0 through v2.3 to v2.4 for traceability. v1.0, v2.0, v2.1, v2.2, and v2.3 remain frozen at their published DOIs. v2.3 removes the `severity` field from technique definitions in alignment with MITRE ATT&CK and ATLAS conventions, which leave contextual scoring to the consumer; no tactics, techniques, sub-techniques, root causes, or mitigations were renamed, moved, removed, or added relative to v2.2. v2.2 introduced 29 sub-techniques (T####.###) under T9002, T10001, T10002, T10003, and T10004 — no v2.1 techniques were renamed, moved, or removed. v2.4 adds one technique, Poison Termination Judgment (T6003) under TA006, with 10 sub-techniques (T6003.001–T6003.010) mapped to the 10 strategies of Xu et al. (LoopTrap, arXiv:2605.05846); no existing tactics, techniques, sub-techniques, root causes, or mitigations were renamed, moved, or removed relative to v2.3.",
   "references": {
     "v1_ieee_dataport": "10.21227/f87b-1d57",
     "v1_zenodo": "10.5281/zenodo.19225676",
@@ -17,6 +17,15 @@
     "schema_impact": "atx-technique.schema.json: `severity` removed from `required`; `severity` property definition removed; schema_version bumped 2.2 → 2.3.",
     "data_impact": "All 58 entries in atx-1-techniques.json had `severity` removed. No other field changes. Field order otherwise preserved.",
     "stix_impact": "None — STIX bundle attack-pattern objects did not carry severity (severity was an ATX-1 extension field present only in atx-1-techniques.json)."
+  },
+  "v2.4_changes": {
+    "technique_added": "T6003 — Poison Termination Judgment (tactic TA006, Abuse Resource Allocation)",
+    "sub_techniques_added": "T6003.001–T6003.010, one per LoopTrap strategy (Expanding Horizon, Incremental Milestone, Diminishing Returns, Authority Override, Sunk Cost Trap, Social Proof, Recursive Decomposition, Dependency Chain, Positive Reinforcement, Gamification Trap).",
+    "rationale": "Adds Termination Poisoning, an agent-vs-environment attack on the progress-evaluation / termination step of the agentic control loop, distinct from indirect prompt injection (action selection) and from model-level resource-exhaustion (sponge) attacks (ATLAS-adjacent). Surfaced via author outreach to the LoopTrap team; inclusion and mapping endorsed by Huiyu Xu on behalf of the authors (2026-05-22).",
+    "source": "H. Xu et al., \"LoopTrap: Termination Poisoning Attacks on LLM Agents,\" arXiv:2605.05846, May 2026. Empirical anchor: 3.57x average step amplification (peak 25x) across 8 LLM agents over 60 GAIA tasks.",
+    "schema_impact": "None — T6003 and its sub-techniques validate against atx-technique.schema.json (schema_version 2.3) unchanged.",
+    "count_impact": "Top-level techniques 29 → 30; total entries (incl. sub-techniques) 58 → 69; tactics unchanged at 10.",
+    "artifacts_regenerated": "STIX 2.1 bundle (204->228 objects), ATT&CK Navigator layer (58->69 entries), ATM-1 mapping (25->26 parent mappings), and regulatory cross-reference (58->69 entries) updated to include T6003.* via scripts/update-{stix,navigator,atm1,regulatory}-v24.py."
   },
   "mappings": [
     { "v1_id": "T1001", "v2_id": "T1001", "v1_name": "Non-Owner Instruction Compliance", "v2_name": "Execute Non-Owner Instruction", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },
@@ -36,6 +45,7 @@
     { "v1_id": "T9001", "v2_id": "T5003", "v1_name": "Silent Provider-Level Task Failure", "v2_name": "Suppress or Omit Execution Failure", "v1_tactic": "TA009", "v2_tactic": "TA005", "change": "moved+renamed" },
     { "v1_id": "T3001", "v2_id": "T6001", "v1_name": "Persistent Process Injection", "v2_name": "Execute Recursive Invocation Loops", "v1_tactic": "TA003", "v2_tactic": "TA006", "change": "moved+renamed" },
     { "v1_id": "T3002", "v2_id": "T6002", "v1_name": "Inter-Agent Conversational Loop", "v2_name": "Consume Unbounded External Resources", "v1_tactic": "TA003", "v2_tactic": "TA006", "change": "moved+renamed" },
+    { "v1_id": null, "v2_id": "T6003", "v1_name": null, "v2_name": "Poison Termination Judgment", "v1_tactic": null, "v2_tactic": "TA006", "change": "new-v2.4", "discovery": "H. Xu et al., LoopTrap (arXiv:2605.05846); added via author outreach, mapping endorsed 2026-05-22" },
     { "v1_id": "T7001", "v2_id": "T7001", "v1_name": "Tribal Knowledge Transfer", "v2_name": "Spoof Agent Identity", "v1_tactic": "TA007", "v2_tactic": "TA007", "change": "renamed" },
     { "v1_id": "T7002", "v2_id": "T7002", "v1_name": "Compromised Governance Propagation", "v2_name": "Inject Malicious Delegation Chains", "v1_tactic": "TA007", "v2_tactic": "TA007", "change": "renamed" },
     { "v1_id": null, "v2_id": "T7003", "v1_name": null, "v2_name": "Induce Cross-Agent Behavioral Drift", "v1_tactic": null, "v2_tactic": "TA007", "change": "new" },

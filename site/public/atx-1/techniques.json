@@ -331,6 +331,237 @@
     "v1_id": "T3002"
   },
   {
+    "id": "T6003",
+    "name": "Poison Termination Judgment",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "An adversary embeds manipulative content in untrusted material the agent ingests — web pages, documents, tool and API responses, retrieved memory, or federated/shared skills — that distorts the agent's termination judgment, causing it to assess an already-complete task as incomplete and continue executing without bound. The attack targets the agent's progress-evaluation and stopping decision in the agentic control loop, not the model's token-level output: it is distinct from indirect prompt injection (which corrupts action selection) and from model-level resource-exhaustion (“sponge”) attacks (which operate on the forward pass and are ATLAS-adjacent). Empirically characterized by Xu et al. (LoopTrap, arXiv:2605.05846), who demonstrate 3.57x average step amplification (peak 25x) across 8 mainstream LLM agents over 60 GAIA tasks using 10 representative strategies, enumerated here as sub-techniques T6003.001–T6003.010.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "sub_techniques": [
+      "T6003.001",
+      "T6003.002",
+      "T6003.003",
+      "T6003.004",
+      "T6003.005",
+      "T6003.006",
+      "T6003.007",
+      "T6003.008",
+      "T6003.009",
+      "T6003.010"
+    ]
+  },
+  {
+    "id": "T6003.001",
+    "name": "Shift the Completion Target",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Expanding Horizon” (moving coverage target). Injected content continually redefines the scope of “complete,” so each satisfied criterion reveals additional required coverage and the finish line recedes ahead of the agent.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.002",
+    "name": "Inject Open-Ended Subgoals",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Incremental Milestone” (never-ending sub-goals). The agent is fed an unbounded sequence of intermediate milestones, each presented as a prerequisite to completion, so the task decomposes into endless sub-goals.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.003",
+    "name": "Assert Asymptotic Incompletion",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Diminishing Returns” (asymptotic near-completion). Injected framing insists the task is perpetually “almost done” — 95%, then 99%, then 99.9% — so the agent keeps iterating toward a completion state it never reaches.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.004",
+    "name": "Fabricate Authority Directives",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Authority Override” (fabricated system directives). Content impersonates system, operator, or policy instructions that forbid termination or mandate further work, exploiting the agent's deference to apparent authority.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.005",
+    "name": "Invoke Sunk-Cost Framing",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Sunk Cost Trap” (invested-effort framing). Injected text emphasizes the effort already expended and frames stopping as wasteful, pressuring the agent to continue in order to justify prior work.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.006",
+    "name": "Appeal to Expert Norms",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Social Proof” (appeal to expert norms). Content claims that competent or expert agents would continue or verify further, inducing conformity-driven continuation.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.007",
+    "name": "Force Recursive Verification",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Recursive Decomposition” (infinite verification regression). Each verification step is made to require its own verification, creating an unbounded regress of self-checking that never resolves to a terminal “done” state.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.008",
+    "name": "Impose Circular Prerequisites",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Dependency Chain” (circular prerequisites). Injected dependencies make completion of each step contingent on another, forming a cycle with no satisfiable terminal state.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.009",
+    "name": "Reward Continued Execution",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Positive Reinforcement” (step-wise praise). Each additional step is met with injected praise or approval, reinforcing continuation and discouraging the stopping decision.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
+    "id": "T6003.010",
+    "name": "Introduce Fabricated Scoring",
+    "tactic": "TA006",
+    "tactic_name": "Abuse Resource Allocation",
+    "description": "Maps to LoopTrap strategy “Gamification Trap” (fabricated scoring system). A fictitious score, level, or progress bar is introduced that the agent seeks to maximize, converting termination into a perpetually deferred goal.",
+    "root_cause": "RC4 (Prompt Injection Is Structural), RC2 (No Self-Model) — The agent derives its progress and termination assessment from the same context window that ingests untrusted content, and holds no independent model of its own completion state against which that assessment can be checked. Injected content is therefore structurally indistinguishable from a legitimate progress signal.",
+    "agents_of_chaos_case": [],
+    "owasp_mapping": [
+      "LLM01",
+      "LLM10"
+    ],
+    "aegis_mitigation": {
+      "constitutional_article": "Bounded Execution",
+      "agp_mechanism": "AGP Progress-Signal Verification, AGP Instruction Provenance, AGP Resource Budgets, AGP Loop Detection",
+      "mechanism": "An independent, sandboxed governance module evaluates task completion against objective criteria derived outside the agent's context window, so a poisoned in-context progress signal cannot on its own keep the loop alive (a “shadow” progress model immune to context injection). Provenance-aware context processing tags untrusted content and applies differential weighting so that retrieved material cannot drive termination decisions. Session-scoped resource budgets and structural loop detection bound execution as a backstop if the progress signal is subverted. These controls correspond to the independent progress-signal verification and provenance-aware context processing proposed by Xu et al. (LoopTrap)."
+    },
+    "v1_id": null,
+    "parent_technique": "T6003"
+  },
+  {
     "id": "T7001",
     "name": "Spoof Agent Identity",
     "tactic": "TA007",

@@ -193,6 +193,10 @@ See [CLAUDE.md](CLAUDE.md) for citation format conventions.
 [19] OWASP Foundation, "OWASP Top 10 for Large Language Model Applications," Version 2025, Nov. 18, 2024. [Online]. Available: <https://owasp.org/www-project-top-10-for-large-language-model-applications/>\
 **Relevance to AEGIS:** The OWASP Top 10 for LLM Applications catalogues the primary security risks in LLM-based systems. LLM01 (Prompt Injection) directly motivates ATM-1 T6 and AEGIS's out-of-band governance posture — prompt content is never an authorization source. LLM06 (Excessive Agency) names the core problem AEGIS addresses: LLMs granted overly permissive capabilities, tools, or actions without adequate governance controls. AEGIS's capability registry, default-deny posture, and execution-time enforcement are direct architectural responses to the Excessive Agency risk.
 
+[38] H. Xu, Z. Wang, W. Zhang, Z. Zhu, Y. Wang, K. Ren, and C. Chen, "LoopTrap: Termination Poisoning Attacks on LLM Agents," arXiv:2605.05846, May 2026. [Online]. Available: <https://arxiv.org/abs/2605.05846>\
+**Keywords:** LLM agents; termination poisoning; prompt injection; unbounded computation; agentic control loop; progress evaluation; resource exhaustion\
+**Relevance to AEGIS:** Defines Termination Poisoning — injected content in untrusted context that distorts an agent's termination judgment, causing unbounded execution. Empirical anchor for ATX-1 technique T6003 (Poison Termination Judgment, tactic TA006) and its ten sub-techniques. Demonstrates 3.57× average step amplification (peak 25×) across 8 LLM agents over 60 GAIA tasks. The defenses the authors propose — an independent, sandboxed progress-signal verifier immune to context injection, and provenance-aware context processing — are out-of-band, model-agnostic controls that independently validate AEGIS's architectural-enforcement thesis. Inclusion in ATX-1 with attribution endorsed by the authors via outreach (2026-05-22); see [docs/outreach/2026-05-looptrap-termination-poisoning.md](docs/outreach/2026-05-looptrap-termination-poisoning.md).
+
 ---
 
 ## How to Cite
@@ -208,5 +212,5 @@ When citing in a document:
 
 **Part of**: AEGIS Documentation\
 **Maintained by**: AEGIS Initiative\
-**Last Updated**: 2026-03-13\
-**Entries**: 32
+**Last Updated**: 2026-05-29\
+**Entries**: 33

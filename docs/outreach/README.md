@@ -23,6 +23,7 @@ This directory archives outreach communications to maintain transparency in the 
 | 2026-03-13 | William Torgbi Agbemabiese | Constitutional Autonomy + AEGIS multi-layer governance | Initial outreach sent | Pending |
 | 2026-03-14 | Mattijs Moens (Sovereign Shield) | Trust decay determinism objection — GFN-1 §3.8 / RFC-0004 | Response received | Received — Discussion [#72](https://github.com/aegis-initiative/aegis-governance/discussions/72) |
 | 2026-04-14 | Microsoft Agent Governance Toolkit (AGT) team — Jack Batzner, Imran Siddique | Integration proposal — AEGIS as policy source of truth upstream of AGT enforcement runtime | Active — ongoing exchange | Received 2026-04-19; proposal requested, AEGIS reply sent 2026-04-21, proposal targeted for 2026-04-24 |
+| 2026-05-17 | Huiyu Xu, Zhibo Wang (Zhejiang University — LoopTrap authors) | Inclusion of Termination Poisoning as ATX-1 technique T6003 with attribution | Active — ongoing exchange | Received 2026-05-22 — no objections; mapping + naming endorsed; flagged benchmark + defense-architecture collaboration |
 
 ---
 
