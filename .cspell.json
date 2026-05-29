@@ -278,7 +278,21 @@
     "mojibake",
     "Cemri",
     "Reprompt",
-    "IDEsaster"
+    "IDEsaster",
+    "LoopTrap",
+    "Huiyu",
+    "Zhibo",
+    "Wenhui",
+    "Ziqi",
+    "Yaopeng",
+    "Zhang",
+    "Zhejiang",
+    "GAIA",
+    "subgoals",
+    "Subgoals",
+    "Bradner",
+    "Hardt",
+    "Parecki"
   ],
   "ignorePaths": [
     "archive/**",
