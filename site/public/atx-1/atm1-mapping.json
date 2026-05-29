@@ -2,11 +2,11 @@
   "schema_version": "1.0",
   "artifact": "ATX-1-MAP",
   "version": "0.2",
-  "generated": "2026-04-24",
-  "description": "Mapping of ATX-1 techniques to ATM-1 attack vectors, controls, and detection signals. Aligned with ATX-1 v2.3.",
+  "generated": "2026-05-29",
+  "description": "Mapping of ATX-1 techniques to ATM-1 attack vectors, controls, and detection signals. Aligned with ATX-1 v2.4.",
   "license": "CC-BY-SA-4.0",
   "coverage": {
-    "atx_version": "2.3",
+    "atx_version": "2.4",
     "covered_tactics": [
       "TA001",
       "TA002",
@@ -305,6 +305,24 @@
       ],
       "coverage": "partial",
       "notes": "Lacks explicit quota enforcement control"
+    },
+    {
+      "atx_id": "T6003",
+      "atx_name": "Poison Termination Judgment",
+      "tactic": "TA006",
+      "atm_vectors": [
+        "AV-7.1"
+      ],
+      "atm_controls": [
+        "PC-4",
+        "DC-2"
+      ],
+      "atm_detections": [
+        "request_rate_anomaly",
+        "resource_usage_spike"
+      ],
+      "coverage": "partial",
+      "notes": "Unbounded execution is detectable via behavioral anomaly signals; PC-4 covers sanitization of the untrusted-context injection vector. Independent progress-signal verification (the LoopTrap defense) is not yet an ATM-1 preventive control."
     },
     {
       "atx_id": "T7001",

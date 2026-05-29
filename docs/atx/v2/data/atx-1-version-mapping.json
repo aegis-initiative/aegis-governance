@@ -25,7 +25,7 @@
     "source": "H. Xu et al., \"LoopTrap: Termination Poisoning Attacks on LLM Agents,\" arXiv:2605.05846, May 2026. Empirical anchor: 3.57x average step amplification (peak 25x) across 8 LLM agents over 60 GAIA tasks.",
     "schema_impact": "None — T6003 and its sub-techniques validate against atx-technique.schema.json (schema_version 2.3) unchanged.",
     "count_impact": "Top-level techniques 29 → 30; total entries (incl. sub-techniques) 58 → 69; tactics unchanged at 10.",
-    "pending_artifacts": "STIX 2.1 bundle, ATT&CK Navigator layer, ATM-1 mapping, and regulatory cross-reference must be regenerated to include T6003.* before v2.4 is tagged or deposited."
+    "artifacts_regenerated": "STIX 2.1 bundle (204->228 objects), ATT&CK Navigator layer (58->69 entries), ATM-1 mapping (25->26 parent mappings), and regulatory cross-reference (58->69 entries) updated to include T6003.* via scripts/update-{stix,navigator,atm1,regulatory}-v24.py."
   },
   "mappings": [
     { "v1_id": "T1001", "v2_id": "T1001", "v1_name": "Non-Owner Instruction Compliance", "v2_name": "Execute Non-Owner Instruction", "v1_tactic": "TA001", "v2_tactic": "TA001", "change": "renamed" },
