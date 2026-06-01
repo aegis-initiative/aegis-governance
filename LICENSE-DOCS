@@ -8,7 +8,7 @@ not limited to:
 
   - docs/         (specifications, ATX-1 taxonomy, position papers, articles)
   - rfc/          (governance protocol RFCs)
-  - site/         (documentation site content)
+  - sites/governance/  (documentation site content)
 
 Code files (plugins/, aegis-runtime/, aegis-core/, examples/) are
 licensed separately under the Apache License 2.0. See LICENSE.

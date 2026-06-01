@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sync the governance-site taxonomy page to the canonical v2.4 taxonomy doc.
 
-site/src/content/docs/threat-model/taxonomy.md is a published copy of the
+sites/governance/src/content/docs/threat-model/taxonomy.md is a published copy of the
 ATX-1 technique taxonomy and was still on the v2.2 / pre-v2.0-structure content
 (TA006 "Governance State Corruption", 29 techniques, no T6003). This replaces
 its body with the migrated canonical doc (docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md,
@@ -14,7 +14,7 @@ from __future__ import annotations
 from pathlib import Path
 
 CANON = Path("docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md")
-SITE = Path("site/src/content/docs/threat-model/taxonomy.md")
+SITE = Path("sites/governance/src/content/docs/threat-model/taxonomy.md")
 H1 = "# ATX-1: AEGIS Threat Matrix — Technique Taxonomy"
 
 

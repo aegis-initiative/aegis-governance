@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Sync ATX-1 spec artifacts from docs/atx/v2/ → site/public/.
+// Sync ATX-1 spec artifacts from docs/atx/v2/ → sites/governance/public/.
 // Source of truth: docs/atx/v2/atx-meta.json (artifact list + version + descriptions).
-// Synthesizes site/public/atx-1/index.json and site/public/atx-1/VERSION from atx-meta.json.
+// Synthesizes sites/governance/public/atx-1/index.json and sites/governance/public/atx-1/VERSION from atx-meta.json.
 // Validates: techniques.json parses, tactic/technique counts match expected, all source files are valid UTF-8 JSON.
 // Run modes: default (write), --check (fail if outputs would change — for CI).
 
@@ -206,7 +206,7 @@ async function main() {
   if (changes.length === 0) {
     log("info", "all artifacts in sync — no changes");
   } else {
-    log("info", `synced ${changes.length} file(s) → site/public/`);
+    log("info", `synced ${changes.length} file(s) → sites/governance/public/`);
     for (const c of changes) log("info", `  ${c}`);
   }
 }
