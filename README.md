@@ -208,7 +208,7 @@ This repository is dual-licensed:
 | Content | License | File |
 |---------|---------|------|
 | Code (`plugins/`, `aegis-runtime/`, `aegis-core/`, `examples/`) | Apache License 2.0 | [LICENSE](LICENSE) |
-| Documentation, specifications, threat taxonomies (`docs/`, `rfc/`, `site/`) | CC-BY-SA-4.0 | [LICENSE-DOCS](LICENSE-DOCS) |
+| Documentation, specifications, threat taxonomies (`docs/`, `rfc/`, `sites/governance/`) | CC-BY-SA-4.0 | [LICENSE-DOCS](LICENSE-DOCS) |
 
 ---
 

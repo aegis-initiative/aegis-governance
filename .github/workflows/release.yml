@@ -99,13 +99,13 @@ jobs:
             git checkout -b "$BRANCH"
           fi
 
-          # Astro site lives in site/ — run the script from there so
+          # Astro site lives in sites/governance/ — run the script from there so
           # its internal `src/content/docs/releases/...` path resolves
           # relative to the site root. Git commands run from repo
-          # root with the site/ prefix.
-          (cd site && python3 scripts/append-dev-log.py)
+          # root with the sites/governance/ prefix.
+          (cd sites/governance && python3 scripts/append-dev-log.py)
 
-          FILE="site/src/content/docs/releases/${YEAR}/${MONTH}/${DAY}.md"
+          FILE="sites/governance/src/content/docs/releases/${YEAR}/${MONTH}/${DAY}.md"
           git add "$FILE"
 
           if git diff --cached --quiet; then

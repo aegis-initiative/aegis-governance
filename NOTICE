@@ -7,7 +7,7 @@ This repository is dual-licensed:
   Code (plugins/, aegis-runtime/, aegis-core/, examples/):
     Apache License, Version 2.0 — see LICENSE
 
-  Documentation, specifications, and threat taxonomies (docs/, rfc/, site/):
+  Documentation, specifications, and threat taxonomies (docs/, rfc/, sites/governance/):
     Creative Commons Attribution-ShareAlike 4.0 International — see LICENSE-DOCS
 
 Note: ATX-1 v1.0 was published under Apache 2.0 (DOI: 10.5281/zenodo.19225676,

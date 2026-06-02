@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * migrate-content.mjs
- * Copies spec markdown files from repo root into site/src/content/docs/
+ * Copies spec markdown files from repo root into sites/governance/src/content/docs/
  * with frontmatter injected (title extracted from first # heading).
  */
 

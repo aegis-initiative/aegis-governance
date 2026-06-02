@@ -2,7 +2,7 @@
 /**
  * sync-references.mjs
  *
- * Regenerate site/src/content/docs/references.md from the canonical
+ * Regenerate sites/governance/src/content/docs/references.md from the canonical
  * repo-root REFERENCES.md. Runs automatically as a prebuild step so the
  * published /references/ page never drifts from the repository source.
  *
@@ -27,7 +27,7 @@ import { dirname, resolve, relative } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = resolve(__dirname, '..');
-const REPO_ROOT = resolve(SITE_ROOT, '..');
+const REPO_ROOT = resolve(SITE_ROOT, '..', '..');
 const SOURCE = resolve(REPO_ROOT, 'REFERENCES.md');
 const TARGET = resolve(SITE_ROOT, 'src/content/docs/references.md');
 
@@ -55,7 +55,7 @@ const CSPELL_IGNORE_WORDS = [
 
 const CANONICAL_FOOTER = `## Canonical Source
 
-This bibliography is regenerated on every build from \`REFERENCES.md\` in the [aegis-governance repository](https://github.com/aegis-initiative/aegis-governance/blob/main/REFERENCES.md). The repository file is canonical; this page mirrors it automatically via \`site/scripts/sync-references.mjs\`.
+This bibliography is regenerated on every build from \`REFERENCES.md\` in the [aegis-governance repository](https://github.com/aegis-initiative/aegis-governance/blob/main/REFERENCES.md). The repository file is canonical; this page mirrors it automatically via \`sites/governance/scripts/sync-references.mjs\`.
 `;
 
 function stripRepoInternals(raw) {
@@ -90,7 +90,7 @@ async function main() {
     throw new Error(
       `Could not read canonical REFERENCES.md at ${SOURCE}\n` +
       `  Cause: ${err.message}\n` +
-      `  (sync-references.mjs is invoked from site/ and expects REFERENCES.md one directory up.)`,
+      `  (sync-references.mjs is invoked from sites/governance/ and expects REFERENCES.md two directories up.)`,
     );
   }
 

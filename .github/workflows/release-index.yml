@@ -74,9 +74,9 @@ jobs:
           # get_yesterday() helper disagreed with the workflow's notion of
           # "yesterday" when the workflow fired after 06:00 UTC.
           #
-          # Astro site lives in site/ — run the script from there so its
+          # Astro site lives in sites/governance/ — run the script from there so its
           # internal paths resolve relative to the site root.
-          (cd site && python3 scripts/nightly-release.py \
+          (cd sites/governance && python3 scripts/nightly-release.py \
             --year "${{ steps.date.outputs.year }}" \
             --month "${{ steps.date.outputs.month }}" \
             --day "${{ steps.date.outputs.day }}")
@@ -93,8 +93,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Stage any rollup changes — release notes and VERSION file.
-          # Both live inside site/ for this repo.
-          git add site/src/content/docs/releases/ site/VERSION
+          # Both live inside sites/governance/ for this repo.
+          git add sites/governance/src/content/docs/releases/ sites/governance/VERSION
           if git diff --cached --quiet; then
             echo "No additional rollup changes"
           else
