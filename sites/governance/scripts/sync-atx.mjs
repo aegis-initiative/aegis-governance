@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = resolve(__dirname, "..");
-const REPO_ROOT = resolve(SITE_ROOT, "..");
+const REPO_ROOT = resolve(SITE_ROOT, "..", "..");
 const SOURCE_ROOT = join(REPO_ROOT, "docs", "atx", "v2");
 const PUBLIC_ROOT = join(SITE_ROOT, "public");
 const META_PATH = join(SOURCE_ROOT, "atx-meta.json");
