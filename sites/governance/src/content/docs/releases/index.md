@@ -9,6 +9,11 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ## 2026
 
+
+### [June](/releases/26/6/)
+
+- [v26.6.2](/releases/26/6/#release--v2662) — Reorganized governance site folder structure for better maintainability
+
 ### [May](/releases/26/5/)
 
 - [v26.5.29](/releases/26/5/#release--v26529) — Added Termination Poisoning (T6003) to ATX-1 taxonomy v2.4
