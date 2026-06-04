@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Sync ATX-1 spec artifacts from docs/atx/v2/ → site/public/.
+// Sync ATX-1 spec artifacts from docs/atx/v2/ → sites/governance/public/.
 // Source of truth: docs/atx/v2/atx-meta.json (artifact list + version + descriptions).
-// Synthesizes site/public/atx-1/index.json and site/public/atx-1/VERSION from atx-meta.json.
+// Synthesizes sites/governance/public/atx-1/index.json and sites/governance/public/atx-1/VERSION from atx-meta.json.
 // Validates: techniques.json parses, tactic/technique counts match expected, all source files are valid UTF-8 JSON.
 // Run modes: default (write), --check (fail if outputs would change — for CI).
 
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = resolve(__dirname, "..");
-const REPO_ROOT = resolve(SITE_ROOT, "..");
+const REPO_ROOT = resolve(SITE_ROOT, "..", "..");
 const SOURCE_ROOT = join(REPO_ROOT, "docs", "atx", "v2");
 const PUBLIC_ROOT = join(SITE_ROOT, "public");
 const META_PATH = join(SOURCE_ROOT, "atx-meta.json");
@@ -206,7 +206,7 @@ async function main() {
   if (changes.length === 0) {
     log("info", "all artifacts in sync — no changes");
   } else {
-    log("info", `synced ${changes.length} file(s) → site/public/`);
+    log("info", `synced ${changes.length} file(s) → sites/governance/public/`);
     for (const c of changes) log("info", `  ${c}`);
   }
 }

@@ -15,7 +15,7 @@
 
 ## Summary
 
-This RFC seeks retroactive authorization for a licensing change already applied to the ATX-1 threat taxonomy data served at aegis-governance.com. The source data files in `docs/atx/data/` are licensed under Apache-2.0; the publicly served versions at `site/public/atx-1/` were changed to CC-BY-SA-4.0. This change was made in anticipation of formal approval but without following the constitutional amendment process. This RFC documents the rationale, acknowledges the procedural error, and requests formal authorization to retain the dual-licensing model.
+This RFC seeks retroactive authorization for a licensing change already applied to the ATX-1 threat taxonomy data served at aegis-governance.com. The source data files in `docs/atx/data/` are licensed under Apache-2.0; the publicly served versions at `sites/governance/public/atx-1/` were changed to CC-BY-SA-4.0. This change was made in anticipation of formal approval but without following the constitutional amendment process. This RFC documents the rationale, acknowledges the procedural error, and requests formal authorization to retain the dual-licensing model.
 
 ---
 
@@ -55,7 +55,7 @@ The ATX-1 threat taxonomy is published in two forms from the aegis-governance re
 
 1. **Source files** (`docs/atx/data/` and `docs/atx/v2/data/`) — the canonical markdown definitions and JSON data files used by contributors and developers. Licensed under Apache-2.0.
 
-2. **Served files** (`site/public/atx-1/`) — the machine-readable JSON data served at aegis-governance.com for public consumption by tools, integrations, and automated consumers. Changed to CC-BY-SA-4.0.
+2. **Served files** (`sites/governance/public/atx-1/`) — the machine-readable JSON data served at aegis-governance.com for public consumption by tools, integrations, and automated consumers. Changed to CC-BY-SA-4.0.
 
 This RFC proposes formalizing this split as a deliberate dual-licensing model:
 
@@ -75,10 +75,10 @@ This mirrors common practice in standards and dataset publishing, where source c
 | ATX-1 source data (v1) | `docs/atx/data/*.json` | Apache-2.0 | Contributors, developers |
 | ATX-1 source data (v2) | `docs/atx/v2/data/*.json` | Apache-2.0 | Contributors, developers |
 | ATX-1 source taxonomy (markdown) | `docs/atx/ATX-1_TECHNIQUE_TAXONOMY.md` | Apache-2.0 | Contributors, developers |
-| ATX-1 served data | `site/public/atx-1/*.json` | CC-BY-SA-4.0 | Public consumers, tools, integrations |
-| ATX-1 STIX bundle | `site/public/atx-1/stix-bundle.json` | CC-BY-SA-4.0 | Security tools, STIX consumers |
-| ATX-1 ACF-1 bundle | `site/public/atx-1/acf-1-bundle.json` | CC-BY-SA-4.0 | Control framework consumers |
-| ATX-1 JSON schemas | `docs/atx/schema/*.json`, `site/public/schemas/*.json` | Apache-2.0 | Implementers |
+| ATX-1 served data | `sites/governance/public/atx-1/*.json` | CC-BY-SA-4.0 | Public consumers, tools, integrations |
+| ATX-1 STIX bundle | `sites/governance/public/atx-1/stix-bundle.json` | CC-BY-SA-4.0 | Security tools, STIX consumers |
+| ATX-1 ACF-1 bundle | `sites/governance/public/atx-1/acf-1-bundle.json` | CC-BY-SA-4.0 | Control framework consumers |
+| ATX-1 JSON schemas | `docs/atx/schema/*.json`, `sites/governance/public/schemas/*.json` | Apache-2.0 | Implementers |
 
 ### License Field in JSON Files
 
@@ -91,7 +91,7 @@ Each served JSON file contains a top-level `license` field. Under this RFC:
 If approved, the following documentation must be created or updated:
 1. A `LICENSE-DATA.md` file in `docs/atx/` explaining the dual-licensing model
 2. The `CLAUDE.md` for aegis-governance must note the dual-licensing policy
-3. The `site/` README must note that served data carries CC-BY-SA-4.0
+3. The `sites/governance/` README must note that served data carries CC-BY-SA-4.0
 4. The repository's root `LICENSE-DOCS` (CC-BY-SA-4.0) already covers documentation; this RFC extends that coverage to the served data artifacts
 
 ---
@@ -157,8 +157,8 @@ If approved:
 
 1. Create `docs/atx/LICENSE-DATA.md` documenting the dual-licensing model
 2. Update `CLAUDE.md` to note the ATX-1 dual-licensing policy
-3. Update `site/README.md` (or create one) noting served data is CC-BY-SA-4.0
-4. Verify all served JSON files in `site/public/atx-1/` contain `"license": "CC-BY-SA-4.0"`
+3. Update `sites/governance/README.md` (or create one) noting served data is CC-BY-SA-4.0
+4. Verify all served JSON files in `sites/governance/public/atx-1/` contain `"license": "CC-BY-SA-4.0"`
 5. Verify all source JSON files in `docs/atx/data/` and `docs/atx/v2/data/` contain `"license": "Apache-2.0"`
 6. Add a CI check validating license field consistency between source and served files
 7. Log the decision in `AEGIS_DECISIONS.log` (or equivalent ADR) with reference to this RFC

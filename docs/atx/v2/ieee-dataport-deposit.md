@@ -136,6 +136,6 @@ Once IEEE DataPort assigns the v2.3 DataPort DOI (formatted as `10.21227/XXXX-XX
 2. **`docs/atx/v2/atx-meta.json`** — add `"dataport_atx1_v2.3": "..."` (or equivalent field) to the citation block.
 3. **Descriptor manuscript ([`docs/position-papers/ieee-data-descriptions/submission/atx1-descriptor-v05.tex`](../position-papers/ieee-data-descriptions/submission/atx1-descriptor-v05.tex))** — update the DATA DOI/PID field in the abstract to use the IEEE DataPort DOI as the canonical citation (since IEEE Data Descriptions journal preferentially cites IEEE DataPort), with the Zenodo DOI listed as a mirror.
 4. **`docs/position-papers/ieee-data-descriptions/submission/response-to-reviewers.md`** — update the Editorial Note's reference to the v2.3 DOI to include the IEEE DataPort minting.
-5. **Re-run `npm run sync-atx`** to propagate updated metadata to `site/public/atx-1/`.
+5. **Re-run `npm run sync-atx`** to propagate updated metadata to `sites/governance/public/atx-1/`.
 
 The propagation pattern follows the same approach used for the Zenodo deposit (commits `3eb5a3b`, `82012d6`, `a3bfa67`, `ed94ae5`, and `c9f77ed` in the ecosystem repos).

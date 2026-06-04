@@ -89,8 +89,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RAW_COMMITS: ${{ steps.commits.outputs.commits }}
         run: |
-          # Astro site lives in site/
-          NOTES=$(cd site && python3 scripts/generate-release-notes.py)
+          # Astro site lives in sites/governance/
+          NOTES=$(cd sites/governance && python3 scripts/generate-release-notes.py)
           {
             echo "notes<<NOTES_EOF"
             echo "$NOTES"

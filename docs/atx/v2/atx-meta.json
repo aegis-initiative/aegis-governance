@@ -1,5 +1,5 @@
 {
-  "$comment": "Single source of truth for ATX-1 spec metadata. Consumed by site/scripts/sync-atx.mjs to copy data files into site/public/atx-1/ and synthesize site/public/atx-1/index.json. When bumping versions or adding artifacts, edit THIS file — never edit site/public/atx-1/index.json directly.",
+  "$comment": "Single source of truth for ATX-1 spec metadata. Consumed by sites/governance/scripts/sync-atx.mjs to copy data files into sites/governance/public/atx-1/ and synthesize sites/governance/public/atx-1/index.json. When bumping versions or adding artifacts, edit THIS file — never edit sites/governance/public/atx-1/index.json directly.",
   "name": "ATX-1",
   "full_name": "AEGIS Threat Matrix — Agentic Exploitation and Governance Intelligence Schema",
   "version": "2.4.0",
