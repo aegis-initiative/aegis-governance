@@ -5,7 +5,7 @@
 **Version:** 0.3.0\
 **Created:** 2026-03-08\
 **Updated:** 2026-03-26\
-**Author:** Kenneth Tannenbaum, AEGIS Operations LLC\
+**Author:** Kenneth Tannenbaum, AEGIS Initiative\
 **Repository:** aegis-governance\
 **Target milestone:** Q2 2026\
 **Supersedes:** None\
@@ -495,4 +495,4 @@ The append-only pipeline provenance pattern implemented in the audit log hash ch
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*

@@ -10,7 +10,7 @@ description: "ATX-1 technique taxonomy — 10 tactics, 30 techniques (39 sub-tec
 **Version:** 2.4.0\
 **Date:** 2026-05-29\
 **Status:** Active — v2.4 adds Termination Poisoning (T6003) under TA006 with 10 sub-techniques mapped to the strategies of Xu et al. (LoopTrap, arXiv:2605.05846). Severity remains removed (v2.3) for MITRE alignment.\
-**Maintainer:** AEGIS Initiative — AEGIS Operations LLC\
+**Maintainer:** AEGIS Initiative — AEGIS Initiative\
 **License:** CC-BY-SA-4.0
 
 ---

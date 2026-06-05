@@ -128,4 +128,4 @@ Security updates will be published through:
 
 ---
 
-*AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of AEGIS Operations LLC.*
+*AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of AEGIS Initiative.*

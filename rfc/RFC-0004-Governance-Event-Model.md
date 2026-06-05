@@ -6,7 +6,7 @@
 **Version:** 0.4\
 **Created:** 2026-03-05\
 **Updated:** 2026-03-15\
-**Author:** AEGIS Initiative, AEGIS Operations LLC\
+**Author:** AEGIS Initiative\
 **Repository:** aegis-governance\
 **Target milestone:** v1.0\
 **Supersedes:** None\
@@ -250,4 +250,4 @@ The two-layer trust separation model defined in §5 — specifically the archite
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*

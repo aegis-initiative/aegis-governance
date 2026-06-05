@@ -6,7 +6,7 @@
 **Version:** 0.2\
 **Created:** 2026-03-05\
 **Updated:** 2026-03-06\
-**Author:** AEGIS Initiative, AEGIS Operations LLC\
+**Author:** AEGIS Initiative\
 **Repository:** aegis-governance\
 **Target milestone:** v1.0\
 **Supersedes:** None\
@@ -192,4 +192,4 @@ This is the foundational architecture RFC. All other RFCs are downstream of it. 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*

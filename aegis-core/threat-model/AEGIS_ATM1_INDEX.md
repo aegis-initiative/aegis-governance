@@ -279,4 +279,4 @@ Planned extensions:
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*
