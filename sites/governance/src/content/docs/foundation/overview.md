@@ -597,4 +597,4 @@ AEGIS provides the architectural foundation for enforcing those boundaries.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*

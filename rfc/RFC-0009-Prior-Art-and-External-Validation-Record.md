@@ -5,7 +5,7 @@
 **Version:** 0.0.1\
 **Created:** 2026-03-15\
 **Updated:** 2026-03-15\
-**Author:** AEGIS Initiative, AEGIS Operations LLC\
+**Author:** AEGIS Initiative\
 **Repository:** aegis-governance\
 **Target milestone:** TBD — pending normative source audit\
 **Supersedes:** None\
@@ -262,4 +262,4 @@ No breaking changes. No deprecations.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*

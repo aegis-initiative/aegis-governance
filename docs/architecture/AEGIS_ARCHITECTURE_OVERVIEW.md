@@ -123,4 +123,4 @@ to produce safe, auditable, and operationally robust AI behavior.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative — AEGIS Initiative*
