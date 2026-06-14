@@ -67,10 +67,12 @@
   "citation": {
     "ieee": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
     "doi_preprint": "10.5281/zenodo.19223924",
-    "doi_atx1_v2.1": "10.5281/zenodo.19251098",
-    "doi_atx1_v2.2": "10.5281/zenodo.19483999",
-    "doi_atx1_v2.3": "10.5281/zenodo.20171712",
+    "dataport_atx1_v2.4": "10.21227/edxj-ka42",
     "dataport_atx1_v2.3": "10.21227/jr43-0571",
-    "dataport_atx1_v2.4": "10.21227/edxj-ka42"
+    "dataport_atx1_v2.2": "10.21227/7c9p-6150",
+    "dataport_atx1_v2.1": "10.21227/015v-9641",
+    "dataport_atx1_v1.0": "10.21227/f87b-1d57",
+    "zenodo_snapshot_concept": "10.5281/zenodo.19162184",
+    "zenodo_snapshot_note": "ATX-1 Zenodo DOIs are auto-minted aegis-governance repo snapshots (the concept DOI resolves to the latest snapshot); they are not per-version dataset records. The canonical per-version dataset DOIs are on IEEE DataPort. Note: 10.5281/zenodo.20171712 is the v26.5.29.2 repo snapshot (which contains v2.4), not a v2.3 dataset mirror."
   }
 }
