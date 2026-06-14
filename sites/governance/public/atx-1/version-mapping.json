@@ -9,7 +9,8 @@
     "v2.1_zenodo": "10.5281/zenodo.19251098",
     "v2.2_zenodo": "10.5281/zenodo.19483999",
     "v2.3_zenodo": "10.5281/zenodo.20171712",
-    "v2.3_ieee_dataport": "10.21227/jr43-0571"
+    "v2.3_ieee_dataport": "10.21227/jr43-0571",
+    "v2.4_ieee_dataport": "10.21227/edxj-ka42"
   },
   "v2.3_changes": {
     "field_removed": "severity",
