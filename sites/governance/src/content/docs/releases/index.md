@@ -9,7 +9,6 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ## 2026
 
-
 ### [June](/releases/26/6/)
 
 - [v26.6.2](/releases/26/6/#release--v2662) — Reorganized governance site folder structure for better maintainability

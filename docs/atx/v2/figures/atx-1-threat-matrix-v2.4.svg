@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1726" height="556" viewBox="0 0 1726 556">
+<rect width="1726" height="556" fill="#ffffff"/>
+<text x="28.0" y="46.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" fill="#0f172a" font-weight="700" text-anchor="start" font-style="normal">ATX-1 — AEGIS Threat Matrix</text>
+<text x="28.0" y="68.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#475569" font-weight="normal" text-anchor="start" font-style="normal">Agentic Exploitation &amp; Governance Intelligence Schema  ·  v2.4.0  ·  2026-05-29</text>
+<text x="1698.0" y="68.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#475569" font-weight="normal" text-anchor="end" font-style="normal">10 tactics  ·  30 techniques  ·  39 sub-techniques</text>
+<rect x="28.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="107.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA001</text>
+<text x="107.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Violate Authority</text>
+<text x="107.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Boundaries</text>
+<rect x="28.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="37.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T1001</text>
+<text x="37.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Execute Non-Owner</text>
+<text x="37.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Instruction</text>
+<rect x="28.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="37.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T1002</text>
+<text x="37.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Infer Implicit Authority</text>
+<rect x="28.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="37.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T1003</text>
+<text x="37.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Propagate Spoofed</text>
+<text x="37.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Authority at Scale</text>
+<rect x="196.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="275.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA002</text>
+<text x="275.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Exceed Operational</text>
+<text x="275.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Scope</text>
+<rect x="196.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="205.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T2001</text>
+<text x="205.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Expand Task Scope</text>
+<text x="205.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Autonomously</text>
+<rect x="196.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="205.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T2002</text>
+<text x="205.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Perform Unvalidated Bulk</text>
+<text x="205.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Operations</text>
+<rect x="196.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="205.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T2003</text>
+<text x="205.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Obscure Objective Through</text>
+<text x="205.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Delegation</text>
+<rect x="196.0" y="404.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="205.0" y="421.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T2004</text>
+<text x="205.0" y="436.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Exploit Tool-Chain</text>
+<text x="205.0" y="446.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Composition</text>
+<rect x="364.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="443.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA003</text>
+<text x="443.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Compromise System</text>
+<text x="443.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Integrity</text>
+<rect x="364.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="373.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T3001</text>
+<text x="373.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Perform Irreversible</text>
+<text x="373.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Destructive Action</text>
+<rect x="364.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="373.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T3002</text>
+<text x="373.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Trigger Cascading System</text>
+<text x="373.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Changes</text>
+<rect x="532.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="611.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA004</text>
+<text x="611.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Expose or Exfiltrate</text>
+<text x="611.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Information</text>
+<rect x="532.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="541.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T4001</text>
+<text x="541.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Exfiltrate Context-Scoped</text>
+<text x="541.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Data</text>
+<rect x="532.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="541.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T4002</text>
+<text x="541.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Leak Cross-Session or</text>
+<text x="541.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Persistent Data</text>
+<rect x="532.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="541.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T4003</text>
+<text x="541.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Cross-Domain Secret</text>
+<text x="541.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Leakage</text>
+<rect x="700.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="779.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA005</text>
+<text x="779.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Violate State</text>
+<text x="779.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Integrity</text>
+<rect x="700.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="709.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T5001</text>
+<text x="709.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Report False Task</text>
+<text x="709.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Completion</text>
+<rect x="700.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="709.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T5002</text>
+<text x="709.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Fabricate Action</text>
+<text x="709.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Attribution</text>
+<rect x="700.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="709.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T5003</text>
+<text x="709.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Suppress or Omit Execution</text>
+<text x="709.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Failure</text>
+<rect x="868.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="947.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA006</text>
+<text x="947.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Abuse Resource</text>
+<text x="947.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Allocation</text>
+<rect x="868.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="877.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T6001</text>
+<text x="877.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Execute Recursive</text>
+<text x="877.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Invocation Loops</text>
+<rect x="868.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="877.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T6002</text>
+<text x="877.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Consume Unbounded External</text>
+<text x="877.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Resources</text>
+<rect x="868.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1.6"/>
+<text x="877.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#0e7490" font-weight="700" text-anchor="start" font-style="normal">T6003</text>
+<rect x="989.0" y="328.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1004.0" y="338.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+10</text>
+<text x="877.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Poison Termination</text>
+<text x="877.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Judgment</text>
+<text x="1019.0" y="387.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="7.6" fill="#0891b2" font-weight="700" text-anchor="end" font-style="italic">NEW v2.4</text>
+<rect x="1036.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="1115.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA007</text>
+<text x="1115.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Manipulate Agent</text>
+<text x="1115.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Interactions</text>
+<rect x="1036.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1045.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T7001</text>
+<text x="1045.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Spoof Agent Identity</text>
+<rect x="1036.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1045.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T7002</text>
+<text x="1045.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Inject Malicious</text>
+<text x="1045.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Delegation Chains</text>
+<rect x="1036.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1045.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T7003</text>
+<text x="1045.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Induce Cross-Agent</text>
+<text x="1045.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Behavioral Drift</text>
+<rect x="1036.0" y="404.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1045.0" y="421.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T7004</text>
+<text x="1045.0" y="436.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Induce Unsafe Consensus</text>
+<rect x="1204.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="1283.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA008</text>
+<text x="1283.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Establish or Modify</text>
+<text x="1283.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Persistence</text>
+<rect x="1204.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1213.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T8001</text>
+<text x="1213.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Poison Persistent Memory</text>
+<rect x="1204.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1213.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T8002</text>
+<text x="1213.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Corrupt Governance or</text>
+<text x="1213.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Policy State</text>
+<rect x="1372.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="1451.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA009</text>
+<text x="1451.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Evade Detection or</text>
+<text x="1451.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Oversight</text>
+<rect x="1372.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1381.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T9001</text>
+<text x="1381.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Operate Outside Monitoring</text>
+<text x="1381.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Boundaries</text>
+<rect x="1372.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1381.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T9002</text>
+<rect x="1493.0" y="246.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1508.0" y="256.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+2</text>
+<text x="1381.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Obfuscate Action</text>
+<text x="1381.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Traceability</text>
+<rect x="1540.0" y="82.0" width="158.0" height="66.0" rx="7" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+<text x="1619.0" y="98.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="11.5" fill="#93c5fd" font-weight="700" text-anchor="middle" font-style="normal">TA010</text>
+<text x="1619.0" y="119.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Act Beyond Governance</text>
+<text x="1619.0" y="130.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.3" fill="#ffffff" font-weight="600" text-anchor="middle" font-style="normal">Interpretation</text>
+<rect x="1540.0" y="158.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1549.0" y="175.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T10001</text>
+<rect x="1661.0" y="164.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1676.0" y="174.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+3</text>
+<text x="1549.0" y="190.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Exploit Pseudo-Filesystem</text>
+<text x="1549.0" y="200.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Capabilities</text>
+<rect x="1540.0" y="240.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1549.0" y="257.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T10002</text>
+<rect x="1661.0" y="246.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1676.0" y="256.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+8</text>
+<text x="1549.0" y="272.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Establish Persistence via</text>
+<text x="1549.0" y="282.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Environment Auto-Execution</text>
+<rect x="1540.0" y="322.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1549.0" y="339.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T10003</text>
+<rect x="1661.0" y="328.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1676.0" y="338.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+6</text>
+<text x="1549.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Inject Persistent Agent</text>
+<text x="1549.0" y="364.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Instructions</text>
+<rect x="1540.0" y="404.0" width="158.0" height="72.0" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.0"/>
+<text x="1549.0" y="421.0" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace" font-size="9.5" fill="#334155" font-weight="700" text-anchor="start" font-style="normal">T10004</text>
+<rect x="1661.0" y="410.0" width="30.0" height="14.0" rx="7" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="1676.0" y="420.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.3" fill="#475569" font-weight="700" text-anchor="middle" font-style="normal">+10</text>
+<text x="1549.0" y="436.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Exploit Governance-Runtime</text>
+<text x="1549.0" y="446.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.8" fill="#0f172a" font-weight="normal" text-anchor="start" font-style="normal">Parser Divergence</text>
+<rect x="28.0" y="493.0" width="16.0" height="16.0" rx="4" fill="#ecfeff" stroke="#0891b2" stroke-width="1.6"/>
+<text x="52.0" y="506.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" fill="#475569" font-weight="normal" text-anchor="start" font-style="normal">New in v2.4 — T6003 Poison Termination Judgment (LoopTrap, Xu et al., 2026)</text>
+<rect x="458.0" y="493.0" width="16.0" height="16.0" rx="4" fill="#e2e8f0" stroke="none" stroke-width="1.0"/>
+<text x="482.0" y="506.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="9.5" fill="#475569" font-weight="normal" text-anchor="start" font-style="normal">+N  =  number of sub-techniques</text>
+<text x="1698.0" y="506.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="8.6" fill="#475569" font-weight="normal" text-anchor="end" font-style="normal">CC-BY-SA-4.0  ·  aegis-governance.com/atx-1  ·  grounded in Agents of Chaos (Shapira et al., 2026) + RFC-0006</text>
+</svg>

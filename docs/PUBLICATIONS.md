@@ -37,6 +37,8 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 | ATX-1 v2.1: AEGIS Threat Matrix (dataset) | IEEE DataPort | [10.21227/015v-9641](https://doi.org/10.21227/015v-9641) | 2026-03-30 |
 | ATX-1 v2.2 Source Repository Snapshot | Zenodo | [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999) | 2026-04-01 |
 | ATX-1 v2.2: AEGIS Threat Matrix (dataset) | IEEE DataPort | [10.21227/7c9p-6150](https://doi.org/10.21227/7c9p-6150) | 2026-04-09 |
+| ATX-1 v2.3: AEGIS Threat Matrix (dataset) | IEEE DataPort | [10.21227/jr43-0571](https://doi.org/10.21227/jr43-0571) | 2026-05-14 |
+| ATX-1 v2.4: AEGIS Threat Matrix (dataset) | IEEE DataPort | [10.21227/edxj-ka42](https://doi.org/10.21227/edxj-ka42) | 2026-06-14 |
 
 ## Archived Repositories
 
