@@ -5,7 +5,7 @@
 **Type:** `examples/` contribution (standalone, runnable)
 **Target path:** `examples/aegis-governance-profile/`
 **License:** Apache 2.0
-**Point of Contact:** Kenneth Tannenbaum, Founder, AEGIS Operations LLC — CLA signer and accountable party for this contribution
+**Point of Contact:** Kenneth Tannenbaum, Founder, AEGIS Initiative — CLA signer and accountable party for this contribution
 **Date Drafted:** 2026-04-24
 
 ---
@@ -193,12 +193,12 @@ feedback.
    for scope confirmation before implementation begins.
 2. **Implementation** — Build the example to the structure above, targeting a
    lean PR (~600-900 LOC including tests and README).
-3. **CLA execution** — Complete the Microsoft CLA as AEGIS Operations LLC.
+3. **CLA execution** — Complete the Microsoft CLA as AEGIS Initiative.
 4. **PR submission** — Open the PR against `main`, reference this proposal in
    the description, follow `CONTRIBUTING.md`.
 5. **Iteration** — Respond to AGT team review feedback; target merge without
    requiring aegis-core dependency negotiation.
-6. **Long-term maintenance** — AEGIS Operations LLC commits to maintaining
+6. **Long-term maintenance** — AEGIS Initiative commits to maintaining
    the example in step with AGT's public API changes, with bugfixes and
    compatibility updates contributed via follow-up PRs.
 

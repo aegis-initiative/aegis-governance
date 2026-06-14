@@ -453,4 +453,4 @@ AIAgent → AGP-1 Protocol → Schemas → Governance Runtime → Audit Trail
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative*

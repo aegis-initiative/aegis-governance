@@ -52,7 +52,7 @@ Thank you for your innovative work on Constitutional Autonomy. I look forward to
 Best regards,
 
 Kenneth Tannenbaum\
-Founder, AEGIS Initiative (Finnoybu IP LLC)\
+Founder, AEGIS Initiative\
 IEEE Member #102220161\
 GitHub: <https://github.com/aegis-initiative/aegis-governance>
 

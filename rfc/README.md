@@ -148,4 +148,4 @@ Major architectural changes may introduce new RFC documents or revisions to exis
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative*

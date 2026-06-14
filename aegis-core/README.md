@@ -210,7 +210,7 @@ See [../LICENSE](../LICENSE) for full license text.
 
 ## Trademark Notice
 
-AEGIS™ and **"Capability without constraint is not intelligence"™** are trademarks of AEGIS Operations LLC.
+AEGIS™ and **"Capability without constraint is not intelligence"™** are trademarks of AEGIS Initiative.
 
 See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 
@@ -224,4 +224,4 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Operations LLC*
+*AEGIS Initiative*
