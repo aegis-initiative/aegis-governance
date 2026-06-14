@@ -124,7 +124,7 @@ Kenneth Tannenbaum, replying to Jack and Imran (team alias on thread).
 
 - **By 2026-04-24 (Friday, US Eastern)**: deliver integration proposal to Jack and Imran, mirroring the format of AGT's existing proposals folder (A2A trust extensions, NEXUS, REPUTATION-GATED-AUTHORITY).
 - **In parallel**: if Jack/Imran request a scoping call before Friday, accept and use the call to clarify adapter scope and format expectations.
-- **Framing**: keep the engagement in research / integration / open-source posture consistent with the AEGIS Initiative's published stance. Signed AEGIS Initiative / AEGIS Initiative throughout.
+- **Framing**: keep the engagement in research / integration / open-source posture consistent with the AEGIS Initiative's published stance. Signed AEGIS Initiative throughout.
 
 ---
 

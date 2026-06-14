@@ -60,4 +60,4 @@ The initial release includes the foundational architecture for the AEGIS ecosyst
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

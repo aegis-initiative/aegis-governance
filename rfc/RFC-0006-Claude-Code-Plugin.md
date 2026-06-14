@@ -495,4 +495,4 @@ The append-only pipeline provenance pattern implemented in the audit log hash ch
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

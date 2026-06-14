@@ -335,4 +335,4 @@ This represents a complete __AEGIS Specification v0.1 architecture release__.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

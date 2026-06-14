@@ -224,4 +224,4 @@ See [../TRADEMARKS.md](../TRADEMARKS.md) for trademark usage guidelines.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

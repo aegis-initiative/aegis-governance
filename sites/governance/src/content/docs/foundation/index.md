@@ -456,4 +456,4 @@ Join us in building the governance infrastructure for artificial intelligence.
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

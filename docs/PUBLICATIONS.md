@@ -23,7 +23,7 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 
 | Title | Publisher | DOI | Date |
 |---|---|---|---|
-| Governing the Action Boundary: An open architecture for autonomous AI agents | AEGIS Initiative · AEGIS Initiative | [10.5281/zenodo.19489150](https://zenodo.org/records/19489150) | 2026-04-09 |
+| Governing the Action Boundary: An open architecture for autonomous AI agents | AEGIS Initiative | [10.5281/zenodo.19489150](https://zenodo.org/records/19489150) | 2026-04-09 |
 
 ## Datasets
 
@@ -69,6 +69,6 @@ Authoritative record of all AEGIS publications, datasets, and persistent identif
 
 ## Author
 
-- **Kenneth Tannenbaum** — AEGIS Initiative / AEGIS Initiative
+- **Kenneth Tannenbaum** — AEGIS Initiative
 - **ORCID:** [0009-0007-4215-1789](https://orcid.org/0009-0007-4215-1789)
 - **IEEE Member:** #102220161

@@ -238,4 +238,4 @@ Implementers should begin with the API surface and state model. Performance targ
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

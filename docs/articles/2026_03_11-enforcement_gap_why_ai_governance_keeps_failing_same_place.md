@@ -369,4 +369,4 @@ Kenneth Tannenbaum is the founder of the AEGIS Initiative, the brand name under 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

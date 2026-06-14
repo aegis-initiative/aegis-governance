@@ -406,4 +406,4 @@ If an attacker can modify IBAC policies, they can authorize any action. Mitigati
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

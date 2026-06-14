@@ -192,4 +192,4 @@ This is the foundational architecture RFC. All other RFCs are downstream of it. 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

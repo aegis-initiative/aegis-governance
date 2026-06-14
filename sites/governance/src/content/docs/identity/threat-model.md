@@ -189,4 +189,4 @@ Composed: query patient records under Hospital A's authority, export results und
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

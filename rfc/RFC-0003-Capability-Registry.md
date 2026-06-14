@@ -218,4 +218,4 @@ The `deny_unknown_capability` hard deny invariant (Section 7) must be the first 
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*

@@ -5,7 +5,7 @@
 **Version:** 0.1.0\
 **Created:** 2026-03-29\
 **Updated:** 2026-03-29\
-**Author:** Ken Tannenbaum, AEGIS Initiative / AEGIS Initiative\
+**Author:** Ken Tannenbaum, AEGIS Initiative\
 **Repository:** aegis-governance\
 **Target milestone:** None\
 **Supersedes:** None\
@@ -212,4 +212,4 @@ The AEGIS Initiative holds itself to the same standards it prescribes for govern
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*
-*AEGIS Initiative — AEGIS Initiative*
+*AEGIS Initiative*
