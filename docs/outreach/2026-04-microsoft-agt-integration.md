@@ -4,7 +4,7 @@
 **Date sent:** Tuesday, 2026-04-14 16:49:10 (local)\
 **Response received:** Sunday, 2026-04-19 20:38 — Jack Batzner (Senior Software Engineer, AGT)\
 **Reply sent:** Tuesday, 2026-04-21\
-**From:** Kenneth Tannenbaum (AEGIS Initiative, AEGIS Operations LLC)\
+**From:** Kenneth Tannenbaum (AEGIS Initiative)\
 **Counterparties:** Jack Batzner (Senior Software Engineer, MSFT AGT); Imran Siddique (Group Engineering Manager, Microsoft)\
 **Channel:** Email — team alias and direct\
 **Status:** Active — ongoing exchange\
@@ -47,7 +47,7 @@ Framed these as *governance terms problems, not enforcement problems* — the la
 >
 > Kenneth Tannenbaum\
 > Founder, AEGIS Initiative\
-> AEGIS Operations LLC\
+> AEGIS Initiative\
 > aegis-initiative.com
 >
 > Selected works:
@@ -117,14 +117,14 @@ Kenneth Tannenbaum, replying to Jack and Imran (team alias on thread).
 >
 > Kenneth Tannenbaum\
 > Founder, AEGIS Initiative\
-> AEGIS Operations LLC\
+> AEGIS Initiative\
 > <https://aegis-initiative.com>
 
 ## Next Steps
 
 - **By 2026-04-24 (Friday, US Eastern)**: deliver integration proposal to Jack and Imran, mirroring the format of AGT's existing proposals folder (A2A trust extensions, NEXUS, REPUTATION-GATED-AUTHORITY).
 - **In parallel**: if Jack/Imran request a scoping call before Friday, accept and use the call to clarify adapter scope and format expectations.
-- **Framing**: keep the engagement in research / integration / open-source posture consistent with the AEGIS Initiative's published stance. Signed AEGIS Initiative / AEGIS Operations LLC throughout.
+- **Framing**: keep the engagement in research / integration / open-source posture consistent with the AEGIS Initiative's published stance. Signed AEGIS Initiative throughout.
 
 ---
 
