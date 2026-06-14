@@ -8,9 +8,10 @@
     "v2_zenodo": "10.5281/zenodo.19238844",
     "v2.1_zenodo": "10.5281/zenodo.19251098",
     "v2.2_zenodo": "10.5281/zenodo.19483999",
-    "v2.3_zenodo": "10.5281/zenodo.20171712",
     "v2.3_ieee_dataport": "10.21227/jr43-0571",
-    "v2.4_ieee_dataport": "10.21227/edxj-ka42"
+    "v2.4_ieee_dataport": "10.21227/edxj-ka42",
+    "zenodo_snapshot_concept": "10.5281/zenodo.19162184",
+    "_zenodo_note": "Zenodo DOIs above (v1/v2/v2.1/v2.2) are auto-minted aegis-governance repo snapshots, not per-version dataset records. v2.3 has no standalone Zenodo dataset: DOI 10.5281/zenodo.20171712 (formerly recorded here as v2.3_zenodo) is the v26.5.29.2 snapshot, which contains v2.4. Cite the IEEE DataPort DOIs for datasets."
   },
   "v2.3_changes": {
     "field_removed": "severity",

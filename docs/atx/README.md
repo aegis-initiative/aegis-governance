@@ -12,12 +12,16 @@ sub-techniques, root causes, and mitigations are preserved unchanged.
 
 **Previous versions (frozen at published DOIs):**
 
-- v2.3: [10.5281/zenodo.20171712](https://doi.org/10.5281/zenodo.20171712) (2026-04-24) — severity field removed for MITRE alignment
-- v2.2: [10.5281/zenodo.19483999](https://doi.org/10.5281/zenodo.19483999) (2026-04-01)
-- v2.1: [10.5281/zenodo.19251098](https://doi.org/10.5281/zenodo.19251098) (2026-03-27)
-- v2.0: [10.5281/zenodo.19238844](https://doi.org/10.5281/zenodo.19238844)
-- v1.0 Zenodo: [10.5281/zenodo.19225676](https://doi.org/10.5281/zenodo.19225676)
-- v1.0 IEEE DataPort: [10.21227/f87b-1d57](https://dx.doi.org/10.21227/f87b-1d57)
+- v2.3: [10.21227/jr43-0571](https://doi.org/10.21227/jr43-0571) (IEEE DataPort dataset, 2026-04-24) — severity field removed for MITRE alignment
+- v2.2: [10.21227/7c9p-6150](https://doi.org/10.21227/7c9p-6150) (IEEE DataPort dataset, 2026-04-09)
+- v2.1: [10.21227/015v-9641](https://doi.org/10.21227/015v-9641) (IEEE DataPort dataset, 2026-03-30)
+- v1.0: [10.21227/f87b-1d57](https://dx.doi.org/10.21227/f87b-1d57) (IEEE DataPort dataset, 2026-03-25)
+
+> The canonical per-version ATX-1 dataset DOIs are on **IEEE DataPort** (above). The
+> `10.5281/zenodo.*` DOIs for ATX-1 are **auto-minted aegis-governance repo
+> snapshots** (concept [10.5281/zenodo.19162184](https://doi.org/10.5281/zenodo.19162184),
+> resolves to the latest), not standalone dataset records — `zenodo.20171712` is the
+> v26.5.29.2 snapshot (which contains v2.4), not a v2.3 mirror.
 
 ## Contents
 
