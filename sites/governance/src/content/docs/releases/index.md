@@ -11,6 +11,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [June](/releases/26/6/)
 
+- [v26.6.14](/releases/26/6/#release--v26614) — ATX-1 v2.4 published to IEEE DataPort with DOI and site updates
 - [v26.6.2](/releases/26/6/#release--v2662) — Reorganized governance site folder structure for better maintainability
 
 ### [May](/releases/26/5/)
