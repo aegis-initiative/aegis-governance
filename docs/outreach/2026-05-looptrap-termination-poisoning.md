@@ -3,7 +3,7 @@
 **Date:** 2026-05-17 (response 2026-05-22)\
 **From:** Kenneth Tannenbaum, AEGIS Initiative\
 **To:** Zhibo Wang (corresponding author), Huiyu Xu (first author) — Zhejiang University *(addresses masked)*\
-**Status:** Active — ongoing exchange\
+**Status:** Replies sent (2026-05-29 endorsement ack, 2026-06-14 DOI delivery); collaboration open\
 **Response:** Received — 2026-05-22\
 **Discussion:** —
 
@@ -32,7 +32,9 @@ Huiyu Xu replied on 2026-05-22 on behalf of the LoopTrap team:
 
 - ATX-1 v2.4 adds technique **T6003 (Poison Termination Judgment)** under TA006 with sub-techniques T6003.001–T6003.010. See `changelog/2026-05-29-atx1-v2.4.md`.
 - Reference added to `REFERENCES.md` ([38]).
-- Open follow-up: whether to pair the four behavioral vulnerability dimensions (phase compliance, authority compliance, recursive susceptibility, verification tendency) with the technique as a defender's-side characterization, and whether to track the authors' forthcoming benchmark as corroborating evidence.
+- **Deposited:** ATX-1 v2.4 published to IEEE DataPort, DOI [10.21227/edxj-ka42](https://doi.org/10.21227/edxj-ka42) (2026-06-14).
+- **Correspondence:** AEGIS reply sent 2026-05-29 (thank-you + endorsement acknowledgment; flagged alignment with the authors' benchmark and shadow-progress-model defense). DOI-delivery follow-up sent 2026-06-14 with the v2.4 DataPort DOI and live taxonomy link. Full text: `housekeeping/looptrap-reply-draft-2026-05-29.md` (SENT) and `housekeeping/looptrap-followup-doi-2026-06-14.md` (SENT).
+- **Decided:** the four behavioral vulnerability dimensions (phase compliance, authority compliance, recursive susceptibility, verification tendency) are deferred to the authors' forthcoming termination-layer robustness benchmark — defender-side measurement constructs, not techniques. Intent to cite that benchmark as corroborating evidence once public stands.
 
 ---
 
