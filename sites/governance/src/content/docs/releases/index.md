@@ -9,6 +9,11 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ## 2026
 
+
+### [July](/releases/26/7/)
+
+- [v26.7.8](/releases/26/7/#release--v2678) — Fix VERSION JSON parsing for header badge via readSiteVersion
+
 ### [June](/releases/26/6/)
 
 - [v26.6.15](/releases/26/6/#release--v26615) — Update Zenodo DOI references and record LoopTrap outreach with v2.4 DOI
