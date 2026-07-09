@@ -363,8 +363,11 @@ def update_monthly(year, month, tag, builds_str, release_entries, day):
     """Add release entry to monthly file."""
     file_path = f"src/content/docs/releases/{year}/{month}.md"
 
-    month_name = datetime.now(timezone.utc).strftime("%B")
-    year_full = datetime.now(timezone.utc).strftime("%Y")
+    # Derive the display name from the TARGET month, not the run date —
+    # the nightly rollup for the last day of a month runs on the 1st of
+    # the next month, which used to mislabel the monthly page.
+    month_name = datetime(2000 + int(year), int(month), 1).strftime("%B")
+    year_full = f"20{year}"
 
     entries_text = "\n".join(release_entries)
     new_section = f"""## Release / {tag}
@@ -432,8 +435,10 @@ def update_index(year, month, tag, summary):
         content = entry_pattern.sub(entry_line, content)
         print(f"Updated index entry for {base_tag}")
     else:
-        year_full = datetime.now(timezone.utc).strftime("%Y")
-        month_name = datetime.now(timezone.utc).strftime("%B")
+        # Use the TARGET month, not the run date — the rollup for the
+        # last day of a month runs on the 1st of the next month.
+        year_full = f"20{year}"
+        month_name = datetime(2000 + int(year), int(month), 1).strftime("%B")
         month_header = f"### [{month_name}](/releases/{year}/{month}/)"
         year_header = f"## {year_full}"
 
