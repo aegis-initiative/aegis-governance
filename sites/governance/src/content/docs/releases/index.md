@@ -23,12 +23,9 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 - [v26.5.13](/releases/26/5/#release--v26513) — ATX-1 v2.3 taxonomy published with official DOI on Zenodo
 - [v26.5.9](/releases/26/5/#release--v2659) — Added ecosystem identity links and enabled Labs in navigation
 
-### [May](/releases/26/4/)
-
-- [v26.4.30](/releases/26/4/#release--v26430) — Moved federation content to dedicated site with redirects
-
 ### [April](/releases/26/4/)
 
+- [v26.4.30](/releases/26/4/#release--v26430) — Moved federation content to dedicated site with redirects
 - [v26.4.29](/releases/26/4/#release--v26429) — Added sitemap index to robots.txt for better search discoverability
 - [v26.4.26](/releases/26/4/#release--v26426) — Added technical terms to spell-check dictionary
 - [v26.4.25](/releases/26/4/#release--v26425) — Moved Area of Concern lab executive summary to aegis-labs repository
