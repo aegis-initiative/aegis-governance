@@ -25,7 +25,7 @@ Operating principle:
 
 Core maxim:
 
-> Capability without constraint is not intelligence™
+> Capability without constraint is not intelligence®
 
 ## Architectural Layer
 
@@ -122,5 +122,5 @@ to produce safe, auditable, and operationally robust AI behavior.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

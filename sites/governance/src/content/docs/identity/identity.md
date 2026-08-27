@@ -314,5 +314,5 @@ An attacker who can create agents without a valid principal can take actions wit
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

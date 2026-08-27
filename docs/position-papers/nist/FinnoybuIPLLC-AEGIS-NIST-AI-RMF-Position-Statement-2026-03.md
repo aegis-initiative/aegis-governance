@@ -19,7 +19,7 @@
 **Repository**: [github.com/finnoybu/aegis-governance](https://github.com/finnoybu/aegis-governance)\
 **Constitution**: [aegissystems.app](https://aegissystems.app)
 
-> *Capability without constraint is not intelligence™*
+> *Capability without constraint is not intelligence®*
 
 ---
 
@@ -261,7 +261,7 @@ As AI systems gain operational capability — writing code, interacting with API
 
 AEGIS™ proposes that the next evolution of AI governance standards must incorporate execution-time enforcement as a first-class requirement. The architecture is open, the specifications are published, and the community is active.
 
-> *Capability without constraint is not intelligence™*
+> *Capability without constraint is not intelligence®*
 
 ---
 
@@ -286,5 +286,5 @@ AEGIS™ was developed through active human-AI collaboration, with strategic dir
 ---
 
 *© 2026 Finnoybu IP LLC. All Rights Reserved.*
-*AEGIS™ and "Capability without constraint is not intelligence™" are trademarks of Finnoybu IP LLC.*
+*AEGIS™ and "Capability without constraint is not intelligence®" are trademarks of Finnoybu IP LLC.*
 *Version 0.1 | Draft for Public Comment | March 2026*

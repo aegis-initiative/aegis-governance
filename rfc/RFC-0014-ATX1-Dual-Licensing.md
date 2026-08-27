@@ -211,5 +211,5 @@ The AEGIS Initiative holds itself to the same standards it prescribes for govern
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*
+*AEGIS™* | *"Capability without constraint is not intelligence"®*
 *AEGIS Initiative*

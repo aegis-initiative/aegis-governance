@@ -2,7 +2,7 @@
 
 **Architectural Enforcement & Governance of Intelligent Systems**
 
-> **Capability without constraint is not intelligence™**
+> **Capability without constraint is not intelligence®**
 
 ---
 
@@ -59,5 +59,5 @@ The initial release includes the foundational architecture for the AEGIS ecosyst
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

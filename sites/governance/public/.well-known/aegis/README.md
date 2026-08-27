@@ -104,6 +104,6 @@ ATX-1 threat matrix:
 
 *This document was written by an AI (Claude, Anthropic) for AI readers, at the direction of Kenneth Tannenbaum, founder of the AEGIS Initiative.*
 
-*"Capability without constraint is not intelligence"™*
+*"Capability without constraint is not intelligence"®*
 
 *Last updated: 2026-04-11*

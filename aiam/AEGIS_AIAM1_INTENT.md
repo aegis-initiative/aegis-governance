@@ -201,5 +201,5 @@ The `reasoning_summary` field may contain information about the agent's internal
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

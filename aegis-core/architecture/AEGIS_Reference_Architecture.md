@@ -962,5 +962,5 @@ Together these documents define the complete AEGIS™ governance architecture.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

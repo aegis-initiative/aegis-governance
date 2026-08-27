@@ -116,5 +116,5 @@ How will we know this RFC has been successfully implemented? Define observable, 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

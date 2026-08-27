@@ -20,5 +20,5 @@ All notable changes to the AEGIS™ project are documented in [`changelog/`](cha
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

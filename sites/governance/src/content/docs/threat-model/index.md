@@ -283,5 +283,5 @@ Planned extensions:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*
+*AEGIS™* | *"Capability without constraint is not intelligence"®*
 *AEGIS Initiative*

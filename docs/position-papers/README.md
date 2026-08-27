@@ -47,7 +47,7 @@ Position papers should use a consistent header format that balances internal doc
 **Repository**: [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance)  
 **Constitution**: [aegissystems.app](https://aegissystems.app)
 
-> *Capability without constraint is not intelligence™*
+> *Capability without constraint is not intelligence®*
 
 ---
 ```
@@ -88,5 +88,5 @@ When adding position papers:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative — AEGIS Operations LLC*

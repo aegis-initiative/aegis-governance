@@ -30,7 +30,7 @@
 
 Architectural Enforcement & Governance of Intelligent Systems
 
-> **Capability without constraint is not intelligence™**
+> **Capability without constraint is not intelligence®**
 
 **AEGIS™ is a governance architecture that enforces deterministic constitutional governance over AI-generated actions before they interact with infrastructure.**
 
@@ -212,5 +212,5 @@ This repository is dual-licensed:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*
+*AEGIS™* | *"Capability without constraint is not intelligence"®*
 *AEGIS Initiative*

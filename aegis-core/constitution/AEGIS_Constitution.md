@@ -18,7 +18,7 @@ The AEGIS Constitution ensures that AI systems operate within explicitly defined
 
 This constitution is not framed as master-slave control. It is a governance compact for coexistence: AI systems may propose actions, governance systems evaluate those proposals deterministically, and humans retain accountable authority over high-impact outcomes.
 
-> **Capability without constraint is not intelligence™**
+> **Capability without constraint is not intelligence®**
 
 ---
 
@@ -250,5 +250,5 @@ In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

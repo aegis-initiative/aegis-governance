@@ -167,5 +167,5 @@ In distributed deployments, revocation state may propagate at different speeds t
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

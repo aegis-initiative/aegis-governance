@@ -158,5 +158,5 @@ Composition governance (§3.2) addresses the case where individually constrained
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*

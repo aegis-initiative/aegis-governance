@@ -190,5 +190,5 @@ An agent authenticated via OAuth at one resource server and via SAML at another 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"™*\
+*AEGIS™* | *"Capability without constraint is not intelligence"®*\
 *AEGIS Initiative*
