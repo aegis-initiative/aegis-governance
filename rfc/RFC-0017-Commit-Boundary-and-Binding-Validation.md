@@ -289,5 +289,5 @@ Make `BIND_REQUEST` optional — agents can choose to skip it for low-risk actio
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

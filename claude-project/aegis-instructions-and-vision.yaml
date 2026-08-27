@@ -232,7 +232,7 @@ aegis_canon_vision:
   philosophical_distinction:
     alignment: Make the AI want to do the right thing
     governance: The AI can propose anything; governance decides what executes
-    maxim: Capability without constraint is not intelligence® — even when improving the constraint itself
+    maxim: Capability without constraint is not intelligence™ — even when improving the constraint itself
 
   timeline:
     week_1: Repository realignment, REFERENCES.md, IEEE paper

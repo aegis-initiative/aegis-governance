@@ -34,5 +34,5 @@ Topics anticipated for this RFC:
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

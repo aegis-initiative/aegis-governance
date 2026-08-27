@@ -3,7 +3,7 @@
 The following marks are claimed by the project originator:
 
 - **AEGIS™**
-- **"Capability without constraint is not intelligence"®**
+- **Capability without constraint is not intelligence™**
 
 These marks identify the AEGIS governance architecture and related technologies.
 
@@ -11,11 +11,9 @@ These marks identify the AEGIS governance architecture and related technologies.
 
 ## Trademark Status
 
-AEGIS™ and the phrase **"Capability without constraint is not intelligence"®** are trademarks of AEGIS Initiative. These marks are used to identify the AEGIS governance architecture and related specifications.
+AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are trademarks of AEGIS Initiative. These marks are used to identify the AEGIS governance architecture and related specifications.
 
-**AEGIS™** is an unregistered trademark claim under common law; the ™ symbol reflects that status.
-
-**"Capability without constraint is not intelligence"®** is a **registered service mark** with the USPTO. Use ® (not ™) on every reference to the tagline going forward.
+The ™ symbol indicates an unregistered trademark claim under common law.
 
 ---
 
@@ -73,24 +71,17 @@ The following uses require explicit written permission:
 
 ## Trademark Symbol Usage
 
-AEGIS™ and the tagline mark carry different registration statuses and use different symbols. Do not mix them up.
-
-### AEGIS™ (unregistered)
+### When to use ™
 
 - **First reference** in any document, presentation, or material
 - Product names, titles, and prominent headings
 - Marketing and promotional materials
 
-### When ™ is optional (AEGIS only)
+### When ™ is optional
 
 - Subsequent mentions in the same document after first use
 - Informal discussions or casual references
 - Source code comments (though encouraged for clarity)
-
-### "Capability without constraint is not intelligence"® (registered)
-
-- Use **®**, not ™, on every reference to the tagline — first use and subsequent uses alike
-- Applies in any document, page, presentation, or material
 
 ### The "AEGIS" name without ™
 
@@ -129,7 +120,7 @@ Include details about your intended use, and a response will be provided within 
 
 ## Ownership
 
-AEGIS™ and the phrase **"Capability without constraint is not intelligence"®** are trademarks of AEGIS Initiative. The tagline is a registered service mark with the USPTO; AEGIS remains an unregistered common-law mark.
+AEGIS™ and the phrase **"Capability without constraint is not intelligence™"** are trademarks of AEGIS Initiative.
 
 All rights reserved.
 

@@ -344,13 +344,13 @@ The conversation doesn't end here. It begins.
 
 **AEGIS™** (Architectural Enforcement & Governance of Intelligent Systems) is an open governance architecture for AI systems that enforces deterministic constitutional governance before AI-generated actions interact with infrastructure.
 
-**Capability without constraint is not intelligence®**
+**Capability without constraint is not intelligence™**
 
 AEGIS™ is designed as a constitutional mediation layer that establishes explicit boundaries, accountability, and appealable governance pathways so increasingly capable AI systems and human institutions can coexist safely.
 
 The project is released under the Apache 2.0 license and is actively seeking contributors from the AI safety, security, and research communities. Contributions, discussions, and engagement are welcomed through the project repository at [github.com/aegis-initiative/aegis-governance](https://github.com/aegis-initiative/aegis-governance).
 
-**IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence"® are trademarks of AEGIS Initiative, a subsidiary of Finnoybu Holdings LLC.
+**IP Ownership**: AEGIS™ and "Capability without constraint is not intelligence"™ are trademarks of AEGIS Initiative, a subsidiary of Finnoybu Holdings LLC.
 
 ### Learn more
 
@@ -368,5 +368,5 @@ Kenneth Tannenbaum is the founder of the AEGIS Initiative, the brand name under 
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

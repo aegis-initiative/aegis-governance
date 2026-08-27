@@ -321,5 +321,5 @@ If a delegating agent is revoked or terminated, its sub-agents may continue oper
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

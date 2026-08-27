@@ -588,7 +588,7 @@ Ready to explore AEGIS governance? Follow this learning path:
 
 AEGIS is built around a simple guiding principle:
 
-> Capability without constraint is not intelligence®
+> Capability without constraint is not intelligence™
 
 Intelligent systems must operate within explicit governance boundaries in order to safely interact with real-world infrastructure.
 
@@ -596,5 +596,5 @@ AEGIS provides the architectural foundation for enforcing those boundaries.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

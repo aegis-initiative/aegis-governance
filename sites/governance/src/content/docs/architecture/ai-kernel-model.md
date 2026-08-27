@@ -23,7 +23,7 @@ deterministic governance between intelligence and infrastructure.
 
 Core design statement:
 
-> Capability without constraint is not intelligence®
+> Capability without constraint is not intelligence™
 
 ## 2. Architectural Positioning
 
@@ -176,5 +176,5 @@ systems remain bounded, accountable, and operationally safe.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

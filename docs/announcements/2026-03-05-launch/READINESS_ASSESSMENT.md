@@ -353,7 +353,7 @@ Updated files (24 files):
 - All trademark references updated to AEGIS Initiative
 - Comprehensive global update completed
 - Trademark policy clearly states AEGIS Initiative as owner
-- Both AEGIS™ and "Capability without constraint is not intelligence"® federally registered
+- Both AEGIS™ and "Capability without constraint is not intelligence"™ federally registered
 
 ---
 
@@ -451,5 +451,5 @@ The one remaining gap (roadmap issues) is an administrative detail that is bette
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

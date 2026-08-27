@@ -266,5 +266,5 @@ The v0.1 STIX bundle is published as a companion artifact at `docs/atx/v2/acf/ac
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

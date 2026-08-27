@@ -249,5 +249,5 @@ The two-layer trust separation model defined in §5 — specifically the archite
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

@@ -299,7 +299,7 @@ AEGIS provides the architectural foundation to make this vision real.
 
 The guiding principle of AEGIS is simple:
 
-> **Capability without constraint is not intelligence®**
+> **Capability without constraint is not intelligence™**
 
 Intelligence is not defined by power alone.
 
@@ -446,9 +446,9 @@ Join us in building the governance infrastructure for artificial intelligence.
 **AEGIS Initiative**\
 **Architectural Enforcement & Governance of Intelligent Systems**
 
-> *Capability without constraint is not intelligence®*
+> *Capability without constraint is not intelligence™*
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

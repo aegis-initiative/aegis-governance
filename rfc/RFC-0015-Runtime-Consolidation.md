@@ -286,5 +286,5 @@ PRs 2 and 3 can be opened in parallel. PR 4 depends on PR 3 being merged (CI che
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*
+*AEGIS™* | *"Capability without constraint is not intelligence"™*
 *AEGIS Initiative*

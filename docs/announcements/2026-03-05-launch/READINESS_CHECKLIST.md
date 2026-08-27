@@ -288,7 +288,7 @@ Recommended workflows:
 
 Documents reference:
 
-AEGIS™ and “Capability without constraint is not intelligence®”\
+AEGIS™ and “Capability without constraint is not intelligence™”\
 are trademarks of AEGIS Initiative.
 
 Planned website footer:
@@ -334,5 +334,5 @@ This represents a complete __AEGIS Specification v0.1 architecture release__.
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

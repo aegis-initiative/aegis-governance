@@ -67,7 +67,7 @@ No exceptions, even on internal errors.
 
 - Even for "trusted" or "admin" actors - trust model requires verification
 - No shortcuts, no "development mode" bypasses
-- **See**: AEGIS_Manifesto.md - "Capability without constraint is not intelligence®"
+- **See**: AEGIS_Manifesto.md - "Capability without constraint is not intelligence™"
 
 ### 3. Fail Closed by Default
 
@@ -109,7 +109,7 @@ No exceptions, even on internal errors.
 
 ### ❌ DON'T: Implement "Admin Override" That Skips Governance
 
-**WHY**: Violates core principle - "Capability without constraint is not intelligence®"\
+**WHY**: Violates core principle - "Capability without constraint is not intelligence™"\
 **SEE**: AEGIS_Manifesto.md, ATM-1 Attack Vector A7 (privilege escalation)
 
 ### ❌ DON'T: Cache Policy Decisions Longer Than 1 Second

@@ -268,5 +268,5 @@ For deployments participating in cross-organization agent governance. Will requi
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

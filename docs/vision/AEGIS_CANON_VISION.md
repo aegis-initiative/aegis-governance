@@ -266,7 +266,7 @@ This is not AI alignment. This is AI governance.
 **Alignment says:** Make the AI want to do the right thing.\
 **Governance says:** The AI can propose anything; governance decides what executes.
 
-_Capability without constraint is not intelligence® — even when the capability is improving the constraint itself._
+_Capability without constraint is not intelligence™ — even when the capability is improving the constraint itself._
 
 ### Timeline
 
@@ -319,5 +319,5 @@ The theory informs the practice. The practice validates the theory. Both evolve 
 
 ---
 
-_AEGIS™_ | _"Capability without constraint is not intelligence"®_
+_AEGIS™_ | _"Capability without constraint is not intelligence"™_
 _AEGIS Initiative_

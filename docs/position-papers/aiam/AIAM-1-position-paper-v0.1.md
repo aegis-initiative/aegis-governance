@@ -249,5 +249,5 @@ AIAM-1 builds on the body of work developed under the AEGIS Initiative, includin
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — AEGIS Operations LLC*

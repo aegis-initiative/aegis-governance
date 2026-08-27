@@ -132,7 +132,7 @@ This staged model allows organizations to introduce governance controls **withou
 
 Regardless of deployment model, the core principle remains the same:
 
-> **Capability without constraint is not intelligence®**
+> **Capability without constraint is not intelligence™**
 
 AEGIS™ ensures that AI systems operate within **explicitly defined governance boundaries**.
 
@@ -344,7 +344,7 @@ Just as TLS secures communication and OAuth governs identity, AEGIS aims to prov
 
 The foundational maxim of the project is:
 
-> **Capability without constraint is not intelligence®**
+> **Capability without constraint is not intelligence™**
 
 The future of artificial intelligence will not only depend on what systems can do, but also on how responsibly those capabilities are governed.
 
@@ -640,5 +640,5 @@ AEGIS™ complements traditional access control by adding a **governance layer s
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative*

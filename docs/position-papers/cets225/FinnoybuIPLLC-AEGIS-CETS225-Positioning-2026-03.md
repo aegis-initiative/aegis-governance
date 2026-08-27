@@ -157,5 +157,5 @@ See [REFERENCES.md](../../../REFERENCES.md).
 
 ---
 
-*AEGIS™* | *"Capability without constraint is not intelligence"®*\
+*AEGIS™* | *"Capability without constraint is not intelligence"™*\
 *AEGIS Initiative — Finnoybu IP LLC*
