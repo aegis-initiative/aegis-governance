@@ -12,6 +12,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [July](/releases/26/7/)
 
+- [v26.7.9](/releases/26/7/#release--v2679) — Fix incorrect month labels in releases index
 - [v26.7.8](/releases/26/7/#release--v2678) — Fix VERSION JSON parsing for header badge via readSiteVersion
 
 ### [June](/releases/26/6/)
