@@ -42,6 +42,10 @@ docs/papers/
 .claude/settings.local.json
 .aegis/
 
+# Figure-generation raster preview (gen-threat-matrix-figure-v*.py emits
+# svg + pdf + png; only svg/pdf are the committed deliverables)
+docs/atx/v*/figures/*.png
+
 # LaTeX build artifacts
 *.aux
 *.log
