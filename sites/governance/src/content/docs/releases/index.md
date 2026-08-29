@@ -12,6 +12,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [August](/releases/26/8/)
 
+- [v26.8.28](/releases/26/8/#release--v26828) — No user-facing changes
 - [v26.8.27](/releases/26/8/#release--v26827) — Add IEEE DATA-00033-2026 Revision 2 submission artifacts
 
 
