@@ -60,7 +60,7 @@ For LLMs:
 **Examples**:
 
 - Actor claims "user:alice" with self-signed cert → 0.3
-- Actor claims "user:alice@domain.com" with domain-verified TLS → 0.6
+- Actor claims "user:alice\@domain.com" with domain-verified TLS → 0.6
 - Actor claims "llm:gpt4" signed by OpenAI with federation proof → 0.8
 
 ### Component 2: Historical Reliability (Weight: 0.40)

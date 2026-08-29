@@ -391,6 +391,10 @@ sidebar:
 ---
 
 {new_section}"""
+        # new_section ends in "---\n\n" (needed as a separator when a later
+        # entry gets appended after it), but here it's the literal end of a
+        # freshly-created file, leaving a trailing blank line MD012 flags.
+        content = content.rstrip() + "\n"
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
         print(f"Created {file_path}")
@@ -452,8 +456,14 @@ def update_index(year, month, tag, summary):
         elif year_header in content:
             pos = content.index(year_header) + len(year_header)
             next_nl = content.index("\n", pos)
-            insert = f"\n\n{month_header}\n\n{entry_line}\n"
-            content = content[:next_nl + 1] + insert + content[next_nl + 1:]
+            insert_pos = next_nl + 1
+            # year_header is already followed by its own blank-line gap
+            # before the next month section; skip past it so we don't
+            # add a second one (this was producing MD012 violations).
+            if insert_pos < len(content) and content[insert_pos] == "\n":
+                insert_pos += 1
+            insert = f"{month_header}\n\n{entry_line}\n\n"
+            content = content[:insert_pos] + insert + content[insert_pos:]
         else:
             fm_end = content.index("---", content.index("---") + 3) + 3
             insert = f"\n\n{year_header}\n\n{month_header}\n\n{entry_line}\n"
