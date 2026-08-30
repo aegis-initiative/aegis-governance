@@ -33,7 +33,7 @@ jobs:
       !startsWith(github.event.head_commit.message, 'docs: nightly release rollup')
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
