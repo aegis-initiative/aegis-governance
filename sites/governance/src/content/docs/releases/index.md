@@ -11,6 +11,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [September](/releases/26/9/)
 
+- [v26.9.30](/releases/26/9/#release--v26930) — Merged upstream changes from main branch
 - [v26.9.1](/releases/26/9/#release--v2691) — Add TIFF/JPEG figure export docs for IEEE final-files submission
 
 ### [August](/releases/26/8/)
