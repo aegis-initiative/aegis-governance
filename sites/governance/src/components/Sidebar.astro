@@ -6,7 +6,7 @@
  */
 import SharedSidebar from '@aegis-initiative/design-system/components/Sidebar.astro';
 
-interface NavItem {
+export interface NavItem {
   label: string;
   slug: string;
   items?: NavItem[];
@@ -25,7 +25,11 @@ if (isCalVer) {
   }
 }
 
-const nav: NavItem[] = [
+// Exported (not just a local const) so [...slug].astro can derive prev/next
+// page order from this single source instead of hand-maintaining a second
+// array that can drift out of sync. See aegis-initiative/aegis-initiative#66
+// and the reference implementation in aegis-docs (PR aegis-docs#64).
+export const nav: NavItem[] = [
   {
     label: 'Foundation',
     slug: 'foundation',
