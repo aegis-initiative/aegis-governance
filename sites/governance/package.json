@@ -9,7 +9,8 @@
     "predev": "node scripts/sync-references.mjs && node scripts/sync-atx.mjs",
     "dev": "astro dev",
     "prebuild": "node scripts/sync-references.mjs && node scripts/sync-atx.mjs",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
+    "postbuild": "node -e \"const fs=require('node:fs');fs.cpSync('dist/pagefind','public/pagefind',{recursive:true,force:true});\"",
     "preview": "astro preview",
     "sync-references": "node scripts/sync-references.mjs",
     "sync-atx": "node scripts/sync-atx.mjs",
@@ -20,5 +21,8 @@
     "@astrojs/sitemap": "^3.7.2",
     "@pagefind/default-ui": "^1.5.0",
     "astro": "^7.2.9"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.0"
   }
 }
