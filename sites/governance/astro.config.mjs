@@ -20,4 +20,14 @@ export default defineConfig({
       theme: 'github-dark-default',
     },
   },
+  vite: {
+    // lightningcss (Vite's default CSS minifier as of this Astro/Vite major)
+    // drops the standard `backdrop-filter` declaration when it ships
+    // alongside `-webkit-backdrop-filter`, treating them as a redundant pair
+    // and keeping only the prefixed one -- which several browsers don't
+    // honor on its own. esbuild's CSS minifier doesn't make that merge.
+    build: {
+      cssMinify: 'esbuild',
+    },
+  },
 });
