@@ -17,47 +17,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Find latest tag from previous month
+      - name: Compute and create monthly release tag
         id: tag
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            # Manual trigger — use the latest tag overall
-            TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          else
-            # Scheduled — find latest tag from previous month
-            PREV_YEAR=$(date -d 'last month' +'%y' 2>/dev/null || date -v-1m +'%y')
-            PREV_MONTH=$(date -d 'last month' +'%-m' 2>/dev/null || date -v-1m +'%-m')
-            PREFIX="v${PREV_YEAR}.${PREV_MONTH}."
-
-            TAG=$(git tag --list "${PREFIX}*" --sort=-version:refname | head -1)
-          fi
-
-          if [ -z "$TAG" ]; then
-            echo "No tags found. Skipping release."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            echo "Found tag: $TAG"
-          fi
-
-      - name: Check if release already exists
-        if: steps.tag.outputs.skip != 'true'
-        id: check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="${{ steps.tag.outputs.tag }}"
-          EXISTING=$(gh release view "$TAG" --json tagName --jq '.tagName' 2>/dev/null || echo "")
-          if [ -n "$EXISTING" ]; then
-            echo "Release $TAG already exists. Skipping."
+          # The monthly tag is always this month's own date: a run on the
+          # 1st closes out the month that just ended, and "last month + 1"
+          # is mathematically identical to "today's year/month" in every
+          # case, including the Dec -> Jan rollover (no special-casing
+          # needed). Previously this step only scanned for an existing dev
+          # tag from last month and promoted it, so no vYY.M.0 tag was ever
+          # actually created -- see aegis-initiative#34.
+          YEAR=$(date -u +'%y')
+          MONTH=$(date -u +'%-m')
+          TAG="v${YEAR}.${MONTH}.0"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists. Skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
+            git tag "$TAG" HEAD
+            git push origin "$TAG"
+            echo "tag=$TAG" >> "$GITHUB_OUTPUT"
             echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Created and pushed tag: $TAG"
           fi
 
       - name: Get commits for release notes
-        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        if: steps.tag.outputs.skip != 'true'
         id: commits
         run: |
           TAG="${{ steps.tag.outputs.tag }}"
@@ -83,7 +71,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate release notes via Claude
-        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        if: steps.tag.outputs.skip != 'true'
         id: notes
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -98,7 +86,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
-        if: steps.tag.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
+        if: steps.tag.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
