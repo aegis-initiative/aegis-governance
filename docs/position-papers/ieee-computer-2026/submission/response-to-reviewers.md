@@ -10,11 +10,43 @@ pointer to the corresponding change in the revised manuscript.
 A general note before the point-by-point response: Reviewer 1's decision-letter comment refers to
 an attached file, "Comments for justification.docx," described as containing detailed
 justification for their five listed points. That file was not included with the decision-letter
-email, and we were unable to locate it in the Author Portal. We contacted the manuscript
-administrator (computer-ma@computer.org) on 2026-09-18 to request it. In its absence, we have
-addressed all five of Reviewer 1's listed points based on their inline comments and the Editor's
-consolidated summary. If the attachment surfaces additional detail, we are glad to address it in
-a subsequent round.
+email at the time this revision was first drafted, and we were unable to locate it in the Author
+Portal; the manuscript administrator (computer-ma@computer.org) was contacted on 2026-09-18 to
+request it. It has since surfaced, and this revision incorporates it in full. Reviewer 1's four
+"Weaknesses" in that document match the Editor's consolidated summary one-to-one and are addressed
+below under Section 1. The document also raised several items not present in the Editor's summary,
+addressed here:
+
+- **Define "action boundary" before the deep dive (Reviewer 1, C2, re: p.2).** Already present: the
+  abstract states the definition directly ("post-reasoning, pre-execution") before the term is used
+  analytically.
+- **State the paper's organization as an explicit roadmap (Reviewer 1, C2, re: p.3).** Added one
+  sentence at the end of the Introduction naming what each section covers.
+- **Provide a glossary or acronym reference (Reviewer 1, C3 and C5, raised twice).** Added Table 1,
+  a compact reference for AGP-1, ATM-1, GFN-1, and RMF, placed immediately after the new roadmap
+  sentence.
+- **Include an algorithmic description (pseudocode or decision tree) in the Architecture section
+  (Reviewer 1, C3).** Added the Decision Engine's five-stage logic as pseudocode in Section III-D,
+  alongside the existing Figure 3 pipeline diagram.
+- **Add a diagram showing GFN-1 trust-factor interactions (Reviewer 1, C5).** Added Figure 4,
+  showing the two structurally independent trust mechanisms (federation publisher trust and agent
+  runtime trust) and the non-override constraint between them, distinct from the existing Figure 3
+  decision-pipeline diagram.
+- **Make the GFN-1 trust formula more prominent (Reviewer 1, C3).** Addressed by the same Figure 4
+  addition, which gives the formula its own visual anchor.
+
+To make room for this new content within the 4000--6000 word requirement, we tightened three
+passages that had become redundant with other sections after the first revision round: the Design
+Consultation subsection now states the substantive finding once and defers full attribution to
+Acknowledgments (where it already appeared in full) rather than repeating it; the "What AEGIS Is
+Not" subsection is restated more concisely without dropping any of its three points; and the
+Limitations section's performance paragraph cross-references the POLYNIX/CPS precedent already
+cited in Related Work instead of restating it. No required content was removed in these passes.
+
+Separately, close review of the Architecture section while incorporating this file surfaced one
+pre-existing cross-reference error unrelated to any reviewer comment: a sentence in Section III-B
+referred to "Section III-C" for the risk-scoring function, which actually sits in Section III-D.
+Corrected.
 
 ---
 
@@ -24,7 +56,7 @@ a subsequent round.
 > formula or weighting. Given that reproducibility is a central claim of the paper, this must be
 > specified, even in simplified or illustrative form."*
 
-Added a new subsection, **"Risk Scoring and the Decision Pipeline"** (Section III-C), giving the
+Added a new subsection, **"Risk Scoring and the Decision Pipeline"** (Section III-D), giving the
 full five-factor formula with defined weights, a description of each factor, and a complete
 worked numerical example tracing one action proposal to a final risk score and decision band. A
 new figure (Fig. 3) diagrams the full decision pipeline, including where risk scoring sits
@@ -38,7 +70,7 @@ relative to capability resolution and policy evaluation.
 We took the minimum-bar option the Editor offered: both the federation publisher-trust weights
 and the new risk-scoring weights are now explicitly labeled as provisional, deployment-tunable
 operational defaults not derived from formal sensitivity analysis, with calibration against
-production data named as future work (Section III-C, Section III-D).
+production data named as future work (Section III-D, Section III-E).
 
 > *"Qualify the 'complete mediation' claim. As written, the claim... assumes a correctly isolated
 > deployment architecture with no out-of-band execution paths. Please state this assumption
@@ -63,7 +95,7 @@ discusses the high-throughput trade-off explicitly.
 > scale (e.g., thousands of federated organizations) and decision latency under load, even if
 > full empirical benchmarking remains future work."*
 
-Added scalability discussion to the Federation Network section (Section III-D): the sub-linear
+Added scalability discussion to the Federation Network section (Section III-E): the sub-linear
 per-node cost design goal, explicitly labeled as a design goal rather than a measured result, the
 current low-tens-of-nodes deployment scale, and the fact that thousands-of-organization behavior
 is unvalidated. Gateway decision-latency dependence on the cached federation-signal lookup is
@@ -98,7 +130,7 @@ denser statement of the five contributions rather than five separately narrated 
 
 > *"Include a concrete use case, prototype, or case study to demonstrate applicability."*
 
-The new worked example in Section III-C traces one concrete action proposal through the full
+The new worked example in Section III-D traces one concrete action proposal through the full
 risk-scoring pipeline to a specific decision, with the full factor breakdown shown.
 
 > *"Reduce conceptual repetition and streamline sections for better readability."*
@@ -157,7 +189,7 @@ naming which foundations are established, peer-reviewed external sources (Anders
 and Schroeder 1975, Schneider 2000, NIST SP 800-207) versus which are the author's own
 specification decisions (AGP-1, GFN-1, ATM-1), and stating this distinction applies throughout.
 Added a second, local framing sentence immediately before the detailed GFN-1 trust-model material
-(Section III-D) reiterating that what follows is specification, not external standard.
+(Section III-E) reiterating that what follows is specification, not external standard.
 
 > *"Reframe the 'peer review' and 'independent validation' narrative. The individuals credited
 > with review and convergent validation (Mattijs Moens, Nathan Freestone) are described as
@@ -188,23 +220,30 @@ which AEGIS has not undergone.
 
 ## Summary of new/changed content
 
-- New Section III-C, "Risk Scoring and the Decision Pipeline," with full formula, factor
-  definitions, and worked example
+- New Section III-D, "Risk Scoring and the Decision Pipeline," with full formula, factor
+  definitions, pseudocode, and worked example
 - New Fig. 3 (decision-pipeline diagram)
+- New Fig. 4 (GFN-1 trust-mechanism-interactions diagram)
+- New Table 1 (acronym glossary) and an explicit section-by-section roadmap sentence, both in the
+  Introduction
 - New audit-failure-semantics paragraph (Section II-D)
-- New GFN-1 scalability/latency discussion (Section III-D)
+- New GFN-1 scalability/latency discussion (Section III-E)
 - New capability-discovery-mechanism content (Section III-B)
 - Strengthened Limitations section (complete-mediation scope, capability-extension gap,
   performance-evaluation status)
 - Complete-mediation claim qualified with its isolation assumption (Section II-C)
-- Self-citation vs. external-foundation framing added (Section II-B, III-D)
+- Self-citation vs. external-foundation framing added (Section II-B, III-E)
 - "Peer Review" section renamed and reframed as informal design consultation; matching
   Acknowledgments edits
 - "Compliance-ready" language replaced with scoped claims (Conclusion, Section V)
 - Trademark symbols and closing tagline removed throughout
 - Three new references added (ReAct, TRiSM academic variant, prompt-injection survey); NIST Zero
   Trust (already cited) confirmed present
-- Trimmed repeated restatements of the action-boundary argument to stay within the 6000-word limit
+- Corrected a pre-existing cross-reference error (Section III-B referred to "Section III-C" for
+  risk scoring; it is Section III-D)
+- Trimmed repeated restatements of the action-boundary argument, the Design Consultation
+  attribution (now stated once, in full, in Acknowledgments), and a Limitations paragraph that
+  had become redundant with Related Work, to make room for the above within the 6000-word limit
 
 Word count of the revised manuscript body (abstract through acknowledgments): approximately 5,880
 words, within the 4000–6000-word requirement.
