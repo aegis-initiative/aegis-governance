@@ -1,0 +1,83 @@
+{
+  "site": "https://aegis-governance.com",
+  "generated": "2026-10-27",
+  "note": "Structured summary of the governance specification suite for machine readers. For complete, authoritative text, fetch the individual pages listed in navigation.json or the machine-readable data at /atx-1/*.json and /data/.",
+  "pages": [
+    {
+      "path": "/foundation",
+      "title": "AEGIS Manifesto",
+      "sections": [
+        {
+          "heading": "The governance gap",
+          "content": "Autonomous AI agents execute real-world actions against operational infrastructure — API calls, file-system operations, database queries, inter-service requests. Existing AI safety work governs what agents say (training-time alignment: RLHF, Constitutional AI). AEGIS governs what agents do: it enforces deterministic policy at the agent action boundary, the point between an agent's reasoning output and infrastructure execution, making unauthorized actions structurally unavailable rather than merely discouraged."
+        },
+        {
+          "heading": "Capability is not authority",
+          "content": "The foundational distinction AEGIS is built on: capability is what an agent technically can do given its tool access, network reach, and execution permissions. Authority is what an agent is architecturally permitted to do, conditioned on identity, the action's principal, and consequences. AEGIS catalogs and closes the gap between the two."
+        }
+      ]
+    },
+    {
+      "path": "/architecture",
+      "title": "Reference Architecture",
+      "sections": [
+        {
+          "heading": "The reference monitor model",
+          "content": "AEGIS applies Anderson's 1972 reference monitor concept to the AI agent context. A reference monitor must be Non-bypassable (every action passes through it), Evaluatable (its logic is inspectable and verifiable), Always-invoked (no action proceeds without evaluation), and Tamper-proof (the agent cannot modify its own governance pathway) — the NEAT properties."
+        },
+        {
+          "heading": "Four-layer stack",
+          "content": "AEGIS is organized into four layers mapped to the NIST AI Risk Management Framework's four functions: Layer 1 Doctrine/Constitution (Govern) — normative constitutional articles; Layer 2 Schema/AGP-1 (Map) — the wire protocol and capability registry; Layer 3 Engine/Runtime (Measure) — the Decision Engine's evaluation pipeline; Layer 4 Platform/GFN-1 (Manage) — federated cross-organizational governance intelligence."
+        },
+        {
+          "heading": "Decision pipeline",
+          "content": "Each proposed action passes through a five-stage pipeline: capability resolution (does the actor hold a valid grant), policy evaluation (ordered rule set, default-deny), risk scoring (a weighted five-factor model — historical attempt rate, actor trust, capability sensitivity, behavioral anomaly, federation signals), decision assembly, and audit record creation. The result is one of four outcomes: ALLOW, DENY, ESCALATE (to human review), or REQUIRE_CONFIRMATION (explicit user consent)."
+        }
+      ]
+    },
+    {
+      "path": "/protocol",
+      "title": "AGP-1 — AEGIS Governance Protocol",
+      "sections": [
+        {
+          "heading": "Wire protocol",
+          "content": "AGP-1 defines the message types that carry governance decisions: ACTION_PROPOSE (submitted by the agent's Tool Proxy), DECISION_RESPONSE (returned by the Governance Gateway), and EXECUTION_REPORT (confirms the action's actual outcome, feeding back into risk scoring and audit). The protocol specifies authentication, policy evaluation semantics, the risk-scoring formula, the trust model, and wire format in full."
+        }
+      ]
+    },
+    {
+      "path": "/threat-model",
+      "title": "ATM-1 / ATX-1 — Threat Model and Threat Matrix",
+      "sections": [
+        {
+          "heading": "ATM-1",
+          "content": "The Adaptive Threat Model is a STRIDE-based analysis of the AEGIS deployment topology, enumerating threat actor classes (malicious external actors, compromised internal agents directed by prompt injection, insiders, supply chain attackers) and the mitigations each requires."
+        },
+        {
+          "heading": "ATX-1",
+          "content": "The AEGIS Threat Matrix (v2.4.0, published 2026-05-29) is a structured adversarial knowledge base for agentic AI failure modes — 10 tactics, 30 techniques, and 39 sub-techniques, each traced to one of five structural root causes (missing authority verification, missing consequence modeling, missing behavioral boundaries, missing state integrity protection, missing environment model). Published in STIX 2.1 format with machine-readable JSON at /atx-1/*.json, grounded empirically in the Agents of Chaos study and RFC-0006 adversarial testing. Positioned alongside MITRE ATT&CK (human adversaries) and MITRE ATLAS (adversaries targeting AI/ML systems) as the taxonomy for the agent-resident failure surface neither of those covers."
+        }
+      ]
+    },
+    {
+      "path": "/identity",
+      "title": "AIAM-1 — AI Agent Identity & Access Management",
+      "sections": [
+        {
+          "heading": "Composite identity and IBAC",
+          "content": "AIAM-1 defines how AI agents are identified, authenticated, and authorized: composite identity (an agent's identity is a function of its model, its deployer, and its session), intent claims (structured declarations of what an action is for), and Intent-Based Access Control (IBAC) — an authority model conditioned on declared intent rather than static role membership alone. Also specifies delegation chains, session lifecycle, attestation, revocation, and cross-system interoperability."
+        }
+      ]
+    },
+    {
+      "path": "/federation",
+      "title": "GFN-1 — Governance Federation Network",
+      "sections": [
+        {
+          "heading": "Collective defense",
+          "content": "GFN-1 enables independent AEGIS deployments to share governance intelligence — circumvention reports, risk signals, policy updates — across organizational boundaries without centralized control, built on the AT Protocol with DID-based node identity. Full specification and lexicon schemas are published at aegis-federation.com; this site's role is the cross-reference into the broader AGP-1/ATM-1 specification suite. Trust operates through two structurally independent mechanisms: federation publisher trust (a five-factor weighted composite) and agent runtime trust (a separate threat-detection/reputation two-layer model with a normative non-override constraint between them)."
+        }
+      ]
+    }
+  ]
+}

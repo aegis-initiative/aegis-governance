@@ -1,9 +1,9 @@
 {
   "name": "AEGIS Governance",
-  "description": "Technical governance specifications and machine-readable data for the AEGIS ecosystem. 73 specification documents across 7 domains, plus ATX-1 v2.2 threat taxonomy — 10 tactics, 58 techniques, structured in STIX 2.1 and JSON.",
+  "description": "Technical governance specifications and machine-readable data for the AEGIS ecosystem. 70 specification documents across 6 domains, plus ATX-1 v2.4 threat taxonomy — 10 tactics, 30 techniques, 39 sub-techniques, structured in STIX 2.1 and JSON.",
   "url": "https://aegis-governance.com",
-  "version": "2.2.0",
-  "updated": "2026-04-11",
+  "version": "2.4.0",
+  "updated": "2026-10-27",
   "license": {
     "specifications": "CC-BY-SA-4.0",
     "data": "CC-BY-SA-4.0",
@@ -11,8 +11,30 @@
   },
   "access": "unrestricted",
   "note": "This site serves both human-readable specification documents (HTML) and machine-readable governance data (JSON). All data endpoints are open to all bots. Spec pages are indexable by search engines.",
+  "resources": [
+    {
+      "type": "readme",
+      "path": "/.well-known/aegis/README.md",
+      "description": "AI-readable overview of the AEGIS specification suite — architecture, protocol, threat model, identity, and where the rest of the ecosystem lives"
+    },
+    {
+      "type": "navigation",
+      "path": "/.well-known/aegis/navigation.json",
+      "description": "Full site structure — every specification page, grouped by domain, with real titles and descriptions"
+    },
+    {
+      "type": "metadata",
+      "path": "/.well-known/aegis/metadata.json",
+      "description": "Specification inventory, data endpoints, licensing, repository links, and DOIs"
+    },
+    {
+      "type": "content",
+      "path": "/.well-known/aegis/site-content.json",
+      "description": "Summarized conceptual content for each specification domain"
+    }
+  ],
   "specifications": {
-    "total": 73,
+    "total": 70,
     "domains": {
       "foundation": {
         "path": "/foundation/",
@@ -39,22 +61,17 @@
         "count": 12,
         "description": "AIAM-1 identity and access management — composite identity, IBAC, intent claims, delegation, attestation"
       },
-      "federation": {
-        "path": "/federation/",
-        "count": 5,
-        "description": "GFN-1 governance federation network — trust model, feeds, node architecture, AT Protocol schema"
-      },
       "rfc": {
         "path": "/rfc/",
-        "count": 17,
-        "description": "RFC-0001 through RFC-0019 — architecture, runtime, events, deployment, identity"
+        "count": 18,
+        "description": "RFC-0001 through RFC-0019 — architecture, runtime, events, deployment, identity (note: RFC-0007 and RFC-0008 are not part of this series)"
       }
     }
   },
   "datasets": {
     "atx-1": {
-      "version": "2.2.0",
-      "date": "2026-04-10",
+      "version": "2.4.0",
+      "date": "2026-05-29",
       "index": "/atx-1/index.json",
       "stix_bundle": "/atx-1/stix-bundle.json",
       "techniques": "/atx-1/techniques.json",
@@ -71,16 +88,19 @@
   },
   "data_downloads": "/data/",
   "doi": {
-    "atx1_v2.1": "10.5281/zenodo.19251098",
-    "preprint": "10.5281/zenodo.19223924"
+    "atx1_v2.4_dataport": "10.21227/edxj-ka42",
+    "atx1_v2.3_dataport": "10.21227/jr43-0571",
+    "preprint": "10.5281/zenodo.19223924",
+    "ieee_data_descriptions": "10.1109/IEEEDATA.2026.3730732"
   },
   "citation": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
   "related_sites": {
-    "documentation": "https://aegis-docs.com",
-    "constitution": "https://aegis-constitution.com",
     "initiative": "https://aegis-initiative.com",
+    "constitution": "https://aegis-constitution.com",
+    "documentation": "https://aegis-docs.com",
     "federation": "https://aegis-federation.com",
-    "demo_api": "https://demo.aegis-platform.net",
+    "labs": "https://aegis-labs.dev",
+    "platform": "https://aegis-platform.net",
     "repository": "https://github.com/aegis-initiative/aegis-governance"
   }
 }

@@ -1,0 +1,78 @@
+{
+  "site": "AEGIS Governance",
+  "url": "https://aegis-governance.com",
+  "updated": "2026-10-27",
+  "specifications": {
+    "AGP-1": {
+      "name": "AEGIS Governance Protocol",
+      "description": "Wire protocol for action governance — ACTION_PROPOSE / DECISION_RESPONSE / EXECUTION_REPORT message types, policy evaluation, risk scoring, trust model",
+      "path": "/protocol/",
+      "document_count": 8
+    },
+    "ATM-1": {
+      "name": "Adaptive Threat Model",
+      "description": "STRIDE-based threat analysis of the AEGIS deployment topology — threat actor classes, attack vectors, mitigations",
+      "path": "/threat-model/",
+      "document_count": 7
+    },
+    "ATX-1": {
+      "name": "AEGIS Threat Matrix",
+      "full_name": "Agentic Exploitation and Governance Intelligence Schema",
+      "description": "Structured adversarial knowledge base for agentic AI behavior",
+      "version": "2.4.0",
+      "date": "2026-05-29",
+      "tactics": 10,
+      "techniques": 30,
+      "sub_techniques": 39,
+      "data_downloads": "/data/",
+      "path": "/threat-model/taxonomy"
+    },
+    "AIAM-1": {
+      "name": "AI Agent Identity & Access Management",
+      "description": "Composite identity, intent claims, IBAC authority model, delegation, sessions, attestation, revocation",
+      "path": "/identity/",
+      "document_count": 12
+    },
+    "RFCs": {
+      "description": "RFC-0001 through RFC-0019 — architecture, runtime, capability registry, event model, deployment, Claude Code plugin, prior art, state dump, authority, ATX-1 v2, ACF-1, dual licensing, runtime consolidation, discovery, commit boundary, attestation, AIAM-1",
+      "path": "/rfc/",
+      "document_count": 18
+    }
+  },
+  "data_endpoints": {
+    "atx1_index": "/atx-1/index.json",
+    "atx1_techniques": "/atx-1/techniques.json",
+    "atx1_regulatory_crossref": "/atx-1/regulatory-crossref.json",
+    "atx1_stix_bundle": "/atx-1/stix-bundle.json",
+    "atx1_navigator_layer": "/atx-1/navigator-layer.json",
+    "atx1_version_mapping": "/atx-1/version-mapping.json",
+    "atx_technique_schema": "/schemas/atx-technique.schema.json",
+    "data_portal": "/data/"
+  },
+  "license": {
+    "specifications": "CC-BY-SA-4.0",
+    "data": "CC-BY-SA-4.0",
+    "code_examples": "Apache-2.0"
+  },
+  "repository": {
+    "url": "https://github.com/aegis-initiative/aegis-governance",
+    "source_path": "docs/atx/v2/ (ATX-1 data), aegis-core/protocol/ (AGP-1), rfc/ (RFCs), aiam/ (AIAM-1)"
+  },
+  "citation": "K. Tannenbaum, \"AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,\" AEGIS Initiative, 2026, doi: 10.5281/zenodo.19223924.",
+  "dois": {
+    "atx1_v2.4_dataport": "10.21227/edxj-ka42",
+    "atx1_v2.3_dataport": "10.21227/jr43-0571",
+    "atx1_zenodo_snapshot_concept": "10.5281/zenodo.19162184",
+    "aegis_architecture_preprint": "10.5281/zenodo.19223924",
+    "ieee_data_descriptions_atx1": "10.1109/IEEEDATA.2026.3730732"
+  },
+  "related_sites": {
+    "initiative": "https://aegis-initiative.com",
+    "constitution": "https://aegis-constitution.com",
+    "documentation": "https://aegis-docs.com",
+    "federation": "https://aegis-federation.com",
+    "labs": "https://aegis-labs.dev",
+    "platform": "https://aegis-platform.net",
+    "repository": "https://github.com/aegis-initiative/aegis-governance"
+  }
+}
