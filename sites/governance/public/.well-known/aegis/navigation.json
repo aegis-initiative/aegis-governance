@@ -1,0 +1,394 @@
+{
+  "site": "AEGIS Governance",
+  "url": "https://aegis-governance.com",
+  "updated": "2026-10-27",
+  "sections": [
+    {
+      "name": "Foundation",
+      "path": "/foundation",
+      "description": "Mission, system overview, FAQ, and development roadmap",
+      "pages": [
+        {
+          "title": "AEGIS Manifesto",
+          "path": "/foundation",
+          "description": "The AEGIS governance manifesto — mission, principles, and design philosophy"
+        },
+        {
+          "title": "AEGIS System Overview",
+          "path": "/foundation/overview",
+          "description": "High-level overview of the AEGIS governance system"
+        },
+        {
+          "title": "AEGIS FAQ",
+          "path": "/foundation/faq",
+          "description": "Frequently asked questions about AEGIS governance"
+        },
+        {
+          "title": "AEGIS Roadmap",
+          "path": "/foundation/roadmap",
+          "description": "AEGIS development roadmap and milestones"
+        }
+      ]
+    },
+    {
+      "name": "Architecture",
+      "path": "/architecture",
+      "description": "Reference architecture, governance engine, capability model, policy language, risk scoring, trust boundaries",
+      "pages": [
+        {
+          "title": "AEGIS Architecture Overview",
+          "path": "/architecture",
+          "description": "AEGIS architecture overview — layers, boundaries, and design principles"
+        },
+        {
+          "title": "AEGIS Reference Architecture",
+          "path": "/architecture/reference",
+          "description": "AEGIS reference architecture specification"
+        },
+        {
+          "title": "AEGIS Ecosystem Map",
+          "path": "/architecture/ecosystem-map",
+          "description": "Map of the AEGIS ecosystem — repositories, sites, and services"
+        },
+        {
+          "title": "AEGIS System Stack",
+          "path": "/architecture/system-stack",
+          "description": "AEGIS system stack — layered architecture from schema to runtime"
+        },
+        {
+          "title": "AEGIS AI Kernel Mediation Model",
+          "path": "/architecture/ai-kernel-model",
+          "description": "AI kernel model — governance as operating system for AI agents"
+        },
+        {
+          "title": "AEGIS Reference Monitor Model",
+          "path": "/architecture/reference-monitor",
+          "description": "Reference monitor model — mandatory mediation at execution boundary"
+        },
+        {
+          "title": "AEGIS Governance Engine Specification",
+          "path": "/architecture/engine-spec",
+          "description": "Governance engine technical specification"
+        },
+        {
+          "title": "AEGIS Governance Engine Components",
+          "path": "/architecture/engine-components",
+          "description": "Governance engine component breakdown"
+        },
+        {
+          "title": "AEGIS Decision Algorithm",
+          "path": "/architecture/decision-algorithm",
+          "description": "Governance decision algorithm — deterministic policy evaluation"
+        },
+        {
+          "title": "AEGIS End-to-End Request Flow",
+          "path": "/architecture/request-flow",
+          "description": "End-to-end request flow through the governance engine"
+        },
+        {
+          "title": "AEGIS Capability Model",
+          "path": "/architecture/capability-model",
+          "description": "Capability model — bounded, typed, and verifiable agent capabilities"
+        },
+        {
+          "title": "AEGIS Capability Request Schema",
+          "path": "/architecture/capability-schema",
+          "description": "Capability schema — JSON schema definitions for AEGIS capabilities"
+        },
+        {
+          "title": "AEGIS Governed Capability Flow",
+          "path": "/architecture/capability-flow",
+          "description": "Governed capability flow — from proposal to execution"
+        },
+        {
+          "title": "AEGIS Policy Language",
+          "path": "/architecture/policy-language",
+          "description": "AEGIS policy language — syntax, semantics, and evaluation rules"
+        },
+        {
+          "title": "AEGIS Policy Matching and Debugging Guide",
+          "path": "/architecture/policy-matching",
+          "description": "Policy matching and debugging — resolution order and diagnostics"
+        },
+        {
+          "title": "AEGIS Risk Scoring Model",
+          "path": "/architecture/risk-model",
+          "description": "Risk scoring model — threat classification and severity mapping"
+        },
+        {
+          "title": "AEGIS Risk Scoring Algorithm",
+          "path": "/architecture/risk-algorithm",
+          "description": "Risk scoring algorithm — deterministic threat quantification"
+        },
+        {
+          "title": "AEGIS Trust Boundaries",
+          "path": "/architecture/trust-boundaries",
+          "description": "Trust boundaries — isolation zones and crossing rules"
+        },
+        {
+          "title": "AEGIS Security Assumptions",
+          "path": "/architecture/security-assumptions",
+          "description": "Security assumptions — threat model premises and trust boundaries"
+        },
+        {
+          "title": "AEGIS System Principles",
+          "path": "/architecture/principles",
+          "description": "System principles — foundational design constraints"
+        }
+      ]
+    },
+    {
+      "name": "Protocol (AGP-1)",
+      "path": "/protocol",
+      "description": "AGP-1 governance protocol suite — authentication, messages, policy evaluation, trust model, wire format",
+      "pages": [
+        {
+          "title": "AEGIS AGP-1 Complete Specification Suite & Index",
+          "path": "/protocol",
+          "description": "AGP-1 specification suite index — the AEGIS governance protocol"
+        },
+        {
+          "title": "AEGIS AGP-1 Protocol Overview & Design Principles",
+          "path": "/protocol/overview",
+          "description": "AGP-1 protocol overview — design goals, scope, and terminology"
+        },
+        {
+          "title": "AEGIS AGP-1 Authentication & Authorization",
+          "path": "/protocol/authentication",
+          "description": "AGP-1 authentication — identity verification and binding"
+        },
+        {
+          "title": "AEGIS AGP-1 Message Schemas & Field Specifications",
+          "path": "/protocol/messages",
+          "description": "AGP-1 message types — proposals, decisions, and audit records"
+        },
+        {
+          "title": "AEGIS AGP-1 Policy Evaluation & Capability Resolution",
+          "path": "/protocol/policy-evaluation",
+          "description": "AGP-1 policy evaluation — matching, resolution, and enforcement"
+        },
+        {
+          "title": "AEGIS AGP-1 Risk Scoring & Decision Thresholds",
+          "path": "/protocol/risk-scoring",
+          "description": "AGP-1 risk scoring — threat quantification within the protocol"
+        },
+        {
+          "title": "AEGIS AGP-1 Trust Model & Actor Reputation",
+          "path": "/protocol/trust-model",
+          "description": "AGP-1 trust model — two-layer agent admissibility"
+        },
+        {
+          "title": "AEGIS AGP-1 Wire Format & Transport Specification",
+          "path": "/protocol/wire-format",
+          "description": "AGP-1 wire format — serialization and transport encoding"
+        }
+      ]
+    },
+    {
+      "name": "Threat Model (ATM/ATX)",
+      "path": "/threat-model",
+      "description": "ATM-1 security analysis and ATX-1 technique taxonomy",
+      "pages": [
+        {
+          "title": "AEGIS ATM-1 Threat Model & Security Analysis",
+          "path": "/threat-model",
+          "description": "ATM-1 threat model index — security analysis for AEGIS-governed systems"
+        },
+        {
+          "title": "AEGIS ATM-1 Threat Actors & Adversary Models",
+          "path": "/threat-model/threat-actors",
+          "description": "ATM-1 threat actors — adversary profiles and motivations"
+        },
+        {
+          "title": "AEGIS ATM-1 Attack Vectors & Exploitation Techniques",
+          "path": "/threat-model/attack-vectors",
+          "description": "ATM-1 attack vectors — threat surfaces and exploitation paths"
+        },
+        {
+          "title": "AEGIS ATM-1 Security Properties & Assumptions",
+          "path": "/threat-model/security-properties",
+          "description": "ATM-1 security properties — invariants the system must maintain"
+        },
+        {
+          "title": "AEGIS ATM-1 Mitigations & Defense Strategies",
+          "path": "/threat-model/mitigations",
+          "description": "ATM-1 mitigations — architectural countermeasures"
+        },
+        {
+          "title": "AEGIS ATM-1 Residual Risks & Risk Acceptance",
+          "path": "/threat-model/residual-risks",
+          "description": "ATM-1 residual risks — known gaps and deferred mitigations"
+        },
+        {
+          "title": "ATX-1: AEGIS Threat Matrix — Technique Taxonomy",
+          "path": "/threat-model/taxonomy",
+          "description": "ATX-1 technique taxonomy — 10 tactics, 30 techniques (39 sub-techniques) for agentic AI threats"
+        }
+      ]
+    },
+    {
+      "name": "Identity (AIAM-1)",
+      "path": "/identity",
+      "description": "AIAM-1 identity and access management — composite identity, IBAC, intent claims, delegation, attestation",
+      "pages": [
+        {
+          "title": "AEGIS AIAM-1 Specification Suite",
+          "path": "/identity",
+          "description": "AIAM-1 specification suite — identity and access management for AI agents"
+        },
+        {
+          "title": "AEGIS AIAM-1: Identity",
+          "path": "/identity/identity",
+          "description": "AIAM-1 identity model — composite agent identity and principal chains"
+        },
+        {
+          "title": "AEGIS AIAM-1: Intent",
+          "path": "/identity/intent",
+          "description": "AIAM-1 intent claims — structured purpose assertions at moment of action"
+        },
+        {
+          "title": "AEGIS AIAM-1: Authority Binding (IBAC)",
+          "path": "/identity/authority",
+          "description": "AIAM-1 authority model — IBAC authorization framework"
+        },
+        {
+          "title": "AEGIS AIAM-1: Capability Scoping",
+          "path": "/identity/capabilities",
+          "description": "AIAM-1 capability binding — identity-scoped capability grants"
+        },
+        {
+          "title": "AEGIS AIAM-1: Delegation and Principal Chains",
+          "path": "/identity/delegation",
+          "description": "AIAM-1 delegation — authority transfer and chain validation"
+        },
+        {
+          "title": "AEGIS AIAM-1: Session Semantics",
+          "path": "/identity/sessions",
+          "description": "AIAM-1 session management — governance-aware session lifecycle"
+        },
+        {
+          "title": "AEGIS AIAM-1: Attestation and Audit",
+          "path": "/identity/attestation",
+          "description": "AIAM-1 attestation — action-level governance decision proof"
+        },
+        {
+          "title": "AEGIS AIAM-1: Revocation and Kill-Switch Semantics",
+          "path": "/identity/revocation",
+          "description": "AIAM-1 revocation — credential and authority withdrawal"
+        },
+        {
+          "title": "AEGIS AIAM-1: Interoperability",
+          "path": "/identity/interoperability",
+          "description": "AIAM-1 interoperability — cross-system identity federation"
+        },
+        {
+          "title": "AEGIS AIAM-1: Threat Model",
+          "path": "/identity/threat-model",
+          "description": "AIAM-1 threat model — identity-specific attack surfaces"
+        },
+        {
+          "title": "AEGIS AIAM-1: Conformance",
+          "path": "/identity/conformance",
+          "description": "AIAM-1 conformance — compliance levels and validation criteria"
+        }
+      ]
+    },
+    {
+      "name": "RFCs",
+      "path": "/rfc",
+      "description": "RFC-0001 through RFC-0019 — architecture, runtime, events, deployment, identity",
+      "pages": [
+        {
+          "title": "Request for Comments (RFCs)",
+          "path": "/rfc",
+          "description": "AEGIS RFC series — technical specifications and design documents"
+        },
+        {
+          "title": "RFC-0001: AEGIS Governance Architecture",
+          "path": "/rfc/0001",
+          "description": "RFC-0001: AEGIS Governance Architecture"
+        },
+        {
+          "title": "RFC-0002: AEGIS Governance Runtime Specification",
+          "path": "/rfc/0002",
+          "description": "RFC-0002: Governance Runtime — API, state model, SLOs"
+        },
+        {
+          "title": "RFC-0003: AEGIS Capability Registry and Policy",
+          "path": "/rfc/0003",
+          "description": "RFC-0003: Capability Registry & Policy Language"
+        },
+        {
+          "title": "RFC-0004: AEGIS Governance Event Model",
+          "path": "/rfc/0004",
+          "description": "RFC-0004: Governance Event Model — two-layer trust"
+        },
+        {
+          "title": "RFC-0005: Reference Deployment Patterns",
+          "path": "/rfc/0005",
+          "description": "RFC-0005: Reference Deployment Patterns"
+        },
+        {
+          "title": "RFC-0006: AEGIS Claude Code Plugin",
+          "path": "/rfc/0006",
+          "description": "RFC-0006: Claude Code Plugin — embedded governance"
+        },
+        {
+          "title": "RFC-0009: Prior Art and External Validation Record",
+          "path": "/rfc/0009",
+          "description": "RFC-0009: Prior Art and External Validation Record"
+        },
+        {
+          "title": "RFC-0010: State Dump Protocol Formalization",
+          "path": "/rfc/0010",
+          "description": "RFC-0010: State Dump Protocol Formalization"
+        },
+        {
+          "title": "RFC-0011: Authority Binding Sub-Spec Revision",
+          "path": "/rfc/0011",
+          "description": "RFC-0011: Authority Binding Sub-Spec Revision"
+        },
+        {
+          "title": "RFC-0012: ATX-1 v2.0 Taxonomy Normalization",
+          "path": "/rfc/0012",
+          "description": "RFC-0012: ATX-1 v2 Taxonomy Normalization"
+        },
+        {
+          "title": "RFC-0013: ACF-1 — AEGIS Control Framework",
+          "path": "/rfc/0013",
+          "description": "RFC-0013: ACF-1 Control Framework"
+        },
+        {
+          "title": "RFC-0014: ATX-1 Dual-Licensing Authorization",
+          "path": "/rfc/0014",
+          "description": "RFC-0014: ATX-1 Dual Licensing"
+        },
+        {
+          "title": "RFC-0015: Governance Runtime Consolidation",
+          "path": "/rfc/0015",
+          "description": "RFC-0015: Runtime Consolidation"
+        },
+        {
+          "title": "RFC-0016: Cross-Domain Machine Discovery Protocol",
+          "path": "/rfc/0016",
+          "description": "RFC-0016: Cross-Domain Machine Discovery Protocol"
+        },
+        {
+          "title": "RFC-0017: Commit Boundary and Binding Validation for AGP-1",
+          "path": "/rfc/0017",
+          "description": "RFC-0017: Commit Boundary and Binding Validation"
+        },
+        {
+          "title": "RFC-0018: Automated Governance Attestation Protocol (AGAP-1)",
+          "path": "/rfc/0018",
+          "description": "RFC-0018: Automated Governance Attestation Protocol"
+        },
+        {
+          "title": "RFC-0019: AIAM-1 — Identity and Access Management for AI Agents",
+          "path": "/rfc/0019",
+          "description": "RFC-0019: AIAM-1 Identity & Access Management for AI Agents"
+        }
+      ]
+    }
+  ]
+}
