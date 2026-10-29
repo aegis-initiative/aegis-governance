@@ -89,10 +89,12 @@ jobs:
         if: steps.tag.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Passed via env, never interpolated into the script: the notes are
+          # model output built from commit messages, and any quote, backtick
+          # or $(...) in them would otherwise break or execute in the shell.
+          TAG: ${{ steps.tag.outputs.tag }}
+          NOTES: ${{ steps.notes.outputs.notes }}
         run: |
-          TAG="${{ steps.tag.outputs.tag }}"
-          NOTES="${{ steps.notes.outputs.notes }}"
-
           gh release create "$TAG" \
             --title "AEGIS™ Governance — ${TAG}" \
             --notes "$NOTES" \
