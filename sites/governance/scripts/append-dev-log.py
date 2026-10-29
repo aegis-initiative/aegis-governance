@@ -32,13 +32,15 @@ file_dir = f"src/content/docs/releases/{year}/{month}"
 file_path = f"{file_dir}/{day}.md"
 os.makedirs(file_dir, exist_ok=True)
 
+# Wrap bare URLs (e.g. from merge commit subjects) so the entry passes MD034.
+message = re.sub(r"(?<![<(])(https?://[^\s)>]+)", r"<\1>", message)
 dev_log_entry = f"- {message} ({hash_val})\n"
 
 if not os.path.exists(file_path):
     # Create new daily log
     content = f"""---
-title: "{month_name} {day_int}, 2026"
-description: "Development log for {month_name} {day_int}, 2026"
+title: "{month_name} {day_int}, 20{year}"
+description: "Development log for {month_name} {day_int}, 20{year}"
 template: doc
 sidebar:
   hidden: true
