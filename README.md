@@ -19,6 +19,62 @@
   <a href="https://github.com/aegis-initiative/aegis-governance/actions/workflows/spellcheck.yml"><img src="https://github.com/aegis-initiative/aegis-governance/actions/workflows/spellcheck.yml/badge.svg" alt="Spell Check"></a>
 </p>
 
+## ATX-1: a threat matrix for agentic AI
+
+**ATX-1, the AEGIS™ Threat Matrix, catalogs how AI agents with real permissions go wrong**: obeying someone who
+has no authority over them, drifting outside their task, hiding what they did from oversight, or acting where the
+rules don't clearly apply. It is built the way MITRE ATT&CK is built, so security teams can load it into the tools
+they already use.
+
+**v2.4.0 · 10 tactics · 69 techniques (30 techniques + 39 sub-techniques) · 30 mitigations**
+
+| ID | Tactic | Techniques |
+| --- | --- | ---: |
+| TA001 | Violate Authority Boundaries | 3 |
+| TA002 | Exceed Operational Scope | 4 |
+| TA003 | Compromise System Integrity | 2 |
+| TA004 | Expose or Exfiltrate Information | 3 |
+| TA005 | Violate State Integrity | 3 |
+| TA006 | Abuse Resource Allocation | 13 |
+| TA007 | Manipulate Agent Interactions | 4 |
+| TA008 | Establish or Modify Persistence | 2 |
+| TA009 | Evade Detection or Oversight | 4 |
+| TA010 | Act Beyond Governance Interpretation | 31 |
+
+### Use it now
+
+| What | Where |
+| --- | --- |
+| Browse the matrix | [aegis-docs.com/threat-matrix/matrix](https://aegis-docs.com/threat-matrix/matrix/) |
+| STIX 2.1 bundle | [`stix-bundle.json`](https://aegis-governance.com/atx-1/stix-bundle.json) |
+| ATT&CK Navigator layer | [`navigator-layer.json`](https://aegis-governance.com/atx-1/navigator-layer.json): open [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/), choose *Open Existing Layer*, load this file |
+| Technique database (JSON) | [`techniques.json`](https://aegis-governance.com/atx-1/techniques.json) |
+| Regulatory crosswalk (EU AI Act, NIST AI RMF, OWASP Top 10 for LLMs) | [`regulatory-crossref.json`](https://aegis-governance.com/atx-1/regulatory-crossref.json) |
+| Source and taxonomy notes | [`docs/atx/`](docs/atx/) |
+
+Every technique carries a root cause, an OWASP LLM Top 10 mapping and a mitigation:
+
+```json
+{
+  "id": "T1001",
+  "name": "Execute Non-Owner Instruction",
+  "tactic": "TA001",
+  "description": "The agent executes a destructive or high-impact action based on instructions from a user who does not hold owner-level authority.",
+  "root_cause": "RC1 (No Stakeholder Model)",
+  "owasp_mapping": ["LLM06"]
+}
+```
+
+ATX-1 is grounded in the Agents of Chaos study (Shapira et al., 2026), the LoopTrap termination-poisoning study
+(Xu et al., 2026) and the project's own adversarial testing ([RFC-0006](rfc/RFC-0006-Claude-Code-Plugin.md)).
+
+**Cite:** ATX-1 v2.4 dataset, IEEE DataPort, doi:[10.21227/edxj-ka42](https://doi.org/10.21227/edxj-ka42).
+Architecture preprint: K. Tannenbaum, "AEGIS: A Constitutional Governance Architecture for Autonomous AI Agents,"
+2026, doi:[10.5281/zenodo.19223924](https://doi.org/10.5281/zenodo.19223924).
+Licensed CC-BY-SA-4.0. Issues and new technique proposals are welcome.
+
+---
+
 ### Announcement
 
 - **2026-03-05** — AEGIS™ has been **[publicly released](docs/announcements/2026-03-05-launch/ANNOUNCEMENT.md)** as an open governance architecture for intelligent systems.
@@ -155,6 +211,7 @@ This model is conceptually similar to **cybersecurity threat intelligence sharin
 | Reference Architecture | Governance runtime design                   | [aegis-core/architecture/](aegis-core/architecture/) |
 | Protocol (AGP-1)       | Action governance protocol                  | [aegis-core/protocol/](aegis-core/protocol/) |
 | Threat Model (ATM-1)   | Security risks addressed by AEGIS™          | [aegis-core/threat-model/](aegis-core/threat-model/) |
+| Threat Matrix (ATX-1)  | Agentic AI tactics, techniques and mitigations | [docs/atx/](docs/atx/) |
 | Federation Network (GFN-1) | Distributed governance intelligence     | [federation/](federation/) |
 | RFC Specifications     | Core governance specifications              | [rfc/](rfc/) |
 
@@ -194,6 +251,7 @@ The project includes:
 - ✅ Complete governance architecture specification
 - ✅ AGP-1 protocol definitions (normative)
 - ✅ ATM-1 threat model and security analysis
+- ✅ ATX-1 v2.4 threat matrix (STIX 2.1, ATT&CK Navigator layer, regulatory crosswalk)
 - ✅ Federation network design (GFN-1)
 - ✅ JSON schemas for protocol validation
 - 🔄 Python reference runtime (aegis-runtime/)
