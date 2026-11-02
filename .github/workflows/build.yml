@@ -1,0 +1,11 @@
+name: Build
+on:
+  push:
+    paths: ['sites/governance/**']
+  pull_request:
+    paths: ['sites/governance/**']
+jobs:
+  build:
+    uses: aegis-initiative/.github/.github/workflows/astro-build-check.yml@main
+    with:
+      site-dir: sites/governance
