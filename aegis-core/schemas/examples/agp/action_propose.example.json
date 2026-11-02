@@ -1,10 +1,10 @@
 {
   "message_type": "ACTION_PROPOSE",
-  "action_id": "a-123",
+  "action_id": "689e4332-59e6-49cf-9af9-09b667e59788",
   "timestamp": "2026-03-05T19:12:01Z",
   "actor": {
-    "id": "agent:soc-01",
-    "type": "agent",
+    "id": "agent-soc-01",
+    "type": "ai-agent",
     "role": "soc_analyst"
   },
   "capability": "telemetry.query",

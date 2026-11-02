@@ -1,6 +1,6 @@
 {
   "message_type": "DECISION_RESPONSE",
-  "action_id": "a-123",
+  "action_id": "689e4332-59e6-49cf-9af9-09b667e59788",
   "decision": "ALLOW",
   "reason": "Policy telemetry_query_allowed matched",
   "policy_ids": ["telemetry_query_allowed"],

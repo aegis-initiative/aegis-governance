@@ -1,10 +1,10 @@
 {
   "message_type": "ACTION_PROPOSE",
-  "action_id": "a-soc-auth-investigation-20260305",
+  "action_id": "ce44c22c-460c-4a02-a197-dc242b8b2d97",
   "timestamp": "2026-03-05T19:12:01Z",
   "actor": {
-    "id": "agent:soc-investigation-engine",
-    "type": "agent",
+    "id": "agent-soc-investigation-engine",
+    "type": "ai-agent",
     "role": "security_analyst",
     "organization": "enterprise-001"
   },

@@ -9,7 +9,7 @@
     "message_type": { "const": "DECISION_RESPONSE" },
     "action_id": {
       "type": "string",
-      "pattern": "^a-[a-zA-Z0-9_-]+$"
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
     },
     "decision": {
       "$ref": "https://aegis-initiative.com/schemas/common/decision.schema.json"
@@ -25,6 +25,15 @@
       "type": "string",
       "format": "date-time",
       "pattern": "Z$"
+    },
+    "risk_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "description": "Computed risk score for the evaluated action. Not produced by every implementation -- a decision engine without risk scoring simply omits this field."
+    },
+    "audit_ref": {
+      "type": "string",
+      "description": "Reference to the full audit trail entry for this decision, if the implementation maintains one."
     }
   }
 }
