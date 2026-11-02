@@ -1,6 +1,6 @@
 {
   "message_type": "EXECUTION_RESULT",
-  "action_id": "a-123",
+  "action_id": "b90d15c8-bbe0-4813-9178-bc4e9827f1f6",
   "status": "SUCCESS",
   "result": {
     "records": 42

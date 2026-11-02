@@ -9,7 +9,7 @@
     "message_type": { "const": "EXECUTION_RESULT" },
     "action_id": {
       "type": "string",
-      "pattern": "^a-[a-zA-Z0-9_-]+$"
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
     },
     "status": {
       "type": "string",

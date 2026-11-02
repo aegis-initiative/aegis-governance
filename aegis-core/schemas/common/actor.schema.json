@@ -9,11 +9,11 @@
     "id": {
       "type": "string",
       "minLength": 1,
-      "description": "Unique actor identifier, such as agent:soc-001"
+      "description": "Unique actor identifier, such as agent-soc-001. aegis_core's own validation (AEGIS-VAL-004) only allows alphanumeric characters, hyphens, underscores, and dots -- not colons."
     },
     "type": {
       "type": "string",
-      "enum": ["agent", "user", "service"]
+      "enum": ["ai-agent", "ai-copilot", "automation", "human"]
     },
     "role": {
       "type": "string",
