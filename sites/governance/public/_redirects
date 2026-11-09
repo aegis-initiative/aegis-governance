@@ -19,5 +19,20 @@
 /federation/feeds                 https://aegis-federation.com/spec/feeds/               301
 /federation/feeds/                https://aegis-federation.com/spec/feeds/               301
 
+# Legacy and broken-link paths reported as 404 by Google Search Console.
+# RFC-0008 (federation transport) moved to aegis-federation.com.
+/rfc/0008                    https://aegis-federation.com/rfc/0008/                     301
+/rfc/0008/                   https://aegis-federation.com/rfc/0008/                     301
+# ATX-1 machine-readable artifacts moved to /atx-1/.
+/threat-model/taxonomy/v2/stix/atx-1-bundle.json        /atx-1/stix-bundle.json   301
+/threat-model/taxonomy/v2/data/atx-1-techniques.json    /atx-1/techniques.json    301
+/atx                         /threat-model/taxonomy/                                    301
+/atx/                        /threat-model/taxonomy/                                    301
+# Broken relative links resolved against the site root.
+/LICENSE                     https://github.com/aegis-initiative/aegis-governance/blob/main/LICENSE   301
+/rfc/aegis-core/constitution     https://aegis-constitution.com/constitution/          301
+/rfc/aegis-core/constitution/    https://aegis-constitution.com/constitution/          301
+/favicon.ico                 /favicon.svg                                               301
+
 # Catch-all for any remaining /federation/* paths
 /federation/*                https://aegis-federation.com/spec/:splat                    301
