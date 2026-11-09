@@ -384,7 +384,7 @@ def update_monthly(year, month, tag, builds_str, release_entries, day):
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         content = f"""---
 title: "{month_name} {year_full}"
-description: "Release notes for {month_name} {year_full}"
+description: "Release notes for {month_name} {year_full}: versioned builds and changes to the AEGIS Governance technical specifications for autonomous AI agent systems."
 template: doc
 sidebar:
   hidden: true

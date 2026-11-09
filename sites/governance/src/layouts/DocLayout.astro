@@ -14,6 +14,26 @@ const {
   title,
   description = "Technical governance specifications for the AEGIS ecosystem",
 } = Astro.props;
+
+// Search-snippet description. Page descriptions are short summaries; when one
+// is short, append the context of the specification suite it belongs to, in
+// the meta/OG/Twitter tags only. The frontmatter description is reproduced
+// verbatim and is not edited.
+const SECTION_CONTEXT: Record<string, string> = {
+  architecture: "Part of the AEGIS reference architecture for governing autonomous AI agents at the execution boundary.",
+  protocol: "Part of AGP-1, the AEGIS governance protocol for proposing, evaluating, and auditing AI agent actions.",
+  identity: "Part of AIAM-1, the AEGIS specification for identity and access management of AI agents.",
+  "threat-model": "Part of ATM-1, the AEGIS threat model for autonomous AI agent systems.",
+  rfc: "Part of the AEGIS RFC series of technical specifications for architectural-layer AI governance.",
+  foundation: "Part of the AEGIS governance foundations: mission, principles, and roadmap.",
+};
+const SITE_CONTEXT = "From the AEGIS Governance technical specifications for autonomous AI agent systems.";
+const SHORT_DESCRIPTION = 120;
+const section = Astro.url.pathname.split("/").filter(Boolean)[0] ?? "";
+const metaDescription =
+  description.length < SHORT_DESCRIPTION
+    ? `${description.replace(/[.\s]+$/, "")}. ${SECTION_CONTEXT[section] ?? SITE_CONTEXT}`
+    : description;
 ---
 
 <!doctype html>
@@ -22,12 +42,12 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} | AEGIS Governance</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`${title} | AEGIS Governance`} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).toString()} />
     <meta property="og:image" content={new URL('/OG_image.png', Astro.site).toString()} />
     <meta property="og:image:width" content="1200" />
@@ -37,7 +57,7 @@ const {
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | AEGIS Governance`} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={new URL('/OG_image.png', Astro.site).toString()} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
