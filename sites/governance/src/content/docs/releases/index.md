@@ -11,6 +11,7 @@ Release notes start in April 2026 with the introduction of the auto-release pipe
 
 ### [November](/releases/26/11/)
 
+- [v26.11.9](/releases/26/11/#release--v26119) — Fix redirects for legacy and broken-link paths returning 404
 - [v26.11.2](/releases/26/11/#release--v26112) — Fixed AGP action ID format mismatch for correct reference resolution
 
 ### [October](/releases/26/10/)
