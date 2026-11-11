@@ -1,0 +1,29 @@
+name: Footnote Integrity
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '.github/scripts/check_footnotes.py'
+      - '.github/workflows/footnote-check.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.github/scripts/check_footnotes.py'
+      - '.github/workflows/footnote-check.yml'
+
+jobs:
+  footnote-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Check footnote markers and REFERENCES.md entry count
+        run: |
+          python .github/scripts/check_footnotes.py
