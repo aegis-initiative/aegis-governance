@@ -248,6 +248,12 @@ In cases of ambiguity or conflict, constitutional interpretation prioritizes:
 4. **Auditability over performance** — Maintain audit trails even at cost of additional latency
 5. **Transparency over obscurity** — Prefer inspectable governance logic over opaque decision-making
 
+[^1]: J. P. Anderson, "Computer Security Technology Planning Study," Deputy for Command and Management Systems, HQ Electronic Systems Division (AFSC), Hanscom Field, Bedford, MA, Tech. Rep. ESD-TR-73-51, Vol. II, Oct. 1972. See [REFERENCES.md](../../REFERENCES.md).
+
+[^2]: F. B. Schneider, "Enforceable Security Policies," *ACM Transactions on Information and System Security (TISSEC)*, vol. 3, no. 1, pp. 30–50, Feb. 2000, doi: 10.1145/353323.353382. See [REFERENCES.md](../../REFERENCES.md).
+
+[^12]: N. Shapira et al., "Agents of Chaos," arXiv:2602.20021, Feb. 2026. [Online]. Available: <https://arxiv.org/abs/2602.20021>. See [REFERENCES.md](../../REFERENCES.md).
+
 ---
 
 *AEGIS™* | *"Capability without constraint is not intelligence"™*\
